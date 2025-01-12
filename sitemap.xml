@@ -2,43 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vespeng.github.io/categories/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/tags/golang/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/categories/golang/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/posts/golang_development_environment/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <loc>https://vespeng.github.io/posts/json_unmarshall_parsing_numeric_types/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/posts/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/tags/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/</loc>
-    <lastmod>2025-01-12T17:09:02+08:00</lastmod>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/collaborative_processing_of_multiple_interfaces/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/%E5%8D%8F%E7%A8%8B/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/the_concurrency_advantage_of_go/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/golang_development_environment/</loc>
+    <lastmod>2025-01-12T19:24:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
