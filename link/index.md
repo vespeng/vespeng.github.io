@@ -1,4 +1,4 @@
-# 
+# 友情链接
 
 # 百度
 www.baidu.com
@@ -6,5 +6,5 @@ www.baidu.com
 ---
 
 > 作者:   
-> URL: https://vespeng.github.io/link/  
+> URL: https://vespeng.tech/link/  
 

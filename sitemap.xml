@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vespeng.github.io/about/</loc>
-    <lastmod>2025-01-11T21:12:48+08:00</lastmod>
+    <loc>https://vespeng.tech/</loc>
+    <lastmod>2025-01-12T17:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/link/</loc>
-    <lastmod>2025-01-11T21:12:48+08:00</lastmod>
+    <loc>https://vespeng.tech/about/</loc>
+    <lastmod>2025-01-12T17:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/categories/</loc>
+    <loc>https://vespeng.tech/link/</loc>
+    <lastmod>2025-01-12T17:08:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/collections/</loc>
+    <loc>https://vespeng.tech/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/tags/</loc>
+    <loc>https://vespeng.tech/collections/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/</loc>
-    <lastmod>2025-01-11T21:12:48+08:00</lastmod>
+    <loc>https://vespeng.tech/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

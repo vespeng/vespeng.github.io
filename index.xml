@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vespeng&#39;s Blog</title>
-    <link>https://vespeng.github.io/</link>
+    <link>https://vespeng.tech/</link>
     <description>Vespeng&#39;s Blog</description>
     <generator>Hugo 0.140.2 &amp; FixIt v0.3.16</generator>
     <language>en</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://vespeng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.tech/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
