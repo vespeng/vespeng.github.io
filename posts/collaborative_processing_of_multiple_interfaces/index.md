@@ -105,5 +105,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.github.io/posts/collaborative_processing_of_multiple_interfaces/  
+> URL: https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/  
 

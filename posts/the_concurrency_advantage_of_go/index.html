@@ -13,8 +13,8 @@
   <meta itemprop="datePublished" content="2025-01-12T18:00:00+08:00">
   <meta itemprop="dateModified" content="2025-01-12T19:24:18+08:00">
   <meta itemprop="wordCount" content="171">
-  <meta itemprop="image" content="https://vespeng.github.io/graph.png">
-  <meta itemprop="keywords" content="golang,go"><meta property="og:url" content="https://vespeng.github.io/posts/the_concurrency_advantage_of_go/">
+  <meta itemprop="image" content="https://vespeng.tech/graph.png">
+  <meta itemprop="keywords" content="golang,go"><meta property="og:url" content="https://vespeng.tech/posts/the_concurrency_advantage_of_go/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 的并发优势">
   <meta property="og:description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。">
@@ -25,14 +25,14 @@
     <meta property="article:modified_time" content="2025-01-12T19:24:18+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="并发">
-    <meta property="og:image" content="https://vespeng.github.io/graph.png">
+    <meta property="og:image" content="https://vespeng.tech/graph.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vespeng.github.io/graph.png">
+  <meta name="twitter:image" content="https://vespeng.tech/graph.png">
   <meta name="twitter:title" content="Go 的并发优势">
   <meta name="twitter:description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。">
 <meta name="application-name" content="Vespeng">
-<meta name="apple-mobile-web-app-title" content="Vespeng"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.github.io/posts/the_concurrency_advantage_of_go/" title="Go 的并发优势 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.github.io/posts/golang_development_environment/" title="Golang 开发环境搭建" /><link rel="next" type="text/html" href="https://vespeng.github.io/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.github.io/posts/the_concurrency_advantage_of_go/index.md" title="Go 的并发优势 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 的并发优势 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/golang_development_environment/" title="Golang 开发环境搭建" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/index.md" title="Go 的并发优势 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -42,9 +42,9 @@
     "inLanguage": "en",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/vespeng.github.io\/posts\/the_concurrency_advantage_of_go\/"
-    },"genre": "posts","keywords": "golang, 并发","wordcount":  171 ,
-    "url": "https:\/\/vespeng.github.io\/posts\/the_concurrency_advantage_of_go\/","datePublished": "2025-01-12T18:00:00+08:00","dateModified": "2025-01-12T19:24:18+08:00","publisher": {
+      "@id": "https:\/\/vespeng.tech\/posts\/the_concurrency_advantage_of_go\/"
+    },"image": ["https:\/\/vespeng.tech\/graph.png"],"genre": "posts","keywords": "golang, 并发","wordcount":  171 ,
+    "url": "https:\/\/vespeng.tech\/posts\/the_concurrency_advantage_of_go\/","datePublished": "2025-01-12T18:00:00+08:00","dateModified": "2025-01-12T19:24:18+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -281,11 +281,11 @@
     <div class="post-info-line">
       <div class="post-info-mod">
         <span title="更新于 2025-01-12 19:24:18">更新于 2025-01-12&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/vespeng.github.io/commit/8a064c34d02c2b9204f235f2cf972e12956d92a9" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 8a064c34d02c2b9204f235f2cf972e12956d92a9: docs(golang): 添加 Go 语言并发实战和 JSON 解析相关文章"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8a064c3</a></span>
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/8a064c34d02c2b9204f235f2cf972e12956d92a9" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 8a064c34d02c2b9204f235f2cf972e12956d92a9: docs(golang): 添加 Go 语言并发实战和 JSON 解析相关文章"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8a064c3</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/the_concurrency_advantage_of_go/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/blob/main/content/posts/the_concurrency_advantage_of_go.md?plain=1" title="查看源码"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-source">查看源码</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/edit/main/content/posts/the_concurrency_advantage_of_go.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/issues/new?title=[BUG]%20Go&#43;%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8A%BF&amp;body=%7cField%7cValue%7c%0A%7c-%7c-%7c%0A%7cTitle%7cGo&#43;%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8A%BF%7c%0A%7cURL%7chttps://vespeng.github.io/posts/the_concurrency_advantage_of_go/%7c%0A%7cFilename%7chttps://github.com/vespeng/vespeng.github.io/blob/main/content/posts/the_concurrency_advantage_of_go.md?plain=1%7c" title="报告问题"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-report">报告问题</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/the_concurrency_advantage_of_go/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/issues/new?title=[BUG]%20Go&#43;%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8A%BF&amp;body=%7cField%7cValue%7c%0A%7c-%7c-%7c%0A%7cTitle%7cGo&#43;%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8A%BF%7c%0A%7cURL%7chttps://vespeng.tech/posts/the_concurrency_advantage_of_go/%7c%0A%7cFilename%7c%7c" title="报告问题"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-report">报告问题</a></span></div>
         <div class="post-info-share">
           <span></span>
         </div>

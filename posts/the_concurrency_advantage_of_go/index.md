@@ -93,5 +93,5 @@ Golang 的并发编程模型以其简洁性和强大的功能而备受赞誉。
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.github.io/posts/the_concurrency_advantage_of_go/  
+> URL: https://vespeng.tech/posts/the_concurrency_advantage_of_go/  
 

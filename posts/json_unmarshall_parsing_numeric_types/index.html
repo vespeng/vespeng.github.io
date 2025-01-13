@@ -8,15 +8,15 @@
     <title>Json.Unmarshal 解析数字类型（踩坑） - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
 <meta name="description" content="首先我们先明确下 json 包下 Unmarshal() 函数是什么：
 它是 Go 语言标准库 encoding/json 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（[]byte）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。
-"><meta name="keywords" content='golang, go'>
+"><meta name="keywords" content='golang, go, json.unmarshal, float64'>
   <meta itemprop="name" content="Json.Unmarshal 解析数字类型（踩坑）">
   <meta itemprop="description" content="首先我们先明确下 json 包下 Unmarshal() 函数是什么：
 它是 Go 语言标准库 encoding/json 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（[]byte）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。">
   <meta itemprop="datePublished" content="2025-01-12T19:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-01-12T19:24:18+08:00">
+  <meta itemprop="dateModified" content="2025-01-13T22:07:48+08:00">
   <meta itemprop="wordCount" content="526">
-  <meta itemprop="image" content="https://vespeng.github.io/graph.png">
-  <meta itemprop="keywords" content="golang,go"><meta property="og:url" content="https://vespeng.github.io/posts/json_unmarshall_parsing_numeric_types/">
+  <meta itemprop="image" content="https://vespeng.tech/graph.png">
+  <meta itemprop="keywords" content="golang,go,json.unmarshal,float64"><meta property="og:url" content="https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Json.Unmarshal 解析数字类型（踩坑）">
   <meta property="og:description" content="首先我们先明确下 json 包下 Unmarshal() 函数是什么：
@@ -25,17 +25,17 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-12T19:00:00+08:00">
-    <meta property="article:modified_time" content="2025-01-12T19:24:18+08:00">
+    <meta property="article:modified_time" content="2025-01-13T22:07:48+08:00">
     <meta property="article:tag" content="Golang">
-    <meta property="og:image" content="https://vespeng.github.io/graph.png">
+    <meta property="og:image" content="https://vespeng.tech/graph.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vespeng.github.io/graph.png">
+  <meta name="twitter:image" content="https://vespeng.tech/graph.png">
   <meta name="twitter:title" content="Json.Unmarshal 解析数字类型（踩坑）">
   <meta name="twitter:description" content="首先我们先明确下 json 包下 Unmarshal() 函数是什么：
 它是 Go 语言标准库 encoding/json 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（[]byte）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。">
 <meta name="application-name" content="Vespeng">
-<meta name="apple-mobile-web-app-title" content="Vespeng"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.github.io/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数字类型（踩坑） - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.github.io/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.github.io/posts/json_unmarshall_parsing_numeric_types/index.md" title="Json.Unmarshal 解析数字类型（踩坑） - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数字类型（踩坑） - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/index.md" title="Json.Unmarshal 解析数字类型（踩坑） - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -45,9 +45,9 @@
     "inLanguage": "en",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/vespeng.github.io\/posts\/json_unmarshall_parsing_numeric_types\/"
-    },"genre": "posts","keywords": "golang","wordcount":  526 ,
-    "url": "https:\/\/vespeng.github.io\/posts\/json_unmarshall_parsing_numeric_types\/","datePublished": "2025-01-12T19:00:00+08:00","dateModified": "2025-01-12T19:24:18+08:00","publisher": {
+      "@id": "https:\/\/vespeng.tech\/posts\/json_unmarshall_parsing_numeric_types\/"
+    },"image": ["https:\/\/vespeng.tech\/graph.png"],"genre": "posts","keywords": "golang","wordcount":  526 ,
+    "url": "https:\/\/vespeng.tech\/posts\/json_unmarshall_parsing_numeric_types\/","datePublished": "2025-01-12T19:00:00+08:00","dateModified": "2025-01-13T22:07:48+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -137,7 +137,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Json.Unmarshal 解析数字类型（踩坑）</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 19:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-01-12 19:24:18"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="526 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Json.Unmarshal 解析数字类型（踩坑）"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 19:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-01-13 22:07:48"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-13">2025-01-13</time></span>&nbsp;<span title="526 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Json.Unmarshal 解析数字类型（踩坑）"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="content" id="content"><p>首先我们先明确下 json 包下 Unmarshal() 函数是什么：</p>
 <p>它是 Go 语言标准库 <code>encoding/json</code> 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（<code>[]byte</code>）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。</p>
@@ -407,12 +407,12 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-01-12 19:24:18">更新于 2025-01-12&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/vespeng.github.io/commit/8a064c34d02c2b9204f235f2cf972e12956d92a9" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 8a064c34d02c2b9204f235f2cf972e12956d92a9: docs(golang): 添加 Go 语言并发实战和 JSON 解析相关文章"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8a064c3</a></span>
+        <span title="更新于 2025-01-13 22:07:48">更新于 2025-01-13&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/2126c23767636206950dbbc4d7c05d1ce752d98d" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 2126c23767636206950dbbc4d7c05d1ce752d98d: config(hugo): 更新网站配置和优化 SEO 设置"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>2126c23</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/json_unmarshall_parsing_numeric_types/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/blob/main/content/posts/json_unmarshall_parsing_numeric_types.md?plain=1" title="查看源码"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-source">查看源码</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/edit/main/content/posts/json_unmarshall_parsing_numeric_types.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span><span><a href="https://github.com/vespeng/vespeng.github.io/issues/new?title=[BUG]%20Json.Unmarshal&#43;%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%EF%BC%88%E8%B8%A9%E5%9D%91%EF%BC%89&amp;body=%7cField%7cValue%7c%0A%7c-%7c-%7c%0A%7cTitle%7cJson.Unmarshal&#43;%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%EF%BC%88%E8%B8%A9%E5%9D%91%EF%BC%89%7c%0A%7cURL%7chttps://vespeng.github.io/posts/json_unmarshall_parsing_numeric_types/%7c%0A%7cFilename%7chttps://github.com/vespeng/vespeng.github.io/blob/main/content/posts/json_unmarshall_parsing_numeric_types.md?plain=1%7c" title="报告问题"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-report">报告问题</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/json_unmarshall_parsing_numeric_types/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/issues/new?title=[BUG]%20Json.Unmarshal&#43;%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%EF%BC%88%E8%B8%A9%E5%9D%91%EF%BC%89&amp;body=%7cField%7cValue%7c%0A%7c-%7c-%7c%0A%7cTitle%7cJson.Unmarshal&#43;%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%EF%BC%88%E8%B8%A9%E5%9D%91%EF%BC%89%7c%0A%7cURL%7chttps://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/%7c%0A%7cFilename%7c%7c" title="报告问题"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-report">报告问题</a></span></div>
         <div class="post-info-share">
           <span></span>
         </div>
