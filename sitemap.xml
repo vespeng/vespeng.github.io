@@ -7,6 +7,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://vespeng.tech/message/</loc>
+    <lastmod>2025-01-14T23:23:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://vespeng.tech/categories/</loc>
     <lastmod>2025-01-13T22:07:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
