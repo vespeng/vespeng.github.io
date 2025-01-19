@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>协程 on Vespeng&#39;s Blog</title>
+    <title>协程 - 标签 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.tech/tags/%E5%8D%8F%E7%A8%8B/</link>
-    <description>Recent content in 协程 on Vespeng&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <description>不定期采撷开发路上的片段，与君共勉。</description>
+    <generator>Hugo 0.141.0 &amp; FixIt v0.3.17-015610b7</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
@@ -15,6 +15,7 @@
       <link>https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/</link>
       <pubDate>Sun, 12 Jan 2025 18:30:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
       <description>&lt;p&gt;高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。&lt;/p&gt;</description>
     </item>
   </channel>
