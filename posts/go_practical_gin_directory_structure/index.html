@@ -7,14 +7,14 @@
     <meta name="robots" content="noodp" />
     <title>Go 项目实战：搭建高效的Gin Web目录结构 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
 <meta name="description" content="引言 在当今迅速迭代的软件开发领域，挑选合适的工具与框架对于项目能否顺利推进至关重要。Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。
-"><meta name="keywords" content='golang, go, gin'>
+"><meta name="keywords" content='golang, go, gin, web目录结构'>
   <meta itemprop="name" content="Go 项目实战：搭建高效的Gin Web目录结构">
   <meta itemprop="description" content="引言 在当今迅速迭代的软件开发领域，挑选合适的工具与框架对于项目能否顺利推进至关重要。Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。">
   <meta itemprop="datePublished" content="2025-01-19T21:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-01-19T21:49:40+08:00">
+  <meta itemprop="dateModified" content="2025-01-20T23:39:30+08:00">
   <meta itemprop="wordCount" content="887">
   <meta itemprop="image" content="https://vespeng.tech/graph.png">
-  <meta itemprop="keywords" content="golang,go,gin"><meta property="og:url" content="https://vespeng.tech/posts/go_practical_gin_directory_structure/">
+  <meta itemprop="keywords" content="golang,go,gin,web目录结构"><meta property="og:url" content="https://vespeng.tech/posts/go_practical_gin_directory_structure/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 项目实战：搭建高效的Gin Web目录结构">
   <meta property="og:description" content="引言 在当今迅速迭代的软件开发领域，挑选合适的工具与框架对于项目能否顺利推进至关重要。Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。">
@@ -22,7 +22,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-19T21:30:00+08:00">
-    <meta property="article:modified_time" content="2025-01-19T21:49:40+08:00">
+    <meta property="article:modified_time" content="2025-01-20T23:39:30+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="Gin">
     <meta property="og:image" content="https://vespeng.tech/graph.png">
@@ -44,7 +44,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/"
     },"image": ["https:\/\/vespeng.tech\/favicon.svg"],"genre": "posts","keywords": "golang, gin","wordcount":  887 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-01-19T21:49:40+08:00","publisher": {
+    "url": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-01-20T23:39:30+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.svg"},"author": {
         "@type": "Person",
@@ -160,7 +160,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：搭建高效的Gin Web目录结构</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-01-19 21:49:40"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="887 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的Gin Web目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-01-20 23:39:30"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-20">2025-01-20</time></span>&nbsp;<span title="887 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的Gin Web目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -878,8 +878,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-01-19 21:49:40">更新于 2025-01-19&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/d350fdc2ed6aa09c058026af8a261fc3ab58fbe5" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) d350fdc2ed6aa09c058026af8a261fc3ab58fbe5: feat(content): 添加 Go 项目实战：搭建高效的Gin Web目录结构 文章"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>d350fdc</a></span>
+        <span title="更新于 2025-01-20 23:39:30">更新于 2025-01-20&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/2d6848b9e112f84ed149558b65fab3970366d2a3" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 2d6848b9e112f84ed149558b65fab3970366d2a3: docs:优化文章关键词和标签"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>2d6848b</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
