@@ -8,8 +8,16 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 22 Jan 2025 21:06:59 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2025 21:43:40 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 项目实战：如何优雅的处理日志</title>
+      <link>https://vespeng.tech/posts/go_practical_processing_log/</link>
+      <pubDate>Wed, 22 Jan 2025 21:40:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/go_practical_processing_log/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <description>&lt;p&gt;在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go 项目实战：搭建高效的Gin Web目录结构</title>
       <link>https://vespeng.tech/posts/go_practical_gin_directory_structure/</link>

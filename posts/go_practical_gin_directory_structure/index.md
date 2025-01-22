@@ -336,13 +336,14 @@ import (
 )
 
 func main() {
-	// 启动服务
+    // 加载配置文件
 	err := config.LoadConfig()
     if err != nil {
         log.Error(&#34;配置文件加载错误: %v&#34;, err)
         return
     }
 
+	// 初始化所有模块
     err = InitializeAll()
     if err != nil {
         log.Error(&#34;模块初始化错误: %v&#34;, err)
