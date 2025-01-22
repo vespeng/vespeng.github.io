@@ -8,7 +8,7 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Mon, 20 Jan 2025 23:39:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2025 21:06:59 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 语言并发实战：利用协程处理多个接口的 Map 数据融合</title>
@@ -24,7 +24,7 @@
       <pubDate>Sun, 12 Jan 2025 18:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/the_concurrency_advantage_of_go/</guid>
       <category domain="https://vespeng.tech/categories/golang/">Golang</category>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+      <description>&lt;p&gt;在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
