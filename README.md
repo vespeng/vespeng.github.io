@@ -5,6 +5,7 @@ This is my personal blog, where I share my thoughts, experiences, and knowledge.
 
 ## 2025-01
 
+- Go 项目实战：如何部署多环境开发
 - Go 项目实战：如何优雅的处理日志
 - Go 项目实战：搭建高效的 Gin Web 目录结构
 - Json.Unmarshal 解析数字类型（踩坑）

@@ -4,12 +4,20 @@
     <title>Go 项目实战 - 合集 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
     <description>不定期采撷开发路上的片段，与君共勉。</description>
-    <generator>Hugo 0.141.0 &amp; FixIt v0.3.17-015610b7</generator>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-015610b7</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 22 Jan 2025 21:43:40 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 17:03:43 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 项目实战：如何部署多环境开发</title>
+      <link>https://vespeng.tech/posts/go_practical_multi_environment_development/</link>
+      <pubDate>Sat, 25 Jan 2025 17:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/go_practical_multi_environment_development/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <description>&lt;p&gt;在 Go 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go 项目实战：如何优雅的处理日志</title>
       <link>https://vespeng.tech/posts/go_practical_processing_log/</link>

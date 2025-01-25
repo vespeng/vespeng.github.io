@@ -111,6 +111,7 @@ database:
 package config
 
 import (
+	&#34;fmt&#34;
     &#34;github.com/spf13/viper&#34;
 )
 
