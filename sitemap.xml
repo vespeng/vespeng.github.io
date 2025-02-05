@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vespeng.tech/categories/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,31 +32,31 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/golang/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/categories/golang/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/posts/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/</loc>
-    <lastmod>2025-01-25T17:17:01+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -110,13 +110,13 @@
   </url>
   <url>
     <loc>https://vespeng.tech/posts/golang_development_environment/</loc>
-    <lastmod>2025-01-22T21:06:59+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/about/</loc>
-    <lastmod>2025-01-19T15:37:19+08:00</lastmod>
+    <lastmod>2025-02-05T22:29:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

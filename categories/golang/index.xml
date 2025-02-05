@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang - 分类 - Vespeng&#39;s Blog</title>
+    <title>Golang - 分类 - Vespeng博客</title>
     <link>https://vespeng.tech/categories/golang/</link>
     <description>不定期采撷开发路上的片段，与君共勉。</description>
-    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-015610b7</generator>
+    <generator>Hugo 0.143.1 &amp; FixIt v0.3.17-015610b7</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 25 Jan 2025 17:17:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 22:29:22 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：如何部署多环境开发</title>

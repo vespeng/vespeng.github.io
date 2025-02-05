@@ -14,7 +14,9 @@
    | 变更名        | 变量值       | 说明                                      |
       | ---------- | --------- | --------------------------------------- |
    | **GOPATH** | E:\gowork | Go语言的工作目录，存放自己编写的 .go 文件、项目、包、编译的二进制文件等 |
-   | **GOROOT** | D:\go1.18 | Go的安装路径                                 |
+   | **GOROOT** | D:\go | Go的安装路径                                 |
+
+   &gt; ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下
 
 2. 开启go mod 及配置国内代理：
 
@@ -32,6 +34,8 @@
 ![loading-ag-119](./images/18e22d51-224a-478b-b134-dc808b31b958.png)
 
 &gt;  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
+&gt; 
+&gt;  如条件允许更推荐使用 [GoLand](https://www.jetbrains.com/go/download/#section=windows) 进行开发
 
 
 

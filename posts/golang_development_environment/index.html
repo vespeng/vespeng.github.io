@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Golang 开发环境搭建 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+    <title>Golang 开发环境搭建 - Vespeng博客</title><meta name="author" content="Vespeng">
 <meta name="description" content="下载Golang 官网链接：https://golang.google.cn/dl/
 "><meta name="keywords" content='golang, go, 环境搭建'>
   <meta itemprop="name" content="Golang 开发环境搭建">
   <meta itemprop="description" content="下载Golang 官网链接：https://golang.google.cn/dl/">
   <meta itemprop="datePublished" content="2025-01-12T14:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-01-22T21:06:59+08:00">
-  <meta itemprop="wordCount" content="39">
+  <meta itemprop="dateModified" content="2025-02-05T22:29:22+08:00">
+  <meta itemprop="wordCount" content="45">
   <meta itemprop="image" content="https://vespeng.tech/graph.png">
   <meta itemprop="keywords" content="golang,go,环境搭建"><meta property="og:url" content="https://vespeng.tech/posts/golang_development_environment/">
-  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:site_name" content="Vespeng博客">
   <meta property="og:title" content="Golang 开发环境搭建">
   <meta property="og:description" content="下载Golang 官网链接：https://golang.google.cn/dl/">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-12T14:30:00+08:00">
-    <meta property="article:modified_time" content="2025-01-22T21:06:59+08:00">
+    <meta property="article:modified_time" content="2025-02-05T22:29:22+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="og:image" content="https://vespeng.tech/graph.png">
 
@@ -30,8 +30,8 @@
   <meta name="twitter:image" content="https://vespeng.tech/graph.png">
   <meta name="twitter:title" content="Golang 开发环境搭建">
   <meta name="twitter:description" content="下载Golang 官网链接：https://golang.google.cn/dl/">
-<meta name="application-name" content="Vespeng">
-<meta name="apple-mobile-web-app-title" content="Vespeng"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/golang_development_environment/" title="Golang 开发环境搭建 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/about/" title="关于" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 的并发优势" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/golang_development_environment/index.md" title="Golang 开发环境搭建 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="application-name" content="Vespeng博客">
+<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/golang_development_environment/" title="Golang 开发环境搭建 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/about/" title="关于" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 的并发优势" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/golang_development_environment/index.md" title="Golang 开发环境搭建 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -42,10 +42,10 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/golang_development_environment\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.svg"],"genre": "posts","keywords": "golang","wordcount":  39 ,
-    "url": "https:\/\/vespeng.tech\/posts\/golang_development_environment\/","datePublished": "2025-01-12T14:30:00+08:00","dateModified": "2025-01-22T21:06:59+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "golang","wordcount":  45 ,
+    "url": "https:\/\/vespeng.tech\/posts\/golang_development_environment\/","datePublished": "2025-01-12T14:30:00+08:00","dateModified": "2025-02-05T22:29:22+08:00","publisher": {
       "@type": "Organization",
-      "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.svg"},"author": {
+      "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
         "name": "Vespeng"
       },"description": ""
@@ -54,7 +54,7 @@
   <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng&#39;s Blog"><img loading="lazy" src="/favicon.svg" alt="Vespeng&#39;s Blog" data-title="Vespeng&#39;s Blog" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng博客"><img loading="lazy" src="/favicon.svg" alt="Vespeng博客" data-title="Vespeng博客" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/"><i class="fa-solid fa-pen fa-fw fa-sm" aria-hidden="true"></i> 随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -96,7 +96,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng&#39;s Blog"><img loading="lazy" src="/favicon.svg" alt="Vespeng&#39;s Blog" data-title="Vespeng&#39;s Blog" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng博客"><img loading="lazy" src="/favicon.svg" alt="Vespeng博客" data-title="Vespeng博客" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -141,14 +141,14 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Golang 开发环境搭建</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Golang 开发环境搭建</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Golang 开发环境搭建</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 14:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-01-22 21:06:59"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-22">2025-01-22</time></span>&nbsp;<span title="39 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Golang 开发环境搭建"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 14:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-02-05 22:29:22"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-02-05">2025-02-05</time></span>&nbsp;<span title="45 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Golang 开发环境搭建"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -191,11 +191,13 @@
       </tr>
       <tr>
           <td><strong>GOROOT</strong></td>
-          <td>D:\go1.18</td>
+          <td>D:\go</td>
           <td>Go的安装路径</td>
       </tr>
   </tbody>
 </table>
+<blockquote>
+<p>ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下</p></blockquote>
 </li>
 <li>
 <p>开启go mod 及配置国内代理：</p>
@@ -219,13 +221,13 @@
 <p><img loading="lazy" src="/images/18e22d51-224a-478b-b134-dc808b31b958.png" alt="loading-ag-119" srcset="/images/18e22d51-224a-478b-b134-dc808b31b958.png?size=small, /images/18e22d51-224a-478b-b134-dc808b31b958.png?size=medium 1.5x, /images/18e22d51-224a-478b-b134-dc808b31b958.png?size=large 2x" data-title="loading-ag-119" style="--width: 1180px;--aspect-ratio: 1180 / 279;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
 <blockquote>
 <p>届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可</p>
-</blockquote>
+<p>如条件允许更推荐使用 <a href="https://www.jetbrains.com/go/download/#section=windows"target="_blank" rel="external nofollow noopener noreferrer">GoLand<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> 进行开发</p></blockquote>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-01-22 21:06:59">更新于 2025-01-22&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/8cd9d9667437bbe8868d3e0e66e0559fedc241e7" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 8cd9d9667437bbe8868d3e0e66e0559fedc241e7: docs:优化多篇 Go相关文章的结构和内容- 为 &#34;go_practical_gin_directory_structure.md&#34; 添加了摘要 - 删除了多篇文章中的多余空行 - 调整了部分段落的格式"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8cd9d96</a></span>
+        <span title="更新于 2025-02-05 22:29:22">更新于 2025-02-05&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/742e1191636ad4b6ee0672de2965b803ad1097ec" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) 742e1191636ad4b6ee0672de2965b803ad1097ec: docs(posts): 更新 Go 开发环境配置指南"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>742e119</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
