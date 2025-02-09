@@ -8,8 +8,16 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 05 Feb 2025 22:29:22 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 17:20:58 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 项目实战：全局异常处理</title>
+      <link>https://vespeng.tech/posts/go_practical_global_exception_handling/</link>
+      <pubDate>Sun, 09 Feb 2025 17:10:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/go_practical_global_exception_handling/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <description>&lt;p&gt;在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go 项目实战：如何部署多环境开发</title>
       <link>https://vespeng.tech/posts/go_practical_multi_environment_development/</link>

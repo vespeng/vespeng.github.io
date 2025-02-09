@@ -3,6 +3,10 @@ This is my personal blog, where I share my thoughts, experiences, and knowledge.
 
 访问地址：[https://vespeng.tech](https://vespeng.tech)
 
+## 2025-02
+
+- Go 项目实战：全局异常处理
+
 ## 2025-01
 
 - Go 项目实战：如何部署多环境开发
