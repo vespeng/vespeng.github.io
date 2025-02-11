@@ -42,7 +42,7 @@ events:
 
 :open_book: 留言板
 
-:mailbox_with_mail: &lt;chihpengliu@outlook.com&gt;
+:mailbox_with_mail: &lt;chihpengliu.cn@outlook.com&gt;
 
 ---
 
@@ -58,7 +58,7 @@ events:
 
 &gt; [!WARNING] 版权声明
 
-&gt; 除特殊声明外，本站遵循 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 协议,允许您自由分享与演绎，但请务必遵守以下原则：
+&gt; 除特殊声明外，本站遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议,允许您自由分享与演绎，但请务必遵守以下原则：
 &gt; 
 &gt; **署名与出处**：分享或演绎时，请明确注明原始内容的作者及来源，以示尊重版权。
 &gt;
