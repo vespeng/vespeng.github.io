@@ -5,7 +5,7 @@
 
 官网链接：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)
 
-![3326ab02-a030-4902-8934-f95eca5b628c](./images/3326ab02-a030-4902-8934-f95eca5b628c.png)
+![3326ab02-a030-4902-8934-f95eca5b628c](./images/img.png)
 
 ## 配置环境
 
@@ -16,6 +16,7 @@
    | **GOPATH** | E:\gowork | Go语言的工作目录，存放自己编写的 .go 文件、项目、包、编译的二进制文件等 |
    | **GOROOT** | D:\go | Go的安装路径                                 |
 
+   在 Path 路径下，新增 _%GOROOT%\bin_
    &gt; ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下
 
 2. 开启go mod 及配置国内代理：
@@ -29,9 +30,9 @@
 
 安装 Go、vscode-go-syntax 两插件
 
-![loading-ag-117](./images/079a6176-fba0-4c94-abe8-aff760e2b4b4.png)
+![loading-ag-117](./images/img_1.png)
 
-![loading-ag-119](./images/18e22d51-224a-478b-b134-dc808b31b958.png)
+![loading-ag-119](./images/img_2.png)
 
 &gt;  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
 &gt; 
