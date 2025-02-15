@@ -5,46 +5,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go 的并发优势 - Vespeng博客</title><meta name="author" content="Vespeng">
+    <title>Go 语言的并发优势 - Vespeng博客</title><meta name="author" content="Vespeng">
 <meta name="description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。
 "><meta name="keywords" content='golang, go, 并发优势'>
-  <meta itemprop="name" content="Go 的并发优势">
+  <meta itemprop="name" content="Go 语言的并发优势">
   <meta itemprop="description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。">
   <meta itemprop="datePublished" content="2025-01-12T18:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-02-15T16:26:21+08:00">
+  <meta itemprop="dateModified" content="2025-02-15T19:21:08+08:00">
   <meta itemprop="wordCount" content="171">
   <meta itemprop="image" content="https://vespeng.tech/graph.png">
   <meta itemprop="keywords" content="golang,go,并发优势"><meta property="og:url" content="https://vespeng.tech/posts/the_concurrency_advantage_of_go/">
   <meta property="og:site_name" content="Vespeng博客">
-  <meta property="og:title" content="Go 的并发优势">
+  <meta property="og:title" content="Go 语言的并发优势">
   <meta property="og:description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-12T18:00:00+08:00">
-    <meta property="article:modified_time" content="2025-02-15T16:26:21+08:00">
+    <meta property="article:modified_time" content="2025-02-15T19:21:08+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="并发">
     <meta property="og:image" content="https://vespeng.tech/graph.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vespeng.tech/graph.png">
-  <meta name="twitter:title" content="Go 的并发优势">
+  <meta name="twitter:title" content="Go 语言的并发优势">
   <meta name="twitter:description" content="在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。">
 <meta name="application-name" content="Vespeng博客">
-<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 的并发优势 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/golang_development_environment/" title="Golang 开发环境搭建" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/index.md" title="Go 的并发优势 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 语言的并发优势 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/golang_development_environment/" title="Golang 开发环境搭建" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/index.md" title="Go 语言的并发优势 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="baidu-site-verification" content="caa96285ed0396ebb4503183ec265fae" /><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Go 的并发优势",
+    "headline": "Go 语言的并发优势",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/the_concurrency_advantage_of_go\/"
     },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "golang, 并发","wordcount":  171 ,
-    "url": "https:\/\/vespeng.tech\/posts\/the_concurrency_advantage_of_go\/","datePublished": "2025-01-12T18:00:00+08:00","dateModified": "2025-02-15T16:26:21+08:00","publisher": {
+    "url": "https:\/\/vespeng.tech\/posts\/the_concurrency_advantage_of_go\/","datePublished": "2025-01-12T18:00:00+08:00","dateModified": "2025-02-15T19:21:08+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -58,7 +58,7 @@
       <a href="/" title="Vespeng博客"><img loading="lazy" src="/favicon.svg" alt="Vespeng博客" data-title="Vespeng博客" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
-              <a class="menu-link" href="/archives/"><i class="fa-solid fa-pen fa-fw fa-sm" aria-hidden="true"></i> 随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-feather fa-fw fa-sm" aria-hidden="true"></i> 随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
                 <ul class="sub-menu"><li class="menu-item">
                         <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a>
                       </li><li class="menu-item">
@@ -120,7 +120,7 @@
               取消
             </a>
           </li><li class="menu-item"><span class="nested-item">
-                  <a class="menu-link" href="/archives/"><i class="fa-solid fa-pen fa-fw fa-sm" aria-hidden="true"></i> 随笔</a>
+                  <a class="menu-link" href="/archives/"><i class="fa-solid fa-feather fa-fw fa-sm" aria-hidden="true"></i> 随笔</a>
                   <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </span>
                 <ul class="sub-menu"><li class="menu-item">
@@ -142,14 +142,14 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 的并发优势</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 语言的并发优势</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 的并发优势</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 语言的并发优势</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 18:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-02-15 16:26:21"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-02-15">2025-02-15</time></span>&nbsp;<span title="171 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 的并发优势"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-12 18:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-12">2025-01-12</time></span>&nbsp;<span title="更新于 2025-02-15 19:21:08"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-02-15">2025-02-15</time></span>&nbsp;<span title="171 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 语言的并发优势"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -293,8 +293,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-02-15 16:26:21">更新于 2025-02-15&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/e2539f4d0c3012856fe11b1a3ac54c1a23062d18" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) e2539f4d0c3012856fe11b1a3ac54c1a23062d18: refactor: 删除旧有 Go项目实战系列文章"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>e2539f4</a></span>
+        <span title="更新于 2025-02-15 19:21:08">更新于 2025-02-15&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/ce37d4dd9a0ea50c25bb2d9749259143004da51c" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(liuchihpeng@foxmail.com) ce37d4dd9a0ea50c25bb2d9749259143004da51c: docs: 更新博客内容和配置- 修改 Hugo 配置文件，更新菜单图标 - 更新关于我页面，增加中心对齐的引用格式 - 修改 Go 并发优势文章标题，增加语言标识- 更新静态文件夹 README，同步文章标题变更"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>ce37d4d</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
