@@ -5,6 +5,7 @@ This is my personal blog, where I share my thoughts, experiences, and knowledge.
 
 ## 2025-02
 
+- 为什么大模型训练依赖 GPU 而不是 CPU
 - Go 项目实战：全局异常处理
 
 ## 2025-01

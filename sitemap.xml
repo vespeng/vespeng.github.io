@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vespeng.tech/tags/ai/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://vespeng.tech/categories/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/posts/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/tags/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/categories/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</loc>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,37 +68,19 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/golang/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/categories/golang/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/panic/</loc>
     <lastmod>2025-02-15T16:26:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/posts/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -104,31 +122,31 @@
   </url>
   <url>
     <loc>https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/</loc>
-    <lastmod>2025-02-15T16:26:21+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/%E5%8D%8F%E7%A8%8B/</loc>
-    <lastmod>2025-02-15T16:26:21+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/posts/the_concurrency_advantage_of_go/</loc>
-    <lastmod>2025-02-15T19:21:08+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/posts/golang_development_environment/</loc>
-    <lastmod>2025-02-15T16:26:21+08:00</lastmod>
+    <lastmod>2025-02-15T22:21:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

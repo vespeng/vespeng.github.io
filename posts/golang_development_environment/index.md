@@ -5,7 +5,7 @@
 
 官网链接：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)
 
-![3326ab02-a030-4902-8934-f95eca5b628c](./images/img.png)
+![img.png](./images/img.png)
 
 ## 配置环境
 
@@ -30,9 +30,9 @@
 
 安装 Go、vscode-go-syntax 两插件
 
-![loading-ag-117](./images/img_1.png)
+![img_1.png](./images/img_1.png)
 
-![loading-ag-119](./images/img_2.png)
+![img_2.png](./images/img_2.png)
 
 &gt;  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
 &gt; 

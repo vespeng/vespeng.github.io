@@ -8,8 +8,16 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 15 Feb 2025 19:21:08 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2025 22:21:53 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么大模型训练依赖 GPU 而不是 CPU</title>
+      <link>https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</link>
+      <pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</guid>
+      <category domain="https://vespeng.tech/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      <description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
+    </item>
     <item>
       <title>Go 项目实战：全局异常处理</title>
       <link>https://vespeng.tech/posts/go_practical_global_exception_handling/</link>
