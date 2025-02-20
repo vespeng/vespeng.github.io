@@ -30,7 +30,7 @@
 │   │   │   ├── /routes.go
 │   ├── /app
 │   │   ├── app.go
-│   │   ├── init_db.go
+│   │   ├── db.go
 │   │   └── ...
 │   ├── /controller
 │   │   ├── user_controller.go
@@ -159,11 +159,11 @@ func LoadConfig() error {
 }
 ```
 
-### 2、配置init
+### 2、配置初始化
 
-数据库及其他的初始化统一放置到 app 目录下，即在 app.go 中初始化 mysql，但是为了之后方便管理，新建一个 init_db.go/db.go 文件：
+数据库及其他的初始化统一放置到 app 目录下，即在 app.go 中初始化 mysql，但是为了之后方便管理，新建一个 db.go 文件：
 
-&gt; 如需要加载其他如redis，那就新建 init_redis.go 文件
+&gt; 如需要加载其他如 redis，那就新建 redis.go 文件
 
 ```go {data-open=true}
 package app
@@ -228,7 +228,7 @@ package models
 
 type User struct {
     Id          int64  `xorm:&#34;pk autoincr &#39;id&#39;&#34;`
-    UserNma      int64  `xorm:&#34;not null &#39;user_id&#39;&#34;`
+    UserID      int64  `xorm:&#34;not null &#39;user_id&#39;&#34;`
     Password    string `xorm:&#34;varchar(50) not null &#39;password&#39;&#34;`
     UserName    string `xorm:&#34;varchar(30) &#39;user_name&#39;&#34;`
     Email       string `xorm:&#34;varchar(50) &#39;email&#39;&#34;`
@@ -418,7 +418,7 @@ Listening and serving HTTP on :8080
     &#34;users&#34;: [
         {
             &#34;Id&#34;: 1,
-            &#34;UserID&#34;: &#34;张三&#34;,
+            &#34;UserID&#34;: &#34;000001&#34;,
             &#34;Password&#34;: &#34;123456&#34;,
             ...
         }
