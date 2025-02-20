@@ -159,7 +159,7 @@ func LoadConfig() error {
 }
 ```
 
-### 2、配置初始化
+### 2、配置init
 
 数据库及其他的初始化统一放置到 app 目录下，即在 app.go 中初始化 mysql，但是为了之后方便管理，新建一个 db.go 文件：
 
