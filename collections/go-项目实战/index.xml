@@ -4,11 +4,11 @@
     <title>Go 项目实战 - 合集 - Vespeng博客</title>
     <link>https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
     <description>不定期采撷开发路上的片段，与君共勉。</description>
-    <generator>Hugo 0.143.1 &amp; FixIt v0.3.17-015610b7</generator>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-015610b7</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 15 Feb 2025 16:26:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 23:54:24 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：全局异常处理</title>

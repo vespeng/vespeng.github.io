@@ -18,48 +18,46 @@
 有过Java开发经验的伙伴应该了解，SpringBoot 遵循着MVC的设计理念，这一套设计理念一直沿用至今，他的优秀难以言喻，Gin框架完全可以参照这个模式来做，如下是我个人设计的一套架构：
 
 ```html {data-open=true}
-├── /api  
-│   └── controllers 
-│   │   ├── controller.go  
-│   └── routes.go  
 ├── /cmd  
 │   └── main.go  
 ├── /config
 │   └── config.go  
-│   └── config.yaml  
-├── /initializers
-│   └── init.go  
-├── /internal  
-│   ├── /models  
-│   │   ├── user.go  
-│   │   ├── role.go  
+│   └── config.yaml
+├── /docs
+├── /internal
+│   ├── /api
+│   │   ├── v1
+│   │   │   ├── /routes.go
+│   ├── /app
+│   │   ├── app.go
+│   │   ├── init_db.go
+│   │   └── ...
+│   ├── /controller
+│   │   ├── user_controller.go
+│   │   └── ...
+│   ├── /middleware
+│   │   ├── error.go
+│   │   └── ...
+│   ├── /models
+│   │   ├── user_entity.go
 │   │   └── ...  
 │   ├── /repositories  
-│   │   ├── user_repository.go  
-│   │   ├── role_repository.go  
+│   │   ├── user_repository.go
 │   │   └── ...  
 │   ├── /services  
-│   │   ├── user_service.go  
-│   │   ├── role_service.go  
-│   │   └── ...  
-├── /middleware
-│   └── /errors  
-│       ├── errors.go  
-│       └── ...  
-├── /tests  
-│   └── ...  
-├── /utils
-│   └── ...  
-├── go.mod  
-└── go.sum  
+│   │   ├── user_service.go
+│   │   └── ...
+│   └── /utils
+├── /pkg
+├── /scripts
+├── /test
+├── .env
+├── go.mod
+├── go.sum
 ```
 
 ## 三、目录职责
 
-- **`/api`**
-    * 存放包含与API相关的代码。
-    * **`controllers`**：存放控制器文件，在route和service之间做中间层，前置处理请求参数等，随后调用服务层逻辑，并返回响应。
-    * **`routes.go`**：定义API的路由，即URL路径与控制器方法的映射。
 - **`/cmd`**
     * 存放应用的入口文件。
     * **`main.go`**：是整个应用的入口，在这里启动应用。
@@ -67,22 +65,26 @@
     * 存放应用的配置文件和配置加载逻辑。
     * **`config.go`**：包含配置加载和解析的逻辑。
     * **`config.yaml`**：应用的配置文件，通常包含数据库连接信息、服务器设置等。
-- **`/initializers`**
-    * 存放应用的初始化逻辑。
-    * **`init.go`**：在应用启动时执行一些初始化操作，如数据库连接、中间件设置等。
+- **`/docs`**
+    * 存放应用的文档，如API文档、用户手册等。
 - **`/internal`**
     * 存放应用的内部逻辑，这些代码不能被外部包所引入，可根据实际需求进而拆分目录。
+    * **`api`**：包含应用中核心的业务路由等。
+    * **`routes.go`**：定义API的路由，即URL路径与控制器方法的映射。
+    * **`app`**：包含应用的核心逻辑，如初始化、启动等。
+    * **`controllers`**：包含控制器逻辑，处理请求并返回响应。
+    * **`middleware`**：存放中间件代码，用于在请求处理流程中的特定阶段执行代码。
     * **`models`**：定义应用的数据模型，通常与数据库表结构对应。
     * **`repositories`**：实现数据访问逻辑，与数据库进行交互。
     * **`services`**：实现业务逻辑，调用repositories中的方法来处理业务需求。
-- **`/middleware`**
-    * 存放中间件代码，中间件用于在请求处理流程中的特定阶段执行代码。
-    * **`errors`**：处理错误相关的中间件，可能包括记录错误日志、返回统一错误格式等。
+    * **`utils`**：包含通用的工具函数，这些函数可以被多个包所共享。
+- **`/pkg`**
+    * 存放第三方库，如第三方中间件、工具库等。
+- **`/scripts`**
+    * 存放各种脚本，如项目部署脚本、测试脚本等。
 - **`/tests`**
     * 存放测试代码，包括单元测试、集成测试等。
     * 这里的目录结构可以根据需要自行组织，以支持不同类型的测试。
-- **`/utils`**
-    * 存放工具函数，这些函数通常被多个包共享。
 
 以上目录结构有助于清晰地分离应用的不同部分，使得代码更加模块化、易于理解和维护。同时，我也参照众多优秀开源项目的目录搭建思想，使其完美遵循了Go语言的最佳实践。
 
@@ -159,12 +161,12 @@ func LoadConfig() error {
 
 ### 2、配置init
 
-数据库及其他的初始化统一放置到 initializers 目录下，即在 init.go 中初始化 mysql，但是为了之后方便管理，新建一个 init_db.go 文件：
+数据库及其他的初始化统一放置到 app 目录下，即在 app.go 中初始化 mysql，但是为了之后方便管理，新建一个 init_db.go/db.go 文件：
 
 &gt; 如需要加载其他如redis，那就新建 init_redis.go 文件
 
 ```go {data-open=true}
-package initializers
+package app
 
 import (
     _ &#34;github.com/go-sql-driver/mysql&#34;
@@ -197,10 +199,10 @@ func InitializeMySQL() error {
 
 ```
 
-init.go 中调用 InitializeMySQL()
+app.go 中调用 InitializeMySQL()
 
 ```go {data-open=true}
-package initializers
+package app
 
 import (
     &#34;fmt&#34;
@@ -217,7 +219,7 @@ func InitializeAll() error {
 }
 ```
 
-### 3、配置mod
+### 3、配置model
 
 在 models 下新建 user_entity.go，注意：这个需要和数据库对应
 
@@ -225,9 +227,14 @@ func InitializeAll() error {
 package models
 
 type User struct {
-    Id       int64  `xorm:&#34;pk autoincr &#39;id&#39;&#34;`
-    Username string `xorm:&#34;varchar(255) not null &#39;username&#39;&#34;`
-    Password string `xorm:&#34;varchar(255) not null &#39;password&#39;&#34;` 
+    Id          int64  `xorm:&#34;pk autoincr &#39;id&#39;&#34;`
+    UserNma      int64  `xorm:&#34;not null &#39;user_id&#39;&#34;`
+    Password    string `xorm:&#34;varchar(50) not null &#39;password&#39;&#34;`
+    UserName    string `xorm:&#34;varchar(30) &#39;user_name&#39;&#34;`
+    Email       string `xorm:&#34;varchar(50) &#39;email&#39;&#34;`
+    PhoneNumber int64  `xorm:&#34;&#39;phone_number&#39;&#34;`
+    Sex         string `xorm:&#34;char(1) &#39;sex&#39;&#34;`
+    Remark      string `xorm:&#34;varchar(500) &#39;remark&#39;&#34;`
 }
 
 // TableName 方法用于返回表名
@@ -236,35 +243,94 @@ func (u User) TableName() string {
 }
 ```
 
-### 4、配置service
+### 4、配置controller
 
-在 sevices下新建 user_service.go
+在 controllers 下新建 user_controllers.go
+
+```go {data-open=true}
+package controllers
+
+import (
+    &#34;your_project/internal/services&#34;
+    &#34;github.com/gin-gonic/gin&#34;
+    &#34;net/http&#34;
+)
+
+type UserController struct {
+  UserService *services.UserService
+}
+
+func NewUserController(UserService *services.UserService) *UserController {
+  return &amp;UserController{UserService: UserService}
+}
+
+func (uc *UserController) GetUsers(c *gin.Context) {
+  users, err := uc.UserService.GetUsers()
+  if err != nil {
+    c.JSON(http.StatusInternalServerError, gin.H{&#34;error&#34;: &#34;Failed to fetch users&#34;})
+    return
+  }
+  c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
+}
+
+```
+
+### 5、配置service
+
+在 sevices 下新建 user_service.go
 
 ```go {data-open=true}
 package services
 
 import (
+    &#34;your_project/internal/models&#34;
+    &#34;your_project/internal/repositories&#34;
     &#34;github.com/go-xorm/xorm&#34;
-    &#34;vesgo/internal/system/models&#34;
 )
 
 type UserService struct {
-    engine *xorm.Engine
+    userRepo *repositories.UserRepository
 }
 
 func NewUserService(engine *xorm.Engine) *UserService {
-    return &amp;UserService{engine: engine}
+    return &amp;UserService{userRepo: repositories.NewUserRepository(engine)}
 }
 
-func (us *UserService) GetUsers() ([]models.User, error) {
-    var users []models.User
-    // 通过 UserEntity 的 TableName 方法获取表名
-    err := us.engine.Table(models.User{}.TableName()).Find(&amp;users)
+func (us *UserService) GetUsers() ([]*models.User, error) {
+    return us.userRepo.GetUsers()
+}
+```
+
+### 6、配置repositorie
+
+在 repositories 下新建 user_repo.go
+
+```go {data-open=true}
+package repositories
+
+import (
+    &#34;your_project/internal/models&#34;
+    &#34;github.com/go-xorm/xorm&#34;
+
+)
+
+type UserRepository struct {
+    engine *xorm.Engine
+}
+
+func NewUserRepository(engine *xorm.Engine) *UserRepository {
+    return &amp;UserRepository{engine: engine}
+}
+
+// GetUsers 获取所有用户
+func (r *UserRepository) GetUsers() ([]*models.User, error) {
+    var users []*models.User
+    err := r.engine.Table(models.User{}.TableName()).Find(&amp;users)
     return users, err
 }
 ```
 
-### 5、配置api
+### 7、配置api
 
 routes.go 中设置路由，这里设置路由组，为方便日后迭代
 
@@ -280,49 +346,20 @@ import (
 
 func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
     // 定义用户路由组
-    user := r.Group(&#34;/system&#34;)
+    user := r.Group(&#34;/user&#34;)
     {
         // 创建 UserService 实例
-        userService := services.NewUserService(engine)
+        UserService := services.NewUserService(engine)
         // 创建 UserController 实例
-        userController := controllers.NewUserController(userService)
+        UserController := controllers.NewUserController(UserService)
 
-        user.GET(&#34;/users&#34;, userController.GetUsers)
+        user.GET(&#34;/&#34;, UserController.GetUsers)
     }
 }
 
 ```
 
-```go {data-open=true}
-package controllers
-
-import (
-    &#34;github.com/gin-gonic/gin&#34;
-    &#34;net/http&#34;
-    &#34;your_project/internal/services&#34;
-)
-
-type UserController struct {
-    userService *services.UserService
-}
-
-func NewUserController(userService *services.UserService) *UserController {
-    return &amp;UserController{userService: userService}
-}
-
-func (uc *UserController) GetUsers(c *gin.Context) {
-    users, err := uc.userService.GetUsers()
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{&#34;error&#34;: &#34;Failed to fetch users&#34;})
-        return
-    }
-    c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
-}
-
-
-```
-
-### 6、配置main
+### 8、配置main
 
 ```go {data-open=true}
 package main
@@ -333,7 +370,7 @@ import (
 	log &#34;github.com/sirupsen/logrus&#34;
 	&#34;your_project/api&#34;
 	&#34;your_project/config&#34;
-	&#34;your_project/initializers&#34;
+	&#34;your_project/app&#34;
 )
 
 func main() {
@@ -352,7 +389,7 @@ func main() {
     }
 
     r := gin.Default()
-    api.SetupRoutes(r, Engine)
+    v1.SetupRoutes(r, Engine)
 
     err = r.Run(fmt.Sprintf(&#34;:%d&#34;, config.Conf.App.Port))
     if err != nil {
@@ -381,8 +418,9 @@ Listening and serving HTTP on :8080
     &#34;users&#34;: [
         {
             &#34;Id&#34;: 1,
-            &#34;Username&#34;: &#34;张三&#34;,
-            &#34;Password&#34;: &#34;123456&#34;
+            &#34;UserID&#34;: &#34;张三&#34;,
+            &#34;Password&#34;: &#34;123456&#34;,
+            ...
         }
     ]
 }
