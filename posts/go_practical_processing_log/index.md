@@ -182,10 +182,10 @@ func InitializeLogger() error {
 package app
 
 import (
-    &#34;github.com/lestrrat-go/file-rotatelogs&#34;
-    log &#34;github.com/sirupsen/logrus&#34;
     &#34;os&#34;
     &#34;time&#34;
+    &#34;github.com/lestrrat-go/file-rotatelogs&#34;
+    log &#34;github.com/sirupsen/logrus&#34;
     &#34;your_project/config&#34;
 )
 
