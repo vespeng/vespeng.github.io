@@ -69,8 +69,7 @@
     * 存放应用的文档，如API文档、用户手册等。
 - **`/internal`**
     * 存放应用的内部逻辑，这些代码不能被外部包所引入，可根据实际需求进而拆分目录。
-    * **`api`**：包含应用中核心的业务路由等。
-    * **`routes.go`**：定义API的路由，即URL路径与控制器方法的映射。
+    * **`api`**：包含应用中核心的业务路由等，即URL路径与控制器方法的映射。
     * **`app`**：包含应用的核心逻辑，如初始化、启动等。
     * **`controllers`**：包含控制器逻辑，处理请求并返回响应。
     * **`middleware`**：存放中间件代码，用于在请求处理流程中的特定阶段执行代码。
@@ -113,7 +112,7 @@ database:
 package config
 
 import (
-	&#34;fmt&#34;
+    &#34;fmt&#34;
     &#34;github.com/spf13/viper&#34;
 )
 
@@ -121,7 +120,6 @@ type Config struct {
     App      AppConfig      `yaml:&#34;app&#34; mapstructure:&#34;app&#34;`
     Database DatabaseConfig `yaml:&#34;database&#34; mapstructure:&#34;database&#34;`
 }
-
 
 type AppConfig struct {
     Port int `mapstructure:&#34;port&#34;`
@@ -257,20 +255,20 @@ import (
 )
 
 type UserController struct {
-  UserService *services.UserService
+    UserService *services.UserService
 }
 
 func NewUserController(UserService *services.UserService) *UserController {
-  return &amp;UserController{UserService: UserService}
+    return &amp;UserController{UserService: UserService}
 }
 
 func (uc *UserController) GetUsers(c *gin.Context) {
-  users, err := uc.UserService.GetUsers()
-  if err != nil {
-    c.JSON(http.StatusInternalServerError, gin.H{&#34;error&#34;: &#34;Failed to fetch users&#34;})
-    return
-  }
-  c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
+    users, err := uc.UserService.GetUsers()
+        if err != nil {
+            c.JSON(http.StatusInternalServerError, gin.H{&#34;error&#34;: &#34;Failed to fetch users&#34;})
+            return
+        }
+    c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
 }
 
 ```
@@ -311,7 +309,6 @@ package repositories
 import (
     &#34;your_project/internal/models&#34;
     &#34;github.com/go-xorm/xorm&#34;
-
 )
 
 type UserRepository struct {
@@ -365,23 +362,23 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 package main
 
 import (
-  &#34;fmt&#34;
-	&#34;github.com/gin-gonic/gin&#34;
-	log &#34;github.com/sirupsen/logrus&#34;
-	&#34;your_project/api&#34;
-	&#34;your_project/config&#34;
-	&#34;your_project/app&#34;
+    &#34;fmt&#34;
+    &#34;github.com/gin-gonic/gin&#34;
+    log &#34;github.com/sirupsen/logrus&#34;
+    &#34;your_project/api&#34;
+    &#34;your_project/config&#34;
+    &#34;your_project/app&#34;
 )
 
 func main() {
     // 加载配置文件
-	err := config.LoadConfig()
+    err := config.LoadConfig()
     if err != nil {
         log.Error(&#34;配置文件加载错误: %v&#34;, err)
         return
     }
 
-	// 初始化所有模块
+    // 初始化所有模块
     err = InitializeAll()
     if err != nil {
         log.Error(&#34;模块初始化错误: %v&#34;, err)
@@ -411,7 +408,7 @@ cmd目录下直接运行main函数，正常会输出如下信息：
 Listening and serving HTTP on :8080
 ```
 
-接着访问 [http://localhost:8080/system/users](http://localhost:8080/system/users) 正常查询结果回显json如下：
+接着访问 [http://localhost:8080/user](http://localhost:8080/user) 正常查询结果回显json如下：
 
 ```json
 {
