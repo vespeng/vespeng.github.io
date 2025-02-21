@@ -332,12 +332,12 @@ func (r *UserRepository) GetUsers() ([]*models.User, error) {
 routes.go 中设置路由，这里设置路由组，为方便日后迭代
 
 ```go {data-open=true}
-package api
+package v1
 
 import (
     &#34;github.com/gin-gonic/gin&#34;
     &#34;github.com/go-xorm/xorm&#34;
-    &#34;your_project/api/controllers/&#34;
+    &#34;your_project/internal/controllers/&#34;
     &#34;your_project/internal/services&#34;
 )
 
@@ -365,9 +365,9 @@ import (
     &#34;fmt&#34;
     &#34;github.com/gin-gonic/gin&#34;
     log &#34;github.com/sirupsen/logrus&#34;
-    &#34;your_project/api&#34;
     &#34;your_project/config&#34;
-    &#34;your_project/app&#34;
+    &#34;your_project/internal/api/v1&#34;
+    &#34;your_project/internal/app&#34;
 )
 
 func main() {
