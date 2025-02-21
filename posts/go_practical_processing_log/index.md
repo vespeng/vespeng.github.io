@@ -124,12 +124,12 @@ log:
 
 具体的解析可以参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.tech/posts/go_practical_gin_directory_structure/)
 
-### 2、新建init\_logger.go
+### 2、新建logger.go
 
 在这里我们统一配置 logrus 参数，包括日志级别，输出格式：
 
 ```go {data-open=true}
-package initializers
+package app
 
 import (
     log &#34;github.com/sirupsen/logrus&#34;
@@ -179,7 +179,7 @@ func InitializeLogger() error {
 但是这样还不够，会存在另一个问题：日志文件会越来越大后期不利于日志排查。所以还需要对日志进行一个分割，最好的实践方式就是按天分割，所以我们接着在上述初始化文件中去做设置：
 
 ```go {data-open=true}
-package initializers
+package app
 
 import (
     &#34;github.com/lestrrat-go/file-rotatelogs&#34;
@@ -230,12 +230,12 @@ func InitializeLogger() error {
 package main
 
 import (
-  &#34;fmt&#34;
+    &#34;fmt&#34;
     &#34;github.com/gin-gonic/gin&#34;
     log &#34;github.com/sirupsen/logrus&#34;
     &#34;your_project/api&#34;
     &#34;your_project/config&#34;
-    &#34;your_project/initializers&#34;
+    &#34;your_project/app&#34;
 )
 
 func main() {
