@@ -233,9 +233,9 @@ import (
     &#34;fmt&#34;
     &#34;github.com/gin-gonic/gin&#34;
     log &#34;github.com/sirupsen/logrus&#34;
-    &#34;your_project/api&#34;
     &#34;your_project/config&#34;
-    &#34;your_project/app&#34;
+    &#34;your_project/internal/api/v1&#34;
+    &#34;your_project/internal/app&#34;
 )
 
 func main() {
@@ -254,7 +254,7 @@ func main() {
     }
 
     r := gin.Default()
-    api.SetupRoutes(r, Engine)
+    v1.SetupRoutes(r, Engine)
 
     err = r.Run(fmt.Sprintf(&#34;:%d&#34;, config.Conf.App.Port))
     if err != nil {
