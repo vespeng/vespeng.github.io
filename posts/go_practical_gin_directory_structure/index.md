@@ -337,7 +337,7 @@ package v1
 import (
     &#34;github.com/gin-gonic/gin&#34;
     &#34;github.com/go-xorm/xorm&#34;
-    &#34;your_project/internal/controllers/&#34;
+    &#34;your_project/internal/controllers&#34;
     &#34;your_project/internal/services&#34;
 )
 

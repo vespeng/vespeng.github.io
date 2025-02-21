@@ -8,25 +8,25 @@
   </url>
   <url>
     <loc>https://vespeng.tech/categories/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/posts/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,19 +44,19 @@
   </url>
   <url>
     <loc>https://vespeng.tech/collections/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/gin/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -68,13 +68,13 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/golang/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/categories/golang/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/posts/go_practical_gin_directory_structure/</loc>
-    <lastmod>2025-02-21T14:15:24+08:00</lastmod>
+    <lastmod>2025-02-21T14:17:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
