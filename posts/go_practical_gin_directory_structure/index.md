@@ -29,7 +29,7 @@
 │   │   ├── v1
 │   │   │   ├── /routes.go
 │   ├── /app
-│   │   ├── app.go
+│   │   ├── loader.go
 │   │   ├── db.go
 │   │   └── ...
 │   ├── /controller
@@ -422,10 +422,6 @@ Listening and serving HTTP on :8080
     ]
 }
 ```
-
-
-
-
 
 
 ---
