@@ -1,6 +1,6 @@
 # Vespeng's Blog
 
-我的个人博客，在这里我分享我的想法，经验和知识。
+个人博客，在这里我分享我的想法，经验和知识。
 
 访问地址：[https://vespeng.tech](https://vespeng.tech)
 
