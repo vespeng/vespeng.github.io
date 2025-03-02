@@ -171,8 +171,6 @@ func main() {
 - GJSON 对各种复杂 json 结构都能灵活应对，根据需求按路径获取数据，无需频繁修改代码结构。原生方式则需根据 json 结构变化，频繁修改结构体定义，灵活性较差。
 
 
-
-
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
