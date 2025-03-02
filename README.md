@@ -6,6 +6,7 @@
 
 ## 2025
 
+- 03-02 [Go-GJSON 组件，解锁 JSON 读取新姿势](https://vespeng.tech/posts/go_gjson_component/)
 - 02-15 [为什么大模型训练依赖 GPU 而不是 CPU](https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/)
 - 02-09 [Go 项目实战：全局异常处理](https://vespeng.tech/posts/go_practical_global_exception_handling/)
 - 01-25 [Go 项目实战：如何部署多环境开发](https://vespeng.tech/posts/go_practical_multi_environment_development/)
