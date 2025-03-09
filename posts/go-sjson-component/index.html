@@ -5,42 +5,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng博客</title><meta name="author" content="Vespeng">
-<meta name="description" content="在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 encoding/json 包用于处理 json 数据，同时第三方库 GJSON &amp; SJSON 也在 json 处理方面表现出色。
-"><meta name="keywords" content='golang, go, json, gjson'>
-  <meta itemprop="name" content="Go-GJSON 组件，解锁 JSON 读取新姿势">
-  <meta itemprop="description" content="在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 encoding/json 包用于处理 json 数据，同时第三方库 GJSON &amp; SJSON 也在 json 处理方面表现出色。">
-  <meta itemprop="datePublished" content="2025-03-02T17:00:00+08:00">
+    <title>Go-SJSON 组件，JSON 动态修改新方案 - Vespeng博客</title><meta name="author" content="Vespeng">
+<meta name="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。
+"><meta name="keywords" content='golang, go, json, sjson'>
+  <meta itemprop="name" content="Go-SJSON 组件，JSON 动态修改新方案">
+  <meta itemprop="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
+  <meta itemprop="datePublished" content="2025-03-09T14:00:00+08:00">
   <meta itemprop="dateModified" content="2025-03-09T14:03:05+08:00">
-  <meta itemprop="wordCount" content="365">
-  <meta itemprop="keywords" content="golang,go,json,gjson"><meta property="og:url" content="https://vespeng.tech/posts/go_gjson_component/">
+  <meta itemprop="wordCount" content="348">
+  <meta itemprop="keywords" content="golang,go,json,sjson"><meta property="og:url" content="https://vespeng.tech/posts/go-sjson-component/">
   <meta property="og:site_name" content="Vespeng博客">
-  <meta property="og:title" content="Go-GJSON 组件，解锁 JSON 读取新姿势">
-  <meta property="og:description" content="在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 encoding/json 包用于处理 json 数据，同时第三方库 GJSON &amp; SJSON 也在 json 处理方面表现出色。">
+  <meta property="og:title" content="Go-SJSON 组件，JSON 动态修改新方案">
+  <meta property="og:description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-02T17:00:00+08:00">
+    <meta property="article:published_time" content="2025-03-09T14:00:00+08:00">
     <meta property="article:modified_time" content="2025-03-09T14:03:05+08:00">
     <meta property="article:tag" content="Golang">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Go-GJSON 组件，解锁 JSON 读取新姿势">
-  <meta name="twitter:description" content="在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 encoding/json 包用于处理 json 数据，同时第三方库 GJSON &amp; SJSON 也在 json 处理方面表现出色。">
+  <meta name="twitter:title" content="Go-SJSON 组件，JSON 动态修改新方案">
+  <meta name="twitter:description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
 <meta name="application-name" content="Vespeng博客">
-<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/" title="为什么大模型训练依赖 GPU 而不是 CPU" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/go-sjson-component/" title="Go-SJSON 组件，JSON 动态修改新方案" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/go_gjson_component/index.md" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/go-sjson-component/" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/go-sjson-component/index.md" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="baidu-site-verification" content="caa96285ed0396ebb4503183ec265fae" /><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Go-GJSON 组件，解锁 JSON 读取新姿势",
+    "headline": "Go-SJSON 组件，JSON 动态修改新方案",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/vespeng.tech\/posts\/go_gjson_component\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "golang","wordcount":  365 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_gjson_component\/","datePublished": "2025-03-02T17:00:00+08:00","dateModified": "2025-03-09T14:03:05+08:00","publisher": {
+      "@id": "https:\/\/vespeng.tech\/posts\/go-sjson-component\/"
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "golang","wordcount":  348 ,
+    "url": "https:\/\/vespeng.tech\/posts\/go-sjson-component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-03-09T14:03:05+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -80,7 +80,7 @@
         </li><li class="menu-item language-switch auto d-none" aria-hidden="true">
     <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
     <ul class="sub-menu"><li class="menu-item active" data-type="artificial">
-          <a href="/posts/go_gjson_component/" data-lang="zh-CN" class="menu-link text-secondary" title="">
+          <a href="/posts/go-sjson-component/" data-lang="zh-CN" class="menu-link text-secondary" title="">
             <i class="fa-solid fa-person fa-fw fa-sm" aria-hidden="true"></i> </a>
         </li><li class="menu-item-divider" aria-hidden="true"></li><li class="menu-item" data-type="machine">
           <a data-lang="english" class="menu-link" title="English">
@@ -138,14 +138,14 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go-GJSON 组件，解锁 JSON 读取新姿势</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go-SJSON 组件，JSON 动态修改新方案</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-GJSON 组件，解锁 JSON 读取新姿势</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-SJSON 组件，JSON 动态修改新方案</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-02 17:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-02">2025-03-02</time></span>&nbsp;<span title="更新于 2025-03-09 14:03:05"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="365 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-GJSON 组件，解锁 JSON 读取新姿势"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-03-09 14:03:05"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="348 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -154,44 +154,31 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#一go-原生-json-读取方式">一、Go 原生 json 读取方式</a></li>
-    <li><a href="#二gjson-组件">二、GJSON 组件</a>
+    <li><a href="#一go-原生-json-修改方式">一、Go 原生 json 修改方式</a></li>
+    <li><a href="#二sjson-组件">二、SJSON 组件</a>
       <ul>
         <li><a href="#1概述">1、概述：</a></li>
         <li><a href="#2安装">2、安装：</a></li>
       </ul>
     </li>
-    <li><a href="#三gjson-基本用法">三、GJSON 基本用法</a>
+    <li><a href="#三sjson核心用法">三、SJSON核心用法</a>
       <ul>
-        <li><a href="#1简单-json-数据获取">1、简单 json 数据获取</a></li>
-        <li><a href="#2嵌套-json-数据获取">2、嵌套 json 数据获取</a></li>
-        <li><a href="#3json-数组处理">3、json 数组处理</a></li>
+        <li><a href="#1-基础值修改">1. 基础值修改</a></li>
+        <li><a href="#2-嵌套结构修改">2. 嵌套结构修改</a></li>
+        <li><a href="#3-数组操作">3. 数组操作</a></li>
+        <li><a href="#4-字段删除">4. 字段删除</a></li>
       </ul>
     </li>
-    <li><a href="#四gjson-与原生-json-处理方式对比">四、GJSON 与原生 JSON 处理方式对比</a></li>
+    <li><a href="#四sjson-与原生方案对比">四、SJSON 与原生方案对比</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><p>在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 <code>encoding/json</code> 包用于处理 json 数据，同时第三方库 <code>GJSON</code> &amp; <code>SJSON</code> 也在 json 处理方面表现出色。</p>
-<p>本文先深入探讨下 GJSON 组件，通过与原生处理方式对比，它存在什么特别之处，它的优势体现在哪。</p>
-<h2 id="一go-原生-json-读取方式" class="heading-element"><span>一、Go 原生 json 读取方式</span>
-  <a href="#%e4%b8%80go-%e5%8e%9f%e7%94%9f-json-%e8%af%bb%e5%8f%96%e6%96%b9%e5%bc%8f" class="heading-mark">
+      </div><div class="content" id="content"><p>在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 <code>GJSON</code> 解决了灵活读取问题，而 <code>SJSON</code> 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</p>
+<p>本文将延续对比分析风格，解析 SJSON 的核心价值。</p>
+<h2 id="一go-原生-json-修改方式" class="heading-element"><span>一、Go 原生 json 修改方式</span>
+  <a href="#%e4%b8%80go-%e5%8e%9f%e7%94%9f-json-%e4%bf%ae%e6%94%b9%e6%96%b9%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Go 原生读取 json 数据，通常需先定义结构体，然后再将 json 数据解析到结构体实例，如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;张三&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">25</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>具体处理逻辑：</p>
+</h2><p>Go 原生修改 json 数据，同样需先定义结构体，然后再将 json 数据解析到结构体实例，如：</p>
 <div class="highlight" data-open="true"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -219,67 +206,69 @@
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;encoding/json&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/json&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">Age</span>  <span class="kt">int</span>    <span class="s">`json:&#34;age&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Age</span>  <span class="kt">int</span>    <span class="s">`json:&#34;age&#34;`</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">person</span> <span class="nx">Person</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">person</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span><span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;解析错误:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">person</span> <span class="nx">Person</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">person</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;解析错误:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span> <span class="nx">person</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Age:&#34;</span><span class="p">,</span> <span class="nx">person</span><span class="p">.</span><span class="nx">Age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">person</span><span class="p">.</span><span class="nx">Age</span> <span class="p">=</span> <span class="mi">35</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>这种方式虽能准确解析 json 数据，但如果 json 存在多层嵌套，层级过度包装，那么结构体定义以及解析过程就会变得相当繁琐。</p>
-<h2 id="二gjson-组件" class="heading-element"><span>二、GJSON 组件</span>
-  <a href="#%e4%ba%8cgjson-%e7%bb%84%e4%bb%b6" class="heading-mark">
+</div><h2 id="二sjson-组件" class="heading-element"><span>二、SJSON 组件</span>
+  <a href="#%e4%ba%8csjson-%e7%bb%84%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><h3 id="1概述" class="heading-element"><span>1、概述：</span>
   <a href="#1%e6%a6%82%e8%bf%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通过简洁的语法，无需定义结构体，就能快速提取 JSON 数据中的特定值。</p>
-<p>官网地址：<a href="https://github.com/tidwall/gjson"target="_blank" rel="external nofollow noopener noreferrer">GitHub - tidwall/gjson<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+</h3><p>SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSON 采用相同路径语法，形成读写闭环。</p>
+<p>官网地址：<a href="https://github.com/tidwall/sjson"target="_blank" rel="external nofollow noopener noreferrer">GitHub - tidwall/sjson<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
 <h3 id="2安装" class="heading-element"><span>2、安装：</span>
   <a href="#2%e5%ae%89%e8%a3%85" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>使用 Go 的包管理工具 <code>go get</code> 安装 GJSON：</p>
+</h3><p>使用 Go 的包管理工具 <code>go get</code> 安装 SJSON：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get -u github.com/tidwall/gjson</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get -u github.com/tidwall/sjson</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="三gjson-基本用法" class="heading-element"><span>三、GJSON 基本用法</span>
-  <a href="#%e4%b8%89gjson-%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" class="heading-mark">
+</div><h2 id="三sjson核心用法" class="heading-element"><span>三、SJSON核心用法</span>
+  <a href="#%e4%b8%89sjson%e6%a0%b8%e5%bf%83%e7%94%a8%e6%b3%95" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 id="1简单-json-数据获取" class="heading-element"><span>1、简单 json 数据获取</span>
-  <a href="#1%e7%ae%80%e5%8d%95-json-%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96" class="heading-mark">
+</h2><h3 id="1-基础值修改" class="heading-element"><span>1. 基础值修改</span>
+  <a href="#1-%e5%9f%ba%e7%a1%80%e5%80%bc%e4%bf%ae%e6%94%b9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>对于简单的 json，像前面那个例子，直接用 <code>gjson.Get</code> 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 <code>name</code> 字段，<code>gjson.Get(jsonStr, &quot;name&quot;)</code> 就可以搞定，例如：</p>
-<div class="highlight" data-open="true"><div class="chroma">
+</h3><div class="highlight" data-open="true"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -296,58 +285,29 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/tidwall/gjson&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/sjson&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="o">:=</span> <span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="o">:=</span> <span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改 age 值为 35</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Age:&#34;</span><span class="p">,</span> <span class="nx">age</span><span class="p">.</span><span class="nf">Int</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2嵌套-json-数据获取" class="heading-element"><span>2、嵌套 json 数据获取</span>
-  <a href="#2%e5%b5%8c%e5%a5%97-json-%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96" class="heading-mark">
+</div><h3 id="2-嵌套结构修改" class="heading-element"><span>2. 嵌套结构修改</span>
+  <a href="#2-%e5%b5%8c%e5%a5%97%e7%bb%93%e6%9e%84%e4%bf%ae%e6%94%b9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：</p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;张三&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;hobby&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;sing&#34;</span><span class="p">:</span> <span class="s2">&#34;只因你太美&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;dance&#34;</span><span class="p">:</span> <span class="s2">&#34;背带裤&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;rap&#34;</span><span class="p">:</span> <span class="s2">&#34;kun&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;ball&#34;</span><span class="p">:</span> <span class="s2">&#34;篮球&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>具体处理逻辑：</p>
-<div class="highlight" data-open="true"><div class="chroma">
+</h3><div class="highlight" data-open="true"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -372,14 +332,13 @@
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
-</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/gjson&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/sjson&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -393,20 +352,64 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">			&#34;ball&#34;: &#34;篮球&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">		}`</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="o">:=</span> <span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">ball</span> <span class="o">:=</span> <span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;hobby.ball&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改 hobby.sing 的值: 只因你太美 =&gt; 重生</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;hobby.sing&#34;</span><span class="p">,</span> <span class="s">&#34;重生&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ball:&#34;</span><span class="p">,</span> <span class="nx">ball</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>相比原生方式，无需复杂结构体定义，操作更简便。</p>
-<h3 id="3json-数组处理" class="heading-element"><span>3、json 数组处理</span>
-  <a href="#3json-%e6%95%b0%e7%bb%84%e5%a4%84%e7%90%86" class="heading-mark">
+</div><h3 id="3-数组操作" class="heading-element"><span>3. 数组操作</span>
+  <a href="#3-%e6%95%b0%e7%bb%84%e6%93%8d%e4%bd%9c" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>如果在 json 中嵌套了数组，对于这种的处理也比较简单，直接通过数组下标来定位数据即可，如：</p>
-<div class="highlight" data-open="true"><div class="chroma">
+</h3><div class="highlight" data-open="true"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/sjson&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;ball&#34;]}`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改 hobby 数组第4个元素为 play</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;hobby.3&#34;</span><span class="p">,</span> <span class="s">&#34;play&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 追加 hobby 数组第5个元素为 play</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;tags.-1&#34;</span><span class="p">,</span> <span class="s">&#34;play&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-字段删除" class="heading-element"><span>4. 字段删除</span>
+  <a href="#4-%e5%ad%97%e6%ae%b5%e5%88%a0%e9%99%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight" data-open="true"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -429,32 +432,31 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/gjson&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/tidwall/sjson&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;ball&#34;]}`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span> <span class="o">:=</span> <span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">hobby</span> <span class="o">:=</span> <span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;hobby.3&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">    <span class="c1">// 输出第4个爱好</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hobby:&#34;</span><span class="p">,</span> <span class="nx">hobby</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 删除age字段</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newJson</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">sjson</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>相比于原生方式处理数组，得先解析成切片，操作起来就没这么直接。</p>
-<h2 id="四gjson-与原生-json-处理方式对比" class="heading-element"><span>四、GJSON 与原生 JSON 处理方式对比</span>
-  <a href="#%e5%9b%9bgjson-%e4%b8%8e%e5%8e%9f%e7%94%9f-json-%e5%a4%84%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" class="heading-mark">
+</div><h2 id="四sjson-与原生方案对比" class="heading-element"><span>四、SJSON 与原生方案对比</span>
+  <a href="#%e5%9b%9bsjson-%e4%b8%8e%e5%8e%9f%e7%94%9f%e6%96%b9%e6%a1%88%e5%af%b9%e6%af%94" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><ul>
 <li>
-<p>GJSON 语法简单直观，熟悉 json 结构即可快速上手，无需学习结构体定义及标签使用等知识。而原生方式在结构体定义上相对复杂，尤其是处理复杂 json 结构时。</p>
+<p>SJSON 摆脱结构体定义束缚，避免了完整解析，保持原始 json 结构完整性，避免了修改后丢失未定义字段的问题。</p>
 </li>
 <li>
-<p>GJSON 无需将整个 json 数据解析为结构体，在处理大型 json 数据时，内存占用少，解析速度快。原生方式在解析复杂 json 数据时，结构体构建和内存分配开销较大。</p>
+<p>SJSON 路径直达修改位置，规避嵌套结构嵌套带来的问题，与 GJSON 组成完整处理链路。</p>
 </li>
 <li>
-<p>GJSON 对各种复杂 json 结构都能灵活应对，根据需求按路径获取数据，无需频繁修改代码结构。原生方式则需根据 json 结构变化，频繁修改结构体定义，灵活性较差。</p>
+<p>SJSON 支持运行时动态路径构建，避免了手动拼接路径带来的问题。</p>
 </li>
 </ul></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -465,7 +467,7 @@
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/go_gjson_component/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/edit/main/content/posts/go_gjson_component/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/go-sjson-component/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/edit/main/content/posts/go-sjson-component/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
         <div class="post-info-share">
           <span></span>
         </div>
@@ -476,7 +478,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/go-sjson-component/" class="post-nav-item" rel="prev" title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Go-SJSON 组件，JSON 动态修改新方案</a><a href="/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/" class="post-nav-item" rel="next" title="为什么大模型训练依赖 GPU 而不是 CPU">为什么大模型训练依赖 GPU 而不是 CPU<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/go_gjson_component/" class="post-nav-item" rel="next" title="Go-GJSON 组件，解锁 JSON 读取新姿势">Go-GJSON 组件，解锁 JSON 读取新姿势<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment">
           <script
@@ -515,5 +517,5 @@
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
 </div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.17-015610b7"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_gjson_component/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.17-015610b7"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go-sjson-component/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>
