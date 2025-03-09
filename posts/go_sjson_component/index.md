@@ -161,5 +161,5 @@ func main() {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/go-sjson-component/  
+> URL: https://vespeng.tech/posts/go_sjson_component/  
 
