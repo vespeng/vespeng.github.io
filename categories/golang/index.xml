@@ -8,7 +8,7 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 02 Mar 2025 17:23:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Mar 2025 12:42:39 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go-GJSON 组件，解锁 JSON 读取新姿势</title>

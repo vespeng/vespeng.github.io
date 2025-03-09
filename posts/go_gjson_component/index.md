@@ -54,7 +54,7 @@ func main() {
 
 GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通过简洁的语法，无需定义结构体，就能快速提取 JSON 数据中的特定值。
 
-官网地址：[https://github.com/tidwall/gjson]([GitHub - tidwall/gjson: Get JSON values quickly - JSON parser for Go](https://github.com/tidwall/gjson))
+官网地址：[GitHub - tidwall/gjson](https://github.com/tidwall/gjson)
 
 ### 2、安装：
 
