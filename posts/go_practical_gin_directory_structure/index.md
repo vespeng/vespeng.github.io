@@ -193,8 +193,6 @@ func InitializeMySQL() error {
 
     return nil
 }
-
-
 ```
 
 app.go 中调用 InitializeMySQL()
@@ -270,7 +268,6 @@ func (uc *UserController) GetUsers(c *gin.Context) {
         }
     c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
 }
-
 ```
 
 ### 5、配置service
@@ -353,7 +350,6 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
         user.GET(&#34;/&#34;, UserController.GetUsers)
     }
 }
-
 ```
 
 ### 8、配置main
@@ -394,8 +390,6 @@ func main() {
         return
     }
 }
-
-
 ```
 
 截至这里，基本的一个查询请求就已经构建好了
