@@ -57,7 +57,7 @@ go get -u github.com/tidwall/sjson
 
 ## 三、SJSON核心用法
 
-### 1. 基础值修改
+### 1、基础值修改
 
 ```go {data-open=true}
 package main
@@ -77,7 +77,7 @@ func main() {
 }
 ```
 
-### 2. 嵌套结构修改
+### 2、嵌套结构修改
 
 ```go {data-open=true}
 package main
@@ -105,7 +105,7 @@ func main() {
 }
 ```
 
-### 3. 数组操作
+### 3、数组操作
 
 ```go {data-open=true}
 package main
@@ -129,7 +129,7 @@ func main() {
 }
 ```
 
-### 4. 字段删除
+### 4、字段删除
 
 ```go {data-open=true}
 package main
