@@ -11,7 +11,7 @@
   <meta itemprop="name" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta itemprop="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
   <meta itemprop="datePublished" content="2025-03-09T14:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-03-16T20:17:17+08:00">
+  <meta itemprop="dateModified" content="2025-03-17T21:55:05+08:00">
   <meta itemprop="wordCount" content="344">
   <meta itemprop="keywords" content="golang,go,json,sjson"><meta property="og:url" content="https://vespeng.tech/posts/go_sjson_component/">
   <meta property="og:site_name" content="Vespeng博客">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-09T14:00:00+08:00">
-    <meta property="article:modified_time" content="2025-03-16T20:17:17+08:00">
+    <meta property="article:modified_time" content="2025-03-17T21:55:05+08:00">
     <meta property="article:tag" content="Golang">
 
   <meta name="twitter:card" content="summary">
@@ -40,7 +40,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/go_sjson_component\/"
     },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "golang","wordcount":  344 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-03-16T20:17:17+08:00","publisher": {
+    "url": "https:\/\/vespeng.tech\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-03-17T21:55:05+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -145,7 +145,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-SJSON 组件，JSON 动态修改新方案</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-03-16 20:17:17"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-16">2025-03-16</time></span>&nbsp;<span title="344 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="https://avatars.githubusercontent.com/u/70800087?s=400&amp;u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&amp;v=4" alt="Vespeng" data-title="Vespeng" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-03-17 21:55:05"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-17">2025-03-17</time></span>&nbsp;<span title="344 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -172,7 +172,7 @@
     <li><a href="#四sjson-与原生方案对比">四、SJSON 与原生方案对比</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><p>在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 <code>GJSON</code> 解决了灵活读取问题，而 <code>SJSON</code> 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</p>
+      </div><div class="content" id="content"><p>在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 <a href="https://vespeng.tech/posts/go_gjson_component/"target="_blank" rel="external nofollow noopener noreferrer"><code>GJSON</code><i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> 解决了灵活读取问题，而 <code>SJSON</code> 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</p>
 <p>本文将延续对比分析风格，解析 SJSON 的核心价值。</p>
 <h2 id="一go-原生-json-修改方式" class="heading-element"><span>一、Go 原生 json 修改方式</span>
   <a href="#%e4%b8%80go-%e5%8e%9f%e7%94%9f-json-%e4%bf%ae%e6%94%b9%e6%96%b9%e5%bc%8f" class="heading-mark">
@@ -462,8 +462,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-03-16 20:17:17">更新于 2025-03-16&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/33fe49b2aa62cf52dc25654309082a03778d435d" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) 33fe49b2aa62cf52dc25654309082a03778d435d: docs:统一文档格式- 将英文标点替换为中文标点 - 统一章节标题格式 - 优化部分段落的表述"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>33fe49b</a></span>
+        <span title="更新于 2025-03-17 21:55:05">更新于 2025-03-17&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/b5eb14d07a8c0812e5e95e4bc647e446bc806740" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) b5eb14d07a8c0812e5e95e4bc647e446bc806740: docs: 更新两篇 Go 语言相关博文"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>b5eb14d</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

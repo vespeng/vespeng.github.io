@@ -8,7 +8,7 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 16 Mar 2025 20:17:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 21:55:05 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go-SJSON 组件，JSON 动态修改新方案</title>
@@ -16,7 +16,7 @@
       <pubDate>Sun, 09 Mar 2025 14:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/go_sjson_component/</guid>
       <category domain="https://vespeng.tech/categories/golang/">Golang</category>
-      <description>&lt;p&gt;在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 &lt;code&gt;GJSON&lt;/code&gt; 解决了灵活读取问题，而 &lt;code&gt;SJSON&lt;/code&gt; 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。&lt;/p&gt;</description>
+      <description>&lt;p&gt;在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 &lt;a href=&#34;https://vespeng.tech/posts/go_gjson_component/&#34;target=&#34;_blank&#34; rel=&#34;external nofollow noopener noreferrer&#34;&gt;&lt;code&gt;GJSON&lt;/code&gt;&lt;i class=&#34;fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/a&gt; 解决了灵活读取问题，而 &lt;code&gt;SJSON&lt;/code&gt; 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go-GJSON 组件，解锁 JSON 读取新姿势</title>
