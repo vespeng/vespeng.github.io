@@ -392,7 +392,7 @@ func main() {
 }
 ```
 
-截至这里，基本的一个查询请求就已经构建好了
+截至这里，一个基本的查询请求就已经构建完成
 
 ### 7、启动项目
 
@@ -416,6 +416,8 @@ Listening and serving HTTP on :8080
     ]
 }
 ```
+
+上述示例，我已经上传至 [GitHub - vespeng/gin-pathway](https://github.com/vespeng/gin-pathway)，欢迎 fork 和 star。
 
 
 ---
