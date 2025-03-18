@@ -32,7 +32,7 @@
 │   │   ├── loader.go
 │   │   ├── db.go
 │   │   └── ...
-│   ├── /controller
+│   ├── /controllers
 │   │   ├── user_controller.go
 │   │   └── ...
 │   ├── /middleware
@@ -50,7 +50,7 @@
 │   └── /utils
 ├── /pkg
 ├── /scripts
-├── /test
+├── /tests
 ├── .env
 ├── go.mod
 ├── go.sum
