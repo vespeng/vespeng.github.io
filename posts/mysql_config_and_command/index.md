@@ -16,9 +16,9 @@
 # 设置MySQL服务的端口号，默认为3306
 port=3306
 # MySQL安装目录
-basedir=D:\Env\mysql-8.4.4-winx64
+basedir=D:\Env\mysql-8.4.0-winx64
 # MySQL数据文件的存储目录，根据实际情况修改路径
-datadir=D:\Env\mysql-8.4.4-winx64\data
+datadir=D:\Env\mysql-8.4.0-winx64\data
 # 设置MySQL使用的字符集，utf8mb4支持更多字符，建议使用
 character-set-server=utf8mb4
 # 设置默认的存储引擎，InnoDB是MySQL 8的默认且推荐的事务安全存储引擎
