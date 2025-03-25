@@ -66,6 +66,11 @@ if err != nil {
 viper.AddConfigPath(&#34;./config&#34;)
 viper.SetConfigName(fmt.Sprintf(&#34;config_%s&#34;, env))
 viper.SetConfigType(&#34;yaml&#34;)
+
+err = viper.ReadInConfig()
+if err != nil {
+    return fmt.Errorf(&#34;读取配置文件失败: %v&#34;, err)
+}
 ```
 
 这段代码会根据 `APP_ENV` 的值（例如 `dev` 或 `production`），选择对应的配置文件（如 `config_dev.yaml` 或 `config_prod.yaml`）。这样可以根据不同的环境加载不同的配置。
