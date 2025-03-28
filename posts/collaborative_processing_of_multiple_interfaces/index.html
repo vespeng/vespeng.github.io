@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng博客</title><meta name="author" content="Vespeng">
+    <title>Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
 <meta name="description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。
 "><meta name="keywords" content='golang, go, 并发, 协程'>
   <meta itemprop="name" content="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合">
@@ -14,7 +14,7 @@
   <meta itemprop="dateModified" content="2025-03-20T23:03:02+08:00">
   <meta itemprop="wordCount" content="222">
   <meta itemprop="keywords" content="golang,go,并发,协程"><meta property="og:url" content="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/">
-  <meta property="og:site_name" content="Vespeng博客">
+  <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合">
   <meta property="og:description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。">
   <meta property="og:locale" content="zh_CN">
@@ -29,8 +29,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合">
   <meta name="twitter:description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。">
-<meta name="application-name" content="Vespeng博客">
-<meta name="apple-mobile-web-app-title" content="Vespeng博客"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng博客" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 语言的并发优势" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数字类型（踩坑）" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/index.md" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="application-name" content="Vespeng&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/the_concurrency_advantage_of_go/" title="Go 语言的并发优势" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数字类型（踩坑）" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/index.md" title="Go 语言并发实战：利用协程处理多个接口的 Map 数据融合 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -53,7 +53,7 @@
   <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng博客"><img loading="lazy" src="/favicon.svg" alt="Vespeng博客" data-title="Vespeng博客" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng&#39;s Blog"><img loading="lazy" src="/favicon.svg" alt="Vespeng&#39;s Blog" data-title="Vespeng&#39;s Blog" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/"><i class="fa-solid fa-feather fa-fw fa-sm" aria-hidden="true"></i> 随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng博客"><img loading="lazy" src="/favicon.svg" alt="Vespeng博客" data-title="Vespeng博客" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng&#39;s Blog"><img loading="lazy" src="/favicon.svg" alt="Vespeng&#39;s Blog" data-title="Vespeng&#39;s Blog" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -140,7 +140,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng博客">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 语言并发实战：利用协程处理多个接口的 Map 数据融合</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 语言并发实战：利用协程处理多个接口的 Map 数据融合</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 

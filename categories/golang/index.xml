@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang - 分类 - Vespeng博客</title>
+    <title>Golang - 分类 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.tech/categories/golang/</link>
     <description>不定期记录开发路上的片段，与君共勉。</description>
     <generator>Hugo 0.145.0 &amp; FixIt v0.3.17-015610b7</generator>
