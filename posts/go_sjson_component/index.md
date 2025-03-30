@@ -41,13 +41,13 @@ func main() {
 
 ## 二、SJSON 组件
 
-### 1、概述：
+### 1.概述：
 
 SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSON 采用相同路径语法，形成读写闭环。
 
 官网地址：[GitHub - tidwall/sjson](https://github.com/tidwall/sjson)
 
-### 2、安装：
+### 2.安装：
 
 使用 Go 的包管理工具 `go get` 安装 SJSON：
 
@@ -57,7 +57,7 @@ go get -u github.com/tidwall/sjson
 
 ## 三、SJSON核心用法
 
-### 1、基础值修改
+### 1.基础值修改
 
 ```go {data-open=true}
 package main
@@ -77,7 +77,7 @@ func main() {
 }
 ```
 
-### 2、嵌套结构修改
+### 2.嵌套结构修改
 
 ```go {data-open=true}
 package main
@@ -105,7 +105,7 @@ func main() {
 }
 ```
 
-### 3、数组操作
+### 3.数组操作
 
 ```go {data-open=true}
 package main
@@ -129,7 +129,7 @@ func main() {
 }
 ```
 
-### 4、字段删除
+### 4.字段删除
 
 ```go {data-open=true}
 package main

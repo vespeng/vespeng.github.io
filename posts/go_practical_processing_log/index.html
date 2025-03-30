@@ -11,7 +11,7 @@
   <meta itemprop="name" content="Go 项目实战：如何优雅的处理日志">
   <meta itemprop="description" content="在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。">
   <meta itemprop="datePublished" content="2025-01-22T21:40:00+08:00">
-  <meta itemprop="dateModified" content="2025-03-20T23:03:02+08:00">
+  <meta itemprop="dateModified" content="2025-03-30T14:23:47+08:00">
   <meta itemprop="wordCount" content="529">
   <meta itemprop="keywords" content="golang,go,gin,log,logrus"><meta property="og:url" content="https://vespeng.tech/posts/go_practical_processing_log/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-22T21:40:00+08:00">
-    <meta property="article:modified_time" content="2025-03-20T23:03:02+08:00">
+    <meta property="article:modified_time" content="2025-03-30T14:23:47+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="Gin">
 
@@ -41,7 +41,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/go_practical_processing_log\/"
     },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  529 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_practical_processing_log\/","datePublished": "2025-01-22T21:40:00+08:00","dateModified": "2025-03-20T23:03:02+08:00","publisher": {
+    "url": "https:\/\/vespeng.tech\/posts\/go_practical_processing_log\/","datePublished": "2025-01-22T21:40:00+08:00","dateModified": "2025-03-30T14:23:47+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -157,7 +157,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：如何优雅的处理日志</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-22 21:40:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-22">2025-01-22</time></span>&nbsp;<span title="更新于 2025-03-20 23:03:02"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-20">2025-03-20</time></span>&nbsp;<span title="529 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何优雅的处理日志"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-22 21:40:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-22">2025-01-22</time></span>&nbsp;<span title="更新于 2025-03-30 14:23:47"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-30">2025-03-30</time></span>&nbsp;<span title="529 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何优雅的处理日志"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -172,11 +172,11 @@
     <li><a href="#四使用第三方日志库">四、使用第三方日志库</a></li>
     <li><a href="#五实战">五、实战</a>
       <ul>
-        <li><a href="#1配置configyaml">1、配置config.yaml</a></li>
-        <li><a href="#2配置configgo">2、配置config.go</a></li>
-        <li><a href="#3新建loggergo">3、新建logger.go</a></li>
-        <li><a href="#4输出日志到文件">4、输出日志到文件</a></li>
-        <li><a href="#5调用initializelogger">5、调用InitializeLogger()</a></li>
+        <li><a href="#1配置configyaml">1.配置config.yaml</a></li>
+        <li><a href="#2配置configgo">2.配置config.go</a></li>
+        <li><a href="#3新建loggergo">3.新建logger.go</a></li>
+        <li><a href="#4输出日志到文件">4.输出日志到文件</a></li>
+        <li><a href="#5调用initializelogger">5.调用InitializeLogger()</a></li>
       </ul>
     </li>
   </ul>
@@ -340,7 +340,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get github.com/sirupsen/logrus</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="1配置configyaml" class="heading-element"><span>1、配置config.yaml</span>
+</div><h3 id="1配置configyaml" class="heading-element"><span>1.配置config.yaml</span>
   <a href="#1%e9%85%8d%e7%bd%aeconfigyaml" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -358,13 +358,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">debug           </span><span class="w"> </span><span class="c"># 日志级别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">report_caller</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 是否开启调试</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2配置configgo" class="heading-element"><span>2、配置config.go</span>
+</div><h3 id="2配置configgo" class="heading-element"><span>2.配置config.go</span>
   <a href="#2%e9%85%8d%e7%bd%aeconfiggo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>有了参数配置，还缺一步解析：</p>
 <p>具体的解析可以参考 <a href="https://vespeng.tech/posts/go_practical_gin_directory_structure/"target="_blank" rel="external nofollow noopener noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<h3 id="3新建loggergo" class="heading-element"><span>3、新建logger.go</span>
+<h3 id="3新建loggergo" class="heading-element"><span>3.新建logger.go</span>
   <a href="#3%e6%96%b0%e5%bb%baloggergo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -456,7 +456,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="4输出日志到文件" class="heading-element"><span>4、输出日志到文件</span>
+</div><h3 id="4输出日志到文件" class="heading-element"><span>4.输出日志到文件</span>
   <a href="#4%e8%be%93%e5%87%ba%e6%97%a5%e5%bf%97%e5%88%b0%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -553,7 +553,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="5调用initializelogger" class="heading-element"><span>5、调用InitializeLogger()</span>
+</div><h3 id="5调用initializelogger" class="heading-element"><span>5.调用InitializeLogger()</span>
   <a href="#5%e8%b0%83%e7%94%a8initializelogger" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -643,8 +643,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-03-20 23:03:02">更新于 2025-03-20&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/8406528c1b6cfac86fc07d136cb163147353930d" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) 8406528c1b6cfac86fc07d136cb163147353930d: refactor(content): 统一文章分类和标签格式"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8406528</a></span>
+        <span title="更新于 2025-03-30 14:23:47">更新于 2025-03-30&nbsp;
+                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/5f9c69058bfea925f25cb22e4aa6277784ffacb0" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) 5f9c69058bfea925f25cb22e4aa6277784ffacb0: docs:统一文档章节标题格式"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>5f9c690</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

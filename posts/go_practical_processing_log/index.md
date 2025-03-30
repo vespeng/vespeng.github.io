@@ -104,7 +104,7 @@ func main() {
 go get github.com/sirupsen/logrus
 ```
 
-### 1、配置config.yaml
+### 1.配置config.yaml
 
 为了方便随时更改切换 log 级别或者输出格式，我们可以单独抽离出来实现配置化：
 
@@ -115,13 +115,13 @@ log:
   report_caller: true     # 是否开启调试
 ```
 
-### 2、配置config.go
+### 2.配置config.go
 
 有了参数配置，还缺一步解析：
 
 具体的解析可以参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.tech/posts/go_practical_gin_directory_structure/)
 
-### 3、新建logger.go
+### 3.新建logger.go
 
 在这里我们统一配置 logrus 参数，包括日志级别，输出格式：
 
@@ -169,7 +169,7 @@ func InitializeLogger() error {
 }
 ```
 
-### 4、输出日志到文件
+### 4.输出日志到文件
 
 控制台打印日志，肯定是不满足一个项目的正常使用的，我们非常有必要将日志持久化到一个单独文件中。
 
@@ -221,7 +221,7 @@ func InitializeLogger() error {
 }
 ```
 
-### 5、调用InitializeLogger()
+### 5.调用InitializeLogger()
 
 ```go {data-open=true}
 package main
