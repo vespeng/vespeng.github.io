@@ -20,8 +20,7 @@
 ```html {data-open=true}
 ├── /cmd  
 │   └── main.go  
-├── /config
-│   └── config.go  
+├── /configs
 │   └── config.yaml
 ├── /docs
 ├── /internal
@@ -29,6 +28,7 @@
 │   │   ├── v1
 │   │   │   ├── /routes.go
 │   ├── /app
+│   │   ├── config.go
 │   │   ├── loader.go
 │   │   ├── db.go
 │   │   └── ...
@@ -61,9 +61,8 @@
 - **`/cmd`**
     * 存放应用的入口文件。
     * **`main.go`**：是整个应用的入口，在这里启动应用。
-- **`/config`**
+- **`/configs`**
     * 存放应用的配置文件和配置加载逻辑。
-    * **`config.go`**：包含配置加载和解析的逻辑。
     * **`config.yaml`**：应用的配置文件，通常包含数据库连接信息、服务器设置等。
 - **`/docs`**
     * 存放应用的文档，如API文档、用户手册等。
@@ -136,7 +135,7 @@ var Conf *Config
 func LoadConfig() error {
 
     // 设置配置文件路径和名称
-    viper.AddConfigPath(&#34;./config&#34;)
+    viper.AddConfigPath(&#34;./configs&#34;)
     viper.SetConfigName(&#34;config&#34;)
     viper.SetConfigType(&#34;yaml&#34;)
 
