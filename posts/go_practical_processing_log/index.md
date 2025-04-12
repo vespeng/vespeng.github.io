@@ -2,7 +2,7 @@
 
 
 在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。
-&lt;!--more--&gt;
+<!--more-->
 ## 一、日志级别的重要性
 
 日志级别是控制日志输出的重要手段。通过设置不同的日志级别，我们可以灵活地控制日志的详细程度。在 Go 语言中，常见的日志级别有`DEBUG`、`INFO`、`WARN`、`ERROR`和`FATAL`。不同级别的日志用于记录不同类型的信息，例如：
@@ -23,19 +23,19 @@
 package main
 
 import (
-    &#34;github.com/sirupsen/logrus&#34;
+    "github.com/sirupsen/logrus"
 )
 
 func main() {
     // 设置日志格式为JSON
-    logrus.SetFormatter(&amp;logrus.JSONFormatter{})
+    logrus.SetFormatter(&logrus.JSONFormatter{})
 
     // 记录不同级别的日志
-    logrus.Debug(&#34;这是一条DEBUG级别的日志&#34;)
-    logrus.Info(&#34;这是一条INFO级别的日志&#34;)
-    logrus.Warn(&#34;这是一条WARN级别的日志&#34;)
-    logrus.Error(&#34;这是一条ERROR级别的日志&#34;)
-    logrus.Fatal(&#34;这是一条FATAL级别的日志&#34;)
+    logrus.Debug("这是一条DEBUG级别的日志")
+    logrus.Info("这是一条INFO级别的日志")
+    logrus.Warn("这是一条WARN级别的日志")
+    logrus.Error("这是一条ERROR级别的日志")
+    logrus.Fatal("这是一条FATAL级别的日志")
 }
 ```
 
@@ -46,11 +46,11 @@ func main() {
 ```go {data-open=true}
 package main
 
-import &#34;log&#34;
+import "log"
 
 func main() {
     // 记录日志到控制台
-    log.Println(&#34;这是一条日志信息&#34;)
+    log.Println("这是一条日志信息")
 }
 ```
 
@@ -60,13 +60,13 @@ func main() {
 package main
 
 import (
-    &#34;log&#34;
-    &#34;os&#34;
+    "log"
+    "os"
 )
 
 func main() {
     // 创建日志文件
-    file, err := os.OpenFile(&#34;app.log&#34;, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+    file, err := os.OpenFile("app.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
     if err != nil {
         log.Fatal(err)
     }
@@ -76,7 +76,7 @@ func main() {
     log.SetOutput(file)
 
     // 记录日志
-    log.Println(&#34;这是一条日志信息&#34;)
+    log.Println("这是一条日志信息")
 }
 ```
 
@@ -90,7 +90,7 @@ func main() {
 * `zap`：一个高性能的日志库，具有快速、灵活、可扩展等特点。
 * `zerolog`：一个极简主义的日志库，专注于提供高性能和简单的 API。
 
-&gt; *ps: 上述简介来自于AI，注意甄别*
+> *ps: 上述简介来自于AI，注意甄别*
 
 这些第三方日志库都提供了丰富的功能和灵活的配置选项，可以帮助我们更好地处理日志。在这里个人比较推荐 **logrus** ，不过具体需求还是得具体选择。
 
@@ -129,34 +129,34 @@ log:
 package app
 
 import (
-    log &#34;github.com/sirupsen/logrus&#34;
+    log "github.com/sirupsen/logrus"
 )
 
 // InitializeLogger 设置日志输出
 func InitializeLogger() error {
     // 设置日志格式
     switch config.Conf.Log.Format {
-    case &#34;json&#34;:
-        log.SetFormatter(&amp;log.JSONFormatter{})
-    case &#34;text&#34;:
-        log.SetFormatter(&amp;log.TextFormatter{})
+    case "json":
+        log.SetFormatter(&log.JSONFormatter{})
+    case "text":
+        log.SetFormatter(&log.TextFormatter{})
     default:
-        log.SetFormatter(&amp;log.JSONFormatter{})
+        log.SetFormatter(&log.JSONFormatter{})
     }
 
     // 设置日志级别
     switch config.Conf.Log.Level {
-    case &#34;debug&#34;:
+    case "debug":
         log.SetLevel(log.DebugLevel)
-    case &#34;info&#34;:
+    case "info":
         log.SetLevel(log.InfoLevel)
-    case &#34;warn&#34;:
+    case "warn":
         log.SetLevel(log.WarnLevel)
-    case &#34;error&#34;:
+    case "error":
         log.SetLevel(log.ErrorLevel)
-    case &#34;fatal&#34;:
+    case "fatal":
         log.SetLevel(log.FatalLevel)
-    case &#34;panic&#34;:
+    case "panic":
         log.SetLevel(log.PanicLevel)
     default:
         log.SetLevel(log.InfoLevel)
@@ -179,11 +179,11 @@ func InitializeLogger() error {
 package app
 
 import (
-    &#34;os&#34;
-    &#34;time&#34;
-    &#34;github.com/lestrrat-go/file-rotatelogs&#34;
-    log &#34;github.com/sirupsen/logrus&#34;
-    &#34;your_project/config&#34;
+    "os"
+    "time"
+    "github.com/lestrrat-go/file-rotatelogs"
+    log "github.com/sirupsen/logrus"
+    "your_project/config"
 )
 
 // InitializeLogger 设置日志输出并初始化日志文件
@@ -198,22 +198,22 @@ func InitializeLogger() error {
     ...
 
     // 创建日志目录
-    logDir := &#34;../logs&#34;
+    logDir := "../logs"
     err := os.MkdirAll(logDir, 0755)
     if err != nil {
-        log.Fatalf(&#34;创建日志目录失败: %v&#34;, err)
+        log.Fatalf("创建日志目录失败: %v", err)
     }
 
     // 设置日志输出，按天切割
-    logFilePath := logDir &#43; &#34;/app.%Y%m%d.log&#34;
+    logFilePath := logDir + "/app.%Y%m%d.log"
     writer, err := rotatelogs.New(
         logFilePath,
-        rotatelogs.WithLinkName(logDir&#43;&#34;/app.log&#34;),
+        rotatelogs.WithLinkName(logDir+"/app.log"),
         rotatelogs.WithMaxAge(7*24*time.Hour),     // 保留7天
         rotatelogs.WithRotationTime(24*time.Hour), // 每天切割一次
     )
     if err != nil {
-        log.Fatalf(&#34;设置日志输出失败: %v&#34;, err)
+        log.Fatalf("设置日志输出失败: %v", err)
     }
     log.SetOutput(writer)
 
@@ -227,35 +227,35 @@ func InitializeLogger() error {
 package main
 
 import (
-    &#34;fmt&#34;
-    &#34;github.com/gin-gonic/gin&#34;
-    log &#34;github.com/sirupsen/logrus&#34;
-    &#34;your_project/config&#34;
-    &#34;your_project/internal/api/v1&#34;
-    &#34;your_project/internal/app&#34;
+    "fmt"
+    "github.com/gin-gonic/gin"
+    log "github.com/sirupsen/logrus"
+    "your_project/config"
+    "your_project/internal/api/v1"
+    "your_project/internal/app"
 )
 
 func main() {
     // 加载配置文件
     err := config.LoadConfig()
     if err != nil {
-        log.Error(&#34;配置文件加载错误: %v&#34;, err)
+        log.Error("配置文件加载错误: %v", err)
         return
     }
 
     // 初始化 logger
     err = InitializeLogger()
     if err != nil {
-        log.Error(&#34;logger 初始化错误: %v&#34;, err)
+        log.Error("logger 初始化错误: %v", err)
         return
     }
 
     r := gin.Default()
     v1.SetupRoutes(r, Engine)
 
-    err = r.Run(fmt.Sprintf(&#34;:%d&#34;, config.Conf.App.Port))
+    err = r.Run(fmt.Sprintf(":%d", config.Conf.App.Port))
     if err != nil {
-        log.Error(&#34;服务启动错误: %v&#34;, err)
+        log.Error("服务启动错误: %v", err)
         return
     }
 }

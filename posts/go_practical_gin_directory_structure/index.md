@@ -90,7 +90,7 @@
 
 目录搭建好后，开始填充代码
 
-&gt; 下边简单实现集成数据库，配置路由，启动服务
+> 下边简单实现集成数据库，配置路由，启动服务
 
 ### 1.配置config
 
@@ -102,7 +102,7 @@ app:
   port: 8080
 database:
   driver: mysql
-  source: root:123456@tcp(127.0.0.1:3306)/xxx_table?charset=utf8mb4&amp;parseTime=True&amp;loc=Local
+  source: root:123456@tcp(127.0.0.1:3306)/xxx_table?charset=utf8mb4&parseTime=True&loc=Local
 ```
 
 在 config.go 下解析配置
@@ -111,22 +111,22 @@ database:
 package config
 
 import (
-    &#34;fmt&#34;
-    &#34;github.com/spf13/viper&#34;
+    "fmt"
+    "github.com/spf13/viper"
 )
 
 type Config struct {
-    App      AppConfig      `yaml:&#34;app&#34; mapstructure:&#34;app&#34;`
-    Database DatabaseConfig `yaml:&#34;database&#34; mapstructure:&#34;database&#34;`
+    App      AppConfig      `yaml:"app" mapstructure:"app"`
+    Database DatabaseConfig `yaml:"database" mapstructure:"database"`
 }
 
 type AppConfig struct {
-    Port int `mapstructure:&#34;port&#34;`
+    Port int `mapstructure:"port"`
 }
 
 type DatabaseConfig struct {
-    Driver string `yaml:&#34;driver&#34; mapstructure:&#34;driver&#34;`
-    Source string `yaml:&#34;source&#34; mapstructure:&#34;source&#34;`
+    Driver string `yaml:"driver" mapstructure:"driver"`
+    Source string `yaml:"source" mapstructure:"source"`
 }
 
 var Conf *Config
@@ -135,21 +135,21 @@ var Conf *Config
 func LoadConfig() error {
 
     // 设置配置文件路径和名称
-    viper.AddConfigPath(&#34;./configs&#34;)
-    viper.SetConfigName(&#34;config&#34;)
-    viper.SetConfigType(&#34;yaml&#34;)
+    viper.AddConfigPath("./configs")
+    viper.SetConfigName("config")
+    viper.SetConfigType("yaml")
 
     // 读取配置文件
     err = viper.ReadInConfig()
     if err != nil {
-        return fmt.Errorf(&#34;读取配置文件失败: %v&#34;, err)
+        return fmt.Errorf("读取配置文件失败: %v", err)
     }
 
     // 将配置文件内容解析到 Conf 变量中
-    Conf = &amp;Config{}
+    Conf = &Config{}
     err = viper.Unmarshal(Conf)
     if err != nil {
-        return fmt.Errorf(&#34;解析配置文件失败: %v&#34;, err)
+        return fmt.Errorf("解析配置文件失败: %v", err)
     }
 
     return nil
@@ -160,16 +160,16 @@ func LoadConfig() error {
 
 数据库及其他的初始化统一放置到 app 目录下，在这里新建 loader.go 来初始化 mysql，但是为了之后方便管理，我们另单独创建 db.go 文件：
 
-&gt; 如需要加载其他如 redis，那就新建 redis.go 文件
+> 如需要加载其他如 redis，那就新建 redis.go 文件
 
 ```go {data-open=true}
 package app
 
 import (
-    _ &#34;github.com/go-sql-driver/mysql&#34;
-    &#34;github.com/go-xorm/xorm&#34;
-    log &#34;github.com/sirupsen/logrus&#34;
-    &#34;yourProject/config&#34;
+    _ "github.com/go-sql-driver/mysql"
+    "github.com/go-xorm/xorm"
+    log "github.com/sirupsen/logrus"
+    "yourProject/config"
 )
 
 var Engine *xorm.Engine
@@ -180,13 +180,13 @@ func InitializeMySQL() error {
     // 创建数据库引擎
     Engine, err = xorm.NewEngine(config.Conf.Database.Driver, config.Conf.Database.Source)
     if err != nil {
-        log.Error(&#34;数据库初始化失败: %v&#34;, err)
+        log.Error("数据库初始化失败: %v", err)
         return err
     }
 
     // 测试数据库连接
     if err = Engine.Ping(); err != nil {
-        log.Error(&#34;数据库连接失败: %v&#34;, err)
+        log.Error("数据库连接失败: %v", err)
         return err
     }
 
@@ -200,14 +200,14 @@ app.go 中调用 InitializeMySQL()
 package app
 
 import (
-    &#34;fmt&#34;
+    "fmt"
 )
 
 // InitializeAll 初始化所有模块
 func InitializeAll() error {
     err := InitializeMySQL()
     if err != nil {
-        return fmt.Errorf(&#34;MySQL初始化错误: %v&#34;, err)
+        return fmt.Errorf("MySQL初始化错误: %v", err)
     }
 
     return nil
@@ -222,19 +222,19 @@ func InitializeAll() error {
 package models
 
 type User struct {
-    Id          int64  `xorm:&#34;pk autoincr &#39;id&#39;&#34;`
-    UserID      int64  `xorm:&#34;not null &#39;user_id&#39;&#34;`
-    Password    string `xorm:&#34;varchar(50) not null &#39;password&#39;&#34;`
-    UserName    string `xorm:&#34;varchar(30) &#39;user_name&#39;&#34;`
-    Email       string `xorm:&#34;varchar(50) &#39;email&#39;&#34;`
-    PhoneNumber int64  `xorm:&#34;&#39;phone_number&#39;&#34;`
-    Sex         string `xorm:&#34;char(1) &#39;sex&#39;&#34;`
-    Remark      string `xorm:&#34;varchar(500) &#39;remark&#39;&#34;`
+    Id          int64  `xorm:"pk autoincr 'id'"`
+    UserID      int64  `xorm:"not null 'user_id'"`
+    Password    string `xorm:"varchar(50) not null 'password'"`
+    UserName    string `xorm:"varchar(30) 'user_name'"`
+    Email       string `xorm:"varchar(50) 'email'"`
+    PhoneNumber int64  `xorm:"'phone_number'"`
+    Sex         string `xorm:"char(1) 'sex'"`
+    Remark      string `xorm:"varchar(500) 'remark'"`
 }
 
 // TableName 方法用于返回表名
 func (u User) TableName() string {
-    return &#34;user&#34;
+    return "user"
 }
 ```
 
@@ -246,9 +246,9 @@ func (u User) TableName() string {
 package controllers
 
 import (
-    &#34;your_project/internal/services&#34;
-    &#34;github.com/gin-gonic/gin&#34;
-    &#34;net/http&#34;
+    "your_project/internal/services"
+    "github.com/gin-gonic/gin"
+    "net/http"
 )
 
 type UserController struct {
@@ -256,16 +256,16 @@ type UserController struct {
 }
 
 func NewUserController(UserService *services.UserService) *UserController {
-    return &amp;UserController{UserService: UserService}
+    return &UserController{UserService: UserService}
 }
 
 func (uc *UserController) GetUsers(c *gin.Context) {
     users, err := uc.UserService.GetUsers()
         if err != nil {
-            c.JSON(http.StatusInternalServerError, gin.H{&#34;error&#34;: &#34;Failed to fetch users&#34;})
+            c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch users"})
             return
         }
-    c.JSON(http.StatusOK, gin.H{&#34;users&#34;: users})
+    c.JSON(http.StatusOK, gin.H{"users": users})
 }
 ```
 
@@ -277,9 +277,9 @@ func (uc *UserController) GetUsers(c *gin.Context) {
 package services
 
 import (
-    &#34;your_project/internal/models&#34;
-    &#34;your_project/internal/repositories&#34;
-    &#34;github.com/go-xorm/xorm&#34;
+    "your_project/internal/models"
+    "your_project/internal/repositories"
+    "github.com/go-xorm/xorm"
 )
 
 type UserService struct {
@@ -287,7 +287,7 @@ type UserService struct {
 }
 
 func NewUserService(engine *xorm.Engine) *UserService {
-    return &amp;UserService{userRepo: repositories.NewUserRepository(engine)}
+    return &UserService{userRepo: repositories.NewUserRepository(engine)}
 }
 
 func (us *UserService) GetUsers() ([]*models.User, error) {
@@ -303,8 +303,8 @@ func (us *UserService) GetUsers() ([]*models.User, error) {
 package repositories
 
 import (
-    &#34;your_project/internal/models&#34;
-    &#34;github.com/go-xorm/xorm&#34;
+    "your_project/internal/models"
+    "github.com/go-xorm/xorm"
 )
 
 type UserRepository struct {
@@ -312,13 +312,13 @@ type UserRepository struct {
 }
 
 func NewUserRepository(engine *xorm.Engine) *UserRepository {
-    return &amp;UserRepository{engine: engine}
+    return &UserRepository{engine: engine}
 }
 
 // GetUsers 获取所有用户
 func (r *UserRepository) GetUsers() ([]*models.User, error) {
     var users []*models.User
-    err := r.engine.Table(models.User{}.TableName()).Find(&amp;users)
+    err := r.engine.Table(models.User{}.TableName()).Find(&users)
     return users, err
 }
 ```
@@ -331,22 +331,22 @@ routes.go 中设置路由，这里设置路由组，为方便日后迭代
 package v1
 
 import (
-    &#34;github.com/gin-gonic/gin&#34;
-    &#34;github.com/go-xorm/xorm&#34;
-    &#34;your_project/internal/controllers&#34;
-    &#34;your_project/internal/services&#34;
+    "github.com/gin-gonic/gin"
+    "github.com/go-xorm/xorm"
+    "your_project/internal/controllers"
+    "your_project/internal/services"
 )
 
 func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
     // 定义用户路由组
-    user := r.Group(&#34;/user&#34;)
+    user := r.Group("/user")
     {
         // 创建 UserService 实例
         UserService := services.NewUserService(engine)
         // 创建 UserController 实例
         UserController := controllers.NewUserController(UserService)
 
-        user.GET(&#34;/&#34;, UserController.GetUsers)
+        user.GET("/", UserController.GetUsers)
     }
 }
 ```
@@ -357,35 +357,35 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 package main
 
 import (
-    &#34;fmt&#34;
-    &#34;github.com/gin-gonic/gin&#34;
-    log &#34;github.com/sirupsen/logrus&#34;
-    &#34;your_project/config&#34;
-    &#34;your_project/internal/api/v1&#34;
-    &#34;your_project/internal/app&#34;
+    "fmt"
+    "github.com/gin-gonic/gin"
+    log "github.com/sirupsen/logrus"
+    "your_project/config"
+    "your_project/internal/api/v1"
+    "your_project/internal/app"
 )
 
 func main() {
     // 加载配置文件
     err := config.LoadConfig()
     if err != nil {
-        log.Error(&#34;配置文件加载错误: %v&#34;, err)
+        log.Error("配置文件加载错误: %v", err)
         return
     }
 
     // 初始化所有模块
     err = InitializeAll()
     if err != nil {
-        log.Error(&#34;模块初始化错误: %v&#34;, err)
+        log.Error("模块初始化错误: %v", err)
         return
     }
 
     r := gin.Default()
     v1.SetupRoutes(r, Engine)
 
-    err = r.Run(fmt.Sprintf(&#34;:%d&#34;, config.Conf.App.Port))
+    err = r.Run(fmt.Sprintf(":%d", config.Conf.App.Port))
     if err != nil {
-        log.Error(&#34;服务启动错误: %v&#34;, err)
+        log.Error("服务启动错误: %v", err)
         return
     }
 }
@@ -405,11 +405,11 @@ Listening and serving HTTP on :8080
 
 ```json
 {
-    &#34;users&#34;: [
+    "users": [
         {
-            &#34;Id&#34;: 1,
-            &#34;UserID&#34;: &#34;000001&#34;,
-            &#34;Password&#34;: &#34;123456&#34;,
+            "Id": 1,
+            "UserID": "000001",
+            "Password": "123456",
             ...
         }
     ]

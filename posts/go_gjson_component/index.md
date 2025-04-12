@@ -1,8 +1,8 @@
 # Go-GJSON 组件，解锁 JSON 读取新姿势
 
 
-在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 `encoding/json` 包用于处理 json 数据，同时第三方库 `GJSON` &amp; `SJSON` 也在 json 处理方面表现出色。
-&lt;!--more--&gt;
+在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 `encoding/json` 包用于处理 json 数据，同时第三方库 `GJSON` & `SJSON` 也在 json 处理方面表现出色。
+<!--more-->
 本文将深入探讨下 GJSON 组件，通过与原生处理方式对比，它存在什么特别之处，它的优势体现在哪。
 
 ## 一、Go 原生 json 读取方式
@@ -11,8 +11,8 @@ Go 原生读取 json 数据，通常需先定义结构体，然后再将 json �
 
 ```json
 {
-    &#34;name&#34;: &#34;张三&#34;,
-    &#34;age&#34;: 25
+    "name": "张三",
+    "age": 25
 }
 ```
 
@@ -22,27 +22,27 @@ Go 原生读取 json 数据，通常需先定义结构体，然后再将 json �
 package main
 
 import (
-    &#34;encoding/json&#34;
-    &#34;fmt&#34;
+    "encoding/json"
+    "fmt"
 )
 
 type Person struct {
-    Name string `json:&#34;name&#34;`
-    Age  int    `json:&#34;age&#34;`
+    Name string `json:"name"`
+    Age  int    `json:"age"`
 }
 
 func main() {
-    jsonStr := `{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`
+    jsonStr := `{"name":"张三","age":25}`
 
     var person Person
-    err := json.Unmarshal([]byte(jsonStr), &amp;person)
+    err := json.Unmarshal([]byte(jsonStr), &person)
     if err!= nil {
-        fmt.Println(&#34;解析错误:&#34;, err)
+        fmt.Println("解析错误:", err)
         return
     }
 
-    fmt.Println(&#34;Name:&#34;, person.Name)
-    fmt.Println(&#34;Age:&#34;, person.Age)
+    fmt.Println("Name:", person.Name)
+    fmt.Println("Age:", person.Age)
 }
 ```
 
@@ -68,24 +68,24 @@ go get -u github.com/tidwall/gjson
 
 ### 1.简单 json 数据获取
 
-对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, &#34;name&#34;)` 就可以搞定，例如：
+对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, "name")` 就可以搞定，例如：
 
 ```go {data-open=true}
 package main
 
 import (
-    &#34;fmt&#34;
-    &#34;github.com/tidwall/gjson&#34;
+    "fmt"
+    "github.com/tidwall/gjson"
 )
 
 func main() {
-    jsonStr := `{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`
+    jsonStr := `{"name":"张三","age":25}`
 
-    name := gjson.Get(jsonStr, &#34;name&#34;)
-    age := gjson.Get(jsonStr, &#34;age&#34;)
+    name := gjson.Get(jsonStr, "name")
+    age := gjson.Get(jsonStr, "age")
 
-    fmt.Println(&#34;Name:&#34;, name.String())
-    fmt.Println(&#34;Age:&#34;, age.Int())
+    fmt.Println("Name:", name.String())
+    fmt.Println("Age:", age.Int())
 }
 ```
 
@@ -95,13 +95,13 @@ func main() {
 
 ```json {data-open=true}
 {
-    &#34;name&#34;: &#34;张三&#34;,
-    &#34;age&#34;: 25,
-    &#34;hobby&#34;: {
-        &#34;sing&#34;: &#34;只因你太美&#34;,
-        &#34;dance&#34;: &#34;背带裤&#34;,
-        &#34;rap&#34;: &#34;kun&#34;,
-        &#34;ball&#34;: &#34;篮球&#34;
+    "name": "张三",
+    "age": 25,
+    "hobby": {
+        "sing": "只因你太美",
+        "dance": "背带裤",
+        "rap": "kun",
+        "ball": "篮球"
     }
 }
 ```
@@ -112,26 +112,26 @@ func main() {
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/gjson&#34;
+	"fmt"
+	"github.com/tidwall/gjson"
 )
 
 func main() {
 	jsonStr := `{
-		&#34;name&#34;: &#34;张三&#34;,
-		&#34;age&#34;: 25,
-		&#34;hobby&#34;: {
-			&#34;sing&#34;: &#34;只因你太美&#34;,
-			&#34;dance&#34;: &#34;背带裤&#34;,
-			&#34;rap&#34;: &#34;kun&#34;,
-			&#34;ball&#34;: &#34;篮球&#34;
+		"name": "张三",
+		"age": 25,
+		"hobby": {
+			"sing": "只因你太美",
+			"dance": "背带裤",
+			"rap": "kun",
+			"ball": "篮球"
 		}`
 
-	name := gjson.Get(jsonStr, &#34;name&#34;)
-	ball := gjson.Get(jsonStr, &#34;hobby.ball&#34;)
+	name := gjson.Get(jsonStr, "name")
+	ball := gjson.Get(jsonStr, "hobby.ball")
 
-	fmt.Println(&#34;Name:&#34;, name.String())
-	fmt.Println(&#34;ball:&#34;, ball.String())
+	fmt.Println("Name:", name.String())
+	fmt.Println("ball:", ball.String())
 }
 ```
 
@@ -145,17 +145,17 @@ func main() {
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/gjson&#34;
+	"fmt"
+	"github.com/tidwall/gjson"
 )
 
 func main() {
-	jsonStr := `{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;ball&#34;]}`
+	jsonStr := `{"hobby": ["sing","dance","rap","ball"]}`
 
-	hobby := gjson.Get(jsonStr, &#34;hobby.3&#34;)
+	hobby := gjson.Get(jsonStr, "hobby.3")
   
     // 输出第4个爱好
-	fmt.Println(&#34;hobby:&#34;, hobby.String())
+	fmt.Println("hobby:", hobby.String())
 }
 ```
 

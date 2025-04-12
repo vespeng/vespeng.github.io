@@ -2,7 +2,7 @@
 
 
 在 Go 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。
-&lt;!--more--&gt;
+<!--more-->
 对于 Java 的 SpringBoot 框架来说，可以直接在 `application.yml ` 中指定一个环境配置文件，通常`application_dev.yml ` 代表开发环境，那么 go 可否参考这种方式呢？
 
 接下来本文将详细介绍如何使用多种方式来实现多环境开发部署，重点围绕 `config.yaml` 文件和 `config.go` 文件来进行配置读取和环境区分。
@@ -26,20 +26,20 @@ APP_ENV=dev
 使用 `os.Getenv` 函数可以获取指定名称的环境变量值。
 
 ```go
-env := os.Getenv(&#34;APP_ENV&#34;)
+env := os.Getenv("APP_ENV")
 ```
 
 - **`APP_ENV`** 是一个环境变量名，用于标识应用程序的运行环境（如开发、测试、生产等）。
-- 如果 `APP_ENV` 未设置，`os.Getenv(&#34;APP_ENV&#34;)` 将返回空字符串。
+- 如果 `APP_ENV` 未设置，`os.Getenv("APP_ENV")` 将返回空字符串。
 
 ### 3.设置默认值
 
-我们需要一个默认的环境，如果 `APP_ENV` 未设置，将其设为 `&#34;dev&#34;`：
+我们需要一个默认的环境，如果 `APP_ENV` 未设置，将其设为 `"dev"`：
 
 ```go
-env := os.Getenv(&#34;APP_ENV&#34;)
-if env == &#34;&#34; {
-    env = &#34;dev&#34; // 默认环境为 dev
+env := os.Getenv("APP_ENV")
+if env == "" {
+    env = "dev" // 默认环境为 dev
 }
 ```
 
@@ -52,7 +52,7 @@ if env == &#34;&#34; {
 ```go
 err := godotenv.Load()
 if err != nil {
-    return fmt.Errorf(&#34;加载 .env 文件失败: %v&#34;, err)
+    return fmt.Errorf("加载 .env 文件失败: %v", err)
 }
 ```
 
@@ -63,13 +63,13 @@ if err != nil {
 根据 `APP_ENV` 的值，动态选择不同的配置文件：
 
 ```go
-viper.AddConfigPath(&#34;./config&#34;)
-viper.SetConfigName(fmt.Sprintf(&#34;config_%s&#34;, env))
-viper.SetConfigType(&#34;yaml&#34;)
+viper.AddConfigPath("./config")
+viper.SetConfigName(fmt.Sprintf("config_%s", env))
+viper.SetConfigType("yaml")
 
 err = viper.ReadInConfig()
 if err != nil {
-    return fmt.Errorf(&#34;读取配置文件失败: %v&#34;, err)
+    return fmt.Errorf("读取配置文件失败: %v", err)
 }
 ```
 
@@ -80,10 +80,10 @@ if err != nil {
 使用 `viper.Unmarshal` 将配置文件的内容解析到结构体中：
 
 ```go
-Conf = &amp;Config{}
+Conf = &Config{}
 err = viper.Unmarshal(Conf)
 if err != nil {
-    return fmt.Errorf(&#34;解析配置文件失败: %v&#34;, err)
+    return fmt.Errorf("解析配置文件失败: %v", err)
 }
 ```
 

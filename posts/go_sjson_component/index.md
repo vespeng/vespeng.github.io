@@ -2,7 +2,7 @@
 
 
 在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 [`GJSON`](https://vespeng.tech/posts/go_gjson_component/) 解决了灵活读取问题，而 `SJSON` 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。
-&lt;!--more--&gt;
+<!--more-->
 本文将延续对比分析风格，解析 SJSON 的核心价值。
 
 ## 一、Go 原生 json 修改方式
@@ -13,22 +13,22 @@ Go 原生修改 json 数据，同样需先定义结构体，然后再将 json �
 package main
 
 import (
-	&#34;encoding/json&#34;
-	&#34;fmt&#34;
+	"encoding/json"
+	"fmt"
 )
 
 type Person struct {
-	Name string `json:&#34;name&#34;`
-	Age  int    `json:&#34;age&#34;`
+	Name string `json:"name"`
+	Age  int    `json:"age"`
 }
 
 func main() {
-	jsonStr := `{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`
+	jsonStr := `{"name":"张三","age":25}`
 
 	var person Person
-	err := json.Unmarshal([]byte(jsonStr), &amp;person)
+	err := json.Unmarshal([]byte(jsonStr), &person)
 	if err != nil {
-		fmt.Println(&#34;解析错误:&#34;, err)
+		fmt.Println("解析错误:", err)
 		return
 	}
 
@@ -63,15 +63,15 @@ go get -u github.com/tidwall/sjson
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/sjson&#34;
+	"fmt"
+	"github.com/tidwall/sjson"
 )
 
 func main() {
-	jsonStr := `{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`
+	jsonStr := `{"name":"张三","age":25}`
 
 	// 修改 age 值为 35
-	newJson, _ := sjson.Set(jsonStr, &#34;age&#34;, 35)
+	newJson, _ := sjson.Set(jsonStr, "age", 35)
 
 	fmt.Println(string(newJson))
 }
@@ -83,23 +83,23 @@ func main() {
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/sjson&#34;
+	"fmt"
+	"github.com/tidwall/sjson"
 )
 
 func main() {
 	jsonStr := `{
-		&#34;name&#34;: &#34;张三&#34;,
-		&#34;age&#34;: 25,
-		&#34;hobby&#34;: {
-			&#34;sing&#34;: &#34;只因你太美&#34;,
-			&#34;dance&#34;: &#34;背带裤&#34;,
-			&#34;rap&#34;: &#34;kun&#34;,
-			&#34;ball&#34;: &#34;篮球&#34;
+		"name": "张三",
+		"age": 25,
+		"hobby": {
+			"sing": "只因你太美",
+			"dance": "背带裤",
+			"rap": "kun",
+			"ball": "篮球"
 		}`
 
-	// 修改 hobby.sing 的值: 只因你太美 =&gt; 重生
-	newJson, _ := sjson.Set(jsonStr, &#34;hobby.sing&#34;, &#34;重生&#34;)
+	// 修改 hobby.sing 的值: 只因你太美 => 重生
+	newJson, _ := sjson.Set(jsonStr, "hobby.sing", "重生")
 
 	fmt.Println(string(newJson))
 }
@@ -111,20 +111,20 @@ func main() {
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/sjson&#34;
+	"fmt"
+	"github.com/tidwall/sjson"
 )
 
 func main() {
-	jsonStr := `{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;ball&#34;]}`
+	jsonStr := `{"hobby": ["sing","dance","rap","ball"]}`
 
 	// 修改 hobby 数组第4个元素为 play
-	newJson, _ := sjson.Set(jsonStr, &#34;hobby.3&#34;, &#34;play&#34;)
+	newJson, _ := sjson.Set(jsonStr, "hobby.3", "play")
 
 	fmt.Println(string(newJson))
 
 	// 追加 hobby 数组第5个元素为 play
-	newJson, _ = sjson.Set(jsonStr, &#34;tags.-1&#34;, &#34;play&#34;)
+	newJson, _ = sjson.Set(jsonStr, "tags.-1", "play")
 	fmt.Println(string(newJson))
 }
 ```
@@ -135,15 +135,15 @@ func main() {
 package main
 
 import (
-	&#34;fmt&#34;
-	&#34;github.com/tidwall/sjson&#34;
+	"fmt"
+	"github.com/tidwall/sjson"
 )
 
 func main() {
-	jsonStr := `{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`
+	jsonStr := `{"name":"张三","age":25}`
 
 	// 删除age字段
-	newJson, _ := sjson.Delete(jsonStr, &#34;age&#34;)
+	newJson, _ := sjson.Delete(jsonStr, "age")
 
 	fmt.Println(string(newJson))
 }

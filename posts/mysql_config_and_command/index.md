@@ -48,7 +48,7 @@ default-character-set=utf8mb4
 ```
 ## 启动命令
 
-&gt; [!NOTE] 管理员身份运行，避免权限问题
+> [!NOTE] 管理员身份运行，避免权限问题
 
 ```bash {data-open=true} 
 # 初始化数据库 (随机 root 密码输出到控制台)
@@ -60,7 +60,7 @@ net start mysql
 # 登录
 mysql -u root -p
 # 修改密码
-alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;新密码&#39;;
+alter user 'root'@'localhost' identified by '新密码';
 # 刷新权限
 flush privileges;
 ```

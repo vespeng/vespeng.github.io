@@ -3,9 +3,9 @@
 
 ## 关于我
 
-{{&lt; center-quote &gt;}} 
+{{< center-quote >}} 
 “生命不息，折腾不止！” —— 自我期许 
-{{&lt; /center-quote &gt;}}
+{{< /center-quote >}}
 
 一名后端工程师，热衷于钻研感兴趣之事，追求那点滴成就感，在代码世界中持续探索边界。
 
@@ -14,7 +14,7 @@
 
 - 技术栈：Go（主力） / Java（熟练） / Python（辅助）。
 
-- 从业经历：3年&#43;经验，先后涉足资管业务、消费金融、CRM等领域，现工作于某一线互联网企业。
+- 从业经历：3年+经验，先后涉足资管业务、消费金融、CRM等领域，现工作于某一线互联网企业。
 
 ## 关于博客
 
@@ -43,7 +43,7 @@ events:
 
 **技术交流**： [留言板](https://vespeng.tech/message/)
 
-**Email**： &lt;chihpengliu.cn@outlook.com&gt;
+**Email**： <chihpengliu.cn@outlook.com>
 
 ## 声明
 
@@ -66,6 +66,6 @@ events:
 
 ---
 
-> 作者:   
+> 作者: <no value>  
 > URL: https://vespeng.tech/about/  
 

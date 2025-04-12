@@ -17,7 +17,7 @@
    | **GOROOT** | D:\go | Go的安装路径                                 |
 
    在 Path 路径下，新增 _%GOROOT%\bin_
-   &gt; ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下
+   > ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下
 
 2. 开启go mod 及配置国内代理：
 
@@ -34,9 +34,9 @@
 
 ![img_2.png](./images/img_2.png)
 
-&gt;  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
-&gt; 
-&gt;  如条件允许更推荐使用 [GoLand](https://www.jetbrains.com/go/download/#section=windows) 进行开发
+>  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
+> 
+>  如条件允许更推荐使用 [GoLand](https://www.jetbrains.com/go/download/#section=windows) 进行开发
 
 
 ---

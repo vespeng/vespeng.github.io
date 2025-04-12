@@ -4,16 +4,16 @@
 首先我们先明确下 json 包下 Unmarshal() 函数是什么：
 
 它是 Go 语言标准库 `encoding/json` 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（`[]byte`）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。
-&lt;!--more--&gt;
+<!--more-->
 其次了解了它的作用后，再来看下这个坑点：
 
 假设有一个 json 串如下：
 
 ```go
 {
-    &#34;id&#34;: 1,
-    &#34;name&#34;: &#34;张三&#34;,
-    &#34;age&#34;: 20
+    "id": 1,
+    "name": "张三",
+    "age": 20
 }
 
 ```
@@ -22,12 +22,12 @@
 
 ```go {data-open=true}
 func main() {
-	str := &#34;{\&#34;id\&#34;:1,\&#34;name\&#34;:\&#34;张三\&#34;,\&#34;age\&#34;:20}&#34;
+	str := "{\"id\":1,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})
-	json.Unmarshal([]byte(str), &amp;amp;jsonMap)
+	json.Unmarshal([]byte(str), &amp;jsonMap)
 	// 遍历map
 	for key, value := range jsonMap {
-		fmt.Printf(&#34;key: %s, value: %v\n&#34;, key, value)
+		fmt.Printf("key: %s, value: %v\n", key, value)
 	}
 }
 
@@ -44,17 +44,17 @@ func main() {
 
 ```go {data-open=true}
 func main() {
-	str := &#34;{\&#34;id\&#34;:1736325205000,\&#34;name\&#34;:\&#34;张三\&#34;,\&#34;age\&#34;:20}&#34;
+	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})
-	json.Unmarshal([]byte(str), &amp;amp;jsonMap)
+	json.Unmarshal([]byte(str), &amp;jsonMap)
 	// 遍历map
 	for key, value := range jsonMap {
-		fmt.Printf(&#34;key: %s, value: %v\n&#34;, key, value)
+		fmt.Printf("key: %s, value: %v\n", key, value)
 	}
 }
 
 // 输出
-// key: id, value: 1.736325205e&#43;12
+// key: id, value: 1.736325205e+12
 // key: name, value: 张三
 // key: age, value: 20
 
@@ -68,14 +68,14 @@ func main() {
 
 ```go {data-open=true}
 func main() {
-	str := &#34;{\&#34;id\&#34;:1736325205000,\&#34;name\&#34;:\&#34;张三\&#34;,\&#34;age\&#34;:20}&#34;
+	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{)
-	json.Unmarshal([]byte(str), &amp;amp;jsonMap)
-	fmt.Printf(&#34;%d&#34;,jsonMap[&#34;id&#34;])
+	json.Unmarshal([]byte(str), &amp;jsonMap)
+	fmt.Printf("%d",jsonMap["id"])
 }
 
 // 输出
-// %!d(float64=1.736325205e&#43;12)
+// %!d(float64=1.736325205e+12)
 
 ```
 
@@ -93,7 +93,7 @@ func Unmarshal(data []byte, v any) error {
 	// Avoids filling out half a data structure
 	// before discovering a JSON syntax error.
 	var d decodeState
-	err := checkValid(data, &amp;amp;d.scan)
+	err := checkValid(data, &amp;d.scan)
 	if err != nil {
 		return err
 	}
@@ -128,7 +128,7 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 	}
 	f, err := strconv.ParseFloat(s, 64)
 	if err != nil {
-		return nil, &amp;amp;UnmarshalTypeError{Value: &#34;number &#34; &#43; s, Type: reflect.TypeOf(0.0), Offset: int64(d.off)}
+		return nil, &amp;UnmarshalTypeError{Value: "number " + s, Type: reflect.TypeOf(0.0), Offset: int64(d.off)}
 	}
 	return f, nil
 }
@@ -152,13 +152,13 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 
 ```go {data-open=true}
 func main() {
-	str := &#34;{\&#34;id\&#34;:1736325205000,\&#34;name\&#34;:\&#34;张三\&#34;,\&#34;age\&#34;:20}&#34;
+	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})
-	json.Unmarshal([]byte(str), &amp;amp;jsonMap)
+	json.Unmarshal([]byte(str), &amp;jsonMap)
 
 	// 断言类型为 float64
-	fmt.Println(jsonMap[&#34;id&#34;])
-	if f, ok := jsonMap[&#34;id&#34;].(float64); ok {
+	fmt.Println(jsonMap["id"])
+	if f, ok := jsonMap["id"].(float64); ok {
 		fmt.Println(int(f))
 	}
 }

@@ -2,7 +2,7 @@
 
 
 在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。
-&lt;!--more--&gt;
+<!--more-->
 ## 一、Go 中的错误处理机制
 
 在 Go 语言中，并没有像其他语言那样的传统异常机制。而是期望开发者主动去识别处理这种“异常”，通过返回值来表示可能出现的错误。
@@ -13,13 +13,13 @@
 package main
 
 import (
-    &#34;fmt&#34;
+    "fmt"
 )
 
 // 模拟一个会返回错误的函数
 func divide(a, b int) (int, error) {
     if b == 0 {
-        return 0, fmt.Errorf(&#34;除数不能为 0&#34;)
+        return 0, fmt.Errorf("除数不能为 0")
     }
     return a / b, nil
 }
@@ -27,10 +27,10 @@ func divide(a, b int) (int, error) {
 func main() {
     result, err := divide(10, 0)
     if err != nil {
-        fmt.Println(&#34;出错啦:&#34;, err)
+        fmt.Println("出错啦:", err)
         return
     }
-    fmt.Println(&#34;结果是:&#34;, result)
+    fmt.Println("结果是:", result)
 }
 ```
 
@@ -44,18 +44,18 @@ func main() {
 package main
 
 import (
-    &#34;fmt&#34;
+    "fmt"
 )
 
 func main() {
     defer func() {
         if r := recover(); r != nil {
-            fmt.Println(&#34;已捕获到恐慌:&#34;, r)
+            fmt.Println("已捕获到恐慌:", r)
         }
     }()
 
     // 手动触发一个 panic
-    panic(&#34;这是一个恐慌！&#34;)
+    panic("这是一个恐慌！")
 }
 
 // 输出：
@@ -75,9 +75,9 @@ func GlobalErrorHandler() gin.HandlerFunc {
     return func(c *gin.Context) {
         defer func() {
             if err := recover(); err!= nil {
-                log.Printf(&#34;Recovered from panic: %v&#34;, err)
+                log.Printf("Recovered from panic: %v", err)
                 c.JSON(500, gin.H{
-                    &#34;message&#34;: &#34;Internal Server Error&#34;,
+                    "message": "Internal Server Error",
                 })
                 c.Abort()
             }
@@ -95,8 +95,8 @@ func GlobalErrorHandler() gin.HandlerFunc {
 package main
 
 import (
-    &#34;github.com/gin-gonic/gin&#34;
-    &#34;log&#34;
+    "github.com/gin-gonic/gin"
+    "log"
 )
 
 func main() {
@@ -104,12 +104,12 @@ func main() {
     // 应用全局异常处理中间件
     r.Use(GlobalErrorHandler())
 
-    r.GET(&#34;/ping&#34;, func(c *gin.Context) {
+    r.GET("/ping", func(c *gin.Context) {
         // 模拟异常
-        panic(&#34;Something went wrong!&#34;)
+        panic("Something went wrong!")
     })
 
-    r.Run(&#34;:8080&#34;)
+    r.Run(":8080")
 }
 ```
 
