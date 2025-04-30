@@ -141,7 +141,15 @@
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
     <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 语言的并发优势</li>
     </ol>
-  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"><div class="details related-details open">
+      <div class="details-summary related-summary">
+        <i class="fa-solid fa-fire fa-fade text-danger fa-fw" aria-hidden="true"></i>
+        <span class="related-title">相关内容</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+      <div class="details-content related-content">
+        <ul class="related-list"><li class="related-item">
+              <a href="/posts/golang_development_environment/" title="Golang 开发环境搭建">Golang 开发环境搭建</a></li></ul>
+      </div>
+    </div></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 语言的并发优势</span>
@@ -162,7 +170,7 @@
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，更多内容汇总在我的 GitHub，持续更新，求关注、求 star、求订阅！」"><p>在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。</p>
-<h2 id="一轻量级的协程goroutine" class="heading-element"><span>一、轻量级的协程（Goroutine）</span>
+<h2 class="heading-element" id="一轻量级的协程goroutine"><span>一、轻量级的协程（Goroutine）</span>
   <a href="#%e4%b8%80%e8%bd%bb%e9%87%8f%e7%ba%a7%e7%9a%84%e5%8d%8f%e7%a8%8bgoroutine" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -237,7 +245,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="二高效的通道channel" class="heading-element"><span>二、高效的通道（Channel）</span>
+</div><h2 class="heading-element" id="二高效的通道channel"><span>二、高效的通道（Channel）</span>
   <a href="#%e4%ba%8c%e9%ab%98%e6%95%88%e7%9a%84%e9%80%9a%e9%81%93channel" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -272,14 +280,14 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过这个通道 <code>ch</code>，我们成功地在两个不同的 Goroutine 之间传递了数据。</p>
-<h2 id="三优秀的内存管理和并发调度" class="heading-element"><span>三、优秀的内存管理和并发调度</span>
+<h2 class="heading-element" id="三优秀的内存管理和并发调度"><span>三、优秀的内存管理和并发调度</span>
   <a href="#%e4%b8%89%e4%bc%98%e7%a7%80%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%e5%92%8c%e5%b9%b6%e5%8f%91%e8%b0%83%e5%ba%a6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>在编程语言中，内存管理和并发调度是影响程序性能和稳定性的关键因素。Golang 在这两个方面展现出了卓越的特性。</p>
 <p>Golang 拥有一套自动且高效的内存回收机制。这意味着开发者无需像在 Java 等语言中那样，时刻关注内存的分配与释放，避免了因手动管理内存而可能导致的内存泄漏和野指针等问题。这种自动内存管理机制不仅减轻了开发者的负担，还提高了程序的可靠性和可维护性。</p>
 <p>同时，Golang 的并发调度机制极具智能性。它能够根据系统的负载和各个 Goroutine 的状态，合理地分配 CPU 资源，确保每个 Goroutine 都能获得公平的执行机会。与 Java 等语言的线程调度相比，Golang 的调度更加轻量和灵活，能够在高并发场景下实现更高效的资源利用，从而显著提升程序的整体性能和响应速度。</p>
-<h2 id="四简洁而强大的并发编程模型" class="heading-element"><span>四、简洁而强大的并发编程模型</span>
+<h2 class="heading-element" id="四简洁而强大的并发编程模型"><span>四、简洁而强大的并发编程模型</span>
   <a href="#%e5%9b%9b%e7%ae%80%e6%b4%81%e8%80%8c%e5%bc%ba%e5%a4%a7%e7%9a%84%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%9e%8b" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -293,8 +301,8 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-03-20 23:03:02">更新于 2025-03-20&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/8406528c1b6cfac86fc07d136cb163147353930d" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) 8406528c1b6cfac86fc07d136cb163147353930d: refactor(content): 统一文章分类和标签格式"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8406528</a></span>
+        <span title="更新于 2025-03-20 23:03:02">更新于 2025-03-20&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/8406528c1b6cfac86fc07d136cb163147353930d" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(content): 统一文章分类和标签格式&#10- 将所有分类和标签中的 &#39;golang&#39; 改为 &#39;Golang&#39;- 修正部分标签格式，如将 &#39;panic&#39; 改为 &#39;Panic&#39;
+- 统一使用英文逗号分隔标签&#10Commit: 8406528c1b6cfac86fc07d136cb163147353930d [8406528]&#10Author: vespeng&#10Date: 2025-03-20 23:03:02"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8406528</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -351,5 +359,5 @@
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
 </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.19-c2dc17e9"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/the_concurrency_advantage_of_go/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.20"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/the_concurrency_advantage_of_go/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>

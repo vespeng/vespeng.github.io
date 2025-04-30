@@ -152,6 +152,18 @@
           <div class="collection-nav-simple"><a href="/posts/go_practical_gin_directory_structure/" class="collection-nav-item" rel="prev" title="Go 项目实战：搭建高效的Gin Web目录结构"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i></a><span class="text-secondary">2/4</span><a href="/posts/go_practical_multi_environment_development/" class="collection-nav-item" rel="next" title="Go 项目实战：如何部署多环境开发"><i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
         </nav>
       </div>
+    </div><div class="details related-details open">
+      <div class="details-summary related-summary">
+        <i class="fa-solid fa-fire fa-fade text-danger fa-fw" aria-hidden="true"></i>
+        <span class="related-title">相关内容</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+      <div class="details-content related-content">
+        <ul class="related-list"><li class="related-item">
+              <a href="/posts/go_practical_gin_directory_structure/" title="Go 项目实战：搭建高效的Gin Web目录结构">Go 项目实战：搭建高效的Gin Web目录结构</a></li><li class="related-item">
+              <a href="/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数值类型（踩坑）">Json.Unmarshal 解析数值类型（踩坑）</a></li><li class="related-item">
+              <a href="/posts/collaborative_processing_of_multiple_interfaces/" title="Go 语言并发实战：利用协程处理多个接口数据">Go 语言并发实战：利用协程处理多个接口数据</a></li><li class="related-item">
+              <a href="/posts/the_concurrency_advantage_of_go/" title="Go 语言的并发优势">Go 语言的并发优势</a></li><li class="related-item">
+              <a href="/posts/golang_development_environment/" title="Golang 开发环境搭建">Golang 开发环境搭建</a></li></ul>
+      </div>
     </div></aside>
 
   <article class="page single">
@@ -182,7 +194,7 @@
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，更多内容汇总在我的 GitHub，持续更新，求关注、求 star、求订阅！」"><p>在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</p>
-<h2 id="一日志级别的重要性" class="heading-element"><span>一、日志级别的重要性</span>
+<h2 class="heading-element" id="一日志级别的重要性"><span>一、日志级别的重要性</span>
   <a href="#%e4%b8%80%e6%97%a5%e5%bf%97%e7%ba%a7%e5%88%ab%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -194,7 +206,7 @@
 <li><code>ERROR</code>：用于记录严重的错误信息，这些错误可能导致系统无法正常运行。</li>
 <li><code>FATAL</code>：用于记录非常严重的错误信息，这些错误会导致程序立即退出。</li>
 </ul>
-<h2 id="二日志格式的选择" class="heading-element"><span>二、日志格式的选择</span>
+<h2 class="heading-element" id="二日志格式的选择"><span>二、日志格式的选择</span>
   <a href="#%e4%ba%8c%e6%97%a5%e5%bf%97%e6%a0%bc%e5%bc%8f%e7%9a%84%e9%80%89%e6%8b%a9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -239,7 +251,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">logrus</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;这是一条FATAL级别的日志&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="三日志输出的方式" class="heading-element"><span>三、日志输出的方式</span>
+</div><h2 class="heading-element" id="三日志输出的方式"><span>三、日志输出的方式</span>
   <a href="#%e4%b8%89%e6%97%a5%e5%bf%97%e8%be%93%e5%87%ba%e7%9a%84%e6%96%b9%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -314,7 +326,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>除了常见的输出到控制台或指定文件，我们还可以将日志输出到数据库、Elasticsearch 等其他存储介质中。具体的实现方式还需根据实际需求进行选择。</p>
-<h2 id="四使用第三方日志库" class="heading-element"><span>四、使用第三方日志库</span>
+<h2 class="heading-element" id="四使用第三方日志库"><span>四、使用第三方日志库</span>
   <a href="#%e5%9b%9b%e4%bd%bf%e7%94%a8%e7%ac%ac%e4%b8%89%e6%96%b9%e6%97%a5%e5%bf%97%e5%ba%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -327,7 +339,7 @@
 <blockquote>
 <p><em>ps: 上述简介来自于AI，注意甄别</em></p></blockquote>
 <p>这些第三方日志库都提供了丰富的功能和灵活的配置选项，可以帮助我们更好地处理日志。在这里个人比较推荐 <strong>logrus</strong> ，不过具体需求还是得具体选择。</p>
-<h2 id="五实战" class="heading-element"><span>五、实战</span>
+<h2 class="heading-element" id="五实战"><span>五、实战</span>
   <a href="#%e4%ba%94%e5%ae%9e%e6%88%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -340,7 +352,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get github.com/sirupsen/logrus</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="1配置configyaml" class="heading-element"><span>1.配置config.yaml</span>
+</div><h3 class="heading-element" id="1配置configyaml"><span>1.配置config.yaml</span>
   <a href="#1%e9%85%8d%e7%bd%aeconfigyaml" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -358,13 +370,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">debug           </span><span class="w"> </span><span class="c"># 日志级别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">report_caller</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 是否开启调试</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2配置configgo" class="heading-element"><span>2.配置config.go</span>
+</div><h3 class="heading-element" id="2配置configgo"><span>2.配置config.go</span>
   <a href="#2%e9%85%8d%e7%bd%aeconfiggo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>有了参数配置，还缺一步解析：</p>
 <p>具体的解析可以参考 <a href="https://vespeng.tech/posts/go_practical_gin_directory_structure/"target="_blank" rel="external nofollow noopener noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<h3 id="3新建loggergo" class="heading-element"><span>3.新建logger.go</span>
+<h3 class="heading-element" id="3新建loggergo"><span>3.新建logger.go</span>
   <a href="#3%e6%96%b0%e5%bb%baloggergo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -456,7 +468,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="4输出日志到文件" class="heading-element"><span>4.输出日志到文件</span>
+</div><h3 class="heading-element" id="4输出日志到文件"><span>4.输出日志到文件</span>
   <a href="#4%e8%be%93%e5%87%ba%e6%97%a5%e5%bf%97%e5%88%b0%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -553,7 +565,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="5调用initializelogger" class="heading-element"><span>5.调用InitializeLogger()</span>
+</div><h3 class="heading-element" id="5调用initializelogger"><span>5.调用InitializeLogger()</span>
   <a href="#5%e8%b0%83%e7%94%a8initializelogger" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -643,8 +655,11 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-03-30 14:23:47">更新于 2025-03-30&nbsp;
-                <a class="git-hash" href="https://github.com/vespeng/blog-source/commit/5f9c69058bfea925f25cb22e4aa6277784ffacb0" rel="external nofollow noopener noreferrer" target="_blank" title="commit by vespeng(chihpengliu.cn@outlook.com) 5f9c69058bfea925f25cb22e4aa6277784ffacb0: docs:统一文档章节标题格式"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>5f9c690</a></span>
+        <span title="更新于 2025-03-30 14:23:47">更新于 2025-03-30&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/5f9c69058bfea925f25cb22e4aa6277784ffacb0" rel="external nofollow noopener noreferrer" target="_blank" title="docs:统一文档章节标题格式&#10- 将文档中的章节标题格式从&#34;1、概述：&#34;统一修改为&#34;1.概述：&#34;，提升了文档的整洁性和一致性- 此修改适用于多个文档文件，包括但不限于：
+  - go_gjson_component/index.md
+  - go_practical_gin_directory_structure/index.md
+  - go_practical_multi_environment_development/index.md
+  - go_practical_processing_log/index.md - go_sjson_component/index.md&#10Commit: 5f9c69058bfea925f25cb22e4aa6277784ffacb0 [5f9c690]&#10Author: vespeng&#10Date: 2025-03-30 14:23:47"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>5f9c690</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -701,5 +716,5 @@
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
 </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.19-c2dc17e9"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_processing_log/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.20"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_processing_log/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>
