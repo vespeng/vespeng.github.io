@@ -4,14 +4,14 @@
     <title>踩坑系列 - 合集 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.tech/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/</link>
     <description>不定期记录开发路上的片段，与君共勉。</description>
-    <generator>Hugo 0.146.5 &amp; FixIt v0.3.19-c2dc17e9</generator>
+    <generator>Hugo 0.147.0 &amp; FixIt v0.3.19-c2dc17e9</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Thu, 20 Mar 2025 23:03:02 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Apr 2025 23:41:47 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Json.Unmarshal 解析数字类型（踩坑）</title>
+      <title>Json.Unmarshal 解析数值类型（踩坑）</title>
       <link>https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/</link>
       <pubDate>Sun, 12 Jan 2025 19:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/</guid>

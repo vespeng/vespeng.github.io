@@ -4,11 +4,11 @@
     <title>所有文章 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.tech/posts/</link>
     <description>不定期记录开发路上的片段，与君共勉。</description>
-    <generator>Hugo 0.146.5 &amp; FixIt v0.3.19-c2dc17e9</generator>
+    <generator>Hugo 0.147.0 &amp; FixIt v0.3.19-c2dc17e9</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 20 Apr 2025 22:20:15 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Apr 2025 23:41:47 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL 8.0 解压安装版配置文件及参数命令</title>
@@ -75,7 +75,7 @@
       <description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。</description>
     </item>
     <item>
-      <title>Json.Unmarshal 解析数字类型（踩坑）</title>
+      <title>Json.Unmarshal 解析数值类型（踩坑）</title>
       <link>https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/</link>
       <pubDate>Sun, 12 Jan 2025 19:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/</guid>

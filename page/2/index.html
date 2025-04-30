@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
-	<meta name="generator" content="Hugo 0.146.5">
+	<meta name="generator" content="Hugo 0.147.0">
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -11,7 +11,7 @@
   <meta itemprop="name" content="Vespeng&#39;s Blog">
   <meta itemprop="description" content="不定期记录开发路上的片段，与君共勉。">
   <meta itemprop="datePublished" content="2025-03-20T23:50:00+08:00">
-  <meta itemprop="dateModified" content="2025-04-20T22:20:15+08:00"><meta property="og:url" content="https://vespeng.tech/">
+  <meta itemprop="dateModified" content="2025-04-30T23:41:47+08:00"><meta property="og:url" content="https://vespeng.tech/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Vespeng&#39;s Blog">
   <meta property="og:description" content="不定期记录开发路上的片段，与君共勉。">
@@ -127,7 +127,7 @@
     </a><a href="mailto:chihpengliu.cn@outlook.com" title="Email"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-regular fa-envelope fa-fw" aria-hidden="true"></i>
     </a><a href="/index.xml" title="RSS"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-solid fa-rss fa-fw" aria-hidden="true"></i>
     </a></div></div>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/json_unmarshall_parsing_numeric_types/">Json.Unmarshal 解析数字类型（踩坑）</a>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/json_unmarshall_parsing_numeric_types/">Json.Unmarshal 解析数值类型（踩坑）</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-12 19:00:00'>发布于 <time datetime="2025-01-12">2025-01-12</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/" class="post-collection" title="合集 - 踩坑系列"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 踩坑系列</a></span></div><div class="content"><p>首先我们先明确下 json 包下 Unmarshal() 函数是什么：</p>
 <p>它是 Go 语言标准库 <code>encoding/json</code> 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（<code>[]byte</code>）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。</p></div><div class="post-footer">
     <a href="/posts/json_unmarshall_parsing_numeric_types/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a></div></div>

@@ -1,4 +1,4 @@
-# Json.Unmarshal 解析数字类型（踩坑）
+# Json.Unmarshal 解析数值类型（踩坑）
 
 
 首先我们先明确下 json 包下 Unmarshal() 函数是什么：
@@ -142,7 +142,7 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 
 经过多方查找：
 
-理论上 json 会把超过 int64 长度的数字转成 float64，但是这个说法经实践不成立，毫秒级时间戳 13 位，远没有超过 int64 的最大长度；
+理论上 json 会把超过 int64 长度的数值转成 float64，但是这个说法经实践不成立，毫秒级时间戳 13 位，远没有超过 int64 的最大长度；
 
 多次翻阅资料后，有一个说法比较靠谱：
 
