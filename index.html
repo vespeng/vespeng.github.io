@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
-	<meta name="generator" content="Hugo 0.147.0">
+	<meta name="generator" content="Hugo 0.147.7">
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -10,8 +10,8 @@
 <meta name="description" content="不定期记录开发路上的片段，与君共勉。"><meta name="keywords" content='Vespeng, vespeng, Blog, 技术博客, 开发片段, Golang, Go, AI'>
   <meta itemprop="name" content="Vespeng&#39;s Blog">
   <meta itemprop="description" content="不定期记录开发路上的片段，与君共勉。">
-  <meta itemprop="datePublished" content="2025-03-20T23:50:00+08:00">
-  <meta itemprop="dateModified" content="2025-04-30T23:41:47+08:00"><meta property="og:url" content="https://vespeng.tech/">
+  <meta itemprop="datePublished" content="2025-06-07T14:20:00+08:00">
+  <meta itemprop="dateModified" content="2025-06-07T14:24:25+08:00"><meta property="og:url" content="https://vespeng.tech/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Vespeng&#39;s Blog">
   <meta property="og:description" content="不定期记录开发路上的片段，与君共勉。">
@@ -127,7 +127,10 @@
     </a><a href="mailto:chihpengliu.cn@outlook.com" title="Email"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-regular fa-envelope fa-fw" aria-hidden="true"></i>
     </a><a href="/index.xml" title="RSS"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-solid fa-rss fa-fw" aria-hidden="true"></i>
     </a></div></div>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/mysql_config_and_command/">MySQL 8.0 解压安装版配置文件及参数命令</a>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/interview_experience_dev_job/">记一次某开发岗面试</a>
+  </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-06-07 14:20:00'>发布于 <time datetime="2025-06-07">2025-06-07</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="content">如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。</div><div class="post-footer">
+    <a href="/posts/interview_experience_dev_job/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/%E9%9D%A2%E8%AF%95/' class="post-tag">面试</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/mysql_config_and_command/">MySQL 8.0 解压安装版配置文件及参数命令</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-03-20 23:50:00'>发布于 <time datetime="2025-03-20">2025-03-20</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/mysql/" class="post-category" title="分类 - MySQL"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> MySQL</a></span></div><div class="content"><h3 class="heading-element" id="下载地址"><span>下载地址</span>
   <a href="#%e4%b8%8b%e8%bd%bd%e5%9c%b0%e5%9d%80" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -152,9 +155,6 @@
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_practical_processing_log/">Go 项目实战：如何优雅的处理日志</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-22 21:40:00'>发布于 <time datetime="2025-01-22">2025-01-22</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="content"><p>在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</p></div><div class="post-footer">
     <a href="/posts/go_practical_processing_log/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/gin/' class="post-tag">Gin</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_practical_gin_directory_structure/">Go 项目实战：搭建高效的Gin Web目录结构</a>
-  </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-19 21:30:00'>发布于 <time datetime="2025-01-19">2025-01-19</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="content">Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。</div><div class="post-footer">
-    <a href="/posts/go_practical_gin_directory_structure/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/gin/' class="post-tag">Gin</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
           <span class="page-link">
             <a href="/">1</a>

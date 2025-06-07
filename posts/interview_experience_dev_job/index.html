@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>记一次某开发岗面试 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+<meta name="description" content="如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。"><meta name="keywords" content='golang, go, 面试, 面试题'>
+  <meta itemprop="name" content="记一次某开发岗面试">
+  <meta itemprop="description" content="如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+  <meta itemprop="datePublished" content="2025-06-07T14:20:00+08:00">
+  <meta itemprop="dateModified" content="2025-06-07T14:24:25+08:00">
+  <meta itemprop="wordCount" content="963">
+  <meta itemprop="keywords" content="golang,go,面试,面试题"><meta property="og:url" content="https://vespeng.tech/posts/interview_experience_dev_job/">
+  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:title" content="记一次某开发岗面试">
+  <meta property="og:description" content="如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-07T14:20:00+08:00">
+    <meta property="article:modified_time" content="2025-06-07T14:24:25+08:00">
+    <meta property="article:tag" content="面试">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="记一次某开发岗面试">
+  <meta name="twitter:description" content="如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+<meta name="application-name" content="Vespeng&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/interview_experience_dev_job/" title="记一次某开发岗面试 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/interview_experience_dev_job/index.md" title="记一次某开发岗面试 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "记一次某开发岗面试",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/vespeng.tech\/posts\/interview_experience_dev_job\/"
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "面试","wordcount":  963 ,
+    "url": "https:\/\/vespeng.tech\/posts\/interview_experience_dev_job\/","datePublished": "2025-06-07T14:20:00+08:00","dateModified": "2025-06-07T14:24:25+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
+        "@type": "Person",
+        "name": "Vespeng"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="32" width="32"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-feather fa-fw fa-sm" aria-hidden="true"></i> 随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/collections/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 合集</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/link/"><i class="fa-solid fa-link fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item">
+              <a class="menu-link" href="/message/"><i class="fa-solid fa-comment-dots fa-fw fa-sm" aria-hidden="true"></i> 留言</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-paper-plane fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li><li class="menu-item language-switch auto d-none" aria-hidden="true">
+    <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
+    <ul class="sub-menu"><li class="menu-item active" data-type="artificial">
+          <a href="/posts/interview_experience_dev_job/" data-lang="zh-CN" class="menu-link text-secondary" title="">
+            <i class="fa-solid fa-person fa-fw fa-sm" aria-hidden="true"></i> </a>
+        </li><li class="menu-item-divider" aria-hidden="true"></li><li class="menu-item" data-type="machine">
+          <a data-lang="english" class="menu-link" title="English">
+            <i class="fa-solid fa-robot fa-fw fa-sm" aria-hidden="true"></i> English</a>
+        </li></ul>
+  </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="26" width="26"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="/archives/"><i class="fa-solid fa-feather fa-fw fa-sm" aria-hidden="true"></i> 随笔</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/collections/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 合集</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/link/"><i class="fa-solid fa-link fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item"><a class="menu-link" href="/message/"><i class="fa-solid fa-comment-dots fa-fw fa-sm" aria-hidden="true"></i> 留言</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-paper-plane fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
+    <span role="button" aria-label="选择语言" title="选择语言" data-current=""><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+  </span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">记一次某开发岗面试</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"><div class="details collection-details open">
+      <div class="details-summary collection-summary">
+        <i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i>
+        <span class="collection-name" title="合集">面试</span>
+        <span class="collection-count">1</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+      <div class="details-content collection-content">
+        <nav>
+          <ul class="collection-list"><li class="collection-item"><span class="active" title="记一次某开发岗面试">记一次某开发岗面试</span></li></ul>
+          <div class="collection-nav-simple"><i class="fa-solid fa-angle-left fa-fw collection-nav-item text-secondary" aria-hidden="true"></i><span class="text-secondary">1/1</span><i class="fa-solid fa-angle-right fa-fw collection-nav-item text-secondary" aria-hidden="true"></i></div>
+        </nav>
+      </div>
+    </div><div class="details related-details open">
+      <div class="details-summary related-summary">
+        <i class="fa-solid fa-fire fa-fade text-danger fa-fw" aria-hidden="true"></i>
+        <span class="related-title">相关内容</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+      <div class="details-content related-content">
+        <ul class="related-list"><li class="related-item">
+              <a href="/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案">Go-SJSON 组件，JSON 动态修改新方案</a></li><li class="related-item">
+              <a href="/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势">Go-GJSON 组件，解锁 JSON 读取新姿势</a></li><li class="related-item">
+              <a href="/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理">Go 项目实战：全局异常处理</a></li><li class="related-item">
+              <a href="/posts/go_practical_multi_environment_development/" title="Go 项目实战：如何部署多环境开发">Go 项目实战：如何部署多环境开发</a></li><li class="related-item">
+              <a href="/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志">Go 项目实战：如何优雅的处理日志</a></li></ul>
+      </div>
+    </div></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>记一次某开发岗面试</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="post-meta-line"><span title="发布于 2025-06-07 14:20:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="更新于 2025-06-07 14:24:25"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="963 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="记一次某开发岗面试"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一常见的-gc-方式有哪些golang-是怎么做的">一、常见的 GC 方式有哪些，Golang 是怎么做的</a>
+      <ul>
+        <li><a href="#1常见的-gc-算法">1.常见的 GC 算法</a></li>
+        <li><a href="#2go-采用的-gc-算法">2.Go 采用的 GC 算法</a></li>
+        <li><a href="#3思考">3.思考</a></li>
+      </ul>
+    </li>
+    <li><a href="#二golang-互斥锁底层数据结构是什么样的">二、Golang 互斥锁底层数据结构是什么样的</a></li>
+    <li><a href="#三innodb-事务的四个特性-acid-分别通过什么手段来支持的">三、InnoDB 事务的四个特性 ACID 分别通过什么手段来支持的</a>
+      <ul>
+        <li><a href="#1原子性">1.原子性</a></li>
+        <li><a href="#2一致性">2.一致性</a></li>
+        <li><a href="#3隔离性">3.隔离性</a></li>
+        <li><a href="#4持久性">4.持久性</a></li>
+      </ul>
+    </li>
+    <li><a href="#四如下代码分别输出什么">四、如下代码分别输出什么</a></li>
+    <li><a href="#五爬楼梯问题">五、爬楼梯问题</a></li>
+    <li><a href="#六计算器">六、计算器</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="「本文完，更多内容汇总在我的 GitHub，持续更新，求关注、求 star、求订阅！」"><p>前言：如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。</p>
+<h2 class="heading-element" id="一常见的-gc-方式有哪些golang-是怎么做的"><span>一、常见的 GC 方式有哪些，Golang 是怎么做的</span>
+  <a href="#%e4%b8%80%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e6%96%b9%e5%bc%8f%e6%9c%89%e5%93%aa%e4%ba%9bgolang-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>当时对这个问题的了解程度更多的停留在各类技术文章或网传八股文面试题中，没有对 GC 有更广更深入的了解，栽到了一些细节上。</p></blockquote>
+<h3 class="heading-element" id="1常见的-gc-算法"><span>1.常见的 GC 算法</span>
+  <a href="#1%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e7%ae%97%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>引用计数</strong>
+为每个对象维护一个计数器，该对象被使用就 +1，使用结束后 -1，当该对象计数器归 0 时，即被认定为可回收对象，但是一般不立即回收，出于效率考虑，系统一般会定期的等待一批可回收对象一块回收。同时存在个弊端，对于循环引用的对象，计数器的值始终不为 0，无法被回收。</p>
+</li>
+<li>
+<p><strong>标记清除</strong>
+引入了 “可达对象” 的概念（<strong>双方存在直接或间接的引用关系</strong>），从根对象开始扫描遍历所有可达对象并标记为 “存活”，然后扫描整个堆内存，回收未被标记的对象。解决了上述循环引用的问题，但是会因为 STW （<strong>Stop The World，程序暂停执行</strong>）导致性能开销较大，多次 GC 后，内存会不连续碎片化。</p>
+</li>
+<li>
+<p><strong>标记整理</strong>
+标记阶段同标记清除算法一样，在整理阶段不直接清除，而是将对象向内存一端移动，然后清除端边界外的所有空间。优点解决了内存不连续碎片化的问题，但是因为多了对对象在内存的移动整理过程，使得整体的性能开销更大。</p>
+</li>
+<li>
+<p><strong>标记复制</strong>
+标记阶段依然同标记清除算法一样，区别于标记整理，而是将内存分为大小相等的两块，每次只使用一块，GC 是将所有的可达对象复制到另一块内存空间，然后清除当前块。优点同样可以解决内存不连续碎片化的问题，缺点只能使用整个内存空间的一半，同样因为存在复制过程，所以整体开销也不小。</p>
+</li>
+</ol>
+<h3 class="heading-element" id="2go-采用的-gc-算法"><span>2.Go 采用的 GC 算法</span>
+  <a href="#2go-%e9%87%87%e7%94%a8%e7%9a%84-gc-%e7%ae%97%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>标记清除（三色标记法）</strong></p>
+<p>定义三个颜色：</p>
+<ul>
+<li>白色：未被标记的对象</li>
+<li>灰色：已被标记，但还未处理完其所有可达对象</li>
+<li>黑色：已被标记且处理完所有可达对象</li>
+</ul>
+<p>GC 过程：</p>
+<ol>
+<li>初始化：把所有的对象均标记为白色</li>
+<li>标记：从根对象开始，把所有可达对象标记为灰色，当前对象标记为黑色，循环这个过程，直到所有可达对象都被标记，换言之所有对象不是黑色就是白色</li>
+<li>清除：清除所有白色对象</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>
+<p>在 1.5 版本的时候引入了三色标记算法，减少了 STW 时间</p>
+</li>
+<li>
+<p>在 1.8 版本的时候引入混合写入屏障，进一步压缩 STW 时间</p>
+<p><em>ps ：在引用赋值时，将新对象标记为灰色，在引用被删除前，将被删除的对象标记为灰色。</em></p>
+</li>
+</ul>
+<h3 class="heading-element" id="3思考"><span>3.思考</span>
+  <a href="#3%e6%80%9d%e8%80%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>标记的时候，所谓的根对象是什么？或者说根对象在哪里？</p>
+<p>结合上述的标记清除的过程，当前对象存在可达对象的时候或者说当前对象被其他对象所引用，自身就会标记为黑色，那么可以得出如果自身没有引用其他对象的时候，那么自身就是所谓的根对象。</p>
+<p>结合 go 语言特性，思考哪些对象是存在上述特征，换个角度出发，当程序开始运行的时候，首次被加载到内存的对象就符合该特征，那么例如全局常量，包级变量，每个 goroutine 的局部变量常量等即为根对象。</p>
+<h2 class="heading-element" id="二golang-互斥锁底层数据结构是什么样的"><span>二、Golang 互斥锁底层数据结构是什么样的</span>
+  <a href="#%e4%ba%8cgolang-%e4%ba%92%e6%96%a5%e9%94%81%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>互斥锁仅停留在使用的层面，如多线程并发中保护资源等操作上，对于底层是如何实现的，属于是被问到知识盲区了。</p></blockquote>
+<p>Golang 的互斥锁主要由内部 <code>sync</code> 包下的 <code>Mutex</code> 对象实现。</p>
+<p>跳进该对象内部（源码），可看到该对象定义了两个变量：state &amp; sema，这也是互斥锁的核心数据结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Mutex</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">state</span> <span class="kt">int32</span>		<span class="c1">// 状态</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sema</span>  <span class="kt">uint32</span>	<span class="c1">// 信号量</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>往下翻可看到定义的几个常量，这几个常量是互斥锁底层状态管理的核心：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutexLocked</span> <span class="p">=</span> <span class="mi">1</span> 				<span class="c1">// 锁被持有</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutexWoken</span>						<span class="c1">// 锁被释放</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutexStarving</span>					<span class="c1">// 锁处于饥饿模式</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mutexWaiterShift</span> <span class="p">=</span> <span class="kc">iota</span>			<span class="c1">// 等待者数量的偏移量，值为 3</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>接着进一步分析该对象下的具体方法（加锁 &amp; 解锁）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mutex</span><span class="p">)</span> <span class="nf">Lock</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Fast path: grab unlocked mutex.</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">atomic</span><span class="p">.</span><span class="nf">CompareAndSwapInt32</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">m</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">mutexLocked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">race</span><span class="p">.</span><span class="nx">Enabled</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">race</span><span class="p">.</span><span class="nf">Acquire</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">m</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Slow path (outlined so that the fast path can be inlined)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">m</span><span class="p">.</span><span class="nf">lockSlow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mutex</span><span class="p">)</span> <span class="nf">lockSlow</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 具体逻辑请移步源码</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mutex</span><span class="p">)</span> <span class="nf">Unlock</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">race</span><span class="p">.</span><span class="nx">Enabled</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">m</span><span class="p">.</span><span class="nx">state</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">race</span><span class="p">.</span><span class="nf">Release</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="nx">m</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Fast path: drop lock bit.</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">new</span> <span class="o">:=</span> <span class="nx">atomic</span><span class="p">.</span><span class="nf">AddInt32</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">m</span><span class="p">.</span><span class="nx">state</span><span class="p">,</span> <span class="o">-</span><span class="nx">mutexLocked</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">new</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Outlined slow path to allow inlining the fast path.</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// To hide unlockSlow during tracing we skip one extra frame when tracing GoUnblock.</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">m</span><span class="p">.</span><span class="nf">unlockSlow</span><span class="p">(</span><span class="nx">new</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mutex</span><span class="p">)</span> <span class="nf">unlockSlow</span><span class="p">(</span><span class="nx">new</span> <span class="kt">int32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 具体逻辑请移步源码</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看出整个加锁解锁的过程是原子性的，并且有两种途径加解锁（快速途径和慢速途径）粗略的分析了具体实现逻辑，大致总结如下（<em>不保证准确性，仅供参考</em>）：</p>
+<blockquote>
+<p><em>后续不定期补充</em></p></blockquote>
+<p><strong>加锁</strong>：</p>
+<ol>
+<li>
+<p>快速途径：如锁未被持有（state 低 3 位为 0）直接获取锁</p>
+</li>
+<li>
+<p>慢速途径：</p>
+<ul>
+<li>循环尝试获取锁</li>
+<li>正常模式下，新请求可抢占锁，等待者可能被插队</li>
+<li>饥饿模式下，锁直接交给队首等待者，新请求直接入队</li>
+<li>若获取失败，通过 sema 阻塞当前 goroutine</li>
+</ul>
+</li>
+</ol>
+<p><strong>解锁</strong>：</p>
+<ol>
+<li>
+<p>快速途径：直接解锁</p>
+</li>
+<li>
+<p>慢速途径：</p>
+<ul>
+<li>正常模式下：若存在等待者，唤醒一个 goroutine</li>
+<li>饥饿模式下：直接将锁交给队首等待者</li>
+</ul>
+</li>
+</ol>
+<p><strong>总结</strong>：</p>
+<p>Golang 的互斥锁的底层由两个变量 state 锁状态和 sema 信号量构成，并结合原子操作实现对线程加解锁的控制。</p>
+<h2 class="heading-element" id="三innodb-事务的四个特性-acid-分别通过什么手段来支持的"><span>三、InnoDB 事务的四个特性 ACID 分别通过什么手段来支持的</span>
+  <a href="#%e4%b8%89innodb-%e4%ba%8b%e5%8a%a1%e7%9a%84%e5%9b%9b%e4%b8%aa%e7%89%b9%e6%80%a7-acid-%e5%88%86%e5%88%ab%e9%80%9a%e8%bf%87%e4%bb%80%e4%b9%88%e6%89%8b%e6%ae%b5%e6%9d%a5%e6%94%af%e6%8c%81%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>本以为会问 ACID 的特性，这个倒是都了解，出乎意料的是底层是如何实现的，一下子有些猝不及防，脑子里闪过：约束？redo log？undo log？思索片刻还是放弃了。</p></blockquote>
+<h3 class="heading-element" id="1原子性"><span>1.原子性</span>
+  <a href="#1%e5%8e%9f%e5%ad%90%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>定义</strong>：事务执行要么都成功要么都失败，不可分割</p>
+<p><strong>实现原理</strong>：利用 <code>Undo Log</code>（回滚日志），记录每一次执行对应的相反操作，例如：执行 INSERT 操作，那么日志中则记录对应的 DELETE 操作。一旦事务中某一条 SQL 执行失败，那么直接使用日志中记录的操作回滚到事务执行前的状态。</p>
+<h3 class="heading-element" id="2一致性"><span>2.一致性</span>
+  <a href="#2%e4%b8%80%e8%87%b4%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>定义</strong>：事务执行前后，数据库中数据的一致性状态需保持一致</p>
+<p><strong>实现原理</strong>：执行事务时，InnoDB 会检查数据完整性约束（主键、唯一索引、外键）。若违反约束，事务会自动回滚，同时也包括业务规则上的约束，比如经典的银行转账问题，通过数据库触发器或应用层逻辑，确保业务规则被遵守。</p>
+<h3 class="heading-element" id="3隔离性"><span>3.隔离性</span>
+  <a href="#3%e9%9a%94%e7%a6%bb%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>定义</strong>：多个事务并发执行时，相互隔离，互不干扰</p>
+<p><strong>实现原理</strong>：InnoDB 默认的隔离级别是可重复读，通过 <code>MVCC</code> 多版本并发控制机制，每个事务读取自己开始时的数据库快照，避免脏读、幻读、不可重复读问题。对于读已提交隔离级别来说，采用了行级锁来保证；对于串行来讲，直接使用表锁，强制让事务串行执行。</p>
+<h3 class="heading-element" id="4持久性"><span>4.持久性</span>
+  <a href="#4%e6%8c%81%e4%b9%85%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>定义</strong>：事务一旦执行成功，其结果将持久化到磁盘中</p>
+<p><strong>实现原理</strong>：利用 <code>Redo Log</code>（重做日志），记录事务对数据页的物理修改（与 <code>Undo Log</code> 相反），按顺序写入磁盘，即使系统崩溃，过后可通过日志恢复未持久化的数据页。</p>
+<h2 class="heading-element" id="四如下代码分别输出什么"><span>四、如下代码分别输出什么</span>
+  <a href="#%e5%9b%9b%e5%a6%82%e4%b8%8b%e4%bb%a3%e7%a0%81%e5%88%86%e5%88%ab%e8%be%93%e5%87%ba%e4%bb%80%e4%b9%88" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">a</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>先前面试中印象里没有被问到这个问题，不过这个题蛮有意思，考察关于切片扩容的问题。</p></blockquote>
+<p><strong>结论</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="m">3</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl">&gt; <span class="m">7</span> <span class="m">8</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>原因：</strong></p>
+<p>先说长度：这个无可厚非，append 前 3 个元素，append 后追加了 4 个元素，所以长度第一次输出 3，第二次输出 7。</p>
+<p>再来聊聊容量：虽然在 go 1.18 版本之前和之后对于基准容量的把控从 1024 更新到了 256，但在上述示例中可以忽略；首先初始的容量为 3，所以结果输出 3，随后进行了 append 操作，新增了 4 个元素进去，切片首先会进行 2 倍扩容：3 * 2 = 6，但是 6 的容量不足以容纳 7 个元素，理论上会采用最大的容量作为新容量也就是 7 ，但是 go 底层还有个逻辑，即为了内存对齐会选择不小于当前最大容量的最小 2 的幂次，也就是 8，所以第二次会输出 8。</p>
+<h2 class="heading-element" id="五爬楼梯问题"><span>五、爬楼梯问题</span>
+  <a href="#%e4%ba%94%e7%88%ac%e6%a5%bc%e6%a2%af%e9%97%ae%e9%a2%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>力扣第 70 题：</p>
+<p>假设你正在爬楼梯。需要 <code>n</code> 阶你才能到达楼顶。</p>
+<p>每次你可以爬 <code>1</code> 或 <code>2</code> 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：n = 2
+输出：2
+解释：有两种方法可以爬到楼顶。
+1. 1 阶 + 1 阶
+2. 2 阶
+</code></pre>
+<p><strong>示例 2：</strong></p>
+<pre><code>输入：n = 3
+输出：3
+解释：有三种方法可以爬到楼顶。
+1. 1 阶 + 1 阶 + 1 阶
+2. 1 阶 + 2 阶
+3. 2 阶 + 1 阶
+</code></pre></blockquote>
+<p>该题其实在过往的学习过程中有遇到过，属于很经典的算法题，或许是时间间隔太久，一时间思维没跟上&hellip;</p>
+<p>思考加回忆：</p>
+<p>第一印象是经典的斐波那契数列，兔子问题的变体，接着一步步推算一下：</p>
+<p>n = 1 —— 1 种方法</p>
+<p>n = 2 —— 2 种方法</p>
+<p>n = 3 —— 3 种方法</p>
+<p>n = 4 —— 5 种方法</p>
+<p>&hellip;</p>
+<p>其实这么多推几次，能发现个规律，就以 n = 4 来说，无非分为两种情况，第一步走一个台阶和第一步走两个台阶，或者最后一步走一个台阶和最后一步走两个台阶，至于是第一步还是最后一步其实无所谓，现在就以第一步怎么走来说，如果第一步走一个台阶，那么剩下的就是 3 级台阶的情况，如果第一步走两个台阶，那么剩下的就是 2 级台阶的情况，把这两个情况对应的方法数相加，就得到了当前 4 级台阶的方法数。</p>
+<p>对应到数学公式即：f(x) = f(x-1) + f(x-2)</p>
+<p>接下来开始编码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 这里判断两种情况直接返回</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>力扣执行测试一下，发现提示超出时间限制，说明上述代码虽然可以实现，但是时间复杂度高了。</p>
+<p>回到 n = 4 的例子上，当第一步走一个台阶，剩下 3 级台阶的情况，递归的时候会把 3 带入，进而计算 2 级台阶的情况，当第一步走两个台阶，剩下 2 级台阶的情况，显然重复计算了。此时首先想到去重，那就引入一个 map ，改造代码：</p>
+<div class="highlight" data-open="true"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 定义结果集 map</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">results</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nf">climb</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">climb</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">results</span> <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 结果集中存在直接返回，避免重复运算</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">results</span><span class="p">[</span><span class="nx">n</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">val</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">results</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="p">=</span> <span class="nf">climb</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">+</span> <span class="nf">climb</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">results</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>力扣再次提交，成功通过。</p>
+<h2 class="heading-element" id="六计算器"><span>六、计算器</span>
+  <a href="#%e5%85%ad%e8%ae%a1%e7%ae%97%e5%99%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>给定一个包含正整数、加(+)、减(-)、乘(*)、除(/)的算数表达式(括号除外)，计算其结果。</p>
+<p>表达式仅包含非负整数，+、- 、*、/ 四种运算符和空格。整数除法仅保留整数部分。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：&quot;3+2*2&quot;
+输出：7
+</code></pre>
+<p><strong>示例 2：</strong></p>
+<pre><code>输入：&quot; 3/2 &quot;
+输出：1
+</code></pre>
+<p><strong>示例 3：</strong></p>
+<pre><code>输入：&quot; 3+5 / 2 &quot;
+输出：5
+</code></pre>
+<p>说明：
+你可以假设所给定的表达式都是有效的。
+请不要使用内置的库函数 eval。</p></blockquote>
+<p>这个题拿到手后，当时首先想到就是拆分字符串，然后根据符号进行运算，但是这样会存在一些问题，要以什么字符来拆分呢？直接暴力使用 <strong>s := strings.Split(str, &ldquo;&rdquo;)</strong> ，但也还是会存在个问题，如果数字不是 0-9 比如 12 呢？</p>
+<p>上述方法行不通，所有不能直接拆分字符串，换个思路去做遍历字符串，第一次遍历遇到 * or / 就将符号两侧数值先进行计算返回一个只有 + or - 的新表达式，第二次遍历直接进行计算拿到最终的结果。</p>
+<div class="highlight" data-open="true"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">calculate</span><span class="p">(</span><span class="nx">str</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 给字符串去空格</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">str</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 第一次遍历：处理乘除运算</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">newExpr</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 如果是 0-9 的数字直接 append</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">j</span> <span class="o">:=</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">j</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">newExpr</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">,</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">:</span><span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">i</span> <span class="p">=</span> <span class="nx">j</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">switch</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="sc">&#39;+&#39;</span><span class="p">,</span> <span class="sc">&#39;-&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">newExpr</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="sc">&#39;*&#39;</span><span class="p">,</span> <span class="sc">&#39;/&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 从表达式里边取出第一个数</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">prev</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">newExpr</span> <span class="p">=</span> <span class="nx">newExpr</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 提取后一个数</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">j</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">j</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">next</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 计算结果并添加到新表达式中</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;*&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">prev</span> <span class="o">*=</span> <span class="nx">next</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">prev</span> <span class="o">/=</span> <span class="nx">next</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">newExpr</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">,</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">prev</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">i</span> <span class="p">=</span> <span class="nx">j</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 第二次遍历：处理加减运算</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">result</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">);</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">switch</span> <span class="nx">newExpr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;+&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">num</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">result</span> <span class="o">+=</span> <span class="nx">num</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="c1">// 跳过操作符和操作数</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;-&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">num</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">newExpr</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">result</span> <span class="o">-=</span> <span class="nx">num</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">		<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">result</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行一下，上述 case 成功通过。</p>
+</div><hr class="awesome-hr" />
+    <h2 id="see-also">相关内容</h2>
+    <ul><li>
+          <a href="/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案">Go-SJSON 组件，JSON 动态修改新方案</a></li><li>
+          <a href="/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势">Go-GJSON 组件，解锁 JSON 读取新姿势</a></li><li>
+          <a href="/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理">Go 项目实战：全局异常处理</a></li><li>
+          <a href="/posts/go_practical_multi_environment_development/" title="Go 项目实战：如何部署多环境开发">Go 项目实战：如何部署多环境开发</a></li><li>
+          <a href="/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志">Go 项目实战：如何优雅的处理日志</a></li></ul><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-06-07 14:24:25">更新于 2025-06-07&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/f36010b6dc863d9858e2b5e3a342f0e3de293f6c" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(posts): 更新面试经验文章时间&#10- 将面试经验文章的时间从 13:30 修改为 14:20&#10Commit: f36010b6dc863d9858e2b5e3a342f0e3de293f6c [f36010b]&#10Author: vespeng&#10Date: 2025-06-07 14:24:25"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>f36010b</a></span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/interview_experience_dev_job/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/edit/main/content/posts/interview_experience_dev_job/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某开发岗面试" data-hashtags="面试"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-hashtag="面试"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某开发岗面试"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E9%9D%A2%E8%AF%95/" class="post-tag" title="标签 - 面试">面试</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/mysql_config_and_command/" class="post-nav-item" rel="next" title="MySQL 8.0 解压安装版配置文件及参数命令">MySQL 8.0 解压安装版配置文件及参数命令<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="vespeng/vespeng.github.io"
+            data-repo-id="R_kgDONof09A"
+            data-category="Announcements"
+            data-category-id="DIC_kwDONof09M4Cl_3r"
+            data-mapping="pathname"
+            data-strict="0"
+            
+            data-theme="preferred_color_scheme"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+            defer
+          ></script>
+        </div>
+        <noscript>
+          Please enable JavaScript to view the comments powered by <a href="https://giscus.app/" rel="external nofollow noopener noreferrer">giscus</a>.
+        </noscript></div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright order-2" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line statistics order-3"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">博客已运行</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor order-1">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.20"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/interview_experience_dev_job/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</html>

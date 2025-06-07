@@ -2,7 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vespeng.tech/categories/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/collections/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/categories/golang/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/posts/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/tags/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/posts/interview_experience_dev_job/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/collections/%E9%9D%A2%E8%AF%95/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/tags/%E9%9D%A2%E8%AF%95/</loc>
+    <lastmod>2025-06-07T14:24:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,32 +73,8 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.tech/posts/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://vespeng.tech/posts/go_sjson_component/</loc>
     <lastmod>2025-03-30T14:23:47+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/categories/golang/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -81,12 +105,6 @@
   <url>
     <loc>https://vespeng.tech/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</loc>
     <lastmod>2025-02-23T17:58:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/collections/</loc>
-    <lastmod>2025-04-30T23:41:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
