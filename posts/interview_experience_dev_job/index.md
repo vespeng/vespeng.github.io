@@ -1,7 +1,7 @@
 # 记一次某开发岗面试
 
 
-前言：如下题目于面试失败两周后，公司额外赏赐的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。
+前言：如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。
 
 ## 一、常见的 GC 方式有哪些，Golang 是怎么做的
 
@@ -263,25 +263,22 @@ func climbStairs(n int) int {
 回到 n = 4 的例子上，当第一步走一个台阶，剩下 3 级台阶的情况，递归的时候会把 3 带入，进而计算 2 级台阶的情况，当第一步走两个台阶，剩下 2 级台阶的情况，显然重复计算了。此时首先想到去重，那就引入一个 map ，改造代码：
 
 ```go {data-open=true}
-func climbStairs(n int) int {
-	// 定义结果集 map
-	results := make(map[int]int)
-	return climb(n, results)
-}
+// 定义结果集 map
+var results = make(map[int]int)
 
-func climb(n int, results map[int]int) int {
-	if n == 1 {
-		return 1
-	}
+func climbStairs(n int) int {
+    // 结果集中存在直接返回，避免重复运算
+    if val, ok := results[n]; ok {
+        return val
+    }
+    if n == 1 {
+        return 1
+    }
 	if n == 2 {
-		return 2
-	}
-	// 结果集中存在直接返回，避免重复运算
-	if val, ok := results[n]; ok {
-		return val
-	}
-	results[n] = climb(n-1, results) + climb(n-2, results)
-	return results[n]
+        return 2
+    }
+    results[n] = climbStairs(n-1) + climbStairs(n-2)
+    return results[n]
 }
 ```
 
