@@ -66,6 +66,6 @@ events:
 
 ---
 
-> 作者: <no value>  
+> 作者: [Vespeng](https://github.com/vespeng/)  
 > URL: https://vespeng.tech/about/  
 
