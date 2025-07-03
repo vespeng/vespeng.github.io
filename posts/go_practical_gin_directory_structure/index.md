@@ -32,19 +32,19 @@
 │   │   ├── loader.go
 │   │   ├── db.go
 │   │   └── ...
-│   ├── /controllers
+│   ├── /controller
 │   │   ├── user_controller.go
 │   │   └── ...
 │   ├── /middleware
 │   │   ├── error.go
 │   │   └── ...
-│   ├── /models
+│   ├── /model
 │   │   ├── user_entity.go
 │   │   └── ...  
-│   ├── /repositories  
+│   ├── /repository
 │   │   ├── user_repository.go
 │   │   └── ...  
-│   ├── /services  
+│   ├── /service
 │   │   ├── user_service.go
 │   │   └── ...
 │   └── /utils
@@ -70,11 +70,11 @@
     * 存放应用的内部逻辑，这些代码不能被外部包所引入，可根据实际需求进而拆分目录。
     * **`api`**：包含应用中核心的业务路由等，即URL路径与控制器方法的映射。
     * **`app`**：包含应用的核心逻辑，如初始化、启动等。
-    * **`controllers`**：包含控制器逻辑，处理请求并返回响应。
+    * **`controller`**：包含控制器逻辑，处理请求并返回响应。
     * **`middleware`**：存放中间件代码，用于在请求处理流程中的特定阶段执行代码。
-    * **`models`**：定义应用的数据模型，通常与数据库表结构对应。
-    * **`repositories`**：实现数据访问逻辑，与数据库进行交互。
-    * **`services`**：实现业务逻辑，调用repositories中的方法来处理业务需求。
+    * **`model`**：定义应用的数据模型，通常与数据库表结构对应。
+    * **`repository`**：实现数据访问逻辑，与数据库进行交互。
+    * **`service`**：实现业务逻辑，调用repository中的方法来处理业务需求。
     * **`utils`**：包含通用的工具函数，这些函数可以被多个包所共享。
 - **`/pkg`**
     * 存放第三方库，如第三方中间件、工具库等。
@@ -216,10 +216,10 @@ func InitializeAll() error {
 
 ### 3.配置model
 
-在 models 下新建 user_entity.go，注意：这个需要和数据库对应
+在 model 下新建 user_entity.go，注意：这个需要和数据库对应
 
 ```go {data-open=true}
-package models
+package model
 
 type User struct {
     Id          int64  `xorm:"pk autoincr 'id'"`
@@ -240,22 +240,22 @@ func (u User) TableName() string {
 
 ### 4.配置controller
 
-在 controllers 下新建 user_controllers.go
+在 controller 下新建 user_controller.go
 
 ```go {data-open=true}
-package controllers
+package controller
 
 import (
-    "your_project/internal/services"
+    "your_project/internal/service"
     "github.com/gin-gonic/gin"
     "net/http"
 )
 
 type UserController struct {
-    UserService *services.UserService
+    UserService *service.UserService
 }
 
-func NewUserController(UserService *services.UserService) *UserController {
+func NewUserController(UserService *service.UserService) *UserController {
     return &UserController{UserService: UserService}
 }
 
@@ -271,39 +271,39 @@ func (uc *UserController) GetUsers(c *gin.Context) {
 
 ### 5.配置service
 
-在 sevices 下新建 user_service.go
+在 service 下新建 user_service.go
 
 ```go {data-open=true}
-package services
+package service
 
 import (
-    "your_project/internal/models"
-    "your_project/internal/repositories"
+    "your_project/internal/model"
+    "your_project/internal/repository"
     "github.com/go-xorm/xorm"
 )
 
 type UserService struct {
-    userRepo *repositories.UserRepository
+    userRepo *repository.UserRepository
 }
 
 func NewUserService(engine *xorm.Engine) *UserService {
-    return &UserService{userRepo: repositories.NewUserRepository(engine)}
+    return &UserService{userRepo: repository.NewUserRepository(engine)}
 }
 
-func (us *UserService) GetUsers() ([]*models.User, error) {
+func (us *UserService) GetUsers() ([]*model.User, error) {
     return us.userRepo.GetUsers()
 }
 ```
 
-### 6.配置repositorie
+### 6.配置repository
 
-在 repositories 下新建 user_repo.go
+在 repository 下新建 user_repo.go
 
 ```go {data-open=true}
-package repositories
+package repository
 
 import (
-    "your_project/internal/models"
+    "your_project/internal/model"
     "github.com/go-xorm/xorm"
 )
 
@@ -316,9 +316,9 @@ func NewUserRepository(engine *xorm.Engine) *UserRepository {
 }
 
 // GetUsers 获取所有用户
-func (r *UserRepository) GetUsers() ([]*models.User, error) {
-    var users []*models.User
-    err := r.engine.Table(models.User{}.TableName()).Find(&users)
+func (r *UserRepository) GetUsers() ([]*model.User, error) {
+    var users []*model.User
+    err := r.engine.Table(model.User{}.TableName()).Find(&users)
     return users, err
 }
 ```
@@ -333,8 +333,8 @@ package v1
 import (
     "github.com/gin-gonic/gin"
     "github.com/go-xorm/xorm"
-    "your_project/internal/controllers"
-    "your_project/internal/services"
+    "your_project/internal/controller"
+    "your_project/internal/service"
 )
 
 func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
@@ -342,9 +342,9 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
     user := r.Group("/user")
     {
         // 创建 UserService 实例
-        UserService := services.NewUserService(engine)
+        UserService := service.NewUserService(engine)
         // 创建 UserController 实例
-        UserController := controllers.NewUserController(UserService)
+        UserController := controller.NewUserController(UserService)
 
         user.GET("/", UserController.GetUsers)
     }
