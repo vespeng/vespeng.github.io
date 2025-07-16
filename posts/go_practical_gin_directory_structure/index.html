@@ -10,8 +10,8 @@
   <meta itemprop="name" content="Go 项目实战：搭建高效的Gin Web目录结构">
   <meta itemprop="description" content="Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。">
   <meta itemprop="datePublished" content="2025-01-19T21:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-07-03T22:20:13+08:00">
-  <meta itemprop="wordCount" content="1033">
+  <meta itemprop="dateModified" content="2025-07-16T21:58:28+08:00">
+  <meta itemprop="wordCount" content="1050">
   <meta itemprop="keywords" content="golang,go,gin,web目录结构"><meta property="og:url" content="https://vespeng.tech/posts/go_practical_gin_directory_structure/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 项目实战：搭建高效的Gin Web目录结构">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-19T21:30:00+08:00">
-    <meta property="article:modified_time" content="2025-07-03T22:20:13+08:00">
+    <meta property="article:modified_time" content="2025-07-16T21:58:28+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="Gin">
 
@@ -39,8 +39,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  1033 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-07-03T22:20:13+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  1050 ,
+    "url": "https:\/\/vespeng.tech\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-07-16T21:58:28+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -156,7 +156,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：搭建高效的Gin Web目录结构</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-07-03 22:20:13"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-03">2025-07-03</time></span>&nbsp;<span title="1033 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的Gin Web目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-07-16 21:58:28"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-16">2025-07-16</time></span>&nbsp;<span title="1050 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的Gin Web目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -178,8 +178,9 @@
         <li><a href="#5配置service">5.配置service</a></li>
         <li><a href="#6配置repository">6.配置repository</a></li>
         <li><a href="#7配置api">7.配置api</a></li>
-        <li><a href="#8配置main">8.配置main</a></li>
-        <li><a href="#9启动项目">9.启动项目</a></li>
+        <li><a href="#8配置bootstrap">8.配置bootstrap</a></li>
+        <li><a href="#9配置main">9.配置main</a></li>
+        <li><a href="#10启动项目">10.启动项目</a></li>
       </ul>
     </li>
   </ul>
@@ -251,8 +252,8 @@
 </span></span><span class="line"><span class="cl">│   │   ├── v1
 </span></span><span class="line"><span class="cl">│   │   │   ├── /routes.go
 </span></span><span class="line"><span class="cl">│   ├── /app
+</span></span><span class="line"><span class="cl">│   │   ├── bootstrap.go
 </span></span><span class="line"><span class="cl">│   │   ├── config.go
-</span></span><span class="line"><span class="cl">│   │   ├── loader.go
 </span></span><span class="line"><span class="cl">│   │   ├── db.go
 </span></span><span class="line"><span class="cl">│   │   └── ...
 </span></span><span class="line"><span class="cl">│   ├── /controller
@@ -818,8 +819,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 class="heading-element" id="8配置main"><span>8.配置main</span>
-  <a href="#8%e9%85%8d%e7%bd%aemain" class="heading-mark">
+</div><h3 class="heading-element" id="8配置bootstrap"><span>8.配置bootstrap</span>
+  <a href="#8%e9%85%8d%e7%bd%aebootstrap" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="highlight" data-open="true"><div class="chroma">
@@ -861,7 +862,7 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">app</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
@@ -872,7 +873,7 @@
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;your_project/internal/app&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Start</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 加载配置文件</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">config</span><span class="p">.</span><span class="nf">LoadConfig</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -897,9 +898,32 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>截至这里，一个基本的查询请求就已经构建完成</p>
-<h3 class="heading-element" id="9启动项目"><span>9.启动项目</span>
-  <a href="#9%e5%90%af%e5%8a%a8%e9%a1%b9%e7%9b%ae" class="heading-mark">
+</div><h3 class="heading-element" id="9配置main"><span>9.配置main</span>
+  <a href="#9%e9%85%8d%e7%bd%aemain" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight" data-open="true"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">app</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;your_project/internal/app&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">app</span><span class="p">.</span><span class="nf">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>截至这里，一个基本的查询请求就已构建完成</p>
+<h3 class="heading-element" id="10启动项目"><span>10.启动项目</span>
+  <a href="#10%e5%90%af%e5%8a%a8%e9%a1%b9%e7%9b%ae" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>cmd 目录下直接运行 main 函数，正常会输出如下信息：</p>
@@ -947,8 +971,9 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-07-03 22:20:13">更新于 2025-07-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/945ded91c6dae60039319dc2f8ccb945a7b48d71" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(github): 更新目录结构和代码示例&#10- 更新代码示例中的包名引用
-- 调整目录结构说明文本&#10Commit: 945ded91c6dae60039319dc2f8ccb945a7b48d71 [945ded9]&#10Author: vespeng&#10Date: 2025-07-03 22:20:13"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>945ded9</a></span>
+        <span title="更新于 2025-07-16 21:58:28">更新于 2025-07-16&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/270cc6fe14c07e1fc279f1e3ffa9e4980c44dd54" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(gin): 重构项目启动方式&#10- 新增 bootstrap.go 文件，实现项目启动逻辑的解耦
+- 修改 main 包名为 app，提高代码的可维护性
+- 更新项目结构，使目录层次更加清晰&#10Commit: 270cc6fe14c07e1fc279f1e3ffa9e4980c44dd54 [270cc6f]&#10Author: vespeng&#10Date: 2025-07-16 21:58:28"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>270cc6f</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

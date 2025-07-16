@@ -28,8 +28,8 @@
 │   │   ├── v1
 │   │   │   ├── /routes.go
 │   ├── /app
+│   │   ├── bootstrap.go
 │   │   ├── config.go
-│   │   ├── loader.go
 │   │   ├── db.go
 │   │   └── ...
 │   ├── /controller
@@ -351,10 +351,10 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 }
 ```
 
-### 8.配置main
+### 8.配置bootstrap
 
 ```go {data-open=true}
-package main
+package app
 
 import (
     "fmt"
@@ -365,7 +365,7 @@ import (
     "your_project/internal/app"
 )
 
-func main() {
+func Start() {
     // 加载配置文件
     err := config.LoadConfig()
     if err != nil {
@@ -391,9 +391,21 @@ func main() {
 }
 ```
 
-截至这里，一个基本的查询请求就已经构建完成
+### 9.配置main
 
-### 9.启动项目
+```go {data-open=true}
+package app
+
+import "your_project/internal/app"
+
+func main() {
+	app.Start()
+}
+```
+
+截至这里，一个基本的查询请求就已构建完成
+
+### 10.启动项目
 
 cmd 目录下直接运行 main 函数，正常会输出如下信息：
 
