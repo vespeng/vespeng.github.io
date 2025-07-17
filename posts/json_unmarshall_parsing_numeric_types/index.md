@@ -148,7 +148,7 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 
 当处理非常大的整数（如毫秒级的时间戳）时，如果直接使用 Go 语言中的整数类型（如 `int` 或 `int64`），可能会因为超出这些类型的表示范围而导致溢出。虽然 `int64` 类型在大多数情况下可以容纳毫秒级的时间戳，但为了确保能够处理所有可能的 JSON 数字，`encoding/json` 包选择了 `float64` 类型作为默认解析结果。
 
-到这里其实我们最初的目的也轻松处理：
+到这里其实我们最初的目的也能够轻松处理：
 
 ```go {data-open=true}
 func main() {

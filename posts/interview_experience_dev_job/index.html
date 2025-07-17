@@ -5,41 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>记一次某开发岗面试 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
-<meta name="description" content="如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。"><meta name="keywords" content='golang, go, 面试, 面试题'>
-  <meta itemprop="name" content="记一次某开发岗面试">
-  <meta itemprop="description" content="如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+    <title>记一次某 Golang 开发岗面试 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+<meta name="description" content="如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。"><meta name="keywords" content='golang, go, 面试, 面试题'>
+  <meta itemprop="name" content="记一次某 Golang 开发岗面试">
+  <meta itemprop="description" content="如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。">
   <meta itemprop="datePublished" content="2025-06-07T14:20:00+08:00">
-  <meta itemprop="dateModified" content="2025-06-14T21:11:46+08:00">
-  <meta itemprop="wordCount" content="944">
+  <meta itemprop="dateModified" content="2025-07-17T23:18:25+08:00">
+  <meta itemprop="wordCount" content="940">
   <meta itemprop="keywords" content="golang,go,面试,面试题"><meta property="og:url" content="https://vespeng.tech/posts/interview_experience_dev_job/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
-  <meta property="og:title" content="记一次某开发岗面试">
-  <meta property="og:description" content="如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+  <meta property="og:title" content="记一次某 Golang 开发岗面试">
+  <meta property="og:description" content="如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-06-07T14:20:00+08:00">
-    <meta property="article:modified_time" content="2025-06-14T21:11:46+08:00">
+    <meta property="article:modified_time" content="2025-07-17T23:18:25+08:00">
     <meta property="article:tag" content="面试">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="记一次某开发岗面试">
-  <meta name="twitter:description" content="如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。">
+  <meta name="twitter:title" content="记一次某 Golang 开发岗面试">
+  <meta name="twitter:description" content="如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。">
 <meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/interview_experience_dev_job/" title="记一次某开发岗面试 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/interview_experience_dev_job/index.md" title="记一次某开发岗面试 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/interview_experience_dev_job/" title="记一次某 Golang 开发岗面试 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/interview_experience_dev_job/index.md" title="记一次某 Golang 开发岗面试 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "记一次某开发岗面试",
+    "headline": "记一次某 Golang 开发岗面试",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/interview_experience_dev_job\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "面试","wordcount":  944 ,
-    "url": "https:\/\/vespeng.tech\/posts\/interview_experience_dev_job\/","datePublished": "2025-06-07T14:20:00+08:00","dateModified": "2025-06-14T21:11:46+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "面试","wordcount":  940 ,
+    "url": "https:\/\/vespeng.tech\/posts\/interview_experience_dev_job\/","datePublished": "2025-06-07T14:20:00+08:00","dateModified": "2025-07-17T23:18:25+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
         "@type": "Person",
@@ -61,9 +61,10 @@
                       </li><li class="menu-item">
                         <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a>
                       </li></ul></li><li class="menu-item">
-              <a class="menu-link" href="/link/"><i class="fa-solid fa-link fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item">
+              <a class="menu-link" href="/link/"><i class="fa-solid fa-anchor fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item">
               <a class="menu-link" href="/message/"><i class="fa-solid fa-comment-dots fa-fw fa-sm" aria-hidden="true"></i> 留言</a></li><li class="menu-item">
-              <a class="menu-link" href="/about/"><i class="fa-solid fa-paper-plane fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+              <a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-train-subway fa-fw fa-sm" aria-hidden="true"></i> 开往</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
@@ -124,7 +125,7 @@
                         <a class="menu-link" href="/collections/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 合集</a>
                       </li><li class="menu-item">
                         <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a>
-                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/link/"><i class="fa-solid fa-link fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item"><a class="menu-link" href="/message/"><i class="fa-solid fa-comment-dots fa-fw fa-sm" aria-hidden="true"></i> 留言</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-paper-plane fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/link/"><i class="fa-solid fa-anchor fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item"><a class="menu-link" href="/message/"><i class="fa-solid fa-comment-dots fa-fw fa-sm" aria-hidden="true"></i> 留言</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-train-subway fa-fw fa-sm" aria-hidden="true"></i> 开往</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
           <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
     <span role="button" aria-label="选择语言" title="选择语言" data-current=""><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
   </span></li>
@@ -137,25 +138,14 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">记一次某开发岗面试</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">记一次某 Golang 开发岗面试</li>
     </ol>
-  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"><div class="details collection-details open">
-      <div class="details-summary collection-summary">
-        <i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i>
-        <span class="collection-name" title="合集">面试</span>
-        <span class="collection-count">1</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
-      <div class="details-content collection-content">
-        <nav>
-          <ul class="collection-list"><li class="collection-item"><span class="active" title="记一次某开发岗面试">记一次某开发岗面试</span></li></ul>
-          <div class="collection-nav-simple"><i class="fa-solid fa-angle-left fa-fw collection-nav-item text-secondary" aria-hidden="true"></i><span class="text-secondary">1/1</span><i class="fa-solid fa-angle-right fa-fw collection-nav-item text-secondary" aria-hidden="true"></i></div>
-        </nav>
-      </div>
-    </div></aside>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>记一次某开发岗面试</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>记一次某 Golang 开发岗面试</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='https://avatars.githubusercontent.com/u/70800087?s=400&u=64630d0ea1a340eb5ee5b6461136df8aed9433a7&v=4' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="post-meta-line"><span title="发布于 2025-06-07 14:20:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="更新于 2025-06-14 21:11:46"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-14">2025-06-14</time></span>&nbsp;<span title="944 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="记一次某开发岗面试"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/images/remote/70800087_8553458301533810085.jpg' srcset="/images/remote/70800087_8553458301533810085_hu_7efad76c230de6f3.webp 16w, /images/remote/70800087_8553458301533810085_hu_696b9e7e83aaee28.webp 24w, /images/remote/70800087_8553458301533810085_hu_5f6b064729833af2.webp 32w" alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="post-meta-line"><span title="发布于 2025-06-07 14:20:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="更新于 2025-07-17 23:18:25"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-17">2025-07-17</time></span>&nbsp;<span title="940 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="记一次某 Golang 开发岗面试"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -164,15 +154,15 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#一常见的-gc-方式有哪些golang-是怎么做的">一、常见的 GC 方式有哪些，Golang 是怎么做的</a>
+    <li><a href="#一常见的-gc-算法有哪些go-是怎么做的">一、常见的 GC 算法有哪些，Go 是怎么做的</a>
       <ul>
         <li><a href="#1常见的-gc-算法">1.常见的 GC 算法</a></li>
         <li><a href="#2go-采用的-gc-算法">2.Go 采用的 GC 算法</a></li>
         <li><a href="#3思考">3.思考</a></li>
       </ul>
     </li>
-    <li><a href="#二golang-互斥锁底层数据结构是什么样的">二、Golang 互斥锁底层数据结构是什么样的</a></li>
-    <li><a href="#三innodb-事务的四个特性-acid-分别通过什么手段来支持的">三、InnoDB 事务的四个特性 ACID 分别通过什么手段来支持的</a>
+    <li><a href="#二互斥锁底层数据结构是什么样的">二、互斥锁底层数据结构是什么样的</a></li>
+    <li><a href="#三事务的四个特性分别通过什么手段实现的">三、事务的四个特性分别通过什么手段实现的</a>
       <ul>
         <li><a href="#1原子性">1.原子性</a></li>
         <li><a href="#2一致性">2.一致性</a></li>
@@ -185,9 +175,9 @@
     <li><a href="#六计算器">六、计算器</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="「本文完，更多内容汇总在我的 GitHub，持续更新，求关注、求 star、求订阅！」"><p>前言：如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。</p>
-<h2 class="heading-element" id="一常见的-gc-方式有哪些golang-是怎么做的"><span>一、常见的 GC 方式有哪些，Golang 是怎么做的</span>
-  <a href="#%e4%b8%80%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e6%96%b9%e5%bc%8f%e6%9c%89%e5%93%aa%e4%ba%9bgolang-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84" class="heading-mark">
+      </div><div class="content" id="content" data-end-flag="「本文完，更多内容汇总在我的 GitHub，持续更新，求关注、求 star、求订阅！」"><p>前言：如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。</p>
+<h2 class="heading-element" id="一常见的-gc-算法有哪些go-是怎么做的"><span>一、常见的 GC 算法有哪些，Go 是怎么做的</span>
+  <a href="#%e4%b8%80%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e7%ae%97%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9bgo-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><blockquote>
@@ -248,8 +238,8 @@
 </h3><p>标记的时候，所谓的根对象是什么？或者说根对象在哪里？</p>
 <p>结合上述的标记清除的过程，当前对象存在可达对象的时候或者说当前对象被其他对象所引用，自身就会标记为黑色，那么可以得出如果自身没有引用其他对象的时候，那么自身就是所谓的根对象。</p>
 <p>结合 go 语言特性，思考哪些对象是存在上述特征，换个角度出发，当程序开始运行的时候，首次被加载到内存的对象就符合该特征，那么例如全局常量，包级变量，每个 goroutine 的局部变量常量等即为根对象。</p>
-<h2 class="heading-element" id="二golang-互斥锁底层数据结构是什么样的"><span>二、Golang 互斥锁底层数据结构是什么样的</span>
-  <a href="#%e4%ba%8cgolang-%e4%ba%92%e6%96%a5%e9%94%81%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" class="heading-mark">
+<h2 class="heading-element" id="二互斥锁底层数据结构是什么样的"><span>二、互斥锁底层数据结构是什么样的</span>
+  <a href="#%e4%ba%8c%e4%ba%92%e6%96%a5%e9%94%81%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><blockquote>
@@ -394,8 +384,8 @@
 </ol>
 <p><strong>总结</strong>：</p>
 <p>Golang 的互斥锁的底层由两个变量 state 锁状态和 sema 信号量构成，并结合原子操作实现对线程加解锁的控制。</p>
-<h2 class="heading-element" id="三innodb-事务的四个特性-acid-分别通过什么手段来支持的"><span>三、InnoDB 事务的四个特性 ACID 分别通过什么手段来支持的</span>
-  <a href="#%e4%b8%89innodb-%e4%ba%8b%e5%8a%a1%e7%9a%84%e5%9b%9b%e4%b8%aa%e7%89%b9%e6%80%a7-acid-%e5%88%86%e5%88%ab%e9%80%9a%e8%bf%87%e4%bb%80%e4%b9%88%e6%89%8b%e6%ae%b5%e6%9d%a5%e6%94%af%e6%8c%81%e7%9a%84" class="heading-mark">
+<h2 class="heading-element" id="三事务的四个特性分别通过什么手段实现的"><span>三、事务的四个特性分别通过什么手段实现的</span>
+  <a href="#%e4%b8%89%e4%ba%8b%e5%8a%a1%e7%9a%84%e5%9b%9b%e4%b8%aa%e7%89%b9%e6%80%a7%e5%88%86%e5%88%ab%e9%80%9a%e8%bf%87%e4%bb%80%e4%b9%88%e6%89%8b%e6%ae%b5%e5%ae%9e%e7%8e%b0%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><blockquote>
@@ -728,20 +718,30 @@
           <a href="/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势">Go-GJSON 组件，解锁 JSON 读取新姿势</a></li><li>
           <a href="/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理">Go 项目实战：全局异常处理</a></li><li>
           <a href="/posts/go_practical_multi_environment_development/" title="Go 项目实战：如何部署多环境开发">Go 项目实战：如何部署多环境开发</a></li><li>
-          <a href="/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志">Go 项目实战：如何优雅的处理日志</a></li></ul><div class="post-footer" id="post-footer">
+          <a href="/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志">Go 项目实战：如何优雅的处理日志</a></li></ul><div class="collection-card">
+      <div class="collection-title text-secondary">收录于 <a href="/collections/%E9%9D%A2%E8%AF%95/"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> <span>合集・面试</span></span></a> 1</div>
+      <div class="collection-nav">
+        </div>
+    </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2025-06-14 21:11:46">更新于 2025-06-14&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/a8af5870b39330b4a2f0884c760f603a8e5b0329" rel="external nofollow noopener noreferrer" target="_blank" title="build:升级 Hugo 版本并调整数学公式渲染&#10- 将 Hugo 最低版本要求从 0.140.0 提升到 0.146.0
-- 在面试经验文章中添加数学公式渲染支持- 修正数学公式格式问题&#10Commit: a8af5870b39330b4a2f0884c760f603a8e5b0329 [a8af587]&#10Author: vespeng&#10Date: 2025-06-14 21:11:46"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>a8af587</a></span>
+        <span title="更新于 2025-07-17 23:18:25">更新于 2025-07-17&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/52b275bdbe0f5415cbcf5bbf3d51e17e34f0c947" rel="external nofollow noopener noreferrer" target="_blank" title="style(theme): 调整样式变量和布局&#10- 调整 404 页面字体大小
+- 调整全局字体大小和行高
+- 修改菜单图标
+- 更新菜单项权重- 添加新菜单项
+- 调整加载进度条设置- 更新图片缓存和优化设置
+- 修改侧边栏集合列表和导航设置
+- 更新社交分享设置&#10Commit: 52b275bdbe0f5415cbcf5bbf3d51e17e34f0c947 [52b275b]&#10Author: vespeng&#10Date: 2025-07-17 23:18:25"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>52b275b</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
         <div class="post-info-md"><span><a href="/posts/interview_experience_dev_job/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/blog-source/edit/main/content/posts/interview_experience_dev_job/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某开发岗面试" data-hashtags="面试"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某 Golang 开发岗面试" data-hashtags="面试"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-hashtag="面试"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某开发岗面试"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.tech/posts/interview_experience_dev_job/"><i class="fa-brands fa-reddit fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.tech/posts/interview_experience_dev_job/" data-title="记一次某 Golang 开发岗面试"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -789,5 +789,5 @@
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/js/lib/load-mathjax.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.21-89f9373b"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/interview_experience_dev_job/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/js/lib/load-mathjax.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.3.21-89f9373b"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/interview_experience_dev_job/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>

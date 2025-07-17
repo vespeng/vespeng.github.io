@@ -8,15 +8,15 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 16 Jul 2025 21:58:28 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jul 2025 23:18:25 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>记一次某开发岗面试</title>
+      <title>记一次某 Golang 开发岗面试</title>
       <link>https://vespeng.tech/posts/interview_experience_dev_job/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/interview_experience_dev_job/</guid>
       <category domain="https://vespeng.tech/categories/golang/">Golang</category>
-      <description>如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。</description>
+      <description>如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。</description>
     </item>
     <item>
       <title>MySQL 8.0 解压安装版配置文件及参数命令</title>
@@ -99,7 +99,7 @@
       <description>&lt;p&gt;高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go 语言的并发优势</title>
+      <title>Go 并发优势详解</title>
       <link>https://vespeng.tech/posts/the_concurrency_advantage_of_go/</link>
       <pubDate>Sun, 12 Jan 2025 18:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/the_concurrency_advantage_of_go/</guid>

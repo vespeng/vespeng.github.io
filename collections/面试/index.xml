@@ -8,15 +8,15 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 14 Jun 2025 21:11:46 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jul 2025 23:18:25 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/collections/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>记一次某开发岗面试</title>
+      <title>记一次某 Golang 开发岗面试</title>
       <link>https://vespeng.tech/posts/interview_experience_dev_job/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
       <guid>https://vespeng.tech/posts/interview_experience_dev_job/</guid>
       <category domain="https://vespeng.tech/categories/golang/">Golang</category>
-      <description>如下题目于面试失败两周后，公司额外给到的一次机会（在这里非常感谢了！）均出自当初面试未能回答上来的问题，在这里总结分享一下，希望或是一份满意的答卷。</description>
+      <description>如下题目于面试结束两周后，整理了下当初未能回答上来的问题，在此分享总结下，以供参考。</description>
     </item>
   </channel>
 </rss>
