@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vespeng.tech/</loc>
+    <lastmod>2025-07-20T14:14:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.tech/statement/</loc>
+    <lastmod>2025-07-20T14:14:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://vespeng.tech/categories/</loc>
     <lastmod>2025-07-17T23:18:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -26,12 +38,6 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-07-17T23:18:25+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.tech/</loc>
     <lastmod>2025-07-17T23:18:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -152,7 +158,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/message/</loc>
-    <lastmod>2025-03-10T23:35:54+08:00</lastmod>
+    <lastmod>2025-07-20T14:14:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -200,7 +206,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/about/</loc>
-    <lastmod>2025-07-17T23:18:25+08:00</lastmod>
+    <lastmod>2025-07-20T14:14:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
