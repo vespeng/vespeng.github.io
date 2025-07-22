@@ -17,6 +17,6 @@
 - 01-19 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.tech/posts/go_practical_gin_directory_structure/)
 - 01-12 [Json.Unmarshal 解析数字类型（踩坑）](https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/)
 - 01-12 [Go 语言并发实战：利用协程处理多个接口的 Map 数据融合](https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/)
-- 01-12 [Go 并发优势详解](https://vespeng.tech/posts/the_concurrency_advantage_of_go/)
+- 01-12 [Go 的并发优势](https://vespeng.tech/posts/the_concurrency_advantage_of_go/)
 - 01-12 [Golang 开发环境搭建](https://vespeng.tech/posts/golang_development_environment/)
 - 01-10 博客建立
