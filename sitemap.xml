@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vespeng.tech/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/categories/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -26,19 +26,19 @@
   </url>
   <url>
     <loc>https://vespeng.tech/categories/golang/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/posts/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.tech/tags/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/golang/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -182,7 +182,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/tags/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -194,7 +194,7 @@
   </url>
   <url>
     <loc>https://vespeng.tech/posts/the_concurrency_advantage_of_go/</loc>
-    <lastmod>2025-07-22T23:41:51+08:00</lastmod>
+    <lastmod>2025-07-23T20:50:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
