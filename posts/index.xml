@@ -8,8 +8,16 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Fri, 25 Jul 2025 20:54:37 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Jul 2025 21:12:34 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 项目实战：实现 JWT 认证中间件</title>
+      <link>https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/</link>
+      <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <description>&lt;p&gt;在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>记一次某 Golang 开发岗面试</title>
       <link>https://vespeng.tech/posts/interview_experience_dev_job/</link>

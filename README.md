@@ -6,6 +6,7 @@
 
 ## 2025
 
+- 07-25 [Go 项目实战：实现 JWT 认证中间件](http://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/)
 - 06-07 [记一次某 Golang 开发岗面试](https://vespeng.tech/posts/interview_experience_dev_job/)
 - 03-20 [MySQL 8.0 解压安装版配置文件及参数命令](https://vespeng.tech/posts/mysql_config_and_command/)
 - 03-09 [Go-SJSON 组件，JSON 动态修改新方案](https://vespeng.tech/posts/go_sjson_component/)
