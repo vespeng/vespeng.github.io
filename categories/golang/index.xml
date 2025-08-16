@@ -8,8 +8,17 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Mon, 28 Jul 2025 17:36:14 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Aug 2025 22:36:42 +0800</lastBuildDate>
     <atom:link href="https://vespeng.tech/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法实现示例集：排序</title>
+      <link>https://vespeng.tech/posts/algorithm_implementation_example_sort/</link>
+      <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.tech/posts/algorithm_implementation_example_sort/</guid>
+      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <category domain="https://vespeng.tech/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      <description>&lt;p&gt;排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
       <link>https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/</link>
@@ -19,10 +28,10 @@
       <description>&lt;p&gt;在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>记一次某 Golang 开发岗面试</title>
-      <link>https://vespeng.tech/posts/interview_experience_dev_job/</link>
+      <title>记一次 Golang 开发岗面试</title>
+      <link>https://vespeng.tech/posts/golang_development_job_interview/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/interview_experience_dev_job/</guid>
+      <guid>https://vespeng.tech/posts/golang_development_job_interview/</guid>
       <category domain="https://vespeng.tech/categories/golang/">Golang</category>
       <description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
     </item>
