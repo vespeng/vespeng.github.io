@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
@@ -12,7 +11,7 @@
   <meta itemprop="description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。">
   <meta itemprop="datePublished" content="2025-07-25T21:15:00+08:00">
   <meta itemprop="dateModified" content="2025-07-25T22:23:31+08:00">
-  <meta itemprop="wordCount" content="1318">
+  <meta itemprop="wordCount" content="1319">
   <meta itemprop="keywords" content="golang,go,gin,gin-jwt,jwt,JSON Web Token"><meta property="og:url" content="https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 项目实战：实现 JWT 认证中间件">
@@ -30,7 +29,7 @@
   <meta name="twitter:title" content="Go 项目实战：实现 JWT 认证中间件">
   <meta name="twitter:description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。">
 <meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/statement/" title="声明" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/algorithm_implementation_example_sort/" title="算法实现示例集：排序" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/index.md" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng's Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/statement/" title="声明" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/algorithm_implementation_example_sort/" title="算法实现示例集：排序" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/index.md" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -41,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.tech\/posts\/go_practice_implementing_jwt_auth_middleware\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin, JWT","wordcount":  1318 ,
+    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin, JWT","wordcount":  1319 ,
     "url": "https:\/\/vespeng.tech\/posts\/go_practice_implementing_jwt_auth_middleware\/","datePublished": "2025-07-25T21:15:00+08:00","dateModified": "2025-07-25T22:23:31+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
@@ -143,12 +142,12 @@
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
     <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目实战：实现 JWT 认证中间件</li>
     </ol>
-  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：实现 JWT 认证中间件</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-07-25 21:15:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="更新于 2025-07-25 22:23:31"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="1318 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：实现 JWT 认证中间件"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-07-25 21:15:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="更新于 2025-07-25 22:23:31"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="1319 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：实现 JWT 认证中间件"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -228,6 +227,7 @@
 <li><strong>配置管理</strong>：提供重置配置的功能，以便在需要时（如密钥轮换）重新加载配置。</li>
 </ol>
 <p>为了更直观地理解上述流程，下面用一个流程图表示：</p>
+<div class="diagram-container"><div class="diagram-copy-btn" aria-label="Copy Mermaid code" role="button"><i class="fa-regular fa-clone" aria-hidden="true"></i><i class="fa-solid fa-check text-success" aria-hidden="true"></i></div>
 <pre class="mermaid">graph TD
     A[客户端请求] --> B{JWT中间件}
     B --> C{是否排除路径?}
@@ -239,7 +239,7 @@
     G & H --> I[校验通过?]
     I -->|是| J[存储claims到上下文]
     I -->|否| K[返回错误响应]</pre>
-<template>graph TD
+  <template><pre class="mermaid">graph TD
     A[客户端请求] --> B{JWT中间件}
     B --> C{是否排除路径?}
     C -->|是| D[跳过验证]
@@ -249,7 +249,8 @@
     F -->|否| H[本地验证JWT签名]
     G & H --> I[校验通过?]
     I -->|是| J[存储claims到上下文]
-    I -->|否| K[返回错误响应]</template><h2 class="heading-element" id="四实战"><span>四、实战</span>
+    I -->|否| K[返回错误响应]</pre></template>
+</div><h2 class="heading-element" id="四实战"><span>四、实战</span>
   <a href="#%e5%9b%9b%e5%ae%9e%e6%88%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -985,8 +986,7 @@
     </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod">
-        <span title="更新于 2025-07-25 22:23:31">更新于 2025-07-25&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/b28c03b7243c81d16a708fad74cf2e9b140e2c9e" rel="external nofollow noopener noreferrer" target="_blank" title="data: 更新朋友墙并优化博客文章&#10- 从 friends.yml 中移除了 LarsCheng 的信息
+      <div class="post-info-mod"><span title="更新于 2025-07-25 22:23:31">更新于 2025-07-25&nbsp;<a class="git-hash" href="https://github.com/vespeng/blog-source/commit/b28c03b7243c81d16a708fad74cf2e9b140e2c9e" rel="external nofollow noopener noreferrer" target="_blank" title="data: 更新朋友墙并优化博客文章&#10- 从 friends.yml 中移除了 LarsCheng 的信息
 - 在 go_practice_implementing_jwt_auth_middleware 文章中移除了多余的标签&#10Commit: b28c03b7243c81d16a708fad74cf2e9b140e2c9e [b28c03b]&#10Author: vespeng&#10Date: 2025-07-25 22:23:31"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>b28c03b</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
@@ -1003,8 +1003,7 @@
 
   <div class="post-info-more">
     <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/golang/" class="post-tag" title="标签 - Golang">Golang</a><a href="/tags/gin/" class="post-tag" title="标签 - Gin">Gin</a><a href="/tags/jwt/" class="post-tag" title="标签 - JWT">JWT</a></section>
-    <section>
-      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    <section><span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div><div class="post-nav"><a href="/posts/algorithm_implementation_example_sort/" class="post-nav-item" rel="prev" title="算法实现示例集：排序"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>算法实现示例集：排序</a><a href="/posts/golang_development_job_interview/" class="post-nav-item" rel="next" title="记一次 Golang 开发岗面试">记一次 Golang 开发岗面试<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
@@ -1044,11 +1043,5 @@
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';
-    
-    
-    
-    window.mermaid = mermaid;
-  </script><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/js/lib/load-mathjax.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"mermaid":{"themes":["default","dark"]},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.4.0-alpha-20250721024521-a1cd700b"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practice_implementing_jwt_auth_middleware/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/js/lib/mathjax.min.js" async defer></script><script src="/js/lib/mermaid.min.min.js" type="module"></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":true,"expired":false,"giscus":{"darkTheme":"dark","lightTheme":"light","origin":"https://giscus.app"}},"enablePWA":true,"lightgallery":true,"mermaid":{"fontFamily":"","look":"handDrawn","securityLevel":"loose","themes":["default","dark"]},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-01-10T00:00:00+08:00","version":"v0.4.0-alpha-20250814132913-e04bb611"};</script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practice_implementing_jwt_auth_middleware/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>
