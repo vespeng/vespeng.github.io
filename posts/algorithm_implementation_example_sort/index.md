@@ -14,7 +14,7 @@
 
 图解：
 
-<img src="./images/bubble_sort.gif" alt="冒泡排序" style="width: 600px; height: 300px;">
+<img src="./images/bubble_sort.gif" alt="冒泡排序" style="width: 650px; height: 300px;">
 
 ```go {data-open=true}
 func bubbleSort(arr []int) {
@@ -37,7 +37,7 @@ func bubbleSort(arr []int) {
 
 图解：
 
-<img src="./images/selection_sort.gif" alt="选择排序" style="width: 600px; height: 300px;">
+<img src="./images/selection_sort.gif" alt="选择排序" style="width: 650px; height: 300px;">
 
 ```go {data-open=true}
 func selectionSort(arr []int) {
@@ -64,7 +64,7 @@ func selectionSort(arr []int) {
 
 图解：
 
-<img src="./images/insertion_sort.gif" alt="插入排序" style="width: 600px; height: 720px;">
+<img src="./images/insertion_sort.gif" alt="插入排序" style="width: 650px; height: 700px;">
 
 ```go {data-open=true}
 func insertionSort(arr []int) {
