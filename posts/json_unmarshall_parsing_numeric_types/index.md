@@ -15,7 +15,6 @@
     "name": "张三",
     "age": 20
 }
-
 ```
 
 现在要将它解析成一个 map，拿到 json 原始的数据，方便后续处理：
@@ -35,7 +34,6 @@ func main() {
 // key: id, value: 1
 // key: name, value: 张三
 // key: age, value: 20
-
 ```
 
 这样看着确实没什么问题，每个 key、value 值都是按照预期输出；
@@ -57,7 +55,6 @@ func main() {
 // key: id, value: 1.736325205e+12
 // key: name, value: 张三
 // key: age, value: 20
-
 ```
 
 此时坑来了， id 的值变成了一个科学计数法的字符串，显然这不符合我的预期；
@@ -76,7 +73,6 @@ func main() {
 
 // 输出
 // %!d(float64=1.736325205e+12)
-
 ```
 
 到这里本以为是 ok 的，结果输出了这么个玩意，仔细读一下发现 float64 ，输出这个的原因是我要把一个 float64 的元素强行用 int 类型的占位符进行处理；
@@ -137,7 +133,6 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 // 接下来就回去上一级，看看 d.scan 到底做了什么：
 // 努力中...
 // ——————看不懂
-
 ```
 
 经过多方查找：
@@ -166,6 +161,7 @@ func main() {
 // 输出
 // 1736325205000
 ```
+
 
 ---
 

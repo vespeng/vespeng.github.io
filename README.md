@@ -8,7 +8,7 @@
 
 - 08-16 [算法实现示例集：排序](https://vespeng.tech/posts/algorithm_implementation_example_sort/)
 - 07-25 [Go 项目实战：实现 JWT 认证中间件](https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/)
-- 06-07 [记一次某 Golang 开发岗面试](https://vespeng.tech/posts/interview_experience_dev_job/)
+- 06-07 [记一次 Golang 开发岗面试](https://vespeng.tech/posts/interview_experience_dev_job/)
 - 03-20 [MySQL 8.0 解压安装版配置文件及参数命令](https://vespeng.tech/posts/mysql_config_and_command/)
 - 03-09 [Go-SJSON 组件，JSON 动态修改新方案](https://vespeng.tech/posts/go_sjson_component/)
 - 03-02 [Go-GJSON 组件，解锁 JSON 读取新姿势](https://vespeng.tech/posts/go_gjson_component/)
@@ -17,8 +17,8 @@
 - 01-25 [Go 项目实战：如何部署多环境开发](https://vespeng.tech/posts/go_practical_multi_environment_development/)
 - 01-22 [Go 项目实战：如何优雅的处理日志](https://vespeng.tech/posts/go_practical_processing_log/)
 - 01-19 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.tech/posts/go_practical_gin_directory_structure/)
-- 01-12 [Json.Unmarshal 解析数字类型（踩坑）](https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/)
-- 01-12 [Go 语言并发实战：利用协程处理多个接口的 Map 数据融合](https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/)
+- 01-12 [Json.Unmarshal 解析数值类型（踩坑）](https://vespeng.tech/posts/json_unmarshall_parsing_numeric_types/)
+- 01-12 [Go 语言并发实战：利用协程处理多个接口数据](https://vespeng.tech/posts/collaborative_processing_of_multiple_interfaces/)
 - 01-12 [Go 的并发优势](https://vespeng.tech/posts/the_concurrency_advantage_of_go/)
 - 01-12 [Golang 开发环境搭建](https://vespeng.tech/posts/golang_development_environment/)
 - 01-10 博客建立

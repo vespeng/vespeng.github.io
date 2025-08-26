@@ -30,11 +30,11 @@
 
 安装 Go、vscode-go-syntax 两插件
 
-![img_1.png](./images/img_1.png)
+<img src="./images/img_1.png" style="width: 750px; height: auto;">
 
-![img_2.png](./images/img_2.png)
+<img src="./images/img_2.png" style="width: 750px; height: auto;">
 
->  届时，vscode 会弹出需要安装其他 go 扩展的提示，只需要 Install All 即可 
+>  届时，vscode 会弹出需要安装其他 go 扩展的提示，点击 Install All 即可 
 > 
 >  如条件允许更推荐使用 [GoLand](https://www.jetbrains.com/go/download/#section=windows) 进行开发
 
