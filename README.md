@@ -1,6 +1,6 @@
 # Vespeng's Blog
 
-个人博客，在这里我分享我的想法、经验和见解。
+个人静态站点，在这里我分享我的想法、经验和见解。
 
 访问地址：[https://vespeng.tech](https://vespeng.tech)
 
