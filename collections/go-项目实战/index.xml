@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go 项目实战 - 合集 - Vespeng&#39;s Blog</title>
-    <link>https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
-    <description>不定期记录开发路上的片段，与君共勉</description>
-    <generator>Hugo 0.148.2 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
+    <link>https://vespeng.com/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</link>
+    <description>不止于代码，更有沿途的风景与思考</description>
+    <generator>Hugo 0.149.0 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Fri, 25 Jul 2025 22:23:31 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.tech/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.com/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
-      <link>https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/</link>
+      <link>https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/</link>
       <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go 项目实战：全局异常处理</title>
-      <link>https://vespeng.tech/posts/go_practical_global_exception_handling/</link>
+      <link>https://vespeng.com/posts/go_practical_global_exception_handling/</link>
       <pubDate>Sun, 09 Feb 2025 17:10:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/go_practical_global_exception_handling/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/go_practical_global_exception_handling/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go 项目实战：如何部署多环境开发</title>
-      <link>https://vespeng.tech/posts/go_practical_multi_environment_development/</link>
+      <link>https://vespeng.com/posts/go_practical_multi_environment_development/</link>
       <pubDate>Sat, 25 Jan 2025 17:00:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/go_practical_multi_environment_development/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/go_practical_multi_environment_development/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go 项目实战：如何优雅的处理日志</title>
-      <link>https://vespeng.tech/posts/go_practical_processing_log/</link>
+      <link>https://vespeng.com/posts/go_practical_processing_log/</link>
       <pubDate>Wed, 22 Jan 2025 21:40:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/go_practical_processing_log/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/go_practical_processing_log/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go 项目实战：搭建高效的 Gin Web 目录结构</title>
-      <link>https://vespeng.tech/posts/go_practical_gin_directory_structure/</link>
+      <link>https://vespeng.com/posts/go_practical_gin_directory_structure/</link>
       <pubDate>Sun, 19 Jan 2025 21:30:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/go_practical_gin_directory_structure/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/go_practical_gin_directory_structure/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。</description>
     </item>
   </channel>

@@ -95,5 +95,5 @@ if err != nil {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/go_practical_multi_environment_development/  
+> URL: https://vespeng.com/posts/go_practical_multi_environment_development/  
 

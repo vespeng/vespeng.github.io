@@ -86,5 +86,5 @@ func insertionSort(arr []int) {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/algorithm_implementation_example_sort/  
+> URL: https://vespeng.com/posts/algorithm_implementation_example_sort/  
 

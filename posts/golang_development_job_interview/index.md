@@ -386,5 +386,5 @@ func calculate(str string) int {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/golang_development_job_interview/  
+> URL: https://vespeng.com/posts/golang_development_job_interview/  
 

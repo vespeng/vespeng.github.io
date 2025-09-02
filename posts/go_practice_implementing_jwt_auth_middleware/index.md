@@ -428,5 +428,5 @@ func main() {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/go_practice_implementing_jwt_auth_middleware/  
+> URL: https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/  
 

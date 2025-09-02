@@ -12,7 +12,8 @@
   <meta itemprop="datePublished" content="2025-03-20T23:50:00+08:00">
   <meta itemprop="dateModified" content="2025-08-27T22:42:20+08:00">
   <meta itemprop="wordCount" content="148">
-  <meta itemprop="keywords" content="mysql,my.ini,配置文件"><meta property="og:url" content="https://vespeng.tech/posts/mysql_config_and_command/">
+  <meta itemprop="image" content="https://vespeng.com/os.png">
+  <meta itemprop="keywords" content="mysql,my.ini,配置文件"><meta property="og:url" content="https://vespeng.com/posts/mysql_config_and_command/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="MySQL 8.0 解压安装版配置文件及参数命令">
   <meta property="og:description" content="下载地址 官网链接：https://downloads.mysql.com/archives/community/">
@@ -22,12 +23,14 @@
     <meta property="article:published_time" content="2025-03-20T23:50:00+08:00">
     <meta property="article:modified_time" content="2025-08-27T22:42:20+08:00">
     <meta property="article:tag" content="MySQL">
+    <meta property="og:image" content="https://vespeng.com/os.png">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vespeng.com/os.png">
   <meta name="twitter:title" content="MySQL 8.0 解压安装版配置文件及参数命令">
   <meta name="twitter:description" content="下载地址 官网链接：https://downloads.mysql.com/archives/community/">
 <meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/golang_development_job_interview/" title="记一次 Golang 开发岗面试" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/mysql_config_and_command/index.md" title="MySQL 8.0 解压安装版配置文件及参数命令 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案" /><link rel="next" type="text/html" href="https://vespeng.com/posts/golang_development_job_interview/" title="记一次 Golang 开发岗面试" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/mysql_config_and_command/index.md" title="MySQL 8.0 解压安装版配置文件及参数命令 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -37,11 +40,11 @@
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/vespeng.tech\/posts\/mysql_config_and_command\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "MySQL","wordcount":  148 ,
-    "url": "https:\/\/vespeng.tech\/posts\/mysql_config_and_command\/","datePublished": "2025-03-20T23:50:00+08:00","dateModified": "2025-08-27T22:42:20+08:00","publisher": {
+      "@id": "https:\/\/vespeng.com\/posts\/mysql_config_and_command\/"
+    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "MySQL","wordcount":  148 ,
+    "url": "https:\/\/vespeng.com\/posts\/mysql_config_and_command\/","datePublished": "2025-03-20T23:50:00+08:00","dateModified": "2025-08-27T22:42:20+08:00","publisher": {
       "@type": "Organization",
-      "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
+      "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
         "name": "Vespeng"
       },"description": ""
@@ -290,10 +293,10 @@
           </div></div><div class="post-info-line">
         <div class="post-info-md"><span><a href="/posts/mysql_config_and_command/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-core/edit/main/content/posts/mysql_config_and_command/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.tech/posts/mysql_config_and_command/" data-title="MySQL 8.0 解压安装版配置文件及参数命令" data-hashtags="MySQL"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.tech/posts/mysql_config_and_command/" data-hashtag="MySQL"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.tech/posts/mysql_config_and_command/"><i class="fa-brands fa-reddit fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.tech/posts/mysql_config_and_command/" data-title="MySQL 8.0 解压安装版配置文件及参数命令"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.com/posts/mysql_config_and_command/" data-title="MySQL 8.0 解压安装版配置文件及参数命令" data-hashtags="MySQL"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.com/posts/mysql_config_and_command/" data-hashtag="MySQL"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.com/posts/mysql_config_and_command/"><i class="fa-brands fa-reddit fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.com/posts/mysql_config_and_command/" data-title="MySQL 8.0 解压安装版配置文件及参数命令"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>

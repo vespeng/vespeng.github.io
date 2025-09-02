@@ -42,5 +42,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/golang_development_environment/  
+> URL: https://vespeng.com/posts/golang_development_environment/  
 

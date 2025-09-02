@@ -434,5 +434,5 @@ Listening and serving HTTP on :8080
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/go_practical_gin_directory_structure/  
+> URL: https://vespeng.com/posts/go_practical_gin_directory_structure/  
 

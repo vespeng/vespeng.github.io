@@ -23,5 +23,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/statement/  
+> URL: https://vespeng.com/statement/  
 

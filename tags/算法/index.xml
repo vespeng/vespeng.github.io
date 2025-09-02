@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 - 标签 - Vespeng&#39;s Blog</title>
-    <link>https://vespeng.tech/tags/%E7%AE%97%E6%B3%95/</link>
-    <description>不定期记录开发路上的片段，与君共勉</description>
-    <generator>Hugo 0.148.2 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
+    <link>https://vespeng.com/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>不止于代码，更有沿途的风景与思考</description>
+    <generator>Hugo 0.149.0 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Tue, 26 Aug 2025 22:59:03 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.tech/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>算法实现示例集：排序</title>
-      <link>https://vespeng.tech/posts/algorithm_implementation_example_sort/</link>
+      <link>https://vespeng.com/posts/algorithm_implementation_example_sort/</link>
       <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/algorithm_implementation_example_sort/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
-      <category domain="https://vespeng.tech/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      <guid>https://vespeng.com/posts/algorithm_implementation_example_sort/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
+      <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
       <description>&lt;p&gt;排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。&lt;/p&gt;</description>
     </item>
   </channel>

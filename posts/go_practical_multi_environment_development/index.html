@@ -12,7 +12,8 @@
   <meta itemprop="datePublished" content="2025-01-25T17:00:00+08:00">
   <meta itemprop="dateModified" content="2025-07-25T20:54:37+08:00">
   <meta itemprop="wordCount" content="175">
-  <meta itemprop="keywords" content="golang,go,gin,env,多环境"><meta property="og:url" content="https://vespeng.tech/posts/go_practical_multi_environment_development/">
+  <meta itemprop="image" content="https://vespeng.com/os.png">
+  <meta itemprop="keywords" content="golang,go,gin,env,多环境"><meta property="og:url" content="https://vespeng.com/posts/go_practical_multi_environment_development/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 项目实战：如何部署多环境开发">
   <meta property="og:description" content="在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。">
@@ -23,12 +24,14 @@
     <meta property="article:modified_time" content="2025-07-25T20:54:37+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="Gin">
+    <meta property="og:image" content="https://vespeng.com/os.png">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vespeng.com/os.png">
   <meta name="twitter:title" content="Go 项目实战：如何部署多环境开发">
   <meta name="twitter:description" content="在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。">
 <meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.tech/posts/go_practical_multi_environment_development/" title="Go 项目实战：如何部署多环境开发 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.tech/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志" /><link rel="next" type="text/html" href="https://vespeng.tech/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理" /><link rel="alternate" type="text/markdown" href="https://vespeng.tech/posts/go_practical_multi_environment_development/index.md" title="Go 项目实战：如何部署多环境开发 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/go_practical_multi_environment_development/" title="Go 项目实战：如何部署多环境开发 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_practical_processing_log/" title="Go 项目实战：如何优雅的处理日志" /><link rel="next" type="text/html" href="https://vespeng.com/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/go_practical_multi_environment_development/index.md" title="Go 项目实战：如何部署多环境开发 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -38,11 +41,11 @@
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/vespeng.tech\/posts\/go_practical_multi_environment_development\/"
-    },"image": ["https:\/\/vespeng.tech\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  175 ,
-    "url": "https:\/\/vespeng.tech\/posts\/go_practical_multi_environment_development\/","datePublished": "2025-01-25T17:00:00+08:00","dateModified": "2025-07-25T20:54:37+08:00","publisher": {
+      "@id": "https:\/\/vespeng.com\/posts\/go_practical_multi_environment_development\/"
+    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  175 ,
+    "url": "https:\/\/vespeng.com\/posts\/go_practical_multi_environment_development\/","datePublished": "2025-01-25T17:00:00+08:00","dateModified": "2025-07-25T20:54:37+08:00","publisher": {
       "@type": "Organization",
-      "name": "Vespeng","logo": "https:\/\/vespeng.tech\/favicon.ico"},"author": {
+      "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
         "name": "Vespeng"
       },"description": ""
@@ -202,7 +205,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">env</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;APP_ENV&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">env</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;APP_ENV&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><strong><code>APP_ENV</code></strong> 是一个环境变量名，用于标识应用程序的运行环境（如开发、测试、生产等）。</li>
@@ -221,10 +224,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">env</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;APP_ENV&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">env</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">env</span> <span class="p">=</span> <span class="s">&#34;dev&#34;</span> <span class="c1">// 默认环境为 dev</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">env</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;APP_ENV&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#34;dev&#34;</span><span class="w"> </span><span class="c1">// 默认环境为 dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样可以确保即使没有显式设置 <code>APP_ENV</code>，程序也能有一个合理的默认行为。</p>
 <h3 class="heading-element" id="4加载-env-文件"><span>4.加载 .env 文件</span>
@@ -240,10 +243,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">godotenv</span><span class="p">.</span><span class="nf">Load</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;加载 .env 文件失败: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">godotenv</span><span class="p">.</span><span class="nf">Load</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;加载 .env 文件失败: %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这行代码会读取项目根目录下的 <code>.env</code> 文件，并将其中定义的环境变量加载到当前进程中。</p>
 <h3 class="heading-element" id="5动态选择配置文件"><span>5.动态选择配置文件</span>
@@ -263,14 +266,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;./config&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;config_%s&#34;</span><span class="p">,</span> <span class="nx">env</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;yaml&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="p">=</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">ReadInConfig</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;读取配置文件失败: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">viper</span><span class="p">.</span><span class="nf">AddConfigPath</span><span class="p">(</span><span class="s">&#34;./config&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigName</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;config_%s&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">viper</span><span class="p">.</span><span class="nf">SetConfigType</span><span class="p">(</span><span class="s">&#34;yaml&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">viper</span><span class="p">.</span><span class="nf">ReadInConfig</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;读取配置文件失败: %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这段代码会根据 <code>APP_ENV</code> 的值（例如 <code>dev</code> 或 <code>production</code>），选择对应的配置文件（如 <code>config_dev.yaml</code> 或 <code>config_prod.yaml</code>）。这样可以根据不同的环境加载不同的配置。</p>
 <h3 class="heading-element" id="6解析配置文件"><span>6.解析配置文件</span>
@@ -287,11 +290,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">Conf</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Config</span><span class="p">{}</span>
-</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="p">=</span> <span class="nx">viper</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">Conf</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;解析配置文件失败: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">Conf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">Config</span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">viper</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">Conf</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;解析配置文件失败: %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>viper.Unmarshal</code> 会将配置文件中的键值对映射到结构体字段上，前提是结构体字段标签（如 <code>yaml</code> 和 <code>mapstructure</code>）与配置文件中的键匹配。</p>
 <p>通过上述方式，我们可以根据项目的实际需求和情况，确保项目在不同环境下都能正确配置并稳定运行。</p></div><hr class="awesome-hr" />
@@ -318,10 +321,10 @@
           </div></div><div class="post-info-line">
         <div class="post-info-md"><span><a href="/posts/go_practical_multi_environment_development/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-core/edit/main/content/posts/go_practical_multi_environment_development/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.tech/posts/go_practical_multi_environment_development/" data-title="Go 项目实战：如何部署多环境开发" data-hashtags="Golang,Gin"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.tech/posts/go_practical_multi_environment_development/" data-hashtag="Golang"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.tech/posts/go_practical_multi_environment_development/"><i class="fa-brands fa-reddit fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.tech/posts/go_practical_multi_environment_development/" data-title="Go 项目实战：如何部署多环境开发"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.com/posts/go_practical_multi_environment_development/" data-title="Go 项目实战：如何部署多环境开发" data-hashtags="Golang,Gin"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.com/posts/go_practical_multi_environment_development/" data-hashtag="Golang"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.com/posts/go_practical_multi_environment_development/"><i class="fa-brands fa-reddit fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.com/posts/go_practical_multi_environment_development/" data-title="Go 项目实战：如何部署多环境开发"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>

@@ -27,5 +27,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/link/  
+> URL: https://vespeng.com/link/  
 

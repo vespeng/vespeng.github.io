@@ -69,5 +69,5 @@ flush privileges;
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/mysql_config_and_command/  
+> URL: https://vespeng.com/posts/mysql_config_and_command/  
 

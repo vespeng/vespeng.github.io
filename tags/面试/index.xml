@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>面试 - 标签 - Vespeng&#39;s Blog</title>
-    <link>https://vespeng.tech/tags/%E9%9D%A2%E8%AF%95/</link>
-    <description>不定期记录开发路上的片段，与君共勉</description>
-    <generator>Hugo 0.148.2 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
+    <link>https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/</link>
+    <description>不止于代码，更有沿途的风景与思考</description>
+    <generator>Hugo 0.149.0 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Sat, 16 Aug 2025 22:36:42 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.tech/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次 Golang 开发岗面试</title>
-      <link>https://vespeng.tech/posts/golang_development_job_interview/</link>
+      <link>https://vespeng.com/posts/golang_development_job_interview/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.tech/posts/golang_development_job_interview/</guid>
-      <category domain="https://vespeng.tech/categories/golang/">Golang</category>
+      <guid>https://vespeng.com/posts/golang_development_job_interview/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
     </item>
   </channel>

@@ -267,5 +267,5 @@ func main() {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/go_practical_processing_log/  
+> URL: https://vespeng.com/posts/go_practical_processing_log/  
 

@@ -140,5 +140,5 @@ Golang 的并发调度机制极具智能性。它能够根据系统的负载和�
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.tech/posts/the_concurrency_advantage_of_go/  
+> URL: https://vespeng.com/posts/the_concurrency_advantage_of_go/  
 
