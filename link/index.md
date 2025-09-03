@@ -6,9 +6,9 @@
 ## 本站信息
 
 - **昵称** : Vespeng
-- **头像** : https://vespeng.tech/avatar.jpg
-- **URL** : https://vespeng.tech
-- **描述** : 不定期记录开发路上的片段，与君共勉
+- **头像** : https://vespeng.com/avatar.jpg
+- **URL** : https://vespeng.com
+- **描述** : 不止于代码，更有沿途的风景与思考
 
 ## 交换方式
 

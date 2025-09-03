@@ -354,7 +354,7 @@ jwt:
   expirationTime: 30m               # 过期时间 (单位 min)
 ```
 
-具体加载配置文件可参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.tech/posts/go_practical_gin_directory_structure/#1%e9%85%8d%e7%bd%aeconfig)
+具体加载配置文件可参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/posts/go_practical_gin_directory_structure/#1%e9%85%8d%e7%bd%aeconfig)
 
 ## 五、在 Gin 路由中使用
 

@@ -1,7 +1,7 @@
 # Go-SJSON 组件，JSON 动态修改新方案
 
 
-在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 [`GJSON`](https://vespeng.tech/posts/go_gjson_component/) 解决了灵活读取问题，而 `SJSON` 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。
+在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 [`GJSON`](https://vespeng.com/posts/go_gjson_component/) 解决了灵活读取问题，而 `SJSON` 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。
 <!--more-->
 本文将延续对比分析风格，解析 SJSON 的核心价值。
 

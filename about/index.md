@@ -19,9 +19,9 @@
 
 不定期记录技术实践与思考，分享踩坑经验与解决方案，偶尔也聊点生活日常。
 
-如需转载或引用内容，请参考本站 [声明](https://vespeng.tech/statement/)。
+如需转载或引用内容，请参考本站 [声明](https://vespeng.com/statement/)。
 
-欢迎通过我的 [GitHub](https://github.com/vespeng/vespeng.github.io) 或 [RSS](https://vespeng.tech/index.xml) 订阅本博客。
+欢迎通过我的 [GitHub](https://github.com/vespeng/vespeng.github.io) 或 [RSS](https://vespeng.com/index.xml) 订阅本博客。
 
 {{< details "博客历程" >}}
 ```timeline {reverse=true animation=true}
@@ -41,7 +41,7 @@ events:
 
 ## 联系我
 
-**技术交流**： [留言板](https://vespeng.tech/message/)
+**技术交流**： [留言板](https://vespeng.com/message/)
 
 **Email**： <chihpengliu.cn@outlook.com>
 
