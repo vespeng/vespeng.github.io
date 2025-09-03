@@ -180,13 +180,13 @@ func InitializeMySQL() error {
     // 创建数据库引擎
     Engine, err = xorm.NewEngine(config.Conf.Database.Driver, config.Conf.Database.Source)
     if err != nil {
-        log.Error("数据库初始化失败: %v", err)
+        log.Errorf("数据库初始化失败: %v", err)
         return err
     }
 
     // 测试数据库连接
     if err = Engine.Ping(); err != nil {
-        log.Error("数据库连接失败: %v", err)
+        log.Errorf("数据库连接失败: %v", err)
         return err
     }
 
@@ -369,14 +369,14 @@ func Start() {
     // 加载配置文件
     err := config.LoadConfig()
     if err != nil {
-        log.Error("配置文件加载错误: %v", err)
+        log.Errorf("配置文件加载错误: %v", err)
         return
     }
 
     // 初始化所有模块
     err = InitializeAll()
     if err != nil {
-        log.Error("模块初始化错误: %v", err)
+        log.Errorf("模块初始化错误: %v", err)
         return
     }
 
@@ -385,7 +385,7 @@ func Start() {
 
     err = r.Run(fmt.Sprintf(":%d", config.Conf.App.Port))
     if err != nil {
-        log.Error("服务启动错误: %v", err)
+        log.Errorf("服务启动错误: %v", err)
         return
     }
 }
