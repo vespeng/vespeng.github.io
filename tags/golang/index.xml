@@ -8,7 +8,7 @@
     <language>zh-CN</language>
     <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
     <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 03 Sep 2025 21:29:19 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 22:26:27 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
