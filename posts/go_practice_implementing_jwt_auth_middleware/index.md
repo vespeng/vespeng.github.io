@@ -43,7 +43,7 @@ go get github.com/redis/go-redis/v9  # 可选，按需安装
 为了更直观地理解上述流程，下面用一个流程图表示：
 
 ```mermaid
-graph LR
+graph TD
     A[客户端请求] --> B{JWT中间件}
     B --> C{是否排除路径?}
     C -->|是| D[跳过验证]
