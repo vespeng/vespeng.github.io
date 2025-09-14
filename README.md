@@ -1,10 +1,20 @@
 # Vespeng's Blog
 
-个人静态站点，在这里我分享我的想法、经验和见解。
+我的个人技术博客，基于 Hugo 生成的静态站点，在这里我分享我的想法、经验和见解。
 
-访问地址：[https://vespeng.com](https://vespeng.com)
+## 🌐 访问地址
 
-## 2025
+[https://vespeng.com](https://vespeng.com)
+
+## 🛠 技术栈
+
+- [Hugo](https://gohugo.io/) - 静态网站生成器
+- HTML/CSS/JavaScript - 前端基础技术
+- Markdown - 文章内容格式
+
+## 📚 全部文章
+
+### 2025
 
 - 08-16 [算法实现示例集：排序](https://vespeng.com/posts/algorithm_implementation_example_sort/)
 - 07-25 [Go 项目实战：实现 JWT 认证中间件](https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/)
@@ -21,4 +31,4 @@
 - 01-12 [Go 语言并发实战：利用协程处理多个接口数据](https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/)
 - 01-12 [Go 的并发优势](https://vespeng.com/posts/the_concurrency_advantage_of_go/)
 - 01-12 [Golang 开发环境搭建](https://vespeng.com/posts/golang_development_environment/)
-- 01-10 博客建立
+- 01-10 博客建立 *(建站日期)*

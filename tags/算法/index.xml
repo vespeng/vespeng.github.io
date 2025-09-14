@@ -4,16 +4,16 @@
     <title>算法 - 标签 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.com/tags/%E7%AE%97%E6%B3%95/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.149.1 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.1</generator>
     <language>zh-CN</language>
-    <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
-    <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
+    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
+    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Tue, 26 Aug 2025 22:59:03 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>算法实现示例集：排序</title>
       <link>https://vespeng.com/posts/algorithm_implementation_example_sort/</link>
-      <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/algorithm_implementation_example_sort/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>

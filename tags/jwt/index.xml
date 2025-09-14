@@ -4,16 +4,16 @@
     <title>JWT - 标签 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.com/tags/jwt/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.149.1 &amp; FixIt v0.4.0-alpha-20250823084643-0f68046a</generator>
+    <generator>Hugo 0.150.0 &amp; FixIt v0.4.0-alpha.1</generator>
     <language>zh-CN</language>
-    <managingEditor>chihpengliu.cn@outlook.com (Vespeng)</managingEditor>
-    <webMaster>chihpengliu.cn@outlook.com (Vespeng)</webMaster>
+    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
+    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Wed, 03 Sep 2025 20:50:27 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
       <link>https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/</link>
-      <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate><author>chihpengliu.cn@outlook.com (Vespeng)</author>
+      <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。&lt;/p&gt;</description>

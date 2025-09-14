@@ -43,7 +43,7 @@ events:
 
 **技术交流**： [留言板](https://vespeng.com/message/)
 
-**Email**： <chihpengliu.cn@outlook.com>
+**Email**： <vespeng.liu@outlook.com>
 
 
 ---
