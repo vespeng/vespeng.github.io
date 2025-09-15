@@ -8,8 +8,17 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 03 Sep 2025 21:29:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Sep 2025 23:45:34 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法实现示例集：字符串</title>
+      <link>https://vespeng.com/posts/algorithm_implementation_example_string/</link>
+      <pubDate>Mon, 15 Sep 2025 23:45:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/algorithm_implementation_example_string/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
+      <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      <description>&lt;p&gt;字符串处理是工作中基础且常用的操作，无论是面试准备、日常开发还是学习巩固，掌握字符串处理的核心算法都是程序员必备技能。&lt;/p&gt;&#xA;&lt;p&gt;本文提供清晰、可运行的 Golang 核心代码实现，快速掌握字符串处理的核心算法。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>算法实现示例集：排序</title>
       <link>https://vespeng.com/posts/algorithm_implementation_example_sort/</link>

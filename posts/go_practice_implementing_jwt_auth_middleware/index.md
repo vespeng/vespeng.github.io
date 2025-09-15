@@ -335,7 +335,36 @@ func ResetJWTConfig() {
 }
 ```
 
-### 7.config 配置文件
+### 7.redis.go
+
+```go {data-open=true}
+var (
+	redisCli *redis.Client
+	once     sync.Once
+	redisErr error
+)
+
+func GetRedisCli() (*redis.Client, error) {
+	once.Do(func() {
+		conf, _ := config.LoadConfig()
+
+		redisCli = redis.NewClient(&redis.Options{
+			Addr:     conf.Redis.Addr,
+			Password: conf.Redis.Password,
+			DB:       conf.Redis.Db,
+		})
+		_, redisErr = redisCli.Ping(context.Background()).Result()
+		if redisErr != nil {
+			redisErr = fmt.Errorf("failed to connect to redis: %w", redisErr)
+			golog.Error(redisErr)
+			return
+		}
+	})
+	return redisCli, nil
+}
+```
+
+### 8.config 配置文件
 
 ```ymal {data-open=true}
 # config.yaml 示例
