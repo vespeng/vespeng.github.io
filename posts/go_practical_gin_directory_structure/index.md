@@ -92,7 +92,7 @@
 
 > 下边简单实现集成数据库，配置路由，启动服务
 
-### 1.配置config
+### 1. 配置config
 
 在 config.yaml 文件下配置端口和数据库连接，这里选择xorm：
 
@@ -156,7 +156,7 @@ func LoadConfig() error {
 }
 ```
 
-### 2.配置init
+### 2. 配置init
 
 数据库及其他的初始化统一放置到 app 目录下，在这里新建 loader.go 来初始化 mysql，但是为了之后方便管理，我们另单独创建 db.go 文件：
 
@@ -214,7 +214,7 @@ func InitializeAll() error {
 }
 ```
 
-### 3.配置model
+### 3. 配置model
 
 在 model 下新建 user_entity.go，注意：这个需要和数据库对应
 
@@ -238,7 +238,7 @@ func (u User) TableName() string {
 }
 ```
 
-### 4.配置controller
+### 4. 配置controller
 
 在 controller 下新建 user_controller.go
 
@@ -269,7 +269,7 @@ func (uc *UserController) GetUsers(c *gin.Context) {
 }
 ```
 
-### 5.配置service
+### 5. 配置service
 
 在 service 下新建 user_service.go
 
@@ -295,7 +295,7 @@ func (us *UserService) GetUsers() ([]*model.User, error) {
 }
 ```
 
-### 6.配置repository
+### 6. 配置repository
 
 在 repository 下新建 user_repo.go
 
@@ -323,7 +323,7 @@ func (r *UserRepository) GetUsers() ([]*model.User, error) {
 }
 ```
 
-### 7.配置api
+### 7. 配置api
 
 routes.go 中设置路由，这里设置路由组，为方便日后迭代
 
@@ -351,7 +351,7 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 }
 ```
 
-### 8.配置bootstrap
+### 8. 配置bootstrap
 
 ```go {data-open=true}
 package app
@@ -391,7 +391,7 @@ func Start() {
 }
 ```
 
-### 9.配置main
+### 9. 配置main
 
 ```go {data-open=true}
 package app
@@ -405,7 +405,7 @@ func main() {
 
 截至这里，一个基本的查询请求就已构建完成
 
-### 10.启动项目
+### 10. 启动项目
 
 cmd 目录下直接运行 main 函数，正常会输出如下信息：
 

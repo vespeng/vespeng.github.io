@@ -5,10 +5,12 @@
 
 ## 本站信息
 
-- **昵称** : Vespeng
-- **头像** : https://vespeng.com/avatar.jpg
-- **URL** : https://vespeng.com
-- **描述** : 不止于代码，更有沿途的风景与思考
+<ul>
+  <li><strong>昵称</strong> : Vespeng</li>
+  <li><strong>头像</strong> : https://vespeng.com/avatar.jpg</li>
+  <li><strong>URL</strong> : https://vespeng.com</li>
+  <li><strong>描述</strong> : 不止于代码，更有沿途的风景与思考</li>
+</ul>
 
 ## 交换方式
 

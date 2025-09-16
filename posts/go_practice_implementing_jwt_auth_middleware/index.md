@@ -58,7 +58,7 @@ graph TD
 
 ## 四、实战
 
-### 1.配置结构定义
+### 1. 配置结构定义
 
 ```go {data-open=true}
 // JWT核心配置
@@ -83,7 +83,7 @@ var (
 )
 ```
 
-### 2.JWT 中间件实现
+### 2. JWT 中间件实现
 
 ```go {data-open=true}
 func JwtMiddleware() gin.HandlerFunc {
@@ -137,7 +137,7 @@ func JwtMiddleware() gin.HandlerFunc {
 }
 ```
 
-### 3.Token 生成
+### 3. Token 生成
 
 ```go {data-open=true}
 // 登录成功时调用
@@ -190,7 +190,7 @@ func GenerateToken(userID int, userName string) (string, error) {
 }
 ```
 
-### 4.Token 验证逻辑
+### 4. Token 验证逻辑
 
 ```go {data-open=true}
 func validateJWT(tokenString string) (*CustomClaims, error) {
@@ -241,7 +241,7 @@ func validateJWT(tokenString string) (*CustomClaims, error) {
 }
 ```
 
-### 5.错误处理机制
+### 5. 错误处理机制
 
 ```go {data-open=true}
 func handleJWTError(c *gin.Context, err error) {
@@ -275,7 +275,7 @@ func handleJWTError(c *gin.Context, err error) {
 }
 ```
 
-### 6.辅助函数实现
+### 6. 辅助函数实现
 
 ```go {data-open=true}
 // Bearer Token解析
@@ -335,7 +335,7 @@ func ResetJWTConfig() {
 }
 ```
 
-### 7.redis.go
+### 7. redis.go
 
 ```go {data-open=true}
 var (
@@ -364,7 +364,7 @@ func GetRedisCli() (*redis.Client, error) {
 }
 ```
 
-### 8.config 配置文件
+### 8. config 配置文件
 
 ```ymal {data-open=true}
 # config.yaml 示例

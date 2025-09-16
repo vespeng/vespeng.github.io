@@ -50,13 +50,13 @@ func main() {
 
 ## 二、GJSON 组件
 
-### 1.概述：
+### 1. 概述：
 
 GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通过简洁的语法，无需定义结构体，就能快速提取 JSON 数据中的特定值。
 
 官网地址：[GitHub - tidwall/gjson](https://github.com/tidwall/gjson)
 
-### 2.安装：
+### 2. 安装：
 
 使用 Go 的包管理工具 `go get` 安装 GJSON：
 
@@ -66,7 +66,7 @@ go get -u github.com/tidwall/gjson
 
 ## 三、GJSON 基本用法
 
-### 1.简单 json 数据获取
+### 1. 简单 json 数据获取
 
 对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, "name")` 就可以搞定，例如：
 
@@ -89,7 +89,7 @@ func main() {
 }
 ```
 
-### 2.嵌套 json 数据获取
+### 2. 嵌套 json 数据获取
 
 上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：
 
