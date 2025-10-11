@@ -29,5 +29,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/link/  
+> URL: https://vespeng.com/friends/  
 
