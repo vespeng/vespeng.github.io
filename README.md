@@ -16,9 +16,7 @@
 
 ### 2025
 
-- 10-19 [算法实现示例集：链表](https://vespeng.com/posts/algorithm_implementation_example_linked_list/)
-- 09-15 [算法实现示例集：字符串](https://vespeng.com/posts/algorithm_implementation_example_string/)
-- 08-16 [算法实现示例集：排序](https://vespeng.com/posts/algorithm_implementation_example_sort/)
+- 08-16 [Go 基础算法实现示例集](https://vespeng.com/posts/go_algorithm_implementation_example/)
 - 07-25 [Go 项目实战：实现 JWT 认证中间件](https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/)
 - 06-07 [记一次 Golang 开发岗面试](https://vespeng.com/posts/interview_experience_dev_job/)
 - 03-20 [MySQL 8.0 解压安装版配置文件及参数命令](https://vespeng.com/posts/mysql_config_and_command/)
@@ -30,7 +28,7 @@
 - 01-22 [Go 项目实战：如何优雅的处理日志](https://vespeng.com/posts/go_practical_processing_log/)
 - 01-19 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/posts/go_practical_gin_directory_structure/)
 - 01-12 [Json.Unmarshal 解析数值类型（踩坑）](https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/)
-- 01-12 [Go 语言并发实战：利用协程处理多个接口数据](https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/)
-- 01-12 [Go 的并发优势](https://vespeng.com/posts/the_concurrency_advantage_of_go/)
+- 01-12 [Go 并发实战：利用协程处理多个接口数据](https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/)
+- 01-12 [Go 并发的核心机制解读](https://vespeng.com/posts/the_concurrency_advantage_of_go/)
 - 01-12 [Golang 开发环境搭建](https://vespeng.com/posts/golang_development_environment/)
 - 01-10 博客建立 *(建站日期)*

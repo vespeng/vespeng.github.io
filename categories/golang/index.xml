@@ -8,34 +8,15 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 19 Oct 2025 15:06:11 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Oct 2025 21:31:56 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>算法实现示例集：链表</title>
-      <link>https://vespeng.com/posts/algorithm_implementation_example_linked_list/</link>
-      <pubDate>Sun, 19 Oct 2025 15:05:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/algorithm_implementation_example_linked_list/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
-      <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
-      <description>&lt;p&gt;链表是数据结构中的重要基础，它通过指针连接零散的内存节点，体现了动态数据结构的核心思想。掌握链表的核心操作都是程序员的关键能力。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>算法实现示例集：字符串</title>
-      <link>https://vespeng.com/posts/algorithm_implementation_example_string/</link>
-      <pubDate>Mon, 15 Sep 2025 23:45:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/algorithm_implementation_example_string/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
-      <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
-      <description>&lt;p&gt;字符串处理是工作中基础且常用的操作，掌握字符串处理的核心算法都是程序员必备技能。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>算法实现示例集：排序</title>
-      <link>https://vespeng.com/posts/algorithm_implementation_example_sort/</link>
+      <title>Go 基础算法实现示例集</title>
+      <link>https://vespeng.com/posts/go_algorithm_implementation_example/</link>
       <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/algorithm_implementation_example_sort/</guid>
+      <guid>https://vespeng.com/posts/go_algorithm_implementation_example/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
-      <category domain="https://vespeng.com/categories/%E7%AE%97%E6%B3%95/">算法</category>
-      <description>&lt;p&gt;排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。&lt;/p&gt;</description>
+      <description>&lt;p&gt;在工作与面试准备中，常常需要快速回顾基础算法的核心实现。本文正是一份为此类场景打造的 Go 语言算法速查手册。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题，旨在成为一份可以随时查阅、即拿即用的代码参考，助高效巩固基础。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
@@ -110,7 +91,7 @@
       <description>&lt;p&gt;首先我们先明确下 json 包下 Unmarshal() 函数是什么：&lt;/p&gt;&#xA;&lt;p&gt;它是 Go 语言标准库 &lt;code&gt;encoding/json&lt;/code&gt; 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（&lt;code&gt;[]byte&lt;/code&gt;）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go 语言并发实战：利用协程处理多个接口数据</title>
+      <title>Go 并发实战：利用协程处理多个接口数据</title>
       <link>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</link>
       <pubDate>Sun, 12 Jan 2025 18:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</guid>
@@ -118,10 +99,10 @@
       <description>&lt;p&gt;高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go 的并发优势</title>
-      <link>https://vespeng.com/posts/the_concurrency_advantage_of_go/</link>
+      <title>Go 并发的核心机制解读</title>
+      <link>https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/</link>
       <pubDate>Sun, 12 Jan 2025 18:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/the_concurrency_advantage_of_go/</guid>
+      <guid>https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。&lt;/p&gt;</description>
     </item>

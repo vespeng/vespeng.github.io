@@ -8,7 +8,7 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 14 Oct 2025 23:24:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Oct 2025 21:31:56 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：实现 JWT 认证中间件</title>
@@ -75,7 +75,7 @@
       <description>&lt;p&gt;首先我们先明确下 json 包下 Unmarshal() 函数是什么：&lt;/p&gt;&#xA;&lt;p&gt;它是 Go 语言标准库 &lt;code&gt;encoding/json&lt;/code&gt; 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（&lt;code&gt;[]byte&lt;/code&gt;）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go 语言并发实战：利用协程处理多个接口数据</title>
+      <title>Go 并发实战：利用协程处理多个接口数据</title>
       <link>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</link>
       <pubDate>Sun, 12 Jan 2025 18:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</guid>
@@ -83,10 +83,10 @@
       <description>&lt;p&gt;高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go 的并发优势</title>
-      <link>https://vespeng.com/posts/the_concurrency_advantage_of_go/</link>
+      <title>Go 并发的核心机制解读</title>
+      <link>https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/</link>
       <pubDate>Sun, 12 Jan 2025 18:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/the_concurrency_advantage_of_go/</guid>
+      <guid>https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>&lt;p&gt;在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。&lt;/p&gt;</description>
     </item>
