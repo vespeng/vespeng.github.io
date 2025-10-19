@@ -1,9 +1,9 @@
 # 算法实现示例集：字符串
 
 
-字符串处理是工作中基础且常用的操作，无论是面试准备、日常开发还是学习巩固，掌握字符串处理的核心算法都是程序员必备技能。
+字符串处理是工作中基础且常用的操作，掌握字符串处理的核心算法都是程序员必备技能。
 
-本文提供清晰、可运行的 Golang 核心代码实现，快速掌握字符串处理的核心算法。
+本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。
 <!--more-->
 
 ## 反转字符串
@@ -14,13 +14,13 @@
 
 图解：
 
-> 初始：['h','e','l','l','o']
+> 初始: ['h','e','l','l','o']
 > 
-> 第一步：['o','e','l','l','h'] (交换h和o)
+> 第一步: ['o','e','l','l','h'] (交换h和o)
 > 
-> 第二步：['o','l','l','e','h'] (交换e和l)
+> 第二步: ['o','l','l','e','h'] (交换e和l)
 > 
-> 完成：['o','l','l','e','h']
+> 完成: ['o','l','l','e','h']
 
 ```go {data-open=true}
 func reverseString(s []byte) {
@@ -52,12 +52,15 @@ func isPalindrome(s string) bool {
     s = strings.ToLower(s)
     left, right := 0, len(s)-1
     for left < right {
+		// 跳过非字母数字字符
         for left < right && !isAlnum(s[left]) {
             left++
         }
+		// 跳过非字母数字字符
         for left < right && !isAlnum(s[right]) {
             right--
         }
+		// 判断字符是否相同
         if s[left] != s[right] {
             return false
         }
@@ -97,6 +100,7 @@ func longestCommonPrefix(strs []string) string {
     }
     for i := 0; i < len(strs[0]); i++ {
         for j := 1; j < len(strs); j++ {
+			// 遇到不同字符，返回结果
             if i >= len(strs[j]) || strs[j][i] != strs[0][i] {
                 return strs[0][:i]
             }
@@ -129,7 +133,9 @@ func longestCommonPrefix(strs []string) string {
 ```go {data-open=true}
 func addStrings(num1 string, num2 string) string {
     var res []byte
+	// 从末尾开始计算
     i, j := len(num1)-1, len(num2)-1
+	// 进位
     carry := 0
     
     for i >= 0 || j >= 0 || carry != 0 {
@@ -181,9 +187,11 @@ func lengthOfLongestSubstring(s string) int {
     charIndex := make(map[byte]int)
     
     for right := 0; right < len(s); right++ {
+		// 遇到重复字符，更新窗口起始位置
         if idx, exists := charIndex[s[right]]; exists && idx >= left {
             left = idx + 1
         }
+		// 维护字符位置映射
         charIndex[s[right]] = right
         if right-left+1 > maxLen {
             maxLen = right - left + 1

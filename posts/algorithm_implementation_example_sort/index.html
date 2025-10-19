@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <title>算法实现示例集：排序 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
-<meta name="description" content="排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
+<meta name="description" content="排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
 本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。
 "><meta name="keywords" content='golang, go, 算法, 排序, 冒泡排序, 选择排序, 插入排序'>
   <meta itemprop="name" content="算法实现示例集：排序">
-  <meta itemprop="description" content="排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
+  <meta itemprop="description" content="排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
 本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。">
   <meta itemprop="datePublished" content="2025-08-16T22:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-09-15T23:45:34+08:00">
+  <meta itemprop="dateModified" content="2025-10-19T15:06:11+08:00">
   <meta itemprop="wordCount" content="189">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="golang,go,算法,排序,冒泡排序,选择排序,插入排序"><meta property="og:url" content="https://vespeng.com/posts/algorithm_implementation_example_sort/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="算法实现示例集：排序">
-  <meta property="og:description" content="排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
+  <meta property="og:description" content="排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
 本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-16T22:30:00+08:00">
-    <meta property="article:modified_time" content="2025-09-15T23:45:34+08:00">
+    <meta property="article:modified_time" content="2025-10-19T15:06:11+08:00">
     <meta property="article:tag" content="算法">
     <meta property="og:image" content="https://vespeng.com/og.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="算法实现示例集：排序">
-  <meta name="twitter:description" content="排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
+  <meta name="twitter:description" content="排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。
 本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。">
 <meta name="application-name" content="Vespeng&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/algorithm_implementation_example_sort/" title="算法实现示例集：排序 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/" title="Go 项目实战：实现 JWT 认证中间件" /><link rel="next" type="text/html" href="https://vespeng.com/posts/algorithm_implementation_example_string/" title="算法实现示例集：字符串" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/algorithm_implementation_example_sort/index.md" title="算法实现示例集：排序 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
@@ -46,7 +46,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/algorithm_implementation_example_sort\/"
     },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "算法","wordcount":  189 ,
-    "url": "https:\/\/vespeng.com\/posts\/algorithm_implementation_example_sort\/","datePublished": "2025-08-16T22:30:00+08:00","dateModified": "2025-09-15T23:45:34+08:00","publisher": {
+    "url": "https:\/\/vespeng.com\/posts\/algorithm_implementation_example_sort\/","datePublished": "2025-08-16T22:30:00+08:00","dateModified": "2025-10-19T15:06:11+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
@@ -152,7 +152,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>算法实现示例集：排序</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a>&ensp;<a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" title="分类 - 算法"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 算法</a> 和 <a href="/collections/%E7%AE%97%E6%B3%95/" class="post-collection" title="合集 - 算法"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 算法</a></span></div><div class="post-meta-line"><span title="发布于 2025-08-16 22:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-08-16">2025-08-16</time></span>&nbsp;<span title="更新于 2025-09-15 23:45:34"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-09-15">2025-09-15</time></span>&nbsp;<span title="189 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="算法实现示例集：排序"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a>&ensp;<a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category" title="分类 - 算法"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 算法</a> 和 <a href="/collections/%E7%AE%97%E6%B3%95/" class="post-collection" title="合集 - 算法"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 算法</a></span></div><div class="post-meta-line"><span title="发布于 2025-08-16 22:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-08-16">2025-08-16</time></span>&nbsp;<span title="更新于 2025-10-19 15:06:11"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-10-19">2025-10-19</time></span>&nbsp;<span title="189 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="算法实现示例集：排序"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -166,7 +166,7 @@
     <li><a href="#插入排序">插入排序</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>排序是算法世界中最基础也最常用的操作之一，无论是面试准备、日常开发还是学习巩固，清晰可靠的排序算法实现都是程序员工具箱里的必备品。</p>
+      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>排序是算法世界中最基础也最常用的操作之一，清晰可靠的排序算法实现都是程序员工具箱里的必备品。</p>
 <p>本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。</p>
 <h2 class="heading-element" id="冒泡排序"><span>冒泡排序</span>
   <a href="#%e5%86%92%e6%b3%a1%e6%8e%92%e5%ba%8f" class="heading-mark">
@@ -289,14 +289,17 @@
           <a href="/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案">Go-SJSON 组件，JSON 动态修改新方案</a></li><li>
           <a href="/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势">Go-GJSON 组件，解锁 JSON 读取新姿势</a></li><li>
           <a href="/posts/go_practical_global_exception_handling/" title="Go 项目实战：全局异常处理">Go 项目实战：全局异常处理</a></li></ul><div class="collection-card">
-      <div class="collection-title text-secondary">收录于 <a href="/collections/%E7%AE%97%E6%B3%95/"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> <span>合集・算法</span></span></a> 2</div>
+      <div class="collection-title text-secondary">收录于 <a href="/collections/%E7%AE%97%E6%B3%95/"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> <span>合集・算法</span></span></a> 3</div>
       <div class="collection-nav">
         <a href="/posts/algorithm_implementation_example_string/" class="collection-nav-item" rel="next" title="算法实现示例集：字符串">
             <span>算法实现示例集：字符串</span><i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
     </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-09-15 23:45:34">更新于 2025-09-15&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/19dd8d2a55b0ecc013bc2546d74bc72b5a1977dd" rel="external nofollow noopener noreferrer" target="_blank" title="docs(posts):- 更新算法实现示例集：排序 - 新增算法实现示例集：字符串 - 更新 Go 实现 JWT 认证中间件&#10&#10Commit: 19dd8d2a55b0ecc013bc2546d74bc72b5a1977dd [19dd8d2]&#10Author: vespeng&#10Date: 2025-09-15 23:45:34"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>19dd8d2</a></span>
+      <div class="post-info-mod"><span title="更新于 2025-10-19 15:06:11">更新于 2025-10-19&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/7866d7ec47aade4cabc22c968887b40aad9a7289" rel="external nofollow noopener noreferrer" target="_blank" title="feat(content): 添加链表算法实现示例文章&#10- 新增链表算法实现示例集，包含反转链表、环形链表判断、合并两个有序链表等核心算法
+- 提供清晰可运行的 Golang 代码实现和详细图解说明
+- 更新 README 文档，添加新文章链接至目录列表
+- 优化字符串与排序算法文章中的表述和注释细节&#10Commit: 7866d7ec47aade4cabc22c968887b40aad9a7289 [7866d7e]&#10Author: vespeng&#10Date: 2025-10-19 15:06:11"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>7866d7e</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
