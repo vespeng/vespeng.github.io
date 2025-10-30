@@ -3,7 +3,7 @@
 
 ### 内容使用
 
-本站遵循  [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  协议：
+本站遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议：
 
 - 署名要求：分享或演绎时，请明确注明原始内容的作者及来源，以示尊重版权。
 
@@ -18,6 +18,16 @@
 - 第三方内容：引用内容仅作信息传递之用，不对其准确性作担保，使用前请自行核验。
 
 - 责任范围：因使用本站内容造成的直接/间接损失，本站不承担任何法律责任。
+
+### 技术架构
+
+为保障访问速度、安全性与稳定性，本站采用以下技术栈与服务：
+
+- 生成引擎：由静态站点生成器 [Hugo](https://gohugo.io/) 强力驱动。
+
+- 主题设计：前端界面采用注重阅读体验与性能的 [FixIt](https://fixit.lruihao.cn/) 主题。
+
+- 部署平台：全站部署于 [Cloudflare](https://www.cloudflare-cn.com/) 边缘网络，利用其全球加速与安全防护能力，以提升您的访问体验。
 
 
 ---
