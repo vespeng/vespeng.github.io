@@ -1,7 +1,7 @@
 # Go-GJSON 组件，解锁 JSON 读取新姿势
 
 
-在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 `encoding/json` 包用于处理 json 数据，同时第三方库 `GJSON` & `SJSON` 也在 json 处理方面表现出色。
+在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 `encoding/json` 包用于处理 json 数据，同时第三方库 `GJSON` & `SJSON` 也在 json 处理方面表现出色。
 <!--more-->
 本文将深入探讨下 GJSON 组件，通过与原生处理方式对比，它存在什么特别之处，它的优势体现在哪。
 
@@ -58,7 +58,7 @@ GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通�
 
 ### 2. 安装：
 
-使用 Go 的包管理工具 `go get` 安装 GJSON：
+使用 Go 的包管理工具 `go get` 安装 GJSON：
 
 ```shell
 go get -u github.com/tidwall/gjson
@@ -68,7 +68,7 @@ go get -u github.com/tidwall/gjson
 
 ### 1. 简单 json 数据获取
 
-对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, "name")` 就可以搞定，例如：
+对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, "name")` 就可以搞定，例如：
 
 ```go {data-open=true}
 package main

@@ -49,7 +49,7 @@ SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSO
 
 ### 2. 安装：
 
-使用 Go 的包管理工具 `go get` 安装 SJSON：
+使用 Go 的包管理工具 `go get` 安装 SJSON：
 
 ```shell
 go get -u github.com/tidwall/sjson

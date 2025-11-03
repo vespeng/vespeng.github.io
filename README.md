@@ -17,6 +17,7 @@
 
 ### 2025
 
+- 11-03 [Go Embed 实战：简化部署与静态资源管理](https://vespeng.com/posts/the_best_practice_of_go_embed/)
 - 08-16 [Go 基础算法实现示例集](https://vespeng.com/posts/go_algorithm_implementation_example/)
 - 07-25 [Go 项目实战：实现 JWT 认证中间件](https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/)
 - 06-07 [记一次 Golang 开发岗面试](https://vespeng.com/posts/golang_development_job_interview/)
