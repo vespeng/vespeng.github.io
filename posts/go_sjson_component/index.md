@@ -55,7 +55,7 @@ SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSO
 go get -u github.com/tidwall/sjson
 ```
 
-## 三、SJSON核心用法
+## 三、SJSON 核心用法
 
 ### 1. 基础值修改
 

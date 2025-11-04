@@ -1,7 +1,7 @@
 # Golang 开发环境搭建
 
 
-## 下载Golang
+## 下载 Golang
 
 官网链接：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)
 
@@ -19,14 +19,14 @@
    在 Path 路径下，新增 _%GOROOT%\bin_
    > ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下
 
-2. 开启go mod 及配置国内代理：
+2. 开启 go mod 及配置国内代理：
 
    ```shell
    go env -w GO111MODULE=on
    go env -w GOPROXY=https://goproxy.cn,direct
    ```
 
-## 配置vscode
+## 配置 VSCode
 
 安装 Go、vscode-go-syntax 两插件
 
@@ -34,7 +34,7 @@
 
 <img src="./images/img_2.png" style="width: 750px; height: auto;">
 
->  届时，vscode 会弹出需要安装其他 go 扩展的提示，点击 Install All 即可 
+>  届时，VSCode 会弹出需要安装其他 go 扩展的提示，点击 Install All 即可 
 > 
 >  如条件允许更推荐使用 [GoLand](https://www.jetbrains.com/go/download/#section=windows) 进行开发
 

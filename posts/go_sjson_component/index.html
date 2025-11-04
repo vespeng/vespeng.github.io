@@ -10,8 +10,8 @@
   <meta itemprop="name" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta itemprop="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
   <meta itemprop="datePublished" content="2025-03-09T14:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-11-03T23:30:19+08:00">
-  <meta itemprop="wordCount" content="350">
+  <meta itemprop="dateModified" content="2025-11-04T21:47:55+08:00">
+  <meta itemprop="wordCount" content="351">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="golang,go,json,sjson"><meta property="og:url" content="https://vespeng.com/posts/go_sjson_component/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-09T14:00:00+08:00">
-    <meta property="article:modified_time" content="2025-11-03T23:30:19+08:00">
+    <meta property="article:modified_time" content="2025-11-04T21:47:55+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="og:image" content="https://vespeng.com/og.png">
 
@@ -41,8 +41,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_sjson_component\/"
-    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang","wordcount":  350 ,
-    "url": "https:\/\/vespeng.com\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-11-03T23:30:19+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang","wordcount":  351 ,
+    "url": "https:\/\/vespeng.com\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-11-04T21:47:55+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
@@ -148,7 +148,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-SJSON 组件，JSON 动态修改新方案</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-11-03 23:30:19"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-03">2025-11-03</time></span>&nbsp;<span title="350 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-11-04 21:47:55"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-04">2025-11-04</time></span>&nbsp;<span title="351 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -164,7 +164,7 @@
         <li><a href="#2-安装">2. 安装：</a></li>
       </ul>
     </li>
-    <li><a href="#三sjson核心用法">三、SJSON核心用法</a>
+    <li><a href="#三sjson-核心用法">三、SJSON 核心用法</a>
       <ul>
         <li><a href="#1-基础值修改">1. 基础值修改</a></li>
         <li><a href="#2-嵌套结构修改">2. 嵌套结构修改</a></li>
@@ -263,8 +263,8 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get -u github.com/tidwall/sjson</span></span></code></pre></td></tr></table>
 </div>
-</div><h2 class="heading-element" id="三sjson核心用法"><span>三、SJSON核心用法</span>
-  <a href="#%e4%b8%89sjson%e6%a0%b8%e5%bf%83%e7%94%a8%e6%b3%95" class="heading-mark">
+</div><h2 class="heading-element" id="三sjson-核心用法"><span>三、SJSON 核心用法</span>
+  <a href="#%e4%b8%89sjson-%e6%a0%b8%e5%bf%83%e7%94%a8%e6%b3%95" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><h3 class="heading-element" id="1-基础值修改"><span>1. 基础值修改</span>
@@ -471,12 +471,7 @@
           <a href="/posts/go_practical_gin_directory_structure/" title="Go 项目实战：搭建高效的 Gin Web 目录结构">Go 项目实战：搭建高效的 Gin Web 目录结构</a></li></ul><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-11-03 23:30:19">更新于 2025-11-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/070d578c63702e486f4cd4b26cfb3bc1ec9c7f10" rel="external nofollow noopener noreferrer" target="_blank" title="docs(posts):优化多篇博客文章格式与内容&#10- 统一调整 Go 系列文章中代码块与文字间的空格格式
-- 修正标点符号与特殊字符的显示问题
-- 新增关于 Go embed 功能的完整实践教程
-- 补充 embed 在配置管理与静态资源处理中的应用场景
-- 优化文章结构与表述逻辑，增强可读性
-- 添加实际部署效率对比表格，突出 embed 优势&#10Commit: 070d578c63702e486f4cd4b26cfb3bc1ec9c7f10 [070d578]&#10Author: vespeng&#10Date: 2025-11-03 23:30:19"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>070d578</a></span>
+      <div class="post-info-mod"><span title="更新于 2025-11-04 21:47:55">更新于 2025-11-04&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/be8189da26df86d4d6de52d61e799b6c5ebe2c92" rel="external nofollow noopener noreferrer" target="_blank" title="docs(content): 统一文章中英文混排空格规范&#10&#10Commit: be8189da26df86d4d6de52d61e799b6c5ebe2c92 [be8189d]&#10Author: vespeng&#10Date: 2025-11-04 21:47:55"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>be8189d</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
