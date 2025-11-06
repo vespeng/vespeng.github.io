@@ -10,7 +10,7 @@
   <meta itemprop="name" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta itemprop="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
   <meta itemprop="datePublished" content="2025-03-09T14:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-11-04T21:47:55+08:00">
+  <meta itemprop="dateModified" content="2025-11-06T22:11:35+08:00">
   <meta itemprop="wordCount" content="351">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="golang,go,json,sjson"><meta property="og:url" content="https://vespeng.com/posts/go_sjson_component/">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-09T14:00:00+08:00">
-    <meta property="article:modified_time" content="2025-11-04T21:47:55+08:00">
+    <meta property="article:modified_time" content="2025-11-06T22:11:35+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="og:image" content="https://vespeng.com/og.png">
 
@@ -42,7 +42,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_sjson_component\/"
     },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang","wordcount":  351 ,
-    "url": "https:\/\/vespeng.com\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-11-04T21:47:55+08:00","publisher": {
+    "url": "https:\/\/vespeng.com\/posts\/go_sjson_component\/","datePublished": "2025-03-09T14:00:00+08:00","dateModified": "2025-11-06T22:11:35+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
@@ -148,7 +148,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-SJSON 组件，JSON 动态修改新方案</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-11-04 21:47:55"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-04">2025-11-04</time></span>&nbsp;<span title="351 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 14:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="更新于 2025-11-06 22:11:35"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-06">2025-11-06</time></span>&nbsp;<span title="351 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -349,14 +349,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">		&#34;name&#34;: &#34;张三&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">		&#34;age&#34;: 25,
 </span></span></span><span class="line"><span class="cl"><span class="s">		&#34;hobby&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;sing&#34;: &#34;只因你太美&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;dance&#34;: &#34;背带裤&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;rap&#34;: &#34;kun&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;ball&#34;: &#34;篮球&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;h1&#34;: &#34;sing&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h2&#34;: &#34;dance&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h3&#34;: &#34;rap&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h4&#34;: &#34;basketball&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">		}`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 修改 hobby.sing 的值: 只因你太美 =&gt; 重生</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.sing&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;重生&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 修改 hobby.h4 的值: basketball =&gt; football</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.h4&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;football&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
@@ -396,15 +396,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;ball&#34;]}`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;basketball&#34;]}`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 修改 hobby 数组第4个元素为 play</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.3&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;play&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 修改 hobby 数组第4个元素为 football</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.3&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;football&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 追加 hobby 数组第5个元素为 play</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;tags.-1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;play&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 追加 hobby 数组第5个元素为 game</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">newJson</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sjson</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;tags.-1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;game&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">newJson</span><span class="p">))</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
@@ -471,7 +471,11 @@
           <a href="/posts/go_practical_gin_directory_structure/" title="Go 项目实战：搭建高效的 Gin Web 目录结构">Go 项目实战：搭建高效的 Gin Web 目录结构</a></li></ul><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-11-04 21:47:55">更新于 2025-11-04&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/be8189da26df86d4d6de52d61e799b6c5ebe2c92" rel="external nofollow noopener noreferrer" target="_blank" title="docs(content): 统一文章中英文混排空格规范&#10&#10Commit: be8189da26df86d4d6de52d61e799b6c5ebe2c92 [be8189d]&#10Author: vespeng&#10Date: 2025-11-04 21:47:55"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>be8189d</a></span>
+      <div class="post-info-mod"><span title="更新于 2025-11-06 22:11:35">更新于 2025-11-06&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/547aa1c35c0079b93ef9db58b6ea7e7ad3ae8d0d" rel="external nofollow noopener noreferrer" target="_blank" title="chore(config): 调整页脚配置项顺序及默认值&#10- 修改 copyright, statistics, visitor 的显示顺序
+- 默认关闭 siteViews 统计显示
+- 统一 json 示例代码块标记为 text 类型
+- 更新文章中 gjson 和 sjson 示例数据字段名
+-修正部分代码注释与实际输出内容一致&#10Commit: 547aa1c35c0079b93ef9db58b6ea7e7ad3ae8d0d [547aa1c]&#10Author: vespeng&#10Date: 2025-11-06 22:11:35"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>547aa1c</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -518,9 +522,9 @@
 
   <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line copyright order-2" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
-              <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line statistics order-3"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">博客已运行</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor order-1">
+              <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line statistics order-1"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">博客已运行</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor d-none">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>

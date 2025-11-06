@@ -92,14 +92,14 @@ func main() {
 		"name": "张三",
 		"age": 25,
 		"hobby": {
-			"sing": "只因你太美",
-			"dance": "背带裤",
-			"rap": "kun",
-			"ball": "篮球"
+			"h1": "sing",
+            "h2": "dance",
+            "h3": "rap",
+            "h4": "basketball"
 		}`
 
-	// 修改 hobby.sing 的值: 只因你太美 => 重生
-	newJson, _ := sjson.Set(jsonStr, "hobby.sing", "重生")
+	// 修改 hobby.h4 的值: basketball => football
+	newJson, _ := sjson.Set(jsonStr, "hobby.h4", "football")
 
 	fmt.Println(string(newJson))
 }
@@ -116,15 +116,15 @@ import (
 )
 
 func main() {
-	jsonStr := `{"hobby": ["sing","dance","rap","ball"]}`
+	jsonStr := `{"hobby": ["sing","dance","rap","basketball"]}`
 
-	// 修改 hobby 数组第4个元素为 play
-	newJson, _ := sjson.Set(jsonStr, "hobby.3", "play")
+	// 修改 hobby 数组第4个元素为 football
+	newJson, _ := sjson.Set(jsonStr, "hobby.3", "football")
 
 	fmt.Println(string(newJson))
 
-	// 追加 hobby 数组第5个元素为 play
-	newJson, _ = sjson.Set(jsonStr, "tags.-1", "play")
+	// 追加 hobby 数组第5个元素为 game
+	newJson, _ = sjson.Set(jsonStr, "tags.-1", "game")
 	fmt.Println(string(newJson))
 }
 ```

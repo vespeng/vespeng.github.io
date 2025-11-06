@@ -9,8 +9,8 @@
   <meta itemprop="name" content="Go 项目实战：搭建高效的 Gin Web 目录结构">
   <meta itemprop="description" content="Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的Web应用程序。">
   <meta itemprop="datePublished" content="2025-01-19T21:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-09-16T23:23:46+08:00">
-  <meta itemprop="wordCount" content="1036">
+  <meta itemprop="dateModified" content="2025-11-06T22:11:35+08:00">
+  <meta itemprop="wordCount" content="1060">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="golang,go,gin,web目录结构"><meta property="og:url" content="https://vespeng.com/posts/go_practical_gin_directory_structure/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-19T21:30:00+08:00">
-    <meta property="article:modified_time" content="2025-09-16T23:23:46+08:00">
+    <meta property="article:modified_time" content="2025-11-06T22:11:35+08:00">
     <meta property="article:tag" content="Golang">
     <meta property="article:tag" content="Gin">
     <meta property="og:image" content="https://vespeng.com/og.png">
@@ -41,8 +41,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_practical_gin_directory_structure\/"
-    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  1036 ,
-    "url": "https:\/\/vespeng.com\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-09-16T23:23:46+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "Golang, Gin","wordcount":  1060 ,
+    "url": "https:\/\/vespeng.com\/posts\/go_practical_gin_directory_structure\/","datePublished": "2025-01-19T21:30:00+08:00","dateModified": "2025-11-06T22:11:35+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
@@ -148,7 +148,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：搭建高效的 Gin Web 目录结构</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-09-16 23:23:46"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-09-16">2025-09-16</time></span>&nbsp;<span title="1036 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的 Gin Web 目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-19 21:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-19">2025-01-19</time></span>&nbsp;<span title="更新于 2025-11-06 22:11:35"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-06">2025-11-06</time></span>&nbsp;<span title="1060 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：搭建高效的 Gin Web 目录结构"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -929,7 +929,32 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Listening and serving HTTP on :8080</span></span></code></pre></td></tr></table>
 </div>
 </div><p>接着访问 <a href="http://localhost:8080/user"target="_blank" rel="external nofollow noopener noreferrer">http://localhost:8080/user<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> 正常查询结果回显 json 如下：</p>
-<json-viewer value="&#34;{\n    \&#34;users\&#34;: [\n        {\n            \&#34;Id\&#34;: 1,\n            \&#34;UserID\&#34;: \&#34;000001\&#34;,\n            \&#34;Password\&#34;: \&#34;123456\&#34;,\n            ...\n        }\n    ]\n}&#34;" expand-depth="2" boxed copyable="{&#34;copiedText&#34;:&#34;已复制&#34;,&#34;copyText&#34;:&#34;复制&#34;}"></json-viewer><p>上述示例，我已经上传至 <a href="https://github.com/vespeng/gin-pathway"target="_blank" rel="external nofollow noopener noreferrer">GitHub - vespeng/gin-pathway<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>，欢迎 fork 和 star。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;users&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            &#34;Id&#34;: 1,
+</span></span><span class="line"><span class="cl">            &#34;UserID&#34;: &#34;000001&#34;,
+</span></span><span class="line"><span class="cl">            &#34;Password&#34;: &#34;123456&#34;,
+</span></span><span class="line"><span class="cl">            ...
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述示例，我已经上传至 <a href="https://github.com/vespeng/gin-pathway"target="_blank" rel="external nofollow noopener noreferrer">GitHub - vespeng/gin-pathway<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>，欢迎 fork 和 star。</p>
 </div><hr class="awesome-hr" />
     <h2 id="see-also">相关内容</h2>
     <ul><li>
@@ -944,10 +969,11 @@
     </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-09-16 23:23:46">更新于 2025-09-16&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/1395efbfd1872dd1ee881f50ec5aabcd6d3d81b4" rel="external nofollow noopener noreferrer" target="_blank" title="style(FixIt): 调整友链页面样式并优化多个页面格式&#10- 修改了友链页面的背景色和 hover 效果，使其更透明
-- 优化了链接页面的格式，使用 ul 列表展示信息
-- 调整了多个页面的标题格式，统一为数字&#43;中文
-- 移除了部分冗余的 markdown 格式，简化了页面结构&#10Commit: 1395efbfd1872dd1ee881f50ec5aabcd6d3d81b4 [1395efb]&#10Author: vespeng&#10Date: 2025-09-16 23:23:46"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>1395efb</a></span>
+      <div class="post-info-mod"><span title="更新于 2025-11-06 22:11:35">更新于 2025-11-06&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/547aa1c35c0079b93ef9db58b6ea7e7ad3ae8d0d" rel="external nofollow noopener noreferrer" target="_blank" title="chore(config): 调整页脚配置项顺序及默认值&#10- 修改 copyright, statistics, visitor 的显示顺序
+- 默认关闭 siteViews 统计显示
+- 统一 json 示例代码块标记为 text 类型
+- 更新文章中 gjson 和 sjson 示例数据字段名
+-修正部分代码注释与实际输出内容一致&#10Commit: 547aa1c35c0079b93ef9db58b6ea7e7ad3ae8d0d [547aa1c]&#10Author: vespeng&#10Date: 2025-11-06 22:11:35"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>547aa1c</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -994,14 +1020,14 @@
 
   <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line copyright order-2" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
-              <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line statistics order-3"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">博客已运行</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor order-1">
+              <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line statistics order-1"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">博客已运行</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor d-none">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
         </div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/json-viewer-element/json-viewer-element.umd.js" defer></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/posts/go_practical_gin_directory_structure/config/page.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_gin_directory_structure/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/posts/go_practical_gin_directory_structure/config/page.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_gin_directory_structure/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>

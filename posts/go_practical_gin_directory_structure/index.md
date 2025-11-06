@@ -415,7 +415,7 @@ Listening and serving HTTP on :8080
 
 接着访问 [http://localhost:8080/user](http://localhost:8080/user) 正常查询结果回显 json 如下：
 
-```json
+```text
 {
     "users": [
         {

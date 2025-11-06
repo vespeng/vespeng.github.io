@@ -9,7 +9,7 @@
 
 Go 原生读取 json 数据，通常需先定义结构体，然后再将 json 数据解析到结构体实例，如：
 
-```json
+```text
 {
     "name": "张三",
     "age": 25
@@ -93,15 +93,15 @@ func main() {
 
 上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：
 
-```json {data-open=true}
+```text {data-open=true}
 {
     "name": "张三",
     "age": 25,
     "hobby": {
-        "sing": "只因你太美",
-        "dance": "背带裤",
-        "rap": "kun",
-        "ball": "篮球"
+        "h1": "sing",
+        "h2": "dance",
+        "h3": "rap",
+        "h4": "basketball"
     }
 }
 ```
@@ -121,16 +121,16 @@ func main() {
 		"name": "张三",
 		"age": 25,
 		"hobby": {
-			"sing": "只因你太美",
-			"dance": "背带裤",
-			"rap": "kun",
-			"ball": "篮球"
+			"h1": "sing",
+            "h2": "dance",
+            "h3": "rap",
+            "h4": "basketball"
 		}`
 
 	name := gjson.Get(jsonStr, "name")
-	ball := gjson.Get(jsonStr, "hobby.ball")
+	ball := gjson.Get(jsonStr, "hobby.h1")
 
-	fmt.Println("Name:", name.String())
+	fmt.Println("name:", name.String())
 	fmt.Println("ball:", ball.String())
 }
 ```
@@ -150,7 +150,7 @@ import (
 )
 
 func main() {
-	jsonStr := `{"hobby": ["sing","dance","rap","ball"]}`
+	jsonStr := `{"hobby": ["sing","dance","rap","basketball"]}`
 
 	hobby := gjson.Get(jsonStr, "hobby.3")
   
