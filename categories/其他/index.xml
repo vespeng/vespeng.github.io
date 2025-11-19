@@ -8,13 +8,13 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 23 Feb 2025 17:58:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 23:10:11 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>为什么大模型训练依赖 GPU 而不是 CPU</title>
-      <link>https://vespeng.com/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</link>
+      <link>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</link>
       <pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/</guid>
+      <guid>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</guid>
       <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
       <description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
     </item>

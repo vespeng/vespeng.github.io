@@ -1,4 +1,4 @@
-# 记一次 Golang 开发岗面试
+# 记一次 Go 开发岗面试
 
 
 前言：如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。
@@ -386,5 +386,5 @@ func calculate(str string) int {
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/posts/golang_development_job_interview/  
+> URL: https://vespeng.com/posts/go_development_job_interview/  
 

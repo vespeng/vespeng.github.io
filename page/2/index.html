@@ -9,8 +9,8 @@
 <meta name="description" content="不止于代码，更有沿途的风景与思考"><meta name="keywords" content='Vespeng, vespeng, vesp, Blog, blog, Golang, Go, AI, 随笔, 技术博客, 最佳实践'>
   <meta itemprop="name" content="Vespeng&#39;s Blog">
   <meta itemprop="description" content="不止于代码，更有沿途的风景与思考">
-  <meta itemprop="datePublished" content="2025-11-03T23:30:00+08:00">
-  <meta itemprop="dateModified" content="2025-11-15T15:02:37+08:00">
+  <meta itemprop="datePublished" content="2025-11-19T23:10:00+08:00">
+  <meta itemprop="dateModified" content="2025-11-19T23:10:11+08:00">
   <meta itemprop="image" content="https://vespeng.com/og.png"><meta property="og:url" content="https://vespeng.com/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Vespeng&#39;s Blog">
@@ -131,7 +131,11 @@
     </a><a href="mailto:vespeng.liu@outlook.com" title="Email"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-regular fa-envelope fa-fw" aria-hidden="true"></i>
     </a><a href="/index.xml" title="RSS"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-solid fa-rss fa-fw" aria-hidden="true"></i>
     </a></div></div>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_practical_processing_log/">Go 项目实战：如何优雅的处理日志</a>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_practical_multi_environment_development/">Go 项目实战：如何部署多环境开发</a>
+  </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-25 17:00:00'>发布于 <time datetime="2025-01-25">2025-01-25</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="content">在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。
+</div><div class="post-footer">
+    <a href="/posts/go_practical_multi_environment_development/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/gin/' class="post-tag">Gin</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_practical_processing_log/">Go 项目实战：如何优雅的处理日志</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-22 21:40:00'>发布于 <time datetime="2025-01-22">2025-01-22</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="content">在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。
 </div><div class="post-footer">
     <a href="/posts/go_practical_processing_log/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/gin/' class="post-tag">Gin</a></div></div>
@@ -151,10 +155,10 @@
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-12 18:00:00'>发布于 <time datetime="2025-01-12">2025-01-12</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="content">在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。
 </div><div class="post-footer">
     <a href="/posts/the_core_mechanism_of_go_concurrency/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/%E5%B9%B6%E5%8F%91/' class="post-tag">并发</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/golang_development_environment/">Golang 开发环境搭建</a>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/go_development_environment/">Go 开发环境搭建：基于 Windows 操作系统</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-01-12 14:30:00'>发布于 <time datetime="2025-01-12">2025-01-12</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="content">下载 Golang 官网链接：https://golang.google.cn/dl/
 </div><div class="post-footer">
-    <a href="/posts/golang_development_environment/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a></div></div>
+    <a href="/posts/go_development_environment/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a></div></div>
 </article><ul class="pagination"><li class="page-item">
           <span class="page-link">
             <a href="/">1</a>

@@ -61,5 +61,5 @@ GPU 单价相比 CPU 确实较高，但是它能大幅缩短训练时间。有�
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/posts/why_does_ai_training_rely_on_gpus_instead_of_cpus/  
+> URL: https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/  
 

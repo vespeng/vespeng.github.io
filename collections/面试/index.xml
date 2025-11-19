@@ -8,13 +8,13 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 19 Oct 2025 21:31:56 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 23:10:11 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/collections/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>记一次 Golang 开发岗面试</title>
-      <link>https://vespeng.com/posts/golang_development_job_interview/</link>
+      <title>记一次 Go 开发岗面试</title>
+      <link>https://vespeng.com/posts/go_development_job_interview/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/golang_development_job_interview/</guid>
+      <guid>https://vespeng.com/posts/go_development_job_interview/</guid>
       <category domain="https://vespeng.com/categories/golang/">Golang</category>
       <description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
     </item>

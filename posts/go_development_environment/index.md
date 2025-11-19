@@ -1,4 +1,4 @@
-# Golang 开发环境搭建
+# Go 开发环境搭建：基于 Windows 操作系统
 
 
 ## 下载 Golang
@@ -42,5 +42,5 @@
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/posts/golang_development_environment/  
+> URL: https://vespeng.com/posts/go_development_environment/  
 
