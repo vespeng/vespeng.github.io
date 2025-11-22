@@ -58,7 +58,7 @@
       <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="32" width="32"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
-              <a class="menu-link" href="/archives/">随笔</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+              <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
                 <ul class="sub-menu"><li class="menu-item">
                         <a class="menu-link" href="/categories/">分类</a>
                       </li><li class="menu-item">
@@ -68,8 +68,8 @@
                       </li></ul></li><li class="menu-item">
               <a class="menu-link" href="/friends/">友链</a></li><li class="menu-item">
               <a class="menu-link" href="/message/">留言</a></li><li class="menu-item">
-              <a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item">
-              <a class="menu-link" href="/about/">关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+              <a class="menu-link" href="/about/">关于</a></li><li class="menu-item">
+              <a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
@@ -80,9 +80,7 @@
             <span class="search-button search-loading" id="search-loading-desktop">
               <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
-          </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-        </li><li class="menu-item language-switch auto d-none" aria-hidden="true">
+          </li><li class="menu-item theme-switch" role="button" aria-label="切换主题" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></li><li class="menu-item language-switch auto d-none" aria-hidden="true">
     <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
     <ul class="sub-menu"><li class="menu-item active" data-type="artificial">
           <a href="/posts/go_practical_global_exception_handling/" data-lang="zh-CN" class="menu-link" title="">
@@ -99,7 +97,8 @@
     <div class="header-wrapper">
       <div class="header-title">
         <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="26" width="26"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
-      <div class="menu-toggle" id="menu-toggle-mobile">
+      <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></div>
+      <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
       </div>
     </div>
@@ -121,7 +120,7 @@
               取消
             </a>
           </li><li class="menu-item"><span class="nested-item">
-                  <a class="menu-link" href="/archives/">随笔</a>
+                  <a class="menu-link" href="/archives/">文章</a>
                   <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </span>
                 <ul class="sub-menu"><li class="menu-item">
@@ -130,8 +129,7 @@
                         <a class="menu-link" href="/collections/">合集</a>
                       </li><li class="menu-item">
                         <a class="menu-link" href="/tags/">标签</a>
-                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/friends/">友链</a></li><li class="menu-item"><a class="menu-link" href="/message/">留言</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item menu-system">
-          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/friends/">友链</a></li><li class="menu-item"><a class="menu-link" href="/message/">留言</a></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item menu-system"><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
     <span role="button" aria-label="选择语言" title="选择语言" data-current=""><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
   </span></li>
       </ul>
@@ -374,12 +372,12 @@
     </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-03-20 23:03:02">更新于 2025-03-20&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-core/commit/8406528c1b6cfac86fc07d136cb163147353930d" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(content): 统一文章分类和标签格式&#10- 将所有分类和标签中的 &#39;golang&#39; 改为 &#39;Golang&#39;- 修正部分标签格式，如将 &#39;panic&#39; 改为 &#39;Panic&#39;
+      <div class="post-info-mod"><span title="更新于 2025-03-20 23:03:02">更新于 2025-03-20&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/8406528c1b6cfac86fc07d136cb163147353930d" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(content): 统一文章分类和标签格式&#10- 将所有分类和标签中的 &#39;golang&#39; 改为 &#39;Golang&#39;- 修正部分标签格式，如将 &#39;panic&#39; 改为 &#39;Panic&#39;
 - 统一使用英文逗号分隔标签&#10Commit: 8406528c1b6cfac86fc07d136cb163147353930d [8406528]&#10Author: vespeng&#10Date: 2025-03-20 23:03:02"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>8406528</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/go_practical_global_exception_handling/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-core/edit/main/content/posts/go_practical_global_exception_handling/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/go_practical_global_exception_handling/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-vespeng-src/edit/main/content/posts/go_practical_global_exception_handling/index.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
         <div class="post-info-share">
           <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.com/posts/go_practical_global_exception_handling/" data-title="Go 项目实战：全局异常处理" data-hashtags="Golang,Gin,Panic"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.com/posts/go_practical_global_exception_handling/" data-hashtag="Golang"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
@@ -434,7 +432,7 @@
 </nav></div>
       </div>
     </dialog></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251119085609-237c2f3d">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251121172518-6f99565f">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line visitor d-none">
@@ -443,5 +441,5 @@
   </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/posts/go_practical_global_exception_handling/config/page.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_global_exception_handling/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/js/config/703895e4b1330883ca245ef332bcf067.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/go_practical_global_exception_handling/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>
