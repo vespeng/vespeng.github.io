@@ -37,7 +37,7 @@
 
 - _2019_：在 [博客园](https://www.cnblogs.com/) 注册自己的第一个博客，发表了几篇随笔，收获不少访问量，心中大喜。
 
-- _2018_：大学开始接触编程，受 [狂神](https://space.bilibili.com/95256449?spm_id_from=333.1387.follow.user_card.click/) 影响启发开启博客创作。
+- _2018_：大学开始接触编程，受 [狂神](https://space.bilibili.com/95256449?spm_id_from=333.1387.follow.user_card.click/) 启发开启博客创作。
 {{< /details >}}
 
 ## 联系我
