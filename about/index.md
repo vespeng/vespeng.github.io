@@ -18,6 +18,8 @@
   ![Java](https://img.shields.io/badge/-Java-ED8B00?logo=java&logoColor=white)
   </span>
 
+- 职业性格：INTJ-A
+
 - 从业经历：4 年工作经验，现于某一线互联网公司工作
 
 ## 关于博客
@@ -42,7 +44,7 @@
 
 ## 联系我
 
-**技术交流**： [留言板](/message/)
+**站内留言**： [留言板](/message/)
 
 **Email**： <vespeng.liu@outlook.com>
 

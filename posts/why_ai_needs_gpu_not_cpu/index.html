@@ -9,8 +9,8 @@
   <meta itemprop="name" content="为什么大模型训练依赖 GPU 而不是 CPU">
   <meta itemprop="description" content="GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。">
   <meta itemprop="datePublished" content="2025-02-15T22:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-11-19T23:10:11+08:00">
-  <meta itemprop="wordCount" content="80">
+  <meta itemprop="dateModified" content="2025-12-10T23:21:28+08:00">
+  <meta itemprop="wordCount" content="79">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="大模型,AI,GPU,CPU"><meta property="og:url" content="https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-15T22:00:00+08:00">
-    <meta property="article:modified_time" content="2025-11-19T23:10:11+08:00">
+    <meta property="article:modified_time" content="2025-12-10T23:21:28+08:00">
     <meta property="article:tag" content="AI">
     <meta property="og:image" content="https://vespeng.com/og.png">
 
@@ -40,8 +40,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/why_ai_needs_gpu_not_cpu\/"
-    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "AI","wordcount":  80 ,
-    "url": "https:\/\/vespeng.com\/posts\/why_ai_needs_gpu_not_cpu\/","datePublished": "2025-02-15T22:00:00+08:00","dateModified": "2025-11-19T23:10:11+08:00","publisher": {
+    },"image": ["https:\/\/vespeng.com\/favicon.ico"],"genre": "posts","keywords": "AI","wordcount":  79 ,
+    "url": "https:\/\/vespeng.com\/posts\/why_ai_needs_gpu_not_cpu\/","datePublished": "2025-02-15T22:00:00+08:00","dateModified": "2025-12-10T23:21:28+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng","logo": "https:\/\/vespeng.com\/favicon.ico"},"author": {
         "@type": "Person",
@@ -55,7 +55,7 @@
       <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="32" width="32"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
-              <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+              <a class="menu-link" href="/archives/">归档</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
                 <ul class="sub-menu"><li class="menu-item">
                         <a class="menu-link" href="/categories/">分类</a>
                       </li><li class="menu-item">
@@ -65,8 +65,11 @@
                       </li></ul></li><li class="menu-item">
               <a class="menu-link" href="/friends/">友链</a></li><li class="menu-item">
               <a class="menu-link" href="/message/">留言</a></li><li class="menu-item">
-              <a class="menu-link" href="/about/">关于</a></li><li class="menu-item">
-              <a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+              <a class="menu-link" href="/about/">关于</a></li><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);">更多</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往 <i class="fa-solid fa-external-link-alt fa-fw fa-xs text-secondary"></i></a>
+                      </li></ul></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
@@ -117,7 +120,7 @@
               取消
             </a>
           </li><li class="menu-item"><span class="nested-item">
-                  <a class="menu-link" href="/archives/">文章</a>
+                  <a class="menu-link" href="/archives/">归档</a>
                   <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </span>
                 <ul class="sub-menu"><li class="menu-item">
@@ -126,7 +129,13 @@
                         <a class="menu-link" href="/collections/">合集</a>
                       </li><li class="menu-item">
                         <a class="menu-link" href="/tags/">标签</a>
-                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/friends/">友链</a></li><li class="menu-item"><a class="menu-link" href="/message/">留言</a></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item menu-system"><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/friends/">友链</a></li><li class="menu-item"><a class="menu-link" href="/message/">留言</a></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);">更多</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="https://www.travellings.cn/go.html"rel="noopener noreferrer" target="_blank">开往 <i class="fa-solid fa-external-link-alt fa-fw fa-xs text-secondary"></i></a>
+                      </li></ul></li><li class="menu-item menu-system"><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
     <span role="button" aria-label="选择语言" title="选择语言" data-current=""><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
   </span></li>
       </ul>
@@ -145,10 +154,10 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>为什么大模型训练依赖 GPU 而不是 CPU</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2025-02-15 22:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-02-15">2025-02-15</time></span>&nbsp;<span title="更新于 2025-11-19 23:10:11"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-19">2025-11-19</time></span>&nbsp;<span title="80 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="为什么大模型训练依赖 GPU 而不是 CPU"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2025-02-15 22:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-02-15">2025-02-15</time></span>&nbsp;<span title="更新于 2025-12-10 23:21:28"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-10">2025-12-10</time></span>&nbsp;<span title="79 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="为什么大模型训练依赖 GPU 而不是 CPU"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p><a class="lightgallery" href="/posts/why_ai_needs_gpu_not_cpu/images/img.png" title="img.png" data-thumbnail="/posts/why_ai_needs_gpu_not_cpu/images/img.png" data-sub-html="<h2>img.png</h2>"><img loading="lazy" src='/posts/why_ai_needs_gpu_not_cpu/images/img.png' srcset="/posts/why_ai_needs_gpu_not_cpu/images/img_hu_f7f2e3f4f8c1da32.webp 800w, /posts/why_ai_needs_gpu_not_cpu/images/img_hu_bd23255f48c98b81.webp 1200w, /posts/why_ai_needs_gpu_not_cpu/images/img_hu_b66420f278c8cd38.webp 1600w" alt="img.png" height="722" width="1720"></a></p>
-<p>最近 AI 大模型的热度可谓是如火如荼，尤其是国内的 DeepSeek 名闻遐迩，因其与 OpenAI 的模型相比，DeepSeek 推理大模型 R1 的训练成本仅为其 3%-5%‌ ，直接导致英伟达公司股票短时间内大跌。</p>
+<p>最近 AI 大模型的热度可谓是如火如荼，尤其是国内的 DeepSeek 名闻遐迩，因其与 OpenAI 的模型相比，DeepSeek 推理大模型 R1 的训练成本仅为其 3%-5%，直接导致英伟达公司股票短时间内大跌。</p>
 <p>此时我就比较好奇，为什么大模型训练中更多的是依赖 GPU，而不是 CPU 呢？</p>
 <p>随后这两天网上翻阅了些资料，也询问 AI 帮忙解答，大体总结出如下几点：
 <br></br></p>
@@ -181,11 +190,13 @@
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2025-11-19 23:10:11">更新于 2025-11-19&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/cbcd69ff170be1adc32862c216dbd016a3c81342" rel="external nofollow noopener noreferrer" target="_blank" title="feat(posts): 发布 Go 项目 DI 组件必要性分析文章&#10- 新增关于 Go 项目中是否引入 DI 组件的深度分析文章
-- 对比 Wire、Dig 与手动管理三种依赖注入方式
-- 提供完整 Gin 项目示例及模块化设计建议
-- 更新 README 中的文章链接与标题引用路径
-- 修正相关文章标题与访问路径命名一致性&#10Commit: cbcd69ff170be1adc32862c216dbd016a3c81342 [cbcd69f]&#10Author: vespeng&#10Date: 2025-11-19 23:10:11"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>cbcd69f</a></span>
+      <div class="post-info-mod"><span title="更新于 2025-12-10 23:21:28">更新于 2025-12-10&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/51781cda4797e7b2970332c5b1ebd27fe3d9b93b" rel="external nofollow noopener noreferrer" target="_blank" title="chore(config): 更新网站配置与内容&#10- 将菜单项“文章”更名为“归档”
+- 重新组织导航菜单结构，新增“更多”父级菜单
+- 启用页面加载进度条功能
+- 调整自定义模板片段引用路径
+- 更新关于页面内容，添加职业性格描述
+- 修正联系方式标题文字
+- 优化文章内容标点符号格式&#10Commit: 51781cda4797e7b2970332c5b1ebd27fe3d9b93b [51781cd]&#10Author: vespeng&#10Date: 2025-12-10 23:21:28"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>51781cd</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -240,5 +251,5 @@
   </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/js/config/b4c48dddc79464ece9d5685997365b52.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/why_ai_needs_gpu_not_cpu/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/lightgallery/lightgallery.min.js" defer></script><script src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js" defer></script><script src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/b4c48dddc79464ece9d5685997365b52.js" defer></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-CN"],"hugoLangMap":{"zh-CN":"/posts/why_ai_needs_gpu_not_cpu/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
 </html>
