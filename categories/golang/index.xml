@@ -8,8 +8,17 @@
     <language>zh-CN</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 22 Nov 2025 18:43:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Dec 2025 20:00:52 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用周末写一个小工具：多设备预览图生成</title>
+      <link>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</link>
+      <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</guid>
+      <category domain="https://vespeng.com/categories/golang/">Golang</category>
+      <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      <description>&lt;p&gt;起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。&#xA;这样似乎有些繁琐了，尝试寻求一个完美的工具来达到这个目的，但在 github 上寻一圈未果，所以就利用这个周末去写一个简单的工具来实现这个需求。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</title>
       <link>https://vespeng.com/posts/the_necessity_of_di_in_go_projects/</link>

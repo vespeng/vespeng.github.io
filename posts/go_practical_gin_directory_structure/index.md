@@ -428,7 +428,7 @@ Listening and serving HTTP on :8080
 }
 ```
 
-上述示例，我已经上传至 [GitHub - vespeng/gin-pathway](https://github.com/vespeng/gin-pathway)，欢迎 fork 和 star。
+上述示例，已上传至 [GitHub - vespeng/gin-pathway](https://github.com/vespeng/gin-pathway)，欢迎 fork 和 star。
 
 
 ---
