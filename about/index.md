@@ -12,7 +12,7 @@
 - 教育背景：计算机科学与技术专业
 
 - 技能标签：
-  <span style="vertical-align: -0.3em;">
+  <span style="vertical-align: -0.3em; line-height: 1;">
   ![Go](https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white)
   ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
   ![Java](https://img.shields.io/badge/-Java-ED8B00?logo=java&logoColor=white)
