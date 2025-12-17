@@ -165,8 +165,8 @@
 <p>它是 Go 语言标准库 <code>encoding/json</code> 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（<code>[]byte</code>）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。</p>
 <p>其次了解了它的作用后，再来看下这个坑点：</p>
 <p>假设有一个 json 串如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="5" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-header language-text"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -181,8 +181,8 @@
 </span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在要将它解析成一个 map，拿到 json 原始的数据，方便后续处理：</p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="14" data-copyable="true" data-editable="true" data-open="true"><div class="chroma">
+<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -216,8 +216,8 @@
 </div>
 </div><p>这样看着确实没什么问题，每个 key、value 值都是按照预期输出；</p>
 <p>现在我把 json 调整一下，假设 id 是一个毫秒级时间戳 <strong>1736325205000（13 位）：</strong></p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="14" data-copyable="true" data-editable="true" data-open="true"><div class="chroma">
+<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -252,8 +252,8 @@
 </div><p>此时坑来了， id 的值变成了一个科学计数法的字符串，显然这不符合我的预期；</p>
 <p>那么为什么会变成这样呢？</p>
 <p>首先观察到我使用了 %v 进行处理，然而 json 中原本的数据是一个 int，我应该用处理 int 的占位符 %d ：</p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="9" data-copyable="true" data-editable="true" data-open="true"><div class="chroma">
+<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -279,8 +279,8 @@
 <p>所以现在进一步清晰了，json.Unmarshal 函数会把 id 转为 float64；</p>
 <p>那么问题又来了，为什么它会把 id 转为 float64 类型呢？id == 1 的时候为什么能正常输出呢？</p>
 <p>进源码，看看函数内部做了什么：</p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="49" data-copyable="true" data-editable="true" data-open="true"><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div><div class="chroma">
+<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -387,8 +387,8 @@
 <p>多次翻阅资料后，有一个说法比较靠谱：</p>
 <p>当处理非常大的整数（如毫秒级的时间戳）时，如果直接使用 Go 语言中的整数类型（如 <code>int</code> 或 <code>int64</code>），可能会因为超出这些类型的表示范围而导致溢出。虽然 <code>int64</code> 类型在大多数情况下可以容纳毫秒级的时间戳，但为了确保能够处理所有可能的 JSON 数字，<code>encoding/json</code> 包选择了 <code>float64</code> 类型作为默认解析结果。</p>
 <p>到这里其实我们最初的目的也能够轻松处理：</p>
-<div class="highlight" data-open="true"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="14" data-copyable="true" data-editable="true" data-open="true"><div class="chroma">
+<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
