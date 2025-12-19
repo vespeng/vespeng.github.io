@@ -174,7 +174,7 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>官网链接：<a href="https://golang.google.cn/dl/"target="_blank" rel="external nofollow noopener noreferrer">https://golang.google.cn/dl/<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<p><a class="lightgallery" href="/posts/go_development_environment/images/img.png" title="img.png" data-thumbnail="/posts/go_development_environment/images/img.png" data-sub-html="<h2>img.png</h2>"><img loading="lazy" src='/posts/go_development_environment/images/img.png' srcset="/posts/go_development_environment/images/img_hu_4c5d49973fd54cf0.webp 800w, /posts/go_development_environment/images/img_hu_553ba4a2fc439169.webp 1200w, /posts/go_development_environment/images/img_hu_c23e811798ccd380.webp 1600w" alt="img.png" height="802" width="2518"></a></p>
+<p><a class="lightgallery" target="_blank" href="/posts/go_development_environment/images/img.png" title="img.png" data-thumbnail="/posts/go_development_environment/images/img.png" data-sub-html="<h2>img.png</h2>"><img loading="lazy" src='/posts/go_development_environment/images/img.png' srcset="/posts/go_development_environment/images/img_hu_4c5d49973fd54cf0.webp 800w, /posts/go_development_environment/images/img_hu_553ba4a2fc439169.webp 1200w, /posts/go_development_environment/images/img_hu_c23e811798ccd380.webp 1600w" alt="img.png" height="802" width="2518"></a></p>
 <h2 class="heading-element" id="配置环境"><span>配置环境</span>
   <a href="#%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -182,42 +182,43 @@
 </h2><ol>
 <li>
 <p>安装好之后须添加如下环境变量：</p>
-<table>
-  <thead>
-      <tr>
-          <th>变更名</th>
-          <th>变量值</th>
-          <th>说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>GOPATH</strong></td>
-          <td>E:\gowork</td>
-          <td>Go语言的工作目录，存放自己编写的 .go 文件、项目、包、编译的二进制文件等</td>
-      </tr>
-      <tr>
-          <td><strong>GOROOT</strong></td>
-          <td>D:\go</td>
-          <td>Go的安装路径</td>
-      </tr>
-  </tbody>
-</table>
-<p>在 Path 路径下，新增 <em>%GOROOT%\bin</em></p>
+<div class="table-wrapper">
+  <table>
+    <thead>
+        <tr>
+            <th>变更名</th>
+            <th>变量值</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>GOPATH</strong></td>
+            <td>E:\gowork</td>
+            <td>Go语言的工作目录，存放自己编写的 .go 文件、项目、包、编译的二进制文件等</td>
+        </tr>
+        <tr>
+            <td><strong>GOROOT</strong></td>
+            <td>D:\go</td>
+            <td>Go的安装路径</td>
+        </tr>
+    </tbody>
+  </table>
+</div><p>在 Path 路径下，新增 <em>%GOROOT%\bin</em></p>
 <blockquote>
 <p>ps: GOPATH 的值，需要根据实际情况按需配置，默认路径为C盘用户目录下</p>
 </blockquote>
 </li>
 <li>
 <p>开启 go mod 及配置国内代理：</p>
-<div class="code-block highlight" data-mode="classic" data-max="15" data-lines="2" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-shell"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-header language-shell"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="15" data-line-digit="1" style="--fi-max-shown-lines:15;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go env -w <span class="nv">GO111MODULE</span><span class="o">=</span>on
-</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct</span></span></code></pre></td></tr></table></div>
 </div>
 </div></li>
 </ol>
@@ -297,7 +298,7 @@
 </nav></div>
       </div>
     </dialog></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251128065536-6d00e42b">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.153.0">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251219153119-0a614e17">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line visitor d-none">
