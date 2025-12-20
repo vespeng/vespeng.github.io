@@ -125,6 +125,12 @@ if err := png.Encode(f, canvas); err != nil {
 fmt.Println("预览图生成成功:", outFile)
 ```
 
+## 补充
+
+为优化使用体验，所以将代码打包成二进制可执行文件，键入对应命令直接执行即可
+
+![执行记录](./images/execute.png)
+
 ## 总结
 
 **复杂点**：
