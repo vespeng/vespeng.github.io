@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
-	<meta name="generator" content="Hugo 0.153.0">
+	<meta name="generator" content="Hugo 0.153.5">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
@@ -9,8 +9,8 @@
 <meta name="description" content="不止于代码，更有沿途的风景与思考"><meta name="keywords" content='Vespeng, vespeng, Blog, blog, Golang, Go, Gin, AI, 技术博客, 最佳实践'>
   <meta itemprop="name" content="Vespeng&#39;s Blog">
   <meta itemprop="description" content="不止于代码，更有沿途的风景与思考">
-  <meta itemprop="datePublished" content="2025-12-14T20:00:00+08:00">
-  <meta itemprop="dateModified" content="2025-12-20T12:27:57+08:00">
+  <meta itemprop="datePublished" content="2025-12-30T23:10:00+08:00">
+  <meta itemprop="dateModified" content="2025-12-30T23:10:22+08:00">
   <meta itemprop="image" content="https://vespeng.com/og.png"><meta property="og:url" content="https://vespeng.com/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Vespeng&#39;s Blog">
@@ -138,7 +138,10 @@
     </a><a href="mailto:vespeng.liu@outlook.com" title="Email"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-regular fa-envelope fa-fw" aria-hidden="true"></i>
     </a><a href="/index.xml" title="RSS"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-solid fa-rss fa-fw" aria-hidden="true"></i>
     </a></div></div>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/multi_device_preview_drawing_gen_tool_with_go/">利用周末写一个小工具：多设备预览图生成</a>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/2025_review/">2025 年度总结</a>
+  </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-12-30 23:10:00'>发布于 <time datetime="2025-12-30">2025-12-30</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-category" title="分类 - 年度总结"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 年度总结</a></span></div><div class="content">马上 25 年就结束了，留个总结吧，算是第一次正式的年度回顾</div><div class="post-footer">
+    <a href="/posts/2025_review/">阅读全文</a></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/multi_device_preview_drawing_gen_tool_with_go/">利用周末写一个小工具：多设备预览图生成</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-12-14 20:00:00'>发布于 <time datetime="2025-12-14">2025-12-14</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a>&ensp;<a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="content">起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。 这样似乎有些繁琐了，尝试寻求一个完美的工具来达到这个目的，但在 github 上寻一圈未果，所以就利用这个周末去写一个简单的工具来实现这个需求。
 </div><div class="post-footer">
     <a href="/posts/multi_device_preview_drawing_gen_tool_with_go/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a><a href='/tags/chromedp/' class="post-tag">Chromedp</a><a href='/tags/image/' class="post-tag">Image</a><a href='/tags/embed/' class="post-tag">Embed</a></div></div>
@@ -174,9 +177,6 @@
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-03-02 17:00:00'>发布于 <time datetime="2025-03-02">2025-03-02</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/golang/" class="post-category" title="分类 - Golang"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Golang</a></span></div><div class="content">在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 encoding/json 包用于处理 json 数据，同时第三方库 GJSON &amp; SJSON 也在 json 处理方面表现出色。
 </div><div class="post-footer">
     <a href="/posts/go_gjson_component/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/golang/' class="post-tag">Golang</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/why_ai_needs_gpu_not_cpu/">为什么大模型训练依赖 GPU 而不是 CPU</a>
-  </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2025-02-15 22:00:00'>发布于 <time datetime="2025-02-15">2025-02-15</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="content">GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</div><div class="post-footer">
-    <a href="/posts/why_ai_needs_gpu_not_cpu/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/ai/' class="post-tag">AI</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
           <span class="page-link">
             <a href="/">1</a>
@@ -186,7 +186,7 @@
             <a href="/page/2/">2</a>
           </span>
         </li></ul></div></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.153.0">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251219153119-0a614e17">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.153.5">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-alpha.3-20251219153119-0a614e17">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/"target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider">CC BY-NC-SA 4.0</span></div><div class="footer-line visitor d-none">
