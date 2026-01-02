@@ -9,7 +9,7 @@
   <meta itemprop="name" content="利用周末写一个小工具：多设备预览图生成">
   <meta itemprop="description" content="起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。">
   <meta itemprop="datePublished" content="2025-12-14T20:00:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-02T17:01:53+08:00">
+  <meta itemprop="dateModified" content="2026-01-02T17:48:10+08:00">
   <meta itemprop="wordCount" content="275">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Chromedp,Image,Embed"><meta property="og:url" content="https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-12-14T20:00:00+08:00">
-    <meta property="article:modified_time" content="2026-01-02T17:01:53+08:00">
+    <meta property="article:modified_time" content="2026-01-02T17:48:10+08:00">
     <meta property="article:tag" content="Go">
     <meta property="article:tag" content="Chromedp">
     <meta property="article:tag" content="Image">
@@ -44,7 +44,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/multi_device_preview_drawing_gen_tool_with_go\/"
     },"genre": "posts","keywords": "go, chromedp, image, embed","wordcount":  275 ,
-    "url": "https:\/\/vespeng.com\/posts\/multi_device_preview_drawing_gen_tool_with_go\/","datePublished": "2025-12-14T20:00:00+08:00","dateModified": "2026-01-02T17:01:53+08:00","publisher": {
+    "url": "https:\/\/vespeng.com\/posts\/multi_device_preview_drawing_gen_tool_with_go\/","datePublished": "2025-12-14T20:00:00+08:00","dateModified": "2026-01-02T17:48:10+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -136,7 +136,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>利用周末写一个小工具：多设备预览图生成</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a>&ensp;<a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-14 20:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-14">2025-12-14</time></span>&nbsp;<span title="更新于 2026-01-02 17:01:53"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-02">2026-01-02</time></span>&nbsp;<span title="275 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="利用周末写一个小工具：多设备预览图生成"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a>&ensp;<a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2025-12-14 20:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-12-14">2025-12-14</time></span>&nbsp;<span title="更新于 2026-01-02 17:48:10"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-02">2026-01-02</time></span>&nbsp;<span title="275 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="利用周末写一个小工具：多设备预览图生成"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -386,7 +386,7 @@
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-01-02 17:01:53">更新于 2026-01-02&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/bc9ff46920b5c72fc9df0f19f8d3e949363ca24b" rel="external nofollow noopener noreferrer" target="_blank" title="feat(style): 重建博客配置，优化博客性能&#10- 移除翻译组件
+      <div class="post-info-mod"><span title="更新于 2026-01-02 17:48:10">更新于 2026-01-02&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/296fbec32b503957abb0324cf8a9fde6ec7fcb53" rel="external nofollow noopener noreferrer" target="_blank" title="feat(style): 重建博客配置，优化博客性能&#10- 移除翻译组件
 - 添加404页面样式定义
 - 添加头部样式支持暗色主题
 - 实现响应式友链网格布局
@@ -395,7 +395,7 @@
 - 更新全局字体大小变量
 - 添加自定义页脚组件模板
 - 重构友链页面使用新的CSS类名
-- 配置站点基本信息和主题设置&#10Commit: bc9ff46920b5c72fc9df0f19f8d3e949363ca24b [bc9ff46]&#10Author: vespeng&#10Date: 2026-01-02 17:01:53"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>bc9ff46</a></span>
+- 配置站点基本信息和主题设置&#10Commit: 296fbec32b503957abb0324cf8a9fde6ec7fcb53 [296fbec]&#10Author: vespeng&#10Date: 2026-01-02 17:48:10"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>296fbec</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -415,7 +415,30 @@
     </section>
   </div><div class="post-nav"><a href="/posts/2025_review/" class="post-nav-item" rel="prev" title="2025 年度总结"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>2025 年度总结</a><a href="/posts/the_necessity_of_di_in_go_projects/" class="post-nav-item" rel="next" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-</article>
+<div id="comments"><div id="giscus" class="comment">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="vespeng/vespeng.github.io"
+            data-repo-id="R_kgDONof09A"
+            data-category="Announcements"
+            data-category-id="DIC_kwDONof09M4Cl_3r"
+            data-mapping="pathname"
+            data-strict="0"
+            
+            data-theme="preferred_color_scheme"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+            defer
+          ></script>
+        </div>
+        <noscript>
+          Please enable JavaScript to view the comments powered by <a href="https://giscus.app/" rel="external nofollow noopener noreferrer">giscus</a>.
+        </noscript></div></article>
 
   <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside><dialog id="toc-dialog" aria-labelledby="toc-dialog-title" role="dialog">
@@ -463,7 +486,7 @@
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>
-  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
 </div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/86369a79f9d03785f1da3803d3518612.js" defer></script><script src="/js/theme.min.js" defer></script></body>
