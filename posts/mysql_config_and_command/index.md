@@ -11,7 +11,7 @@
 
 根目录下 `my.ini` 文件
 
-```ini {data-open=true}
+```ini
 [mysqld]
 # 设置MySQL服务的端口号，默认为3306
 port=3306
@@ -50,7 +50,7 @@ default-character-set=utf8mb4
 
 > [!NOTE] 管理员身份运行，避免权限问题
 
-```bash {data-open=true} 
+```bash
 # 初始化数据库 (随机 root 密码输出到控制台)
 mysqld --initialize --console
 # 安装服务

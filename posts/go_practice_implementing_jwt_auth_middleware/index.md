@@ -2,7 +2,7 @@
 
 
 在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。
-<!--more-->
+
 ## 一、为什么需要 JWT 中间件
 
 JWT 作为现代 Web 开发的认证标准，相比传统 cookie + session 方式有几个明显优势：
@@ -60,7 +60,7 @@ graph TD
 
 ### 1. 配置结构定义
 
-```go {data-open=true}
+```go
 // JWT核心配置
 type JWTConfig struct {
     Secret         []byte          		// 加密密钥 - 建议使用32字节安全随机数
@@ -85,7 +85,7 @@ var (
 
 ### 2. JWT 中间件实现
 
-```go {data-open=true}
+```go
 func JwtMiddleware() gin.HandlerFunc {
     // 定义排除路径（支持通配符）
     excludedPaths := map[string]bool{
@@ -139,7 +139,7 @@ func JwtMiddleware() gin.HandlerFunc {
 
 ### 3. Token 生成
 
-```go {data-open=true}
+```go
 // 登录成功时调用
 func GenerateToken(userID int, userName string) (string, error) {
     conf := config.LoadConfig() // 加载应用配置
@@ -192,7 +192,7 @@ func GenerateToken(userID int, userName string) (string, error) {
 
 ### 4. Token 验证逻辑
 
-```go {data-open=true}
+```go
 func validateJWT(tokenString string) (*CustomClaims, error) {
     conf := config.LoadConfig()
     // 优先从Redis获取（如果启用）
@@ -243,7 +243,7 @@ func validateJWT(tokenString string) (*CustomClaims, error) {
 
 ### 5. 错误处理机制
 
-```go {data-open=true}
+```go
 func handleJWTError(c *gin.Context, err error) {
     var errorResponse gin.H
     
@@ -277,7 +277,7 @@ func handleJWTError(c *gin.Context, err error) {
 
 ### 6. 辅助函数实现
 
-```go {data-open=true}
+```go
 // Bearer Token解析
 func parseBearerToken(header string) (string, error) {
     const bearerPrefix = "Bearer "
@@ -337,7 +337,7 @@ func ResetJWTConfig() {
 
 ### 7. redis.go
 
-```go {data-open=true}
+```go
 var (
 	redisCli *redis.Client
 	once     sync.Once
@@ -366,7 +366,7 @@ func GetRedisCli() (*redis.Client, error) {
 
 ### 8. config 配置文件
 
-```ymal {data-open=true}
+```yml
 # config.yaml 示例
 
 # redis配置
@@ -387,7 +387,7 @@ jwt:
 
 ## 五、在 Gin 路由中使用
 
-```go {data-open=true}
+```go
 func main() {
     r := gin.Default()
 

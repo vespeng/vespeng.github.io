@@ -4,26 +4,26 @@
     <title>面试 - 标签 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.153.5 &amp; FixIt v0.4.0-alpha.3-20251219153119-0a614e17</generator>
-    <language>zh-CN</language>
+    <generator>Hugo 0.154.1 &amp; FixIt v0.4.0-beta</generator>
+    <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 19 Nov 2025 23:10:11 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 17:01:53 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 基础算法实现示例集</title>
       <link>https://vespeng.com/posts/go_algorithm_implementation_example/</link>
       <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/go_algorithm_implementation_example/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
-      <description>&lt;p&gt;在工作与面试准备中，常常需要快速回顾基础算法的核心实现。本文正是一份为此类场景打造的 Go 语言算法速查手册。&lt;/p&gt;&#xA;&lt;p&gt;本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题，旨在成为一份可以随时查阅、即拿即用的代码参考，助高效巩固基础。&lt;/p&gt;</description>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>在工作与面试准备中，常常需要快速回顾基础算法的核心实现。本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题，旨在成为一份可以随时查阅、即拿即用的代码参考，助高效巩固基础。</description>
     </item>
     <item>
       <title>记一次 Go 开发岗面试</title>
       <link>https://vespeng.com/posts/go_development_job_interview/</link>
       <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/go_development_job_interview/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
       <description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
     </item>
   </channel>

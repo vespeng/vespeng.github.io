@@ -4,20 +4,20 @@
     <title>其他 - 分类 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.com/categories/%E5%85%B6%E4%BB%96/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.153.5 &amp; FixIt v0.4.0-alpha.3-20251219153119-0a614e17</generator>
-    <language>zh-CN</language>
+    <generator>Hugo 0.154.1 &amp; FixIt v0.4.0-beta</generator>
+    <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sat, 20 Dec 2025 12:27:57 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 17:01:53 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
       <link>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</link>
       <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
       <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
-      <description>&lt;p&gt;起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。&#xA;这样似乎有些繁琐了，尝试寻求一个完美的工具来达到这个目的，但在 github 上寻一圈未果，所以就利用这个周末去写一个简单的工具来实现这个需求。&lt;/p&gt;</description>
+      <description>起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。</description>
     </item>
     <item>
       <title>为什么大模型训练依赖 GPU 而不是 CPU</title>

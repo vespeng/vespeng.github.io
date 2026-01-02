@@ -20,7 +20,7 @@
 博客站点也不错，干净整洁符合我的审美 😂，同时也沉淀了十多篇技术文章；
 个人项目起初确实想简单了，平时除了处理工作和周六日不定期的社交，留给自己去开源的时间其实不多，一方面要维护个人博客，一方面还要不断的学习，附一下这一年的 GitHub 热力图：
 
-![ghchart](/images/ghchart.svg)
+<img src="./images/ghchart.svg" alt="github chart"/>
 
 这个 Flag 就留到 26 年去达成吧。
 
@@ -32,7 +32,7 @@
 
 晒一下公司的新年礼品：
 
-<img alt="gift" src="images/gift.jpg" width="500"/>
+<img src="./images/gift.jpg" style="width: 540px; height: auto;" alt="gift"/>
 
 ## 旅游
 

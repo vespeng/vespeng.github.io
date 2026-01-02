@@ -4,19 +4,19 @@
     <title>协程 - 标签 - Vespeng&#39;s Blog</title>
     <link>https://vespeng.com/tags/%E5%8D%8F%E7%A8%8B/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.153.5 &amp; FixIt v0.4.0-alpha.3-20251219153119-0a614e17</generator>
-    <language>zh-CN</language>
+    <generator>Hugo 0.154.1 &amp; FixIt v0.4.0-beta</generator>
+    <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Sun, 19 Oct 2025 21:31:56 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2026 17:01:53 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/%E5%8D%8F%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 并发实战：利用协程处理多个接口数据</title>
       <link>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</link>
       <pubDate>Sun, 12 Jan 2025 18:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</guid>
-      <category domain="https://vespeng.com/categories/golang/">Golang</category>
-      <description>&lt;p&gt;高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。&lt;/p&gt;</description>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。</description>
     </item>
   </channel>
 </rss>

@@ -1,8 +1,8 @@
 # Vespeng's Blog
 
-个人静态站点（博客），在这里分享我的想法、经验和见解。
+个人静态站点，在这里分享我的想法、经验和见解。
 
-![thumbnail.png](thumbnail.png)
+![preview.png](preview.png)
 
 ## 🛠 技术栈
 
@@ -15,6 +15,7 @@
 
 ### 2025
 
+- 12-30 [2025 年度总结](https://vespeng.com/posts/2025_review/)
 - 12-14 [利用周末写一个小工具：多设备预览图生成](https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/)
 - 11-19 [Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析](https://vespeng.com/posts/the_necessity_of_di_in_go_projects/)
 - 11-03 [Go Embed 实战：简化部署与静态资源管理](https://vespeng.com/posts/the_best_practice_of_go_embed/)

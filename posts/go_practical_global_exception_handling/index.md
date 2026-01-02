@@ -2,14 +2,14 @@
 
 
 在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。
-<!--more-->
+
 ## 一、Go 中的错误处理机制
 
 在 Go 语言中，并没有像其他语言那样的传统异常机制。而是期望开发者主动去识别处理这种“异常”，通过返回值来表示可能出现的错误。
 
 通常情况下，函数会返回一个结果集和一个错误值，我们需要判断错误值是否为 `nil`，如果不为 `nil` 则表示出现了“异常”。
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -40,7 +40,7 @@ func main() {
 
 `recover` 函数用于捕获 `panic` 抛出的信息，让程序从 panic 状态恢复继续正常执行，前提 recover 只能在 `defer` 函数中使用。
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -70,7 +70,7 @@ func main() {
 
 为了实现全局异常处理，我们可以创建一个中间件或者全局的异常处理函数。
 
-```go {data-open=true}
+```go
 func GlobalErrorHandler() gin.HandlerFunc {
     return func(c *gin.Context) {
         defer func() {
@@ -91,7 +91,7 @@ func GlobalErrorHandler() gin.HandlerFunc {
 
 在实际的项目中，我们可以将这个全局异常处理中间件应用到 HTTP 服务器的路由处理中。
 
-```go {data-open=true}
+```go
 package main
 
 import (

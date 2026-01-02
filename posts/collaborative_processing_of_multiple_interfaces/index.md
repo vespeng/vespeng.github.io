@@ -2,16 +2,16 @@
 
 
 高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。
-<!--more-->
+
 先假定一个场景：
 
 > _**现有一需求，需要请求n个接口（暂定为3个）获取接口数据，然后对数据进行二次处理并返回。**_
 
 按照过往的经验，我们会依次请求接口拿到数据暂存，最后对数据进行包装处理，这种自上而下的处理方式其实并无不妥，现在想要提高下效率，利用牺牲 cpu 资源来换取查询性能。
 
-先模拟创建几个接口，分别返回(k1，v1)、(k2，v2)、(k3，v4)：
+先模拟创建几个接口，分别返回(k1,v1)、(k2,v2)、(k3,v4)：
 
-```go {data-open=true}
+```go
 // 模拟接口A
 func getDataFromA() map[string]interface{} {
    return map[string]interface{}{
@@ -58,7 +58,7 @@ func getAllData() map[string]interface{} {
 
 接下来就可以开启协程去调用:
 
-```go {data-open=true}
+```go
 func getAllData() map[string]interface{} {
     var wg sync.WaitGroup
     resultChan := make(chan map[string]interface{}, 3)

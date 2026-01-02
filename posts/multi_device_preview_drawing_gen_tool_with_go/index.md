@@ -3,7 +3,6 @@
 
 起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。
 这样似乎有些繁琐了，尝试寻求一个完美的工具来达到这个目的，但在 github 上寻一圈未果，所以就利用这个周末去写一个简单的工具来实现这个需求。
-<!--more-->
 
 ## 效果图
 
@@ -31,7 +30,7 @@
 
 _ps：这里仅展示核心逻辑，完整代码请下滑到最底移步到 github 仓库查看_
 
-```go {data-open=true}
+```go
 // 初始化浏览器分配器上下文
 browserPath, err := "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 opts := append(chromedp.DefaultExecAllocatorOptions[:],
@@ -46,7 +45,7 @@ defer cancel()
 
 并发读取网页，获取网页截图
 
-```go {data-open=true}
+```go
 func takeScreenshotForDevice(ctx context.Context, url string, width, height int) (*image.RGBA, error) {
 	var buf []byte
 	
@@ -88,7 +87,7 @@ canvas := imaging.New(2560, 1600, color.White)
 
 _ps：这里逻辑取值较复杂，故省略代码_
 
-```go {data-open=true}
+```go
 for _, dev := range Devices {
 	...
     // 读取设备图片
@@ -109,7 +108,7 @@ for _, dev := range Devices {
 
 保存并输出
 
-```go {data-open=true}
+```go
 outFile := "output/preview.png"
 
 f, err := os.Create(outFile)

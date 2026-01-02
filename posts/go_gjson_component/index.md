@@ -2,7 +2,7 @@
 
 
 在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 `encoding/json` 包用于处理 json 数据，同时第三方库 `GJSON` & `SJSON` 也在 json 处理方面表现出色。
-<!--more-->
+
 本文将深入探讨下 GJSON 组件，通过与原生处理方式对比，它存在什么特别之处，它的优势体现在哪。
 
 ## 一、Go 原生 json 读取方式
@@ -18,7 +18,7 @@ Go 原生读取 json 数据，通常需先定义结构体，然后再将 json �
 
 具体处理逻辑：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -70,7 +70,7 @@ go get -u github.com/tidwall/gjson
 
 对于简单的 json，像前面那个例子，直接用 `gjson.Get` 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 `name` 字段，`gjson.Get(jsonStr, "name")` 就可以搞定，例如：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -93,7 +93,7 @@ func main() {
 
 上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：
 
-```text {data-open=true}
+```text
 {
     "name": "张三",
     "age": 25,
@@ -108,7 +108,7 @@ func main() {
 
 具体处理逻辑：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -141,7 +141,7 @@ func main() {
 
 如果在 json 中嵌套了数组，对于这种的处理也比较简单，直接通过数组下标来定位数据即可，如：
 
-```go {data-open=true}
+```go
 package main
 
 import (

@@ -2,7 +2,7 @@
 
 
 在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。
-<!--more-->
+
 ## 一、日志级别的重要性
 
 日志级别是控制日志输出的重要手段。通过设置不同的日志级别，我们可以灵活地控制日志的详细程度。在 Go 语言中，常见的日志级别有`DEBUG`、`INFO`、`WARN`、`ERROR`和`FATAL`。不同级别的日志用于记录不同类型的信息，例如：
@@ -19,7 +19,7 @@
 
 在 Go 语言中，我们可以使用第三方库来实现不同的日志格式。例如，使用 `logrus` 库可以轻松地将日志格式化为 JSON 格式：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -43,7 +43,7 @@ func main() {
 
 日志输出的方式有很多种，例如输出到控制台、文件、数据库等。在 Go 语言中，我们可以使用标准库的`log`包来实现基本的日志输出功能。例如，使用标准库 `log.Println` 方法可以将日志输出到控制台：
 
-```go {data-open=true}
+```go
 package main
 
 import "log"
@@ -56,7 +56,7 @@ func main() {
 
 如果需要将日志输出到文件，我们可以这么做：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -125,7 +125,7 @@ log:
 
 在这里我们统一配置 logrus 参数，包括日志级别，输出格式：
 
-```go {data-open=true}
+```go
 package app
 
 import (
@@ -175,7 +175,7 @@ func InitializeLogger() error {
 
 但是这样还不够，会存在另一个问题：日志文件会越来越大后期不利于日志排查。所以还需要对日志进行一个分割，最好的实践方式就是按天分割，所以我们接着在上述初始化文件中去做设置：
 
-```go {data-open=true}
+```go
 package app
 
 import (
@@ -223,7 +223,7 @@ func InitializeLogger() error {
 
 ### 5. 调用InitializeLogger()
 
-```go {data-open=true}
+```go
 package main
 
 import (

@@ -3,7 +3,7 @@
 
 ## 关于我
 
-<img src="../avatar.jpg" alt="avatar.jpg" style="width:80px; border-radius:50%;" /> 
+<img src="../avatar.jpg" style="width:80px; border-radius:50%;" alt="avatar" /> 
 
 “生命不息，折腾不止！”
 
@@ -43,8 +43,6 @@
 {{< /details >}}
 
 ## 联系我
-
-**站内留言**： [留言板](/message/)
 
 **Email**： <vespeng.liu@outlook.com>
 

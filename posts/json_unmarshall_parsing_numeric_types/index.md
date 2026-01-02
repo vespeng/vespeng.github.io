@@ -4,7 +4,7 @@
 首先我们先明确下 json 包下 Unmarshal() 函数是什么：
 
 它是 Go 语言标准库 `encoding/json` 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（`[]byte`）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。
-<!--more-->
+
 其次了解了它的作用后，再来看下这个坑点：
 
 假设有一个 json 串如下：
@@ -19,7 +19,7 @@
 
 现在要将它解析成一个 map，拿到 json 原始的数据，方便后续处理：
 
-```go {data-open=true}
+```go
 func main() {
 	str := "{\"id\":1,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})
@@ -40,7 +40,7 @@ func main() {
 
 现在我把 json 调整一下，假设 id 是一个毫秒级时间戳 **1736325205000（13 位）：**
 
-```go {data-open=true}
+```go
 func main() {
 	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})
@@ -63,7 +63,7 @@ func main() {
 
 首先观察到我使用了 %v 进行处理，然而 json 中原本的数据是一个 int，我应该用处理 int 的占位符 %d ：
 
-```go {data-open=true}
+```go
 func main() {
 	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{)
@@ -83,7 +83,7 @@ func main() {
 
 进源码，看看函数内部做了什么：
 
-```go {data-open=true}
+```go
 func Unmarshal(data []byte, v any) error {
 	// Check for well-formedness.
 	// Avoids filling out half a data structure
@@ -145,7 +145,7 @@ func (d *decodeState) convertNumber(s string) (any, error) {
 
 到这里其实我们最初的目的也能够轻松处理：
 
-```go {data-open=true}
+```go
 func main() {
 	str := "{\"id\":1736325205000,\"name\":\"张三\",\"age\":20}"
 	jsonMap := make(map[string]interface{})

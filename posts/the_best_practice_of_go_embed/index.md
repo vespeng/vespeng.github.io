@@ -6,7 +6,6 @@
 在 Go 语言生态中，资源文件管理一直是个痛点。传统的资源文件处理方式需要在部署时额外关注这些文件的位置和权限，增加了部署复杂度。
 Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者将静态资源直接编译进二进制文件，极大地简化了部署流程。
 本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。
-<!--more-->
 
 ## 一、embed 如何提升部署效率
 
@@ -59,7 +58,7 @@ var migrationFiles embed.FS
 
 以 Gin 框架为例，我们可以这样使用嵌入的资源：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -100,7 +99,7 @@ Java 应用通常采用"外部配置优先，内嵌配置兜底"的策略，这�
 
 1. 在 configs 同级目录下创建 embed.go 文件
 
-```go {data-open=true}
+```go
 package gin_pathway
 
 import "embed"
@@ -114,7 +113,7 @@ var EnvFile embed.FS
 
 2. 改造 config.LoadConfig() 函数
 
-```go {data-open=true}
+```go
 // LoadConfig 加载配置文件
 func LoadConfig() error {
     // 加载 .env 文件

@@ -2,14 +2,14 @@
 
 
 在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 [`GJSON`](https://vespeng.com/posts/go_gjson_component/) 解决了灵活读取问题，而 `SJSON` 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。
-<!--more-->
+
 本文将延续对比分析风格，解析 SJSON 的核心价值。
 
 ## 一、Go 原生 json 修改方式
 
 Go 原生修改 json 数据，同样需先定义结构体，然后再将 json 数据解析到结构体实例，如：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -59,7 +59,7 @@ go get -u github.com/tidwall/sjson
 
 ### 1. 基础值修改
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -79,7 +79,7 @@ func main() {
 
 ### 2. 嵌套结构修改
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -107,7 +107,7 @@ func main() {
 
 ### 3. 数组操作
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -131,7 +131,7 @@ func main() {
 
 ### 4. 字段删除
 
-```go {data-open=true}
+```go
 package main
 
 import (

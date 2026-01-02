@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Json - 标签 - Vespeng&#39;s Blog</title>
+    <link>https://vespeng.com/tags/json/</link>
+    <description>不止于代码，更有沿途的风景与思考</description>
+    <generator>Hugo 0.154.1 &amp; FixIt v0.4.0-beta</generator>
+    <language>zh-cn</language>
+    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
+    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
+    <lastBuildDate>Fri, 02 Jan 2026 17:01:53 +0800</lastBuildDate>
+    <atom:link href="https://vespeng.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go-SJSON 组件，JSON 动态修改新方案</title>
+      <link>https://vespeng.com/posts/go_sjson_component/</link>
+      <pubDate>Sun, 09 Mar 2025 14:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/go_sjson_component/</guid>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 &lt;code&gt;GJSON&lt;/code&gt; 解决了灵活读取问题，而 &lt;code&gt;SJSON&lt;/code&gt; 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</description>
+    </item>
+    <item>
+      <title>Go-GJSON 组件，解锁 JSON 读取新姿势</title>
+      <link>https://vespeng.com/posts/go_gjson_component/</link>
+      <pubDate>Sun, 02 Mar 2025 17:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/go_gjson_component/</guid>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 &lt;code&gt;encoding/json&lt;/code&gt; 包用于处理 json 数据，同时第三方库 &lt;code&gt;GJSON&lt;/code&gt; &amp;amp; &lt;code&gt;SJSON&lt;/code&gt; 也在 json 处理方面表现出色。</description>
+    </item>
+    <item>
+      <title>Json.Unmarshal 解析数值类型（踩坑）</title>
+      <link>https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/</link>
+      <pubDate>Sun, 12 Jan 2025 19:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/</guid>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>它是 Go 语言标准库 &lt;code&gt;encoding/json&lt;/code&gt; 中的一个函数，用于将 JSON 数据解析为 Go 语言中的数据结构。它的作用是将一个 JSON 格式的字节切片（&lt;code&gt;[]byte&lt;/code&gt;）转换为对应的 Go 语言数据类型，如结构体、切片、映射等。</description>
+    </item>
+  </channel>
+</rss>

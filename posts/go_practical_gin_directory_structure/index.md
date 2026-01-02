@@ -107,7 +107,7 @@ database:
 
 在 config.go 下解析配置
 
-```go {data-open=true}
+```go
 package config
 
 import (
@@ -162,7 +162,7 @@ func LoadConfig() error {
 
 > 如需要加载其他如 redis，那就新建 redis.go 文件
 
-```go {data-open=true}
+```go
 package app
 
 import (
@@ -196,7 +196,7 @@ func InitializeMySQL() error {
 
 app.go 中调用 InitializeMySQL()
 
-```go {data-open=true}
+```go
 package app
 
 import (
@@ -218,7 +218,7 @@ func InitializeAll() error {
 
 在 model 下新建 user_entity.go，注意：这个需要和数据库对应
 
-```go {data-open=true}
+```go
 package model
 
 type User struct {
@@ -242,7 +242,7 @@ func (u User) TableName() string {
 
 在 controller 下新建 user_controller.go
 
-```go {data-open=true}
+```go
 package controller
 
 import (
@@ -273,7 +273,7 @@ func (uc *UserController) GetUsers(c *gin.Context) {
 
 在 service 下新建 user_service.go
 
-```go {data-open=true}
+```go
 package service
 
 import (
@@ -299,7 +299,7 @@ func (us *UserService) GetUsers() ([]*model.User, error) {
 
 在 repository 下新建 user_repo.go
 
-```go {data-open=true}
+```go
 package repository
 
 import (
@@ -327,7 +327,7 @@ func (r *UserRepository) GetUsers() ([]*model.User, error) {
 
 routes.go 中设置路由，这里设置路由组，为方便日后迭代
 
-```go {data-open=true}
+```go
 package v1
 
 import (
@@ -353,7 +353,7 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 
 ### 8. 配置bootstrap
 
-```go {data-open=true}
+```go
 package app
 
 import (
@@ -393,7 +393,7 @@ func Start() {
 
 ### 9. 配置main
 
-```go {data-open=true}
+```go
 package app
 
 import "your_project/internal/app"

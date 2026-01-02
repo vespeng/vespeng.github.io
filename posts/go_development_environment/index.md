@@ -30,9 +30,9 @@
 
 安装 Go、vscode-go-syntax 两插件
 
-<img src="./images/img_1.png" style="width: 750px; height: auto;">
+<img src="./images/img_1.png" style="width: 750px; height: auto;" alt="">
 
-<img src="./images/img_2.png" style="width: 750px; height: auto;">
+<img src="./images/img_2.png" style="width: 750px; height: auto;" alt="">
 
 >  届时，VSCode 会弹出需要安装其他 go 扩展的提示，点击 Install All 即可 
 > 

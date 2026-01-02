@@ -2,7 +2,7 @@
 
 
 在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。
-<!--more-->
+
 ## 一、轻量级的协程（Goroutine）
 
 在传统的像 Java 这样的编程语言中，创建线程来实现并发往往需要较大的资源开销和复杂的管理。但在 Golang 里，有了 **Goroutine** 就截然不同。
@@ -11,7 +11,7 @@ Goroutine 的创建几乎不费力气，我们可以毫无压力地同时启动�
 
 举个例子：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -33,7 +33,7 @@ func main() {
 
 当然这样可能更直观：
 
-```go {data-open=true}
+```go
 package main
 
 import (
@@ -55,7 +55,7 @@ func main() {
 
 ### 1. Goroutine & Channel 协作流程
 
-```go {data-open=true}
+```go
 package main
 
 import "fmt"
@@ -82,7 +82,7 @@ func main() {
 
 Golang 的并发错误处理机制也更加简洁和有效。它能够帮助开发者更快速地定位和解决并发环境中可能出现的问题，减少了因并发导致的错误排查难度和时间成本。
 
-```go {data-open=true}
+```go
 func worker(ch chan<- Result) {
     res, err := compute()
     if err != nil {

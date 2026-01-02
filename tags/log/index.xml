@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Log - 标签 - Vespeng&#39;s Blog</title>
+    <link>https://vespeng.com/tags/log/</link>
+    <description>不止于代码，更有沿途的风景与思考</description>
+    <generator>Hugo 0.154.1 &amp; FixIt v0.4.0-beta</generator>
+    <language>zh-cn</language>
+    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
+    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
+    <lastBuildDate>Fri, 02 Jan 2026 17:01:53 +0800</lastBuildDate>
+    <atom:link href="https://vespeng.com/tags/log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 项目实战：如何优雅的处理日志</title>
+      <link>https://vespeng.com/posts/go_practical_processing_log/</link>
+      <pubDate>Wed, 22 Jan 2025 21:40:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/go_practical_processing_log/</guid>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</description>
+    </item>
+  </channel>
+</rss>

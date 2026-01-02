@@ -4,7 +4,7 @@
 ## 引言
 
 在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。
-<!--more-->
+
 起初我以为是 Go 语言本身缺乏像 Java Spring 那样成熟的依赖注入机制，导致依赖管理“先天不足”。于是尝试引入 Dig，希望通过运行时容器自动装配组件，让代码更整洁。可没过多久，新的“上帝文件”又悄然诞生——这次不是 main.go，而是那个集中注册所有 Provide 和 Invoke 的 DI 配置模块。功能越多，它就越庞大，耦合反而从代码转移到了配置层。
 
 这让我开始反思：问题真的出在 Go 没有强大的 DI 框架吗？还是说，我们把“依赖注入”当成了银弹，却忽视了更根本的架构设计？
@@ -49,7 +49,7 @@ Go 语言强调“显式优于隐式”，没有原生的 DI 容器。那么，�
 
 这里以一个标准的 CRUD 用户模块为例，贯穿整个调用链。先定义清晰的模块化目录结构：
 
-```text {data-open=true}
+```text
 cmd/
 └── main.go
 internal/
@@ -81,7 +81,7 @@ internal/
 
 ### 1. 数据库初始化（GORM）
 
-```go {data-open=true}
+```go
 // pkg/db/gorm.go
 package db
 
@@ -101,7 +101,7 @@ func NewDB() *gorm.DB {
 
 ### 2. 用户实体
 
-```go {data-open=true}
+```go
 // module/user/model/user.go
 package model
 
@@ -113,7 +113,7 @@ type User struct {
 
 ### 3. Repository 接口与实现
 
-```go {data-open=true}
+```go
 // module/user/repository/user_repo.go
 package repository
 
@@ -125,7 +125,7 @@ type UserRepository interface {
 }
 ```
 
-```go {data-open=true}
+```go
 // module/user/repository/user_repo_impl.go
 package repository
 
@@ -155,7 +155,7 @@ func (r *UserRepositoryImpl) Save(user *model.User) error {
 
 ### 4. Service 接口与实现
 
-```go {data-open=true}
+```go
 // module/user/service/user_service.go
 package service
 
@@ -167,7 +167,7 @@ type UserService interface {
 }
 ```
 
-```go {data-open=true}
+```go
 // module/user/service/user_service_impl.go
 package service
 
@@ -196,7 +196,7 @@ func (s *UserServiceImpl) CreateUser(name string) error {
 
 ### 5. Controller 层（Handler）
 
-```go {data-open=true}
+```go
 // module/user/controller/user_controller.go
 package controller
 
@@ -243,7 +243,7 @@ func (c *UserController) CreateUser(ctx *gin.Context) {
 
 ### 6. 路由注册（模块内部自治）
 
-```go {data-open=true}
+```go
 // module/user/route/user_routes.go
 package route
 
@@ -265,7 +265,7 @@ func SetupUserRoutes(r *gin.RouterGroup, ctrl *controller.UserController) {
 
 ### 1. 不使用依赖注入（手动组装）
 
-```go {data-open=true}
+```go
 // cmd/main.go
 package main
 
@@ -318,7 +318,7 @@ func main() {
 
 2. 创建注入配置集：
 
-    ```go {data-open=true}
+    ```go
     // internal/wire_gen.go (由 wire 生成)
     // internal/wire.go
     package di
@@ -353,7 +353,7 @@ func main() {
 
 生成 `wire_gen.go` 后，`main.go` 极简：
 
-```go {data-open=true}
+```go
 // cmd/main.go
 package main
 
@@ -386,7 +386,7 @@ func main() {
 
 ### 3. 使用 Dig（运行时注入）
 
-```go {data-open=true}
+```go
 // cmd/main.go
 package main
 
@@ -448,7 +448,7 @@ func main() {
 
 例如，我们可以为每个模块提供一个初始化函数：
 
-```go {data-open=true}
+```go
 // module/user/user_module.go
 package user
 
@@ -471,7 +471,7 @@ func SetupModule(r *gin.RouterGroup, db *gorm.DB) {
 
 `main.go` 变得极其干净：
 
-```go {data-open=true}
+```go
 func main() {
     db := db.NewDB()
     r := gin.Default()

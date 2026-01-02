@@ -262,7 +262,7 @@ func climbStairs(n int) int {
 
 回到 n = 4 的例子上，当第一步走一个台阶，剩下 3 级台阶的情况，递归的时候会把 3 带入，进而计算 2 级台阶的情况，当第一步走两个台阶，剩下 2 级台阶的情况，显然重复计算了。此时首先想到去重，那就引入一个 map ，改造代码：
 
-```go {data-open=true}
+```go
 // 定义结果集 map
 var results = make(map[int]int)
 
@@ -313,7 +313,7 @@ func climbStairs(n int) int {
 
 上述方法行不通，所有不能直接拆分字符串，换个思路去做遍历字符串，第一次遍历遇到 * or / 就将符号两侧数值先进行计算返回一个只有 + or - 的新表达式，第二次遍历直接进行计算拿到最终的结果。
 
-```go {data-open=true}
+```go
 func calculate(str string) int {
     // 给字符串去空格
     str = strings.ReplaceAll(str, " ", "")

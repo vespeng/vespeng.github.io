@@ -4,7 +4,6 @@
 在工作与面试准备中，常常需要快速回顾基础算法的核心实现。本文正是一份为此类场景打造的 Go 语言算法速查手册。
 
 本文不追求冗长的理论推导，而是聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题，旨在成为一份可以随时查阅、即拿即用的代码参考，助高效巩固基础。
-<!--more-->
 
 ## 排序
 
@@ -18,7 +17,7 @@
 
 <img src="./images/bubble_sort.gif" alt="冒泡排序" style="width: 55%; height: auto;">
 
-```go {data-open=true}
+```go
 func bubbleSort(arr []int) {
     for i := 0; i < len(arr)-1; i++ {
         for j := 0; j < len(arr)-i-1; j++ {
@@ -41,7 +40,7 @@ func bubbleSort(arr []int) {
 
 <img src="./images/selection_sort.gif" alt="选择排序" style="width: 55%; height: auto;">
 
-```go {data-open=true}
+```go
 func selectionSort(arr []int) {
 	for i := 0; i < len(arr)-1; i++ {
 		minIndex := i
@@ -68,7 +67,7 @@ func selectionSort(arr []int) {
 
 <img src="./images/insertion_sort.gif" alt="插入排序" style="width: 55%; height: auto;">
 
-```go {data-open=true}
+```go
 func insertionSort(arr []int) {
     for i := 1; i < len(arr); i++ {
         key := arr[i]
@@ -102,7 +101,7 @@ func insertionSort(arr []int) {
 >
 > 完成: nil <- 1 <- 2 <- 3 <- 4 <- 5 (新的头节点是5)
 
-```go {data-open=true}
+```go
 type ListNode struct {
     Val int
     Next *ListNode
@@ -141,7 +140,7 @@ func reverseList(head *ListNode) *ListNode {
 >
 > 步4: slow=-4, fast=-4 (相遇，说明有环)
 
-```go {data-open=true}
+```go
 func hasCycle(head *ListNode) bool {
     if head == nil {
         return false
@@ -174,7 +173,7 @@ func hasCycle(head *ListNode) bool {
 >
 > 最终结果: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
-```go {data-open=true}
+```go
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
     // 哑节点，简化边界处理
 	dummy := &ListNode{}
@@ -216,7 +215,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 >
 > 同步移动: fast到5(nil)时，slow到3 (要删除4，需让3.Next指向5)
 
-```go {data-open=true}
+```go
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
     // 哑节点，防止删除头节点时出错
     dummy := &ListNode{Next: head}
@@ -255,7 +254,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 >
 > 在c1处相遇
 
-```go {data-open=true}
+```go
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
     if headA == nil || headB == nil {
         return nil
@@ -296,7 +295,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 >
 > 完成: ['o','l','l','e','h']
 
-```go {data-open=true}
+```go
 func reverseString(s []byte) {
     left, right := 0, len(s)-1
     for left < right {
@@ -321,7 +320,7 @@ func reverseString(s []byte) {
 >
 > 结果: true（是回文串）
 
-```go {data-open=true}
+```go
 func isPalindrome(s string) bool {
     s = strings.ToLower(s)
     left, right := 0, len(s)-1
@@ -367,7 +366,7 @@ func isAlnum(c byte) bool {
 >
 > 第3列: o,o,i → 不同 → 结果: "fl"
 
-```go {data-open=true}
+```go
 func longestCommonPrefix(strs []string) string {
     if len(strs) == 0 {
         return ""
@@ -404,7 +403,7 @@ func longestCommonPrefix(strs []string) string {
 >
 > 结果: "579"
 
-```go {data-open=true}
+```go
 func addStrings(num1 string, num2 string) string {
     var res []byte
 	// 从末尾开始计算
@@ -454,7 +453,7 @@ func addStrings(num1 string, num2 string) string {
 >
 > 最长子串: "abc" (长度3)
 
-```go {data-open=true}
+```go
 func lengthOfLongestSubstring(s string) int {
     maxLen := 0
     left := 0
