@@ -3,48 +3,22 @@
 
 ## 关于我
 
-<img src="../avatar.jpg" style="width:80px; border-radius:50%;" alt="avatar" /> 
+<img src="../avatar.jpg" style="width:80px; border-radius:50%;" alt="avatar" />
 
-“生命不息，折腾不止！”
+你好，我是 Vespeng 👋
 
-一名后端研发，热衷于钻研感兴趣之事，追求那点滴成就感，在代码世界中持续探索边界。
+一名拥有四年经验的后端工程师，目前就职于某互联网公司。
+日常工作主要围绕 Go、Java 和 Python 展开，专注于构建稳定、可维护的后端服务。
+对我来说，写代码不只是完成任务，更是一个不断思考 “如何做得更好” 的过程——无论是优化性能、提升可读性，还是让系统在复杂场景下依然可靠。
 
-- 教育背景：计算机科学与技术专业
+本博客作为个人技术实践与学习思考的沉淀平台，记录项目实践中的问题分析、解决方案及经验总结，偶尔也分享些许日常生活中的观察与感悟。
+但所有内容均基于个人理解和特定上下文，不构成任何专业建议，也不保证绝对正确或适用于你的环境。
+如果你参考了其中的方法，请务必结合自身情况审慎评估。
 
-- 技能标签：
-  <span style="vertical-align: -0.3em; line-height: 1;">
-  ![Go](https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white)
-  ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)
-  ![Java](https://img.shields.io/badge/-Java-ED8B00?logo=java&logoColor=white)
-  </span>
+此外，无论你是想讨论技术细节、指出文章中的疏漏、探讨潜在的合作可能，还是只是偶然读到某篇内容后想打个招呼——都欢迎随时联系我。
+你可以在任意文章下方留言评论，也可以直接发邮件到 <vespeng.liu@outlook.com>，我会认真阅读每一条消息。
 
-- 职业性格：INTJ-A
-
-- 从业经历：4 年工作经验，现于某一线互联网公司工作
-
-## 关于博客
-
-不定期记录技术实践与思考，分享踩坑经验与解决方案，偶尔也聊点生活日常。
-
-如需转载或引用内容，请参考本站 [声明](/statement/)。
-
-欢迎通过我的 [GitHub](https://github.com/vespeng/vespeng.github.io) 或 [RSS](https://vespeng.com/index.xml) 订阅本博客。
-
-{{< details "博客历程" >}}
-- _2025_：因 CSDN 平台商业化与内容同质化问题严重，决定注销账号，转向 GitHub Pages 自建独立博客。
-
-- _2021_：在 CSDN 持续输出技术内容，多篇文章获得高赞收藏，也曾跻身平台周榜 Top5。
-
-- _2020_：因博客园界面风格过于复古，尝试多种美化方案仍难满意，而后转战 [CSDN](https://www.csdn.net/)。
-
-- _2019_：在 [博客园](https://www.cnblogs.com/) 注册自己的第一个博客，发表了几篇随笔，收获不少访问量，心中大喜。
-
-- _2018_：大学开始接触编程，受 [狂神](https://space.bilibili.com/95256449?spm_id_from=333.1387.follow.user_card.click/) 启发开启博客创作。
-{{< /details >}}
-
-## 联系我
-
-**Email**： <vespeng.liu@outlook.com>
+最后，很高兴在这里遇见你 🌱
 
 
 ---

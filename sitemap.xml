@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-03T22:48:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -159,12 +159,6 @@
   <url>
     <loc>https://vespeng.com/tags/redis/</loc>
     <lastmod>2026-01-02T17:48:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/statement/</loc>
-    <lastmod>2025-11-15T15:02:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -308,7 +302,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/about/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-03T22:48:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
