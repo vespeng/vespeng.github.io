@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
-<meta name="description" content="在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。"><meta name="keywords" content='go, gin, di, wire, dig'>
+<meta name="description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。"><meta name="keywords" content='go, gin, di, wire, dig'>
   <meta itemprop="name" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
-  <meta itemprop="description" content="在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
+  <meta itemprop="description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
   <meta itemprop="datePublished" content="2025-11-19T23:10:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-02T17:48:10+08:00">
+  <meta itemprop="dateModified" content="2026-01-04T23:28:35+08:00">
   <meta itemprop="wordCount" content="1128">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Di,Wire,Dig"><meta property="og:url" content="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/">
   <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
-  <meta property="og:description" content="在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
+  <meta property="og:description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-11-19T23:10:00+08:00">
-    <meta property="article:modified_time" content="2026-01-02T17:48:10+08:00">
+    <meta property="article:modified_time" content="2026-01-04T23:28:35+08:00">
     <meta property="article:tag" content="Go">
     <meta property="article:tag" content="Gin">
     <meta property="article:tag" content="Di">
@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
-  <meta name="twitter:description" content="在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
+  <meta name="twitter:description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
 <meta name="application-name" content="Vespeng&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/the_best_practice_of_go_embed/" title="Go Embed 实战：简化部署与静态资源管理" /><link rel="next" type="text/html" href="https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/" title="利用周末写一个小工具：多设备预览图生成" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/index.md" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
@@ -45,7 +45,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/the_necessity_of_di_in_go_projects\/"
     },"genre": "posts","keywords": "go, gin, di, wire, dig","wordcount":  1128 ,
-    "url": "https:\/\/vespeng.com\/posts\/the_necessity_of_di_in_go_projects\/","datePublished": "2025-11-19T23:10:00+08:00","dateModified": "2026-01-02T17:48:10+08:00","publisher": {
+    "url": "https:\/\/vespeng.com\/posts\/the_necessity_of_di_in_go_projects\/","datePublished": "2025-11-19T23:10:00+08:00","dateModified": "2026-01-04T23:28:35+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -193,8 +193,8 @@
   </a>
 </h2><p>依赖注入（Dependency Injection, DI）是一种实现<strong>控制反转</strong>（Inversion of Control, IoC）的设计模式。其核心思想是：<strong>将对象的创建与使用解耦</strong>，由外部容器负责管理依赖关系，并在运行时或编译时“注入”所需组件。</p>
 <p>在传统写法中，我们常常直接在代码里 <code>new</code> 出依赖：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -214,7 +214,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">repo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">NewUserRepository</span><span class="p">()</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">service</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">repo</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">UserController</span><span class="p">{</span><span class="nx">service</span><span class="p">:</span><span class="w"> </span><span class="nx">service</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>这种硬编码方式的问题在于：</p>
 <ul>
@@ -236,8 +236,8 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>这里以一个标准的 CRUD 用户模块为例，贯穿整个调用链。先定义清晰的模块化目录结构：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-text"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -279,7 +279,7 @@
 </span></span><span class="line"><span class="cl">│           └── user_routes.go
 </span></span><span class="line"><span class="cl">└── pkg/
 </span></span><span class="line"><span class="cl">    └── db/
-</span></span><span class="line"><span class="cl">        └── gorm.go</span></span></code></pre></td></tr></table></div>
+</span></span><span class="line"><span class="cl">        └── gorm.go</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><blockquote>
 <p><strong>说明</strong>：</p>
@@ -294,8 +294,8 @@
   <a href="#1-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%88%9d%e5%a7%8b%e5%8c%96gorm" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -327,14 +327,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&#34;failed to connect database&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h3 class="heading-element" id="2-用户实体"><span>2. 用户实体</span>
   <a href="#2-%e7%94%a8%e6%88%b7%e5%ae%9e%e4%bd%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -350,14 +350,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ID</span><span class="w">   </span><span class="kt">uint</span><span class="w">   </span><span class="s">`json:&#34;id&#34; gorm:&#34;primaryKey&#34;`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;name&#34; gorm:&#34;not null&#34;`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h3 class="heading-element" id="3-repository-接口与实现"><span>3. Repository 接口与实现</span>
   <a href="#3-repository-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -377,10 +377,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserRepository</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">FindAll</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</div><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -432,14 +432,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">UserRepositoryImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">Error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h3 class="heading-element" id="4-service-接口与实现"><span>4. Service 接口与实现</span>
   <a href="#4-service-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -459,10 +459,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserService</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">GetUsers</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</div><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -512,14 +512,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">UserServiceImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">user</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="nx">name</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h3 class="heading-element" id="5-controller-层handler"><span>5. Controller 层（Handler）</span>
   <a href="#5-controller-%e5%b1%82handler" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -605,14 +605,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;message&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;user created&#34;</span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
 </div><h3 class="heading-element" id="6-路由注册模块内部自治"><span>6. 路由注册（模块内部自治）</span>
   <a href="#6-%e8%b7%af%e7%94%b1%e6%b3%a8%e5%86%8c%e6%a8%a1%e5%9d%97%e5%86%85%e9%83%a8%e8%87%aa%e6%b2%bb" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -644,7 +644,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">userGroup</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">GetUsers</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">userGroup</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">CreateUser</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h2 class="heading-element" id="三三种依赖管理方式对比"><span>三、三种依赖管理方式对比</span>
   <a href="#%e4%b8%89%e4%b8%89%e7%a7%8d%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" class="heading-mark">
@@ -654,8 +654,8 @@
   <a href="#1-%e4%b8%8d%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e6%89%8b%e5%8a%a8%e7%bb%84%e8%a3%85" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -715,7 +715,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 启动服务</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nf">StartServer</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
 </div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
@@ -737,18 +737,18 @@
 </h3><ol>
 <li>
 <p>安装 Wire：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-bash"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go install github.com/google/wire/cmd/wire@latest</span></span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go install github.com/google/wire/cmd/wire@latest</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div></li>
 <li>
 <p>创建注入配置集：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -798,23 +798,23 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">NewDB</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">UserSet</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">wire</span><span class="p">.</span><span class="nf">Value</span><span class="p">(</span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div></li>
 <li>
 <p>生成代码并启动：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-bash"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wire</span></span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wire</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div></li>
 </ol>
 <p>生成 <code>wire_gen.go</code> 后，<code>main.go</code> 极简：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -850,7 +850,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
@@ -869,8 +869,8 @@
   <a href="#3-%e4%bd%bf%e7%94%a8-dig%e8%bf%90%e8%a1%8c%e6%97%b6%e6%b3%a8%e5%85%a5" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -942,7 +942,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Invoke</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">})</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">engine</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
 </div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
@@ -970,8 +970,8 @@
 <li>共享资源（如 DB、Logger）作为参数传入模块初始化函数</li>
 </ul>
 <p>例如，我们可以为每个模块提供一个初始化函数：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -1009,11 +1009,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">svc</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">repo</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctrl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nf">NewUserController</span><span class="p">(</span><span class="nx">svc</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p><code>main.go</code> 变得极其干净：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -1033,7 +1033,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// order.SetupModule(r.Group(&#34;/api&#34;), db) // 后续扩展</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nf">StartServer</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>这种方式既保持了简洁，又具备良好扩展性：</p>
 <ul>
@@ -1091,16 +1091,13 @@
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-01-02 17:48:10">更新于 2026-01-02&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/b568a742771cb90a7b786ac9e56fab5f46a07c64" rel="external nofollow noopener noreferrer" target="_blank" title="feat(style): 重建博客配置，优化博客性能&#10- 移除翻译组件
-- 添加404页面样式定义
-- 添加头部样式支持暗色主题
-- 实现响应式友链网格布局
-- 添加友链卡片悬停动画效果
-- 定义友链头像和信息展示样式
-- 更新全局字体大小变量
-- 添加自定义页脚组件模板
-- 重构友链页面使用新的CSS类名
-- 配置站点基本信息和主题设置&#10Commit: b568a742771cb90a7b786ac9e56fab5f46a07c64 [b568a74]&#10Author: vespeng&#10Date: 2026-01-02 17:48:10"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>b568a74</a></span>
+      <div class="post-info-mod"><span title="更新于 2026-01-04 23:28:35">更新于 2026-01-04&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/1074fbe3ed7f4eb103ee06a9651ae89f525b1f0a" rel="external nofollow noopener noreferrer" target="_blank" title="chore(config): 更新站点配置和社交链接设置&#10- 添加frontmatter配置文件以管理最后修改时间
+- 修正两篇文章的摘要内容，保持描述简洁
+- 配置文件中添加知乎账号链接和禁用RSS功能
+- 更新代码块显示样式为mac模式并启用行号显示
+- 重新组织静态资源README文件中的技术栈描述
+- 移除单篇文章布局模板文件
+- 更新社交图标配置使用SVG格式并修正标题&#10Commit: 1074fbe3ed7f4eb103ee06a9651ae89f525b1f0a [1074fbe]&#10Author: vespeng&#10Date: 2026-01-04 23:28:35"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>1074fbe</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -1194,7 +1191,7 @@
     }
 </script>
 <footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-beta-20260103085920-53396290">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">

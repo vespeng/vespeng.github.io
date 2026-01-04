@@ -8,19 +8,19 @@
   </url>
   <url>
     <loc>https://vespeng.com/categories/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/posts/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/</loc>
-    <lastmod>2026-01-03T22:48:29+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/go/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -56,13 +56,13 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,31 +80,31 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/di/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/dig/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/gin/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/posts/the_necessity_of_di_in_go_projects/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/wire/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -134,13 +134,13 @@
   </url>
   <url>
     <loc>https://vespeng.com/collections/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -254,7 +254,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/posts/go_practical_gin_directory_structure/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-04T23:28:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

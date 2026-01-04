@@ -6,10 +6,10 @@
 
 ## 🛠 技术栈
 
-- [Hugo](https://gohugo.io/) - 静态网站生成器
-- [FixIt](https://fixit.lruihao.cn/) - 博客主题
-- HTML/CSS/JavaScript - 前端基础技术
-- Markdown - 文章内容格式
+- 静态网站生成器: [Hugo](https://gohugo.io/)
+- 主题框架: [FixIt](https://fixit.lruihao.cn/)
+- 前端技术栈: HTML5 / CSS3 / JavaScript ES6
+- 内容格式: Markdown
 
 ## 📚 全部文章
 
@@ -34,4 +34,4 @@
 - 01-12 [Go 并发实战：利用协程处理多个接口数据](https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/)
 - 01-12 [Go 并发的核心机制解读](https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/)
 - 01-12 [Go 开发环境搭建：基于 Windows 操作系统](https://vespeng.com/posts/go_development_environment/)
-- 01-10 博客建立 *(建站日期)*
+- 01-10 [博客建立](https://vespeng.com/)

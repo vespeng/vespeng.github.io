@@ -248,8 +248,8 @@
 </blockquote>
 <p>Golang 的互斥锁主要由内部 <code>sync</code> 包下的 <code>Mutex</code> 对象实现。</p>
 <p>跳进该对象内部（源码），可看到该对象定义了两个变量：state &amp; sema，这也是互斥锁的核心数据结构：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -259,11 +259,11 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">Mutex</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">state</span><span class="w"> </span><span class="kt">int32</span><span class="w">		</span><span class="c1">// 状态</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">sema</span><span class="w">  </span><span class="kt">uint32</span><span class="w">	</span><span class="c1">// 信号量</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>往下翻可看到定义的几个常量，这几个常量是互斥锁底层状态管理的核心：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -277,11 +277,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">mutexWoken</span><span class="w">						</span><span class="c1">// 锁被释放</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">mutexStarving</span><span class="w">					</span><span class="c1">// 锁处于饥饿模式</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">mutexWaiterShift</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">iota</span><span class="w">			</span><span class="c1">// 等待者数量的偏移量，值为 3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>接着进一步分析该对象下的具体方法（加锁 &amp; 解锁）：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -351,7 +351,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">Mutex</span><span class="p">)</span><span class="w"> </span><span class="nf">unlockSlow</span><span class="p">(</span><span class="nx">new</span><span class="w"> </span><span class="kt">int32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 具体逻辑请移步源码</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
 </div><p>可以看出整个加锁解锁的过程是原子性的，并且有两种途径加解锁（快速途径和慢速途径）粗略的分析了具体实现逻辑，大致总结如下（<em>不保证准确性，仅供参考</em>）：</p>
 <blockquote>
@@ -422,8 +422,8 @@
   <a href="#%e5%9b%9b%e5%a6%82%e4%b8%8b%e4%bb%a3%e7%a0%81%e5%88%86%e5%88%ab%e8%be%93%e5%87%ba%e4%bb%80%e4%b9%88" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+</h2><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
@@ -439,20 +439,20 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span><span class="w"> </span><span class="nb">cap</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><blockquote>
 <p>先前面试中印象里没有被问到这个问题，不过这个题蛮有意思，考察关于切片扩容的问题。</p>
 </blockquote>
 <p><strong>结论</strong>：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-shell"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="m">3</span> <span class="m">3</span>
-</span></span><span class="line"><span class="cl">&gt; <span class="m">7</span> <span class="m">8</span></span></span></code></pre></td></tr></table></div>
+</span></span><span class="line"><span class="cl">&gt; <span class="m">7</span> <span class="m">8</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p><strong>原因：</strong></p>
 <p>先说长度：这个无可厚非，append 前 3 个元素，append 后追加了 4 个元素，所以长度第一次输出 3，第二次输出 7。</p>
@@ -492,8 +492,8 @@
 <p>其实这么多推几次，能发现个规律，就以 n = 4 来说，无非分为两种情况，第一步走一个台阶和第一步走两个台阶，或者最后一步走一个台阶和最后一步走两个台阶，至于是第一步还是最后一步其实无所谓，现在就以第一步怎么走来说，如果第一步走一个台阶，那么剩下的就是 3 级台阶的情况，如果第一步走两个台阶，那么剩下的就是 2 级台阶的情况，把这两个情况对应的方法数相加，就得到了当前 4 级台阶的方法数。</p>
 <p>对应到数学公式即：$f(x)=f(x-1)&#43;f(x-2)$</p>
 <p>接下来开始编码：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -515,12 +515,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>力扣执行测试一下，发现提示超出时间限制，说明上述代码虽然可以实现，但是时间复杂度高了。</p>
 <p>回到 n = 4 的例子上，当第一步走一个台阶，剩下 3 级台阶的情况，递归的时候会把 3 带入，进而计算 2 级台阶的情况，当第一步走两个台阶，剩下 2 级台阶的情况，显然重复计算了。此时首先想到去重，那就引入一个 map ，改造代码：</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -556,7 +556,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">results</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">climbStairs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>力扣再次提交，成功通过。</p>
 <h2 class="heading-element" id="六计算器"><span>六、计算器</span>
@@ -584,8 +584,8 @@
 </blockquote>
 <p>这个题拿到手后，当时首先想到就是拆分字符串，然后根据符号进行运算，但是这样会存在一些问题，要以什么字符来拆分呢？直接暴力使用 <strong>s := strings.Split(str, &ldquo;&rdquo;)</strong> ，但也还是会存在个问题，如果数字不是 0-9 比如 12 呢？</p>
 <p>上述方法行不通，所有不能直接拆分字符串，换个思路去做遍历字符串，第一次遍历遇到 * or / 就将符号两侧数值先进行计算返回一个只有 + or - 的新表达式，第二次遍历直接进行计算拿到最终的结果。</p>
-<div class="code-block highlight" data-mode="classic" data-copyable="true" data-editable="true"><div class="chroma">
-<div class="code-header language-go"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="line-wrap-btn" aria-label="切换自动换行" role="button" title="切换自动换行"><i class="fa-solid fa-right-left fa-fw" aria-hidden="true"></i></span><span class="edit-btn" aria-label="切换可编辑代码块" role="button" title="切换可编辑代码块"><i class="fa-solid fa-pen-to-square fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -715,7 +715,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
 </div><p>运行一下，上述 case 成功通过。</p>
 </div><div class="collection-card">
@@ -826,7 +826,7 @@
     }
 </script>
 <footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0-beta-20260103085920-53396290">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">
