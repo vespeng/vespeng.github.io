@@ -9,7 +9,7 @@
 
 这让我开始反思：问题真的出在 Go 没有强大的 DI 框架吗？还是说，我们把“依赖注入”当成了银弹，却忽视了更根本的架构设计？
 
-## 一、什么是依赖注入？为什么我们需要它？
+## 什么是依赖注入？为什么我们需要它？
 
 依赖注入（Dependency Injection, DI）是一种实现**控制反转**（Inversion of Control, IoC）的设计模式。其核心思想是：**将对象的创建与使用解耦**，由外部容器负责管理依赖关系，并在运行时或编译时“注入”所需组件。
 
@@ -45,7 +45,7 @@ Go 语言强调“显式优于隐式”，没有原生的 DI 容器。那么，�
 
 并通过 Gin 框架完整串联路由 → Controller → Service → Repository（基于 GORM）
 
-## 二、示例场景：用户模块的完整分层实现
+## 示例场景：用户模块的完整分层实现
 
 这里以一个标准的 CRUD 用户模块为例，贯穿整个调用链。先定义清晰的模块化目录结构：
 
@@ -79,7 +79,7 @@ internal/
 > - 路由通过 `route` 包注册，支持 Gin 路由组
 > - `main.go` 不膨胀，依赖组装集中在模块初始化函数中
 
-### 1. 数据库初始化（GORM）
+### 数据库初始化（GORM）
 
 ```go
 // pkg/db/gorm.go
@@ -99,7 +99,7 @@ func NewDB() *gorm.DB {
 }
 ```
 
-### 2. 用户实体
+### 用户实体
 
 ```go
 // module/user/model/user.go
@@ -111,7 +111,7 @@ type User struct {
 }
 ```
 
-### 3. Repository 接口与实现
+### Repository 接口与实现
 
 ```go
 // module/user/repository/user_repo.go
@@ -153,7 +153,7 @@ func (r *UserRepositoryImpl) Save(user *model.User) error {
 }
 ```
 
-### 4. Service 接口与实现
+### Service 接口与实现
 
 ```go
 // module/user/service/user_service.go
@@ -194,7 +194,7 @@ func (s *UserServiceImpl) CreateUser(name string) error {
 }
 ```
 
-### 5. Controller 层（Handler）
+### Controller 层（Handler）
 
 ```go
 // module/user/controller/user_controller.go
@@ -241,7 +241,7 @@ func (c *UserController) CreateUser(ctx *gin.Context) {
 }
 ```
 
-### 6. 路由注册（模块内部自治）
+### 路由注册（模块内部自治）
 
 ```go
 // module/user/route/user_routes.go
@@ -261,9 +261,9 @@ func SetupUserRoutes(r *gin.RouterGroup, ctrl *controller.UserController) {
 }
 ```
 
-## 三、三种依赖管理方式对比
+## 三种依赖管理方式对比
 
-### 1. 不使用依赖注入（手动组装）
+### 不使用依赖注入（手动组装）
 
 ```go
 // cmd/main.go
@@ -308,7 +308,7 @@ func main() {
 > - 修改构造逻辑需全局调整
 > - 不利于单元测试（需手动传 mock）
 
-### 2. 使用 Wire（编译时注入）
+### 使用 Wire（编译时注入）
 
 1. 安装 Wire：
 
@@ -384,7 +384,7 @@ func main() {
 > - 需要额外构建步骤
 > - 错误信息有时不够友好
 
-### 3. 使用 Dig（运行时注入）
+### 使用 Dig（运行时注入）
 
 ```go
 // cmd/main.go
@@ -435,7 +435,7 @@ func main() {
 > - 反射带来轻微性能损耗
 > - 调试稍复杂
 
-## 四、是否必须使用依赖注入？模块化设计或许更优
+## 是否必须使用依赖注入？模块化设计或许更优
 
 引入 Wire 或 Dig 后，代码量并未减少，反而增加了配置文件、构建步骤和学习成本。**在 Go 的哲学中，“简单”往往比“自动化”更重要**。
 
@@ -490,7 +490,7 @@ func main() {
 - **易于理解和维护**
 - **天然支持按需加载模块**
 
-## 五、总结：依赖注入的适用边界与建议
+## 总结：依赖注入的适用边界与建议
 
 | 场景             | 推荐方案       | 理由              |
 | :------------- | :--------- | :-------------- |

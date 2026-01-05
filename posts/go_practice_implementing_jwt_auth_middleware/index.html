@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go 项目实战：实现 JWT 认证中间件 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+    <title>Go 项目实战：实现 JWT 认证中间件 - Vespeng Space</title><meta name="author" content="Vespeng">
 <meta name="description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。"><meta name="keywords" content='go, gin, jwt, redis'>
   <meta itemprop="name" content="Go 项目实战：实现 JWT 认证中间件">
   <meta itemprop="description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。">
   <meta itemprop="datePublished" content="2025-07-25T21:15:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-02T17:48:10+08:00">
-  <meta itemprop="wordCount" content="1476">
+  <meta itemprop="dateModified" content="2026-01-05T23:59:02+08:00">
+  <meta itemprop="wordCount" content="1481">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Jwt,Redis"><meta property="og:url" content="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/">
-  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Go 项目实战：实现 JWT 认证中间件">
   <meta property="og:description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-07-25T21:15:00+08:00">
-    <meta property="article:modified_time" content="2026-01-02T17:48:10+08:00">
+    <meta property="article:modified_time" content="2026-01-05T23:59:02+08:00">
     <meta property="article:tag" content="Go">
     <meta property="article:tag" content="Gin">
     <meta property="article:tag" content="Jwt">
@@ -31,8 +31,10 @@
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Go 项目实战：实现 JWT 认证中间件">
   <meta name="twitter:description" content="在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。">
-<meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_development_job_interview/" title="记一次 Go 开发岗面试" /><link rel="next" type="text/html" href="https://vespeng.com/posts/go_algorithm_implementation_example/" title="Go 基础算法实现示例集" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/index.md" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="application-name" content="Vespeng Space">
+<meta name="apple-mobile-web-app-title" content="Vespeng Space"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng Space" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_development_job_interview/" title="记一次 Go 开发岗面试" /><link rel="next" type="text/html" href="https://vespeng.com/posts/go_algorithm_implementation_example/" title="Go 基础算法实现示例集" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/index.md" title="Go 项目实战：实现 JWT 认证中间件 - Vespeng Space"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -43,8 +45,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_practice_implementing_jwt_auth_middleware\/"
-    },"genre": "posts","keywords": "go, gin, jwt, redis","wordcount":  1476 ,
-    "url": "https:\/\/vespeng.com\/posts\/go_practice_implementing_jwt_auth_middleware\/","datePublished": "2025-07-25T21:15:00+08:00","dateModified": "2026-01-02T17:48:10+08:00","publisher": {
+    },"genre": "posts","keywords": "go, gin, jwt, redis","wordcount":  1481 ,
+    "url": "https:\/\/vespeng.com\/posts\/go_practice_implementing_jwt_auth_middleware\/","datePublished": "2025-07-25T21:15:00+08:00","dateModified": "2026-01-05T23:59:02+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -55,7 +57,7 @@
   <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="32" width="32"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -79,23 +81,14 @@
             <span class="search-button search-loading" id="search-loading-desktop">
               <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
-          </li><li class="menu-item theme-switch" role="button" aria-label="切换主题" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></li><li class="menu-item language-switch auto d-none" aria-hidden="true">
-    <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
-    <ul class="sub-menu"><li class="menu-item active" data-type="artificial">
-          <a href="/posts/go_practice_implementing_jwt_auth_middleware/" data-lang="zh-cn" class="menu-link fw-bold" title="">
-            <i class="" aria-hidden="true"></i> </a>
-        </li><li class="menu-item-divider" aria-hidden="true"></li><li class="menu-item" data-type="machine">
-          <a data-lang="english" class="menu-link" title="English">
-            <i class="" aria-hidden="true"></i> English</a>
-        </li></ul>
-  </li></ul>
+          </li><li class="menu-item theme-switch" role="button" aria-label="切换主题" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></li></ul>
     </nav>
   </div>
 </header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng&#39;s Blog"><img class="logo" src='/favicon.svg' alt="Vespeng&#39;s Blog" height="26" width="26"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
       <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></div>
       <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
@@ -128,9 +121,7 @@
                         <a class="menu-link" href="/categories/">分类</a>
                       </li><li class="menu-item">
                         <a class="menu-link" href="/collections/">合集</a>
-                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item"><a class="menu-link" href="/friends">友链</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item menu-system"><span id="translate" class="menu-system-item language-switch auto d-none" aria-hidden="true">
-    <span role="button" aria-label="选择语言" title="选择语言" data-current=""><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
-  </span></li>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/about/">关于</a></li><li class="menu-item"><a class="menu-link" href="/friends">友链</a></li><li class="menu-item"><a class="menu-link" href="https://www.travellings.cn/go.html" rel="noopener noreferrer" target="_blank">开往</a></li><li class="menu-item menu-system"></li>
       </ul>
     </nav>
   </div>
@@ -139,15 +130,12 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目实战：实现 JWT 认证中间件</li>
-    </ol>
-  </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </div><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：实现 JWT 认证中间件</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-07-25 21:15:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="1476 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：实现 JWT 认证中间件"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-07-25 21:15:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-07-25">2025-07-25</time></span>&nbsp;<span title="1481 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：实现 JWT 认证中间件"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -155,28 +143,28 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#一为什么需要-jwt-中间件">一、为什么需要 JWT 中间件</a></li>
-    <li><a href="#二核心依赖包">二、核心依赖包</a></li>
-    <li><a href="#三实现方案设计">三、实现方案设计</a></li>
-    <li><a href="#四实战">四、实战</a>
-      <ul>
-        <li><a href="#1-配置结构定义">1. 配置结构定义</a></li>
-        <li><a href="#2-jwt-中间件实现">2. JWT 中间件实现</a></li>
-        <li><a href="#3-token-生成">3. Token 生成</a></li>
-        <li><a href="#4-token-验证逻辑">4. Token 验证逻辑</a></li>
-        <li><a href="#5-错误处理机制">5. 错误处理机制</a></li>
-        <li><a href="#6-辅助函数实现">6. 辅助函数实现</a></li>
-        <li><a href="#7-redisgo">7. redis.go</a></li>
-        <li><a href="#8-config-配置文件">8. config 配置文件</a></li>
-      </ul>
+  <ol>
+    <li><a href="#为什么需要-jwt-中间件">为什么需要 JWT 中间件</a></li>
+    <li><a href="#核心依赖包">核心依赖包</a></li>
+    <li><a href="#实现方案设计">实现方案设计</a></li>
+    <li><a href="#实战">实战</a>
+      <ol>
+        <li><a href="#配置结构定义">配置结构定义</a></li>
+        <li><a href="#jwt-中间件实现">JWT 中间件实现</a></li>
+        <li><a href="#token-生成">Token 生成</a></li>
+        <li><a href="#token-验证逻辑">Token 验证逻辑</a></li>
+        <li><a href="#错误处理机制">错误处理机制</a></li>
+        <li><a href="#辅助函数实现">辅助函数实现</a></li>
+        <li><a href="#redisgo">redis.go</a></li>
+        <li><a href="#config-配置文件">config 配置文件</a></li>
+      </ol>
     </li>
-    <li><a href="#五在-gin-路由中使用">五、在 Gin 路由中使用</a></li>
-  </ul>
+    <li><a href="#在-gin-路由中使用">在 Gin 路由中使用</a></li>
+  </ol>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。</p>
-<h2 class="heading-element" id="一为什么需要-jwt-中间件"><span>一、为什么需要 JWT 中间件</span>
-  <a href="#%e4%b8%80%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81-jwt-%e4%b8%ad%e9%97%b4%e4%bb%b6" class="heading-mark">
+<h2 class="heading-element" id="为什么需要-jwt-中间件"><span>1 为什么需要 JWT 中间件</span>
+  <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81-jwt-%e4%b8%ad%e9%97%b4%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>JWT 作为现代 Web 开发的认证标准，相比传统 cookie + session 方式有几个明显优势：</p>
@@ -187,8 +175,8 @@
 <li><strong>信息自包含</strong>：Token 本身携带用户信息</li>
 </ul>
 <p>在 Gin 框架中通过中间件实现 JWT 认证，可以统一处理认证逻辑，避免每个路由重复编写验证代码。</p>
-<h2 class="heading-element" id="二核心依赖包"><span>二、核心依赖包</span>
-  <a href="#%e4%ba%8c%e6%a0%b8%e5%bf%83%e4%be%9d%e8%b5%96%e5%8c%85" class="heading-mark">
+<h2 class="heading-element" id="核心依赖包"><span>2 核心依赖包</span>
+  <a href="#%e6%a0%b8%e5%bf%83%e4%be%9d%e8%b5%96%e5%8c%85" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>开始前需要安装如下包：</p>
@@ -203,8 +191,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="k">go</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">golang</span><span class="o">-</span><span class="nx">jwt</span><span class="o">/</span><span class="nx">jwt</span><span class="o">/</span><span class="nx">v5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="k">go</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">redis</span><span class="o">/</span><span class="k">go</span><span class="o">-</span><span class="nx">redis</span><span class="o">/</span><span class="nx">v9</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nx">可选</span><span class="err">，</span><span class="nx">按需安装</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h2 class="heading-element" id="三实现方案设计"><span>三、实现方案设计</span>
-  <a href="#%e4%b8%89%e5%ae%9e%e7%8e%b0%e6%96%b9%e6%a1%88%e8%ae%be%e8%ae%a1" class="heading-mark">
+</div><h2 class="heading-element" id="实现方案设计"><span>3 实现方案设计</span>
+  <a href="#%e5%ae%9e%e7%8e%b0%e6%96%b9%e6%a1%88%e8%ae%be%e8%ae%a1" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>在实现 JWT 认证中间件时，我们的设计方案需要兼顾灵活性和安全性。整个流程可以分为几个关键步骤：</p>
@@ -273,12 +261,12 @@
     G & H --> I[校验通过?]
     I -->|是| J[存储claims到上下文]
     I -->|否| K[返回错误响应]</pre></template>
-</div><h2 class="heading-element" id="四实战"><span>四、实战</span>
-  <a href="#%e5%9b%9b%e5%ae%9e%e6%88%98" class="heading-mark">
+</div><h2 class="heading-element" id="实战"><span>4 实战</span>
+  <a href="#%e5%ae%9e%e6%88%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="1-配置结构定义"><span>1. 配置结构定义</span>
-  <a href="#1-%e9%85%8d%e7%bd%ae%e7%bb%93%e6%9e%84%e5%ae%9a%e4%b9%89" class="heading-mark">
+</h2><h3 class="heading-element" id="配置结构定义"><span>4.1 配置结构定义</span>
+  <a href="#%e9%85%8d%e7%bd%ae%e7%bb%93%e6%9e%84%e5%ae%9a%e4%b9%89" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -326,8 +314,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">mutex</span><span class="w">     </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="2-jwt-中间件实现"><span>2. JWT 中间件实现</span>
-  <a href="#2-jwt-%e4%b8%ad%e9%97%b4%e4%bb%b6%e5%ae%9e%e7%8e%b0" class="heading-mark">
+</div><h3 class="heading-element" id="jwt-中间件实现"><span>4.2 JWT 中间件实现</span>
+  <a href="#jwt-%e4%b8%ad%e9%97%b4%e4%bb%b6%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -433,8 +421,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="3-token-生成"><span>3. Token 生成</span>
-  <a href="#3-token-%e7%94%9f%e6%88%90" class="heading-mark">
+</div><h3 class="heading-element" id="token-生成"><span>4.3 Token 生成</span>
+  <a href="#token-%e7%94%9f%e6%88%90" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -538,8 +526,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">tokenString</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="4-token-验证逻辑"><span>4. Token 验证逻辑</span>
-  <a href="#4-token-%e9%aa%8c%e8%af%81%e9%80%bb%e8%be%91" class="heading-mark">
+</div><h3 class="heading-element" id="token-验证逻辑"><span>4.4 Token 验证逻辑</span>
+  <a href="#token-%e9%aa%8c%e8%af%81%e9%80%bb%e8%be%91" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -639,8 +627,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">jwt</span><span class="p">.</span><span class="nx">ErrTokenInvalidClaims</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="5-错误处理机制"><span>5. 错误处理机制</span>
-  <a href="#5-%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark">
+</div><h3 class="heading-element" id="错误处理机制"><span>4.5 错误处理机制</span>
+  <a href="#%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -706,8 +694,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nf">AbortWithStatusJSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusUnauthorized</span><span class="p">,</span><span class="w"> </span><span class="nx">errorResponse</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="6-辅助函数实现"><span>6. 辅助函数实现</span>
-  <a href="#6-%e8%be%85%e5%8a%a9%e5%87%bd%e6%95%b0%e5%ae%9e%e7%8e%b0" class="heading-mark">
+</div><h3 class="heading-element" id="辅助函数实现"><span>4.6 辅助函数实现</span>
+  <a href="#%e8%be%85%e5%8a%a9%e5%87%bd%e6%95%b0%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -825,8 +813,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">jwtConfig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="7-redisgo"><span>7. redis.go</span>
-  <a href="#7-redisgo" class="heading-mark">
+</div><h3 class="heading-element" id="redisgo"><span>4.7 redis.go</span>
+  <a href="#redisgo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -882,8 +870,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">redisCli</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="8-config-配置文件"><span>8. config 配置文件</span>
-  <a href="#8-config-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="heading-mark">
+</div><h3 class="heading-element" id="config-配置文件"><span>4.8 config 配置文件</span>
+  <a href="#config-%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -919,9 +907,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">signingMethod</span><span class="p">:</span><span class="w"> </span><span class="l">HS256             </span><span class="w"> </span><span class="c"># 签名算法 (HS256、HS384、HS512)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">expirationTime</span><span class="p">:</span><span class="w"> </span><span class="l">30m              </span><span class="w"> </span><span class="c"># 过期时间 (单位 min)</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><p>具体加载配置文件可参考 <a href="https://vespeng.com/posts/go_practical_gin_directory_structure/#1%e9%85%8d%e7%bd%aeconfig" target="_blank" rel="external nofollow noopener noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<h2 class="heading-element" id="五在-gin-路由中使用"><span>五、在 Gin 路由中使用</span>
-  <a href="#%e4%ba%94%e5%9c%a8-gin-%e8%b7%af%e7%94%b1%e4%b8%ad%e4%bd%bf%e7%94%a8" class="heading-mark">
+</div><p>具体加载配置文件可参考 <a href="https://vespeng.com/posts/go_practical_gin_directory_structure/#%e9%85%8d%e7%bd%aeconfig" target="_blank" rel="external nofollow noopener noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+<h2 class="heading-element" id="在-gin-路由中使用"><span>5 在 Gin 路由中使用</span>
+  <a href="#%e5%9c%a8-gin-%e8%b7%af%e7%94%b1%e4%b8%ad%e4%bd%bf%e7%94%a8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
@@ -1060,16 +1048,19 @@
     </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-01-02 17:48:10">更新于 2026-01-02&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/b568a742771cb90a7b786ac9e56fab5f46a07c64" rel="external nofollow noopener noreferrer" target="_blank" title="feat(style): 重建博客配置，优化博客性能&#10- 移除翻译组件
-- 添加404页面样式定义
-- 添加头部样式支持暗色主题
-- 实现响应式友链网格布局
-- 添加友链卡片悬停动画效果
-- 定义友链头像和信息展示样式
-- 更新全局字体大小变量
-- 添加自定义页脚组件模板
-- 重构友链页面使用新的CSS类名
-- 配置站点基本信息和主题设置&#10Commit: b568a742771cb90a7b786ac9e56fab5f46a07c64 [b568a74]&#10Author: vespeng&#10Date: 2026-01-02 17:48:10"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>b568a74</a></span>
+      <div class="post-info-mod"><span title="更新于 2026-01-05 23:59:02">更新于 2026-01-05&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/9115ebb6b8391404fdbe0e4c74bc17ecfa0ed879" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(site): 重构网站配置和内容结构&#10- 更新全局行高配置从 1.618rem 到 1.8rem
+- 将特殊日期过滤器替换为灰度过滤器
+- 网站标题从 Vespeng&#39;s Blog 更改为 Vespeng Space
+- 移除 cmpt-translate 主题依赖
+- 为关于页面添加副标题并更新简介标题
+- 将文章中的编号标题改为非编号格式
+- 更新 about 页面描述从博客到站点
+- 移除应用配置中的标题、SVG 图标、图标颜色和磁贴颜色设置
+- 更新头部 LOGO 和名称配置
+- 禁用面包屑导航功能
+- 移除自定义部分中的翻译菜单和资产注入
+- 移除自动翻译配置
+- 启用有序目录列表功能&#10Commit: 9115ebb6b8391404fdbe0e4c74bc17ecfa0ed879 [9115ebb]&#10Author: vespeng&#10Date: 2026-01-05 23:59:02"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>9115ebb</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -1119,24 +1110,24 @@
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ul>
-    <li><a href="#一为什么需要-jwt-中间件">一、为什么需要 JWT 中间件</a></li>
-    <li><a href="#二核心依赖包">二、核心依赖包</a></li>
-    <li><a href="#三实现方案设计">三、实现方案设计</a></li>
-    <li><a href="#四实战">四、实战</a>
-      <ul>
-        <li><a href="#1-配置结构定义">1. 配置结构定义</a></li>
-        <li><a href="#2-jwt-中间件实现">2. JWT 中间件实现</a></li>
-        <li><a href="#3-token-生成">3. Token 生成</a></li>
-        <li><a href="#4-token-验证逻辑">4. Token 验证逻辑</a></li>
-        <li><a href="#5-错误处理机制">5. 错误处理机制</a></li>
-        <li><a href="#6-辅助函数实现">6. 辅助函数实现</a></li>
-        <li><a href="#7-redisgo">7. redis.go</a></li>
-        <li><a href="#8-config-配置文件">8. config 配置文件</a></li>
-      </ul>
+  <ol>
+    <li><a href="#为什么需要-jwt-中间件">为什么需要 JWT 中间件</a></li>
+    <li><a href="#核心依赖包">核心依赖包</a></li>
+    <li><a href="#实现方案设计">实现方案设计</a></li>
+    <li><a href="#实战">实战</a>
+      <ol>
+        <li><a href="#配置结构定义">配置结构定义</a></li>
+        <li><a href="#jwt-中间件实现">JWT 中间件实现</a></li>
+        <li><a href="#token-生成">Token 生成</a></li>
+        <li><a href="#token-验证逻辑">Token 验证逻辑</a></li>
+        <li><a href="#错误处理机制">错误处理机制</a></li>
+        <li><a href="#辅助函数实现">辅助函数实现</a></li>
+        <li><a href="#redisgo">redis.go</a></li>
+        <li><a href="#config-配置文件">config 配置文件</a></li>
+      </ol>
     </li>
-    <li><a href="#五在-gin-路由中使用">五、在 Gin 路由中使用</a></li>
-  </ul>
+    <li><a href="#在-gin-路由中使用">在 Gin 路由中使用</a></li>
+  </ol>
 </nav></div>
       </div>
     </dialog></main>
@@ -1158,7 +1149,7 @@
     }
 </script>
 <footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.0">FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.1-20260105065156-43ecb1bd">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">
@@ -1167,5 +1158,5 @@
   </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment fa-fw" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/ed5e5bea2282481237c79974ebbb5a0f.js" defer></script><script src="/js/lib/mermaid.min.js" type="module"></script><script src="/js/theme.min.js" defer></script><script src="/lib/translate.min.js" defer></script><script>window.ATConfig={"hugoLangCodes":["zh-cn"],"hugoLangMap":{"zh-cn":"/posts/go_practice_implementing_jwt_auth_middleware/"}};</script><script src="/js/translate.fixit.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/ed5e5bea2282481237c79974ebbb5a0f.js" defer></script><script src="/js/lib/mermaid.min.js" type="module"></script><script src="/js/theme.min.js" defer></script></body>
 </html>

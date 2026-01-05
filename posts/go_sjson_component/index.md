@@ -5,7 +5,7 @@
 
 本文将延续对比分析风格，解析 SJSON 的核心价值。
 
-## 一、Go 原生 json 修改方式
+## Go 原生 json 修改方式
 
 Go 原生修改 json 数据，同样需先定义结构体，然后再将 json 数据解析到结构体实例，如：
 
@@ -39,15 +39,15 @@ func main() {
 }
 ```
 
-## 二、SJSON 组件
+## SJSON 组件
 
-### 1. 概述：
+### 概述：
 
 SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSON 采用相同路径语法，形成读写闭环。
 
 官网地址：[GitHub - tidwall/sjson](https://github.com/tidwall/sjson)
 
-### 2. 安装：
+### 安装：
 
 使用 Go 的包管理工具 `go get` 安装 SJSON：
 
@@ -55,9 +55,9 @@ SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSO
 go get -u github.com/tidwall/sjson
 ```
 
-## 三、SJSON 核心用法
+## SJSON 核心用法
 
-### 1. 基础值修改
+### 基础值修改
 
 ```go
 package main
@@ -77,7 +77,7 @@ func main() {
 }
 ```
 
-### 2. 嵌套结构修改
+### 嵌套结构修改
 
 ```go
 package main
@@ -105,7 +105,7 @@ func main() {
 }
 ```
 
-### 3. 数组操作
+### 数组操作
 
 ```go
 package main
@@ -129,7 +129,7 @@ func main() {
 }
 ```
 
-### 4. 字段删除
+### 字段删除
 
 ```go
 package main
@@ -149,7 +149,7 @@ func main() {
 }
 ```
 
-## 四、SJSON 与原生方案对比
+## SJSON 与原生方案对比
 
 - SJSON 摆脱结构体定义束缚，保持原始 json 结构完整性，避免修改后丢失未定义字段的问题。
 

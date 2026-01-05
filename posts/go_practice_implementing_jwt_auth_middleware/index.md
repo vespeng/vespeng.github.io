@@ -3,7 +3,7 @@
 
 在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。
 
-## 一、为什么需要 JWT 中间件
+## 为什么需要 JWT 中间件
 
 JWT 作为现代 Web 开发的认证标准，相比传统 cookie + session 方式有几个明显优势：
 
@@ -14,7 +14,7 @@ JWT 作为现代 Web 开发的认证标准，相比传统 cookie + session 方�
 
 在 Gin 框架中通过中间件实现 JWT 认证，可以统一处理认证逻辑，避免每个路由重复编写验证代码。
 
-## 二、核心依赖包
+## 核心依赖包
 
 开始前需要安装如下包：
 
@@ -24,7 +24,7 @@ go get github.com/golang-jwt/jwt/v5
 go get github.com/redis/go-redis/v9  # 可选，按需安装
 ```
 
-## 三、实现方案设计
+## 实现方案设计
 
 在实现 JWT 认证中间件时，我们的设计方案需要兼顾灵活性和安全性。整个流程可以分为几个关键步骤：
 
@@ -56,9 +56,9 @@ graph TD
     I -->|否| K[返回错误响应]
 ```
 
-## 四、实战
+## 实战
 
-### 1. 配置结构定义
+### 配置结构定义
 
 ```go
 // JWT核心配置
@@ -83,7 +83,7 @@ var (
 )
 ```
 
-### 2. JWT 中间件实现
+### JWT 中间件实现
 
 ```go
 func JwtMiddleware() gin.HandlerFunc {
@@ -137,7 +137,7 @@ func JwtMiddleware() gin.HandlerFunc {
 }
 ```
 
-### 3. Token 生成
+### Token 生成
 
 ```go
 // 登录成功时调用
@@ -190,7 +190,7 @@ func GenerateToken(userID int, userName string) (string, error) {
 }
 ```
 
-### 4. Token 验证逻辑
+### Token 验证逻辑
 
 ```go
 func validateJWT(tokenString string) (*CustomClaims, error) {
@@ -241,7 +241,7 @@ func validateJWT(tokenString string) (*CustomClaims, error) {
 }
 ```
 
-### 5. 错误处理机制
+### 错误处理机制
 
 ```go
 func handleJWTError(c *gin.Context, err error) {
@@ -275,7 +275,7 @@ func handleJWTError(c *gin.Context, err error) {
 }
 ```
 
-### 6. 辅助函数实现
+### 辅助函数实现
 
 ```go
 // Bearer Token解析
@@ -335,7 +335,7 @@ func ResetJWTConfig() {
 }
 ```
 
-### 7. redis.go
+### redis.go
 
 ```go
 var (
@@ -364,7 +364,7 @@ func GetRedisCli() (*redis.Client, error) {
 }
 ```
 
-### 8. config 配置文件
+### config 配置文件
 
 ```yml
 # config.yaml 示例
@@ -383,9 +383,9 @@ jwt:
   expirationTime: 30m               # 过期时间 (单位 min)
 ```
 
-具体加载配置文件可参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/posts/go_practical_gin_directory_structure/#1%e9%85%8d%e7%bd%aeconfig)
+具体加载配置文件可参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/posts/go_practical_gin_directory_structure/#配置config)
 
-## 五、在 Gin 路由中使用
+## 在 Gin 路由中使用
 
 ```go
 func main() {

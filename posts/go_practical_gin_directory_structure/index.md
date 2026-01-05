@@ -5,7 +5,7 @@
 
 在当今迅速迭代的软件开发领域，挑选合适的工具与框架对于项目能否顺利推进至关重要。Gin 框架，作为 Go 语言生态中备受青睐的 Web 开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用 Gin 框架的过程中，构建一个既高效又便于管理的项目架构，助力开发者打造既快速响应又易于维护的 Web 应用程序。
 
-## 一、Gin 概述
+## Gin 概述
 
 引入官网的描述：Gin 是一个使用 Go 语言开发的 Web 框架。 它提供类似 Martini 的 API，但性能更佳，速度提升高达40倍。 如果你是性能和高效的追求者, 你会爱上 Gin。
 
@@ -13,7 +13,7 @@
 
 正因为如上所述，过分精简对于开发一个项目来说，前期的项目搭建工作就显得尤为重要。
 
-## 二、项目结构设计
+## 项目结构设计
 
 有过 Java 开发经验的伙伴应该了解，SpringBoot 遵循着 MVC 的设计理念，这一套设计理念一直沿用至今，他的优秀难以言喻，Gin 框架完全可以参照这个模式来做，如下是我个人设计的一套架构：
 
@@ -56,7 +56,7 @@
 ├── go.sum
 ```
 
-## 三、目录职责
+## 目录职责
 
 - **`/cmd`**
     * 存放应用的入口文件。
@@ -86,13 +86,13 @@
 
 以上目录结构有助于清晰地分离应用的不同部分，使得代码更加模块化、易于理解和维护。同时，我也参照众多优秀开源项目的目录搭建思想，使其完美遵循了 Go 语言的最佳实践。
 
-## 四、实战
+## 实战
 
 目录搭建好后，开始填充代码
 
 > 下边简单实现集成数据库，配置路由，启动服务
 
-### 1. 配置config
+### 配置config
 
 在 config.yaml 文件下配置端口和数据库连接，这里选择xorm：
 
@@ -156,7 +156,7 @@ func LoadConfig() error {
 }
 ```
 
-### 2. 配置init
+### 配置init
 
 数据库及其他的初始化统一放置到 app 目录下，在这里新建 loader.go 来初始化 mysql，但是为了之后方便管理，我们另单独创建 db.go 文件：
 
@@ -214,7 +214,7 @@ func InitializeAll() error {
 }
 ```
 
-### 3. 配置model
+### 配置model
 
 在 model 下新建 user_entity.go，注意：这个需要和数据库对应
 
@@ -238,7 +238,7 @@ func (u User) TableName() string {
 }
 ```
 
-### 4. 配置controller
+### 配置controller
 
 在 controller 下新建 user_controller.go
 
@@ -269,7 +269,7 @@ func (uc *UserController) GetUsers(c *gin.Context) {
 }
 ```
 
-### 5. 配置service
+### 配置service
 
 在 service 下新建 user_service.go
 
@@ -295,7 +295,7 @@ func (us *UserService) GetUsers() ([]*model.User, error) {
 }
 ```
 
-### 6. 配置repository
+### 配置repository
 
 在 repository 下新建 user_repo.go
 
@@ -323,7 +323,7 @@ func (r *UserRepository) GetUsers() ([]*model.User, error) {
 }
 ```
 
-### 7. 配置api
+### 配置api
 
 routes.go 中设置路由，这里设置路由组，为方便日后迭代
 
@@ -351,7 +351,7 @@ func SetupRoutes(r *gin.Engine, engine *xorm.Engine) {
 }
 ```
 
-### 8. 配置bootstrap
+### 配置bootstrap
 
 ```go
 package app
@@ -391,7 +391,7 @@ func Start() {
 }
 ```
 
-### 9. 配置main
+### 配置main
 
 ```go
 package app
@@ -405,7 +405,7 @@ func main() {
 
 截至这里，一个基本的查询请求就已构建完成
 
-### 10. 启动项目
+### 启动项目
 
 cmd 目录下直接运行 main 函数，正常会输出如下信息：
 
