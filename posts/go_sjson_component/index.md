@@ -41,13 +41,13 @@ func main() {
 
 ## SJSON 组件
 
-### 概述：
+### 概述
 
 SJSON 提供通过路径表达式直接修改 json 字符串的能力，与 GJSON 采用相同路径语法，形成读写闭环。
 
 官网地址：[GitHub - tidwall/sjson](https://github.com/tidwall/sjson)
 
-### 安装：
+### 安装
 
 使用 Go 的包管理工具 `go get` 安装 SJSON：
 

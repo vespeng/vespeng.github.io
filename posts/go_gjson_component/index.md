@@ -50,13 +50,13 @@ func main() {
 
 ## GJSON 组件
 
-### 概述：
+### 概述
 
 GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通过简洁的语法，无需定义结构体，就能快速提取 JSON 数据中的特定值。
 
 官网地址：[GitHub - tidwall/gjson](https://github.com/tidwall/gjson)
 
-### 安装：
+### 安装
 
 使用 Go 的包管理工具 `go get` 安装 GJSON：
 
