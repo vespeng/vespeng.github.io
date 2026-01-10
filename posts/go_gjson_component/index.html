@@ -128,7 +128,10 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go-GJSON 组件，解锁 JSON 读取新姿势</li>
+    </ol>
+  </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go-GJSON 组件，解锁 JSON 读取新姿势</span>
@@ -537,8 +540,53 @@
         document.documentElement.style.filter = filterStyle;
     }
 </script>
-<footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.2">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.1-20260105065156-43ecb1bd">FixIt</a>
+
+
+
+<script >
+  (function () {
+    const header = document.getElementById('header-desktop');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let lastShowScrollY = lastScrollY; 
+    const HIDE_THRESHOLD = 480; 
+    let t = null;
+
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollY;
+
+      
+      header.classList.toggle('scroll-header', currentScrollY > 10);
+
+      
+      if (isScrollingDown) {
+        
+        if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
+          header.classList.add('hidden-header');
+        }
+      } else {
+        
+        header.classList.remove('hidden-header');
+        lastShowScrollY = currentScrollY;
+      }
+
+      lastScrollY = currentScrollY;
+      t = null;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!t) {
+        t = setTimeout(updateHeader, 16);
+      }
+    }, { passive: true });
+
+    
+    updateHeader();
+  })();
+</script><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.3">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.1-20260105065156-43ecb1bd">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">
