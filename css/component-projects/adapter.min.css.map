@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "adapter.min.css",
+	"sourceRoot": "/home/runner/work/hugo-vespeng-src/hugo-vespeng-src",
+	"sources": [
+		"themes/component-projects/assets/css/component-projects/adapter.scss"
+	],
+	"sourcesContent": [
+		"article[data-adapters='projects'] {\n  .single-subtitle {\n    font-size: var(--font-size-subtitle, 0.75em);\n  }\n}\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AACE,OADK,CAAA,AAAA,aAAC,CAAc,UAAU,AAAxB,EACN,gBAAgB,AAAC,CACf,SAAS,CAAE,iCAAiC,CAC7C"
+}

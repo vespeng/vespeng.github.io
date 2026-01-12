@@ -4,11 +4,11 @@
     <title>Json - 标签 - Vespeng Space</title>
     <link>https://vespeng.com/tags/json/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.154.3 &amp; FixIt v0.4.2-20260109063229-50d27e0e</generator>
+    <generator>Hugo 0.154.5 &amp; FixIt v0.4.2-20260109063229-50d27e0e</generator>
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 06 Jan 2026 00:25:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Jan 2026 22:16:21 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go-SJSON 组件，JSON 动态修改新方案</title>
