@@ -15,6 +15,10 @@
 
 ## 📚 全部文章
 
+### 2026
+
+- 01-13 [我用 Cloudflare 搭建了一个“数字分身”](https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/)
+
 ### 2025
 
 - 12-30 [2025 年度总结](https://vespeng.com/posts/2025_review/)

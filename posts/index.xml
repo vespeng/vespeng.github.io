@@ -8,12 +8,12 @@
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 13 Jan 2026 00:24:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jan 2026 00:26:00 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我用 Cloudflare 搭建了一个“数字分身”</title>
       <link>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</link>
-      <pubDate>Mon, 12 Jan 2026 23:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
       <guid>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</guid>
       <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
       <description>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
