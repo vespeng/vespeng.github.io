@@ -2,7 +2,7 @@
 
 个人静态站点，在这里分享我的想法、经验和见解。
 
-![preview.png](https://raw.githubusercontent.com/vespeng/vespeng.github.io/main/preview.png)
+![preview.png](https://vespeng.com/preview.png)
 
 ## 🛠 技术栈
 
