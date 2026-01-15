@@ -23,23 +23,23 @@
 
 登录页
 
-![login](assets/login.png)
+![login](https://raw.githubusercontent.com/vespeng/hotel-mis/main/assets/login.png)
 
 首页
 
-![index](assets/index.png)
+![index](https://raw.githubusercontent.com/vespeng/hotel-mis/main/assets/index.png)
 
 信息添加页
 
-![add](assets/add.png)
+![add](https://raw.githubusercontent.com/vespeng/hotel-mis/main/assets/add.png)
 
 列表展示页
 
-![list](assets/list.png)
+![list](https://raw.githubusercontent.com/vespeng/hotel-mis/main/assets/list.png)
 
 ---
 
-原 Gitee 仓库已永久关闭，所有内容已迁移至此作为主仓库，当前版本将不再维护。
+原 Gitee 仓库永久关闭，所有内容已迁移至此作为主仓库，当前版本将不再维护。
 
 
 ---

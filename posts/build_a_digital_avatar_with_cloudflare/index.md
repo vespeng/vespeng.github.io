@@ -36,7 +36,7 @@ cd templates/llm-chat-app
 
 ## 降低神经元消耗
 
-虽然 `llama-3.1-8b-instruct-fp8` 已经很小了，但在高频调用下，AI Gateway 的 token 消耗还是肉眼可见地涨。于是我换成了更新的 `llama-4-scout-17b-16e-instruct` 模型，虽然总参数更大，但实际“消耗的神经元”更少，在推理质量和速度之间取得了极佳平衡。
+虽然 `llama-3.1-8b-instruct-fp8` 已经很小了，但在高频调用下，Workers AI 的神经元消耗还是肉眼可见地涨。于是我换成了更新的 `llama-4-scout-17b-16e-instruct` 模型，虽然总参数更大，但实际消耗的神经元更少，在推理质量和速度之间取得了极佳平衡。
 
 更重要的是，它支持 10M 上下文，足够容纳我的提示词（prompt）和对话历史。
 
@@ -72,7 +72,7 @@ const MODEL_ID = "@cf/meta/llama-4-scout-17b-16e-instruct";
 
 ## 引入 Marked.js 库
 
-在测试的是发现，这个模板没有办法处理 Markdown 格式的内容，所以我引入了 [Marked.js](https://marked.js.org/) 库，将 Markdown 内容转为 HTML，这样体验会更好一些。
+在测试的时候发现，这个模板没有办法处理 Markdown 格式的内容，所以我引入了 [Marked.js](https://marked.js.org/) 库，将 Markdown 内容转为 HTML，这样体验会更好一些。
 
 相对应的页面样式也需要同步调整。
 
