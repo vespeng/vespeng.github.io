@@ -10,7 +10,7 @@
   <meta itemprop="description" content="在 Go 语言生态中，资源文件管理一直是个痛点。Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件，极大地简化了部署流程。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。">
   <meta itemprop="datePublished" content="2025-11-03T23:30:00+08:00">
   <meta itemprop="dateModified" content="2026-01-12T22:16:21+08:00">
-  <meta itemprop="wordCount" content="439">
+  <meta itemprop="wordCount" content="426">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Embed"><meta property="og:url" content="https://vespeng.com/posts/the_best_practice_of_go_embed/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -43,7 +43,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/the_best_practice_of_go_embed\/"
-    },"genre": "posts","keywords": "go, embed","wordcount":  439 ,
+    },"genre": "posts","keywords": "go, embed","wordcount":  426 ,
     "url": "https:\/\/vespeng.com\/posts\/the_best_practice_of_go_embed\/","datePublished": "2025-11-03T23:30:00+08:00","dateModified": "2026-01-12T22:16:21+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -149,7 +149,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go Embed 实战：简化部署与静态资源管理</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a></span></div><div class="post-meta-line"><span title="发布于 2025-11-03 23:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-03">2025-11-03</time></span>&nbsp;<span title="439 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Embed 实战：简化部署与静态资源管理"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a></span></div><div class="post-meta-line"><span title="发布于 2025-11-03 23:30:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-03">2025-11-03</time></span>&nbsp;<span title="426 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Embed 实战：简化部署与静态资源管理"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -157,46 +157,46 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#引言">引言</a></li>
     <li><a href="#embed-如何提升部署效率">embed 如何提升部署效率</a>
-      <ol>
+      <ul>
         <li><a href="#传统-go-应用的部署痛点">传统 Go 应用的部署痛点</a></li>
         <li><a href="#embed-带来的变革">embed 带来的变革</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#基础-embed-使用模式">基础 embed 使用模式</a>
-      <ol>
+      <ul>
         <li><a href="#三种嵌入方式">三种嵌入方式</a></li>
         <li><a href="#在-web-应用中的典型应用">在 Web 应用中的典型应用</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#实现类-java-的配置加载策略">实现类 Java 的配置加载策略</a>
-      <ol>
+      <ul>
         <li><a href="#基本实现原理">基本实现原理</a></li>
         <li><a href="#具体实现代码">具体实现代码</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#部署效率的实际提升">部署效率的实际提升</a>
-      <ol>
+      <ul>
         <li><a href="#传统部署-vs-embed-部署对比">传统部署 vs embed 部署对比</a></li>
         <li><a href="#性能考量">性能考量</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><h2 class="heading-element" id="引言"><span>1 引言</span>
+      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><h2 class="heading-element" id="引言"><span>引言</span>
   <a href="#%e5%bc%95%e8%a8%80" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>在 Go 语言生态中，资源文件管理一直是个痛点。传统的资源文件处理方式需要在部署时额外关注这些文件的位置和权限，增加了部署复杂度。
 Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者将静态资源直接编译进二进制文件，极大地简化了部署流程。
 本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</p>
-<h2 class="heading-element" id="embed-如何提升部署效率"><span>2 embed 如何提升部署效率</span>
+<h2 class="heading-element" id="embed-如何提升部署效率"><span>embed 如何提升部署效率</span>
   <a href="#embed-%e5%a6%82%e4%bd%95%e6%8f%90%e5%8d%87%e9%83%a8%e7%bd%b2%e6%95%88%e7%8e%87" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="传统-go-应用的部署痛点"><span>2.1 传统 Go 应用的部署痛点</span>
+</h2><h3 class="heading-element" id="传统-go-应用的部署痛点"><span>传统 Go 应用的部署痛点</span>
   <a href="#%e4%bc%a0%e7%bb%9f-go-%e5%ba%94%e7%94%a8%e7%9a%84%e9%83%a8%e7%bd%b2%e7%97%9b%e7%82%b9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -207,7 +207,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <li>不同环境下的路径问题难以处理</li>
 <li>无法实现真正的单文件部署</li>
 </ul>
-<h3 class="heading-element" id="embed-带来的变革"><span>2.2 embed 带来的变革</span>
+<h3 class="heading-element" id="embed-带来的变革"><span>embed 带来的变革</span>
   <a href="#embed-%e5%b8%a6%e6%9d%a5%e7%9a%84%e5%8f%98%e9%9d%a9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -218,11 +218,11 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <li>版本一致性：资源文件与代码版本严格绑定</li>
 <li>简化 CI/CD ：无需额外处理资源文件</li>
 </ul>
-<h2 class="heading-element" id="基础-embed-使用模式"><span>3 基础 embed 使用模式</span>
+<h2 class="heading-element" id="基础-embed-使用模式"><span>基础 embed 使用模式</span>
   <a href="#%e5%9f%ba%e7%a1%80-embed-%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="三种嵌入方式"><span>3.1 三种嵌入方式</span>
+</h2><h3 class="heading-element" id="三种嵌入方式"><span>三种嵌入方式</span>
   <a href="#%e4%b8%89%e7%a7%8d%e5%b5%8c%e5%85%a5%e6%96%b9%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -230,7 +230,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <ol>
 <li>嵌入为字符串：</li>
 </ol>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -242,7 +242,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 </div><ol start="2">
 <li>嵌入为字节切片：</li>
 </ol>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -254,7 +254,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 </div><ol start="3">
 <li>嵌入为文件系统：</li>
 </ol>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -263,12 +263,12 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="cp">//go:embed migrations/*.sql</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="nx">migrationFiles</span><span class="w"> </span><span class="nx">embed</span><span class="p">.</span><span class="nx">FS</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="在-web-应用中的典型应用"><span>3.2 在 Web 应用中的典型应用</span>
+</div><h3 class="heading-element" id="在-web-应用中的典型应用"><span>在 Web 应用中的典型应用</span>
   <a href="#%e5%9c%a8-web-%e5%ba%94%e7%94%a8%e4%b8%ad%e7%9a%84%e5%85%b8%e5%9e%8b%e5%ba%94%e7%94%a8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>以 Gin 框架为例，我们可以这样使用嵌入的资源：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -314,12 +314,12 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>需要注意的是 <code>//go:embed</code> 指令必须直接位于目标变量的上方类似于注释，才能确保编译器能正确识别并关联嵌入的文件资源</p>
-<h2 class="heading-element" id="实现类-java-的配置加载策略"><span>4 实现类 Java 的配置加载策略</span>
+<h2 class="heading-element" id="实现类-java-的配置加载策略"><span>实现类 Java 的配置加载策略</span>
   <a href="#%e5%ae%9e%e7%8e%b0%e7%b1%bb-java-%e7%9a%84%e9%85%8d%e7%bd%ae%e5%8a%a0%e8%bd%bd%e7%ad%96%e7%95%a5" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>Java 应用通常采用&quot;外部配置优先，内嵌配置兜底&quot;的策略，这种模式在 Go 中同样可以实现。</p>
-<h3 class="heading-element" id="基本实现原理"><span>4.1 基本实现原理</span>
+<h3 class="heading-element" id="基本实现原理"><span>基本实现原理</span>
   <a href="#%e5%9f%ba%e6%9c%ac%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -328,7 +328,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <li>如果外部配置不存在，回退到内嵌的默认配置</li>
 <li>确保无论如何都有可用的配置</li>
 </ol>
-<h3 class="heading-element" id="具体实现代码"><span>4.2 具体实现代码</span>
+<h3 class="heading-element" id="具体实现代码"><span>具体实现代码</span>
   <a href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0%e4%bb%a3%e7%a0%81" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -336,7 +336,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 <ol>
 <li>在 configs 同级目录下创建 embed.go 文件</li>
 </ol>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -362,7 +362,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 </div><ol start="2">
 <li>改造 config.LoadConfig() 函数</li>
 </ol>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -477,11 +477,11 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h2 class="heading-element" id="部署效率的实际提升"><span>5 部署效率的实际提升</span>
+</div><h2 class="heading-element" id="部署效率的实际提升"><span>部署效率的实际提升</span>
   <a href="#%e9%83%a8%e7%bd%b2%e6%95%88%e7%8e%87%e7%9a%84%e5%ae%9e%e9%99%85%e6%8f%90%e5%8d%87" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="传统部署-vs-embed-部署对比"><span>5.1 传统部署 vs embed 部署对比</span>
+</h2><h3 class="heading-element" id="传统部署-vs-embed-部署对比"><span>传统部署 vs embed 部署对比</span>
   <a href="#%e4%bc%a0%e7%bb%9f%e9%83%a8%e7%bd%b2-vs-embed-%e9%83%a8%e7%bd%b2%e5%af%b9%e6%af%94" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -522,7 +522,7 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
         </tr>
     </tbody>
   </table>
-</div><h3 class="heading-element" id="性能考量"><span>5.2 性能考量</span>
+</div><h3 class="heading-element" id="性能考量"><span>性能考量</span>
   <a href="#%e6%80%a7%e8%83%bd%e8%80%83%e9%87%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -596,33 +596,33 @@ Go 1.16 引入的 embed 功能彻底改变了这一局面，它允许开发者�
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ol>
+  <ul>
     <li><a href="#引言">引言</a></li>
     <li><a href="#embed-如何提升部署效率">embed 如何提升部署效率</a>
-      <ol>
+      <ul>
         <li><a href="#传统-go-应用的部署痛点">传统 Go 应用的部署痛点</a></li>
         <li><a href="#embed-带来的变革">embed 带来的变革</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#基础-embed-使用模式">基础 embed 使用模式</a>
-      <ol>
+      <ul>
         <li><a href="#三种嵌入方式">三种嵌入方式</a></li>
         <li><a href="#在-web-应用中的典型应用">在 Web 应用中的典型应用</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#实现类-java-的配置加载策略">实现类 Java 的配置加载策略</a>
-      <ol>
+      <ul>
         <li><a href="#基本实现原理">基本实现原理</a></li>
         <li><a href="#具体实现代码">具体实现代码</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#部署效率的实际提升">部署效率的实际提升</a>
-      <ol>
+      <ul>
         <li><a href="#传统部署-vs-embed-部署对比">传统部署 vs embed 部署对比</a></li>
         <li><a href="#性能考量">性能考量</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
       </div>
     </dialog></main>

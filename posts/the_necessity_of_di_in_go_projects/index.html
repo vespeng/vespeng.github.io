@@ -10,7 +10,7 @@
   <meta itemprop="description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
   <meta itemprop="datePublished" content="2025-11-19T23:10:00+08:00">
   <meta itemprop="dateModified" content="2026-01-12T22:16:21+08:00">
-  <meta itemprop="wordCount" content="1133">
+  <meta itemprop="wordCount" content="1118">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Di,Wire,Dig"><meta property="og:url" content="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -46,7 +46,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/the_necessity_of_di_in_go_projects\/"
-    },"genre": "posts","keywords": "go, gin, di, wire, dig","wordcount":  1133 ,
+    },"genre": "posts","keywords": "go, gin, di, wire, dig","wordcount":  1118 ,
     "url": "https:\/\/vespeng.com\/posts\/the_necessity_of_di_in_go_projects\/","datePublished": "2025-11-19T23:10:00+08:00","dateModified": "2026-01-12T22:16:21+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -152,7 +152,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a></span></div><div class="post-meta-line"><span title="发布于 2025-11-19 23:10:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-19">2025-11-19</time></span>&nbsp;<span title="1133 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a></span></div><div class="post-meta-line"><span title="发布于 2025-11-19 23:10:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-11-19">2025-11-19</time></span>&nbsp;<span title="1118 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -160,44 +160,44 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#引言">引言</a></li>
     <li><a href="#什么是依赖注入为什么我们需要它">什么是依赖注入？为什么我们需要它？</a></li>
     <li><a href="#示例场景用户模块的完整分层实现">示例场景：用户模块的完整分层实现</a>
-      <ol>
+      <ul>
         <li><a href="#数据库初始化gorm">数据库初始化（GORM）</a></li>
         <li><a href="#用户实体">用户实体</a></li>
         <li><a href="#repository-接口与实现">Repository 接口与实现</a></li>
         <li><a href="#service-接口与实现">Service 接口与实现</a></li>
         <li><a href="#controller-层handler">Controller 层（Handler）</a></li>
         <li><a href="#路由注册模块内部自治">路由注册（模块内部自治）</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#三种依赖管理方式对比">三种依赖管理方式对比</a>
-      <ol>
+      <ul>
         <li><a href="#不使用依赖注入手动组装">不使用依赖注入（手动组装）</a></li>
         <li><a href="#使用-wire编译时注入">使用 Wire（编译时注入）</a></li>
         <li><a href="#使用-dig运行时注入">使用 Dig（运行时注入）</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#是否必须使用依赖注入模块化设计或许更优">是否必须使用依赖注入？模块化设计或许更优</a></li>
     <li><a href="#总结依赖注入的适用边界与建议">总结：依赖注入的适用边界与建议</a></li>
-  </ol>
+  </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><h2 class="heading-element" id="引言"><span>1 引言</span>
+      </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><h2 class="heading-element" id="引言"><span>引言</span>
   <a href="#%e5%bc%95%e8%a8%80" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>在日常开发中，无论是个人项目还是公司业务系统，我常常陷入一种熟悉的困境：随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，动辄数百行的初始化逻辑像一张纠缠不清的网；Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。</p>
 <p>起初我以为是 Go 语言本身缺乏像 Java Spring 那样成熟的依赖注入机制，导致依赖管理“先天不足”。于是尝试引入 Dig，希望通过运行时容器自动装配组件，让代码更整洁。可没过多久，新的“上帝文件”又悄然诞生——这次不是 main.go，而是那个集中注册所有 Provide 和 Invoke 的 DI 配置模块。功能越多，它就越庞大，耦合反而从代码转移到了配置层。</p>
 <p>这让我开始反思：问题真的出在 Go 没有强大的 DI 框架吗？还是说，我们把“依赖注入”当成了银弹，却忽视了更根本的架构设计？</p>
-<h2 class="heading-element" id="什么是依赖注入为什么我们需要它"><span>2 什么是依赖注入？为什么我们需要它？</span>
+<h2 class="heading-element" id="什么是依赖注入为什么我们需要它"><span>什么是依赖注入？为什么我们需要它？</span>
   <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e4%b8%ba%e4%bb%80%e4%b9%88%e6%88%91%e4%bb%ac%e9%9c%80%e8%a6%81%e5%ae%83" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>依赖注入（Dependency Injection, DI）是一种实现<strong>控制反转</strong>（Inversion of Control, IoC）的设计模式。其核心思想是：<strong>将对象的创建与使用解耦</strong>，由外部容器负责管理依赖关系，并在运行时或编译时“注入”所需组件。</p>
 <p>在传统写法中，我们常常直接在代码里 <code>new</code> 出依赖：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -235,12 +235,12 @@
 <li><strong>使用 Uber 的 Dig</strong>（运行时解析）</li>
 </ol>
 <p>并通过 Gin 框架完整串联路由 → Controller → Service → Repository（基于 GORM）</p>
-<h2 class="heading-element" id="示例场景用户模块的完整分层实现"><span>3 示例场景：用户模块的完整分层实现</span>
+<h2 class="heading-element" id="示例场景用户模块的完整分层实现"><span>示例场景：用户模块的完整分层实现</span>
   <a href="#%e7%a4%ba%e4%be%8b%e5%9c%ba%e6%99%af%e7%94%a8%e6%88%b7%e6%a8%a1%e5%9d%97%e7%9a%84%e5%ae%8c%e6%95%b4%e5%88%86%e5%b1%82%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>这里以一个标准的 CRUD 用户模块为例，贯穿整个调用链。先定义清晰的模块化目录结构：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -294,11 +294,11 @@
 <li><code>main.go</code> 不膨胀，依赖组装集中在模块初始化函数中</li>
 </ul>
 </blockquote>
-<h3 class="heading-element" id="数据库初始化gorm"><span>3.1 数据库初始化（GORM）</span>
+<h3 class="heading-element" id="数据库初始化gorm"><span>数据库初始化（GORM）</span>
   <a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%88%9d%e5%a7%8b%e5%8c%96gorm" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -333,11 +333,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="用户实体"><span>3.2 用户实体</span>
+</div><h3 class="heading-element" id="用户实体"><span>用户实体</span>
   <a href="#%e7%94%a8%e6%88%b7%e5%ae%9e%e4%bd%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -356,11 +356,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;name&#34; gorm:&#34;not null&#34;`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="repository-接口与实现"><span>3.3 Repository 接口与实现</span>
+</div><h3 class="heading-element" id="repository-接口与实现"><span>Repository 接口与实现</span>
   <a href="#repository-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -383,7 +383,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</div><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -438,11 +438,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">Error</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="service-接口与实现"><span>3.4 Service 接口与实现</span>
+</div><h3 class="heading-element" id="service-接口与实现"><span>Service 接口与实现</span>
   <a href="#service-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -465,7 +465,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</div><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -518,11 +518,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="controller-层handler"><span>3.5 Controller 层（Handler）</span>
+</div><h3 class="heading-element" id="controller-层handler"><span>Controller 层（Handler）</span>
   <a href="#controller-%e5%b1%82handler" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -611,11 +611,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;message&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;user created&#34;</span><span class="p">})</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="路由注册模块内部自治"><span>3.6 路由注册（模块内部自治）</span>
+</div><h3 class="heading-element" id="路由注册模块内部自治"><span>路由注册（模块内部自治）</span>
   <a href="#%e8%b7%af%e7%94%b1%e6%b3%a8%e5%86%8c%e6%a8%a1%e5%9d%97%e5%86%85%e9%83%a8%e8%87%aa%e6%b2%bb" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -650,15 +650,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h2 class="heading-element" id="三种依赖管理方式对比"><span>4 三种依赖管理方式对比</span>
+</div><h2 class="heading-element" id="三种依赖管理方式对比"><span>三种依赖管理方式对比</span>
   <a href="#%e4%b8%89%e7%a7%8d%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="不使用依赖注入手动组装"><span>4.1 不使用依赖注入（手动组装）</span>
+</h2><h3 class="heading-element" id="不使用依赖注入手动组装"><span>不使用依赖注入（手动组装）</span>
   <a href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e6%89%8b%e5%8a%a8%e7%bb%84%e8%a3%85" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -734,14 +734,14 @@
 <li>不利于单元测试（需手动传 mock）</li>
 </ul>
 </blockquote>
-<h3 class="heading-element" id="使用-wire编译时注入"><span>4.2 使用 Wire（编译时注入）</span>
+<h3 class="heading-element" id="使用-wire编译时注入"><span>使用 Wire（编译时注入）</span>
   <a href="#%e4%bd%bf%e7%94%a8-wire%e7%bc%96%e8%af%91%e6%97%b6%e6%b3%a8%e5%85%a5" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><ol>
 <li>
 <p>安装 Wire：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -751,7 +751,7 @@
 </div></li>
 <li>
 <p>创建注入配置集：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -807,7 +807,7 @@
 </div></li>
 <li>
 <p>生成代码并启动：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -817,7 +817,7 @@
 </div></li>
 </ol>
 <p>生成 <code>wire_gen.go</code> 后，<code>main.go</code> 极简：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -869,11 +869,11 @@
 <li>错误信息有时不够友好</li>
 </ul>
 </blockquote>
-<h3 class="heading-element" id="使用-dig运行时注入"><span>4.3 使用 Dig（运行时注入）</span>
+<h3 class="heading-element" id="使用-dig运行时注入"><span>使用 Dig（运行时注入）</span>
   <a href="#%e4%bd%bf%e7%94%a8-dig%e8%bf%90%e8%a1%8c%e6%97%b6%e6%b3%a8%e5%85%a5" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -961,7 +961,7 @@
 <li>调试稍复杂</li>
 </ul>
 </blockquote>
-<h2 class="heading-element" id="是否必须使用依赖注入模块化设计或许更优"><span>5 是否必须使用依赖注入？模块化设计或许更优</span>
+<h2 class="heading-element" id="是否必须使用依赖注入模块化设计或许更优"><span>是否必须使用依赖注入？模块化设计或许更优</span>
   <a href="#%e6%98%af%e5%90%a6%e5%bf%85%e9%a1%bb%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e6%a8%a1%e5%9d%97%e5%8c%96%e8%ae%be%e8%ae%a1%e6%88%96%e8%ae%b8%e6%9b%b4%e4%bc%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -974,7 +974,7 @@
 <li>共享资源（如 DB、Logger）作为参数传入模块初始化函数</li>
 </ul>
 <p>例如，我们可以为每个模块提供一个初始化函数：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1016,7 +1016,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p><code>main.go</code> 变得极其干净：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1046,7 +1046,7 @@
 <li><strong>易于理解和维护</strong></li>
 <li><strong>天然支持按需加载模块</strong></li>
 </ul>
-<h2 class="heading-element" id="总结依赖注入的适用边界与建议"><span>6 总结：依赖注入的适用边界与建议</span>
+<h2 class="heading-element" id="总结依赖注入的适用边界与建议"><span>总结：依赖注入的适用边界与建议</span>
   <a href="#%e6%80%bb%e7%bb%93%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e7%9a%84%e9%80%82%e7%94%a8%e8%be%b9%e7%95%8c%e4%b8%8e%e5%bb%ba%e8%ae%ae" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -1150,29 +1150,29 @@
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ol>
+  <ul>
     <li><a href="#引言">引言</a></li>
     <li><a href="#什么是依赖注入为什么我们需要它">什么是依赖注入？为什么我们需要它？</a></li>
     <li><a href="#示例场景用户模块的完整分层实现">示例场景：用户模块的完整分层实现</a>
-      <ol>
+      <ul>
         <li><a href="#数据库初始化gorm">数据库初始化（GORM）</a></li>
         <li><a href="#用户实体">用户实体</a></li>
         <li><a href="#repository-接口与实现">Repository 接口与实现</a></li>
         <li><a href="#service-接口与实现">Service 接口与实现</a></li>
         <li><a href="#controller-层handler">Controller 层（Handler）</a></li>
         <li><a href="#路由注册模块内部自治">路由注册（模块内部自治）</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#三种依赖管理方式对比">三种依赖管理方式对比</a>
-      <ol>
+      <ul>
         <li><a href="#不使用依赖注入手动组装">不使用依赖注入（手动组装）</a></li>
         <li><a href="#使用-wire编译时注入">使用 Wire（编译时注入）</a></li>
         <li><a href="#使用-dig运行时注入">使用 Dig（运行时注入）</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#是否必须使用依赖注入模块化设计或许更优">是否必须使用依赖注入？模块化设计或许更优</a></li>
     <li><a href="#总结依赖注入的适用边界与建议">总结：依赖注入的适用边界与建议</a></li>
-  </ol>
+  </ul>
 </nav></div>
       </div>
     </dialog></main>

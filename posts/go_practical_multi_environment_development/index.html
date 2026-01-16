@@ -10,7 +10,7 @@
   <meta itemprop="description" content="在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。">
   <meta itemprop="datePublished" content="2025-01-25T17:00:00+08:00">
   <meta itemprop="dateModified" content="2026-01-12T22:16:21+08:00">
-  <meta itemprop="wordCount" content="185">
+  <meta itemprop="wordCount" content="177">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin"><meta property="og:url" content="https://vespeng.com/posts/go_practical_multi_environment_development/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -43,7 +43,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_practical_multi_environment_development\/"
-    },"genre": "posts","keywords": "go, gin","wordcount":  185 ,
+    },"genre": "posts","keywords": "go, gin","wordcount":  177 ,
     "url": "https:\/\/vespeng.com\/posts\/go_practical_multi_environment_development\/","datePublished": "2025-01-25T17:00:00+08:00","dateModified": "2026-01-12T22:16:21+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -149,7 +149,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：如何部署多环境开发</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-25 17:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-25">2025-01-25</time></span>&nbsp;<span title="185 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何部署多环境开发"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-25 17:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-25">2025-01-25</time></span>&nbsp;<span title="177 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何部署多环境开发"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -157,50 +157,50 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#go-中的系统环境变量">Go 中的系统环境变量</a></li>
     <li><a href="#实战">实战</a>
-      <ol>
+      <ul>
         <li><a href="#编写-env-文件">编写 .env 文件</a></li>
         <li><a href="#获取环境变量">获取环境变量</a></li>
         <li><a href="#设置默认值">设置默认值</a></li>
         <li><a href="#加载-env-文件">加载 .env 文件</a></li>
         <li><a href="#动态选择配置文件">动态选择配置文件</a></li>
         <li><a href="#解析配置文件">解析配置文件</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。</p>
 <p>对于 Java 的 SpringBoot 框架来说，可以直接在 <code>application.yml </code> 中指定一个环境配置文件，通常<code>application_dev.yml </code> 代表开发环境，那么 go 可否参考这种方式呢？</p>
 <p>接下来本文将详细介绍如何使用多种方式来实现多环境开发部署，重点围绕 <code>config.yaml</code> 文件和 <code>config.go</code> 文件来进行配置读取和环境区分。</p>
-<h2 class="heading-element" id="go-中的系统环境变量"><span>1 Go 中的系统环境变量</span>
+<h2 class="heading-element" id="go-中的系统环境变量"><span>Go 中的系统环境变量</span>
   <a href="#go-%e4%b8%ad%e7%9a%84%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>先来解释一个概念，在 Go 语言中，系统环境变量是操作系统为每个进程提供的键值对集合。这些环境变量可以用于配置应用程序的行为、连接数据库、设置日志级别等。Go 提供了标准库 <code>os</code> 来读取和操作这些环境变量。</p>
-<h2 class="heading-element" id="实战"><span>2 实战</span>
+<h2 class="heading-element" id="实战"><span>实战</span>
   <a href="#%e5%ae%9e%e6%88%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><h3 class="heading-element" id="编写-env-文件"><span>2.1 编写 .env 文件</span>
+</h2><h3 class="heading-element" id="编写-env-文件"><span>编写 .env 文件</span>
   <a href="#%e7%bc%96%e5%86%99-env-%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>在项目根目录下新建一个 .env 文件，配置如下：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">APP_ENV</span><span class="o">=</span>dev</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="获取环境变量"><span>2.2 获取环境变量</span>
+</div><h3 class="heading-element" id="获取环境变量"><span>获取环境变量</span>
   <a href="#%e8%8e%b7%e5%8f%96%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>使用 <code>os.Getenv</code> 函数可以获取指定名称的环境变量值。</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -211,12 +211,12 @@
 <li><strong><code>APP_ENV</code></strong> 是一个环境变量名，用于标识应用程序的运行环境（如开发、测试、生产等）。</li>
 <li>如果 <code>APP_ENV</code> 未设置，<code>os.Getenv(&quot;APP_ENV&quot;)</code> 将返回空字符串。</li>
 </ul>
-<h3 class="heading-element" id="设置默认值"><span>2.3 设置默认值</span>
+<h3 class="heading-element" id="设置默认值"><span>设置默认值</span>
   <a href="#%e8%ae%be%e7%bd%ae%e9%bb%98%e8%ae%a4%e5%80%bc" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>我们需要一个默认的环境，如果 <code>APP_ENV</code> 未设置，将其设为 <code>&quot;dev&quot;</code>：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -230,12 +230,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>这样可以确保即使没有显式设置 <code>APP_ENV</code>，程序也能有一个合理的默认行为。</p>
-<h3 class="heading-element" id="加载-env-文件"><span>2.4 加载 .env 文件</span>
+<h3 class="heading-element" id="加载-env-文件"><span>加载 .env 文件</span>
   <a href="#%e5%8a%a0%e8%bd%bd-env-%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>使用 <code>github.com/joho/godotenv</code> 包来加载 <code>.env</code> 文件中的环境变量。<code>.env</code> 文件通常用于本地开发环境，避免将敏感信息硬编码到代码中，这里其实挺像 vue 的环境加载方式。</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -249,12 +249,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>这行代码会读取项目根目录下的 <code>.env</code> 文件，并将其中定义的环境变量加载到当前进程中。</p>
-<h3 class="heading-element" id="动态选择配置文件"><span>2.5 动态选择配置文件</span>
+<h3 class="heading-element" id="动态选择配置文件"><span>动态选择配置文件</span>
   <a href="#%e5%8a%a8%e6%80%81%e9%80%89%e6%8b%a9%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>根据 <code>APP_ENV</code> 的值，动态选择不同的配置文件：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -276,12 +276,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>这段代码会根据 <code>APP_ENV</code> 的值（例如 <code>dev</code> 或 <code>production</code>），选择对应的配置文件（如 <code>config_dev.yaml</code> 或 <code>config_prod.yaml</code>）。这样可以根据不同的环境加载不同的配置。</p>
-<h3 class="heading-element" id="解析配置文件"><span>2.6 解析配置文件</span>
+<h3 class="heading-element" id="解析配置文件"><span>解析配置文件</span>
   <a href="#%e8%a7%a3%e6%9e%90%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>使用 <code>viper.Unmarshal</code> 将配置文件的内容解析到结构体中：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -363,19 +363,19 @@
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ol>
+  <ul>
     <li><a href="#go-中的系统环境变量">Go 中的系统环境变量</a></li>
     <li><a href="#实战">实战</a>
-      <ol>
+      <ul>
         <li><a href="#编写-env-文件">编写 .env 文件</a></li>
         <li><a href="#获取环境变量">获取环境变量</a></li>
         <li><a href="#设置默认值">设置默认值</a></li>
         <li><a href="#加载-env-文件">加载 .env 文件</a></li>
         <li><a href="#动态选择配置文件">动态选择配置文件</a></li>
         <li><a href="#解析配置文件">解析配置文件</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
       </div>
     </dialog></main>

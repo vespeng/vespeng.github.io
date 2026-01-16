@@ -10,7 +10,7 @@
   <meta itemprop="description" content="如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。">
   <meta itemprop="datePublished" content="2025-06-07T14:20:00+08:00">
   <meta itemprop="dateModified" content="2026-01-12T22:16:21+08:00">
-  <meta itemprop="wordCount" content="947">
+  <meta itemprop="wordCount" content="934">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,面试"><meta property="og:url" content="https://vespeng.com/posts/go_development_job_interview/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -43,7 +43,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_development_job_interview\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  947 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  934 ,
     "url": "https:\/\/vespeng.com\/posts\/go_development_job_interview\/","datePublished": "2025-06-07T14:20:00+08:00","dateModified": "2026-01-12T22:16:21+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -149,7 +149,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>记一次 Go 开发岗面试</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="post-meta-line"><span title="发布于 2025-06-07 14:20:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="947 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="记一次 Go 开发岗面试"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/%E9%9D%A2%E8%AF%95/" class="post-collection" title="合集 - 面试"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> 面试</a></span></div><div class="post-meta-line"><span title="发布于 2025-06-07 14:20:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-06-07">2025-06-07</time></span>&nbsp;<span title="934 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1000 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="记一次 Go 开发岗面试"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -157,37 +157,37 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#常见的-gc-算法有哪些go-是怎么做的">常见的 GC 算法有哪些，Go 是怎么做的</a>
-      <ol>
+      <ul>
         <li><a href="#常见的-gc-算法">常见的 GC 算法</a></li>
         <li><a href="#go-采用的-gc-算法">Go 采用的 GC 算法</a></li>
         <li><a href="#思考">思考</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#互斥锁底层数据结构是什么样的">互斥锁底层数据结构是什么样的</a></li>
     <li><a href="#事务的四个特性分别通过什么手段实现的">事务的四个特性分别通过什么手段实现的</a>
-      <ol>
+      <ul>
         <li><a href="#原子性">原子性</a></li>
         <li><a href="#一致性">一致性</a></li>
         <li><a href="#隔离性">隔离性</a></li>
         <li><a href="#持久性">持久性</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#如下代码分别输出什么">如下代码分别输出什么</a></li>
     <li><a href="#爬楼梯问题">爬楼梯问题</a></li>
     <li><a href="#计算器">计算器</a></li>
-  </ol>
+  </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>前言：如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</p>
-<h2 class="heading-element" id="常见的-gc-算法有哪些go-是怎么做的"><span>1 常见的 GC 算法有哪些，Go 是怎么做的</span>
+<h2 class="heading-element" id="常见的-gc-算法有哪些go-是怎么做的"><span>常见的 GC 算法有哪些，Go 是怎么做的</span>
   <a href="#%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e7%ae%97%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9bgo-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><blockquote>
 <p>当时对这个问题的了解程度更多的停留在各类技术文章或网传八股文面试题中，没有对 GC 有更广更深入的了解，栽到了一些细节上。</p>
 </blockquote>
-<h3 class="heading-element" id="常见的-gc-算法"><span>1.1 常见的 GC 算法</span>
+<h3 class="heading-element" id="常见的-gc-算法"><span>常见的 GC 算法</span>
   <a href="#%e5%b8%b8%e8%a7%81%e7%9a%84-gc-%e7%ae%97%e6%b3%95" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -209,7 +209,7 @@
 标记阶段依然同标记清除算法一样，区别于标记整理，而是将内存分为大小相等的两块，每次只使用一块，GC 是将所有的可达对象复制到另一块内存空间，然后清除当前块。优点同样可以解决内存不连续碎片化的问题，缺点只能使用整个内存空间的一半，同样因为存在复制过程，所以整体开销也不小。</p>
 </li>
 </ol>
-<h3 class="heading-element" id="go-采用的-gc-算法"><span>1.2 Go 采用的 GC 算法</span>
+<h3 class="heading-element" id="go-采用的-gc-算法"><span>Go 采用的 GC 算法</span>
   <a href="#go-%e9%87%87%e7%94%a8%e7%9a%84-gc-%e7%ae%97%e6%b3%95" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -236,14 +236,14 @@
 <p><em>ps ：在引用赋值时，将新对象标记为灰色，在引用被删除前，将被删除的对象标记为灰色。</em></p>
 </li>
 </ul>
-<h3 class="heading-element" id="思考"><span>1.3 思考</span>
+<h3 class="heading-element" id="思考"><span>思考</span>
   <a href="#%e6%80%9d%e8%80%83" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>标记的时候，所谓的根对象是什么？或者说根对象在哪里？</p>
 <p>结合上述的标记清除的过程，当前对象存在可达对象的时候或者说当前对象被其他对象所引用，自身就会标记为黑色，那么可以得出如果自身没有引用其他对象的时候，那么自身就是所谓的根对象。</p>
 <p>结合 go 语言特性，思考哪些对象是存在上述特征，换个角度出发，当程序开始运行的时候，首次被加载到内存的对象就符合该特征，那么例如全局常量，包级变量，每个 goroutine 的局部变量常量等即为根对象。</p>
-<h2 class="heading-element" id="互斥锁底层数据结构是什么样的"><span>2 互斥锁底层数据结构是什么样的</span>
+<h2 class="heading-element" id="互斥锁底层数据结构是什么样的"><span>互斥锁底层数据结构是什么样的</span>
   <a href="#%e4%ba%92%e6%96%a5%e9%94%81%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%98%af%e4%bb%80%e4%b9%88%e6%a0%b7%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -252,7 +252,7 @@
 </blockquote>
 <p>Golang 的互斥锁主要由内部 <code>sync</code> 包下的 <code>Mutex</code> 对象实现。</p>
 <p>跳进该对象内部（源码），可看到该对象定义了两个变量：state &amp; sema，这也是互斥锁的核心数据结构：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -266,7 +266,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>往下翻可看到定义的几个常量，这几个常量是互斥锁底层状态管理的核心：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -284,7 +284,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>接着进一步分析该对象下的具体方法（加锁 &amp; 解锁）：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -391,42 +391,42 @@
 </ol>
 <p><strong>总结</strong>：</p>
 <p>Golang 的互斥锁的底层由两个变量 state 锁状态和 sema 信号量构成，并结合原子操作实现对线程加解锁的控制。</p>
-<h2 class="heading-element" id="事务的四个特性分别通过什么手段实现的"><span>3 事务的四个特性分别通过什么手段实现的</span>
+<h2 class="heading-element" id="事务的四个特性分别通过什么手段实现的"><span>事务的四个特性分别通过什么手段实现的</span>
   <a href="#%e4%ba%8b%e5%8a%a1%e7%9a%84%e5%9b%9b%e4%b8%aa%e7%89%b9%e6%80%a7%e5%88%86%e5%88%ab%e9%80%9a%e8%bf%87%e4%bb%80%e4%b9%88%e6%89%8b%e6%ae%b5%e5%ae%9e%e7%8e%b0%e7%9a%84" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><blockquote>
 <p>本以为会问 ACID 的特性，这个倒是都了解，出乎意料的是底层是如何实现的，一下子有些猝不及防，脑子里闪过：约束？redo log？undo log？思索片刻还是放弃了。</p>
 </blockquote>
-<h3 class="heading-element" id="原子性"><span>3.1 原子性</span>
+<h3 class="heading-element" id="原子性"><span>原子性</span>
   <a href="#%e5%8e%9f%e5%ad%90%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p><strong>定义</strong>：事务执行要么都成功要么都失败，不可分割</p>
 <p><strong>实现原理</strong>：利用 <code>Undo Log</code>（回滚日志），记录每一次执行对应的相反操作，例如：执行 INSERT 操作，那么日志中则记录对应的 DELETE 操作。一旦事务中某一条 SQL 执行失败，那么直接使用日志中记录的操作回滚到事务执行前的状态。</p>
-<h3 class="heading-element" id="一致性"><span>3.2 一致性</span>
+<h3 class="heading-element" id="一致性"><span>一致性</span>
   <a href="#%e4%b8%80%e8%87%b4%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p><strong>定义</strong>：事务执行前后，数据库中数据的一致性状态需保持一致</p>
 <p><strong>实现原理</strong>：执行事务时，InnoDB 会检查数据完整性约束（主键、唯一索引、外键）。若违反约束，事务会自动回滚，同时也包括业务规则上的约束，比如经典的银行转账问题，通过数据库触发器或应用层逻辑，确保业务规则被遵守。</p>
-<h3 class="heading-element" id="隔离性"><span>3.3 隔离性</span>
+<h3 class="heading-element" id="隔离性"><span>隔离性</span>
   <a href="#%e9%9a%94%e7%a6%bb%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p><strong>定义</strong>：多个事务并发执行时，相互隔离，互不干扰</p>
 <p><strong>实现原理</strong>：InnoDB 默认的隔离级别是可重复读，通过 <code>MVCC</code> 多版本并发控制机制，每个事务读取自己开始时的数据库快照，避免脏读、幻读、不可重复读问题。对于读已提交隔离级别来说，采用了行级锁来保证；对于串行来讲，直接使用表锁，强制让事务串行执行。</p>
-<h3 class="heading-element" id="持久性"><span>3.4 持久性</span>
+<h3 class="heading-element" id="持久性"><span>持久性</span>
   <a href="#%e6%8c%81%e4%b9%85%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p><strong>定义</strong>：事务一旦执行成功，其结果将持久化到磁盘中</p>
 <p><strong>实现原理</strong>：利用 <code>Redo Log</code>（重做日志），记录事务对数据页的物理修改（与 <code>Undo Log</code> 相反），按顺序写入磁盘，即使系统崩溃，过后可通过日志恢复未持久化的数据页。</p>
-<h2 class="heading-element" id="如下代码分别输出什么"><span>4 如下代码分别输出什么</span>
+<h2 class="heading-element" id="如下代码分别输出什么"><span>如下代码分别输出什么</span>
   <a href="#%e5%a6%82%e4%b8%8b%e4%bb%a3%e7%a0%81%e5%88%86%e5%88%ab%e8%be%93%e5%87%ba%e4%bb%80%e4%b9%88" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h2><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -449,7 +449,7 @@
 <p>先前面试中印象里没有被问到这个问题，不过这个题蛮有意思，考察关于切片扩容的问题。</p>
 </blockquote>
 <p><strong>结论</strong>：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -461,7 +461,7 @@
 </div><p><strong>原因：</strong></p>
 <p>先说长度：这个无可厚非，append 前 3 个元素，append 后追加了 4 个元素，所以长度第一次输出 3，第二次输出 7。</p>
 <p>再来聊聊容量：虽然在 go 1.18 版本之前和之后对于基准容量的把控从 1024 更新到了 256，但在上述示例中可以忽略；首先初始的容量为 3，所以结果输出 3，随后进行了 append 操作，新增了 4 个元素进去，切片首先会进行 2 倍扩容：3 * 2 = 6，但是 6 的容量不足以容纳 7 个元素，理论上会采用最大的容量作为新容量也就是 7 ，但是 go 底层还有个逻辑，即为了内存对齐会选择不小于当前最大容量的最小 2 的幂次，也就是 8，所以第二次会输出 8。</p>
-<h2 class="heading-element" id="爬楼梯问题"><span>5 爬楼梯问题</span>
+<h2 class="heading-element" id="爬楼梯问题"><span>爬楼梯问题</span>
   <a href="#%e7%88%ac%e6%a5%bc%e6%a2%af%e9%97%ae%e9%a2%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -496,7 +496,7 @@
 <p>其实这么多推几次，能发现个规律，就以 n = 4 来说，无非分为两种情况，第一步走一个台阶和第一步走两个台阶，或者最后一步走一个台阶和最后一步走两个台阶，至于是第一步还是最后一步其实无所谓，现在就以第一步怎么走来说，如果第一步走一个台阶，那么剩下的就是 3 级台阶的情况，如果第一步走两个台阶，那么剩下的就是 2 级台阶的情况，把这两个情况对应的方法数相加，就得到了当前 4 级台阶的方法数。</p>
 <p>对应到数学公式即：$f(x)=f(x-1)&#43;f(x-2)$</p>
 <p>接下来开始编码：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -523,7 +523,7 @@
 </div>
 </div><p>力扣执行测试一下，发现提示超出时间限制，说明上述代码虽然可以实现，但是时间复杂度高了。</p>
 <p>回到 n = 4 的例子上，当第一步走一个台阶，剩下 3 级台阶的情况，递归的时候会把 3 带入，进而计算 2 级台阶的情况，当第一步走两个台阶，剩下 2 级台阶的情况，显然重复计算了。此时首先想到去重，那就引入一个 map ，改造代码：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -563,7 +563,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>力扣再次提交，成功通过。</p>
-<h2 class="heading-element" id="计算器"><span>6 计算器</span>
+<h2 class="heading-element" id="计算器"><span>计算器</span>
   <a href="#%e8%ae%a1%e7%ae%97%e5%99%a8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -588,7 +588,7 @@
 </blockquote>
 <p>这个题拿到手后，当时首先想到就是拆分字符串，然后根据符号进行运算，但是这样会存在一些问题，要以什么字符来拆分呢？直接暴力使用 <strong>s := strings.Split(str, &ldquo;&rdquo;)</strong> ，但也还是会存在个问题，如果数字不是 0-9 比如 12 呢？</p>
 <p>上述方法行不通，所有不能直接拆分字符串，换个思路去做遍历字符串，第一次遍历遇到 * or / 就将符号两侧数值先进行计算返回一个只有 + or - 的新表达式，第二次遍历直接进行计算拿到最终的结果。</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -785,27 +785,27 @@
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ol>
+  <ul>
     <li><a href="#常见的-gc-算法有哪些go-是怎么做的">常见的 GC 算法有哪些，Go 是怎么做的</a>
-      <ol>
+      <ul>
         <li><a href="#常见的-gc-算法">常见的 GC 算法</a></li>
         <li><a href="#go-采用的-gc-算法">Go 采用的 GC 算法</a></li>
         <li><a href="#思考">思考</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#互斥锁底层数据结构是什么样的">互斥锁底层数据结构是什么样的</a></li>
     <li><a href="#事务的四个特性分别通过什么手段实现的">事务的四个特性分别通过什么手段实现的</a>
-      <ol>
+      <ul>
         <li><a href="#原子性">原子性</a></li>
         <li><a href="#一致性">一致性</a></li>
         <li><a href="#隔离性">隔离性</a></li>
         <li><a href="#持久性">持久性</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#如下代码分别输出什么">如下代码分别输出什么</a></li>
     <li><a href="#爬楼梯问题">爬楼梯问题</a></li>
     <li><a href="#计算器">计算器</a></li>
-  </ol>
+  </ul>
 </nav></div>
       </div>
     </dialog></main>

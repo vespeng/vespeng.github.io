@@ -10,7 +10,7 @@
   <meta itemprop="description" content="在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。">
   <meta itemprop="datePublished" content="2025-01-22T21:40:00+08:00">
   <meta itemprop="dateModified" content="2026-01-12T22:16:21+08:00">
-  <meta itemprop="wordCount" content="539">
+  <meta itemprop="wordCount" content="529">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Log"><meta property="og:url" content="https://vespeng.com/posts/go_practical_processing_log/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -44,7 +44,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/go_practical_processing_log\/"
-    },"genre": "posts","keywords": "go, gin, log","wordcount":  539 ,
+    },"genre": "posts","keywords": "go, gin, log","wordcount":  529 ,
     "url": "https:\/\/vespeng.com\/posts\/go_practical_processing_log\/","datePublished": "2025-01-22T21:40:00+08:00","dateModified": "2026-01-12T22:16:21+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -150,7 +150,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：如何优雅的处理日志</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-22 21:40:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-22">2025-01-22</time></span>&nbsp;<span title="539 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何优雅的处理日志"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-01-22 21:40:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-01-22">2025-01-22</time></span>&nbsp;<span title="529 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：如何优雅的处理日志"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -158,24 +158,24 @@
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#日志级别的重要性">日志级别的重要性</a></li>
     <li><a href="#日志格式的选择">日志格式的选择</a></li>
     <li><a href="#日志输出的方式">日志输出的方式</a></li>
     <li><a href="#使用第三方日志库">使用第三方日志库</a></li>
     <li><a href="#实战">实战</a>
-      <ol>
+      <ul>
         <li><a href="#配置configyaml">配置config.yaml</a></li>
         <li><a href="#配置configgo">配置config.go</a></li>
         <li><a href="#新建loggergo">新建logger.go</a></li>
         <li><a href="#输出日志到文件">输出日志到文件</a></li>
         <li><a href="#调用initializelogger">调用InitializeLogger()</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>在 Go 项目开发中，日志处理是一项至关重要的任务。它不仅有助于我们在开发过程中调试代码，还能在生产环境中帮助我们快速定位问题。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</p>
-<h2 class="heading-element" id="日志级别的重要性"><span>1 日志级别的重要性</span>
+<h2 class="heading-element" id="日志级别的重要性"><span>日志级别的重要性</span>
   <a href="#%e6%97%a5%e5%bf%97%e7%ba%a7%e5%88%ab%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -187,13 +187,13 @@
 <li><code>ERROR</code>：用于记录严重的错误信息，这些错误可能导致系统无法正常运行。</li>
 <li><code>FATAL</code>：用于记录非常严重的错误信息，这些错误会导致程序立即退出。</li>
 </ul>
-<h2 class="heading-element" id="日志格式的选择"><span>2 日志格式的选择</span>
+<h2 class="heading-element" id="日志格式的选择"><span>日志格式的选择</span>
   <a href="#%e6%97%a5%e5%bf%97%e6%a0%bc%e5%bc%8f%e7%9a%84%e9%80%89%e6%8b%a9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>日志格式的选择对于日志的可读性和分析性至关重要。一个好的日志格式应该包含足够的信息，以便我们能够快速定位问题。常见的日志格式有 JSON、XML 和文本格式等。</p>
 <p>在 Go 语言中，我们可以使用第三方库来实现不同的日志格式。例如，使用 <code>logrus</code> 库可以轻松地将日志格式化为 JSON 格式：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -232,12 +232,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">logrus</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;这是一条FATAL级别的日志&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h2 class="heading-element" id="日志输出的方式"><span>3 日志输出的方式</span>
+</div><h2 class="heading-element" id="日志输出的方式"><span>日志输出的方式</span>
   <a href="#%e6%97%a5%e5%bf%97%e8%be%93%e5%87%ba%e7%9a%84%e6%96%b9%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>日志输出的方式有很多种，例如输出到控制台、文件、数据库等。在 Go 语言中，我们可以使用标准库的<code>log</code>包来实现基本的日志输出功能。例如，使用标准库 <code>log.Println</code> 方法可以将日志输出到控制台：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -259,7 +259,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>如果需要将日志输出到文件，我们可以这么做：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -307,7 +307,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><p>除了常见的输出到控制台或指定文件，我们还可以将日志输出到数据库、Elasticsearch 等其他存储介质中。具体的实现方式还需根据实际需求进行选择。</p>
-<h2 class="heading-element" id="使用第三方日志库"><span>4 使用第三方日志库</span>
+<h2 class="heading-element" id="使用第三方日志库"><span>使用第三方日志库</span>
   <a href="#%e4%bd%bf%e7%94%a8%e7%ac%ac%e4%b8%89%e6%96%b9%e6%97%a5%e5%bf%97%e5%ba%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -321,25 +321,25 @@
 <p><em>ps: 上述简介来自于AI，注意甄别</em></p>
 </blockquote>
 <p>这些第三方日志库都提供了丰富的功能和灵活的配置选项，可以帮助我们更好地处理日志。在这里个人比较推荐 <strong>logrus</strong> ，不过具体需求还是得具体选择。</p>
-<h2 class="heading-element" id="实战"><span>5 实战</span>
+<h2 class="heading-element" id="实战"><span>实战</span>
   <a href="#%e5%ae%9e%e6%88%98" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>介绍再多也是空谈，接下来结合具体的项目，我们优雅的配置一下。</p>
 <p>默认项目已经安装 logrus ，没有的话可以执行下如下命令：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get github.com/sirupsen/logrus</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="配置configyaml"><span>5.1 配置config.yaml</span>
+</div><h3 class="heading-element" id="配置configyaml"><span>配置config.yaml</span>
   <a href="#%e9%85%8d%e7%bd%aeconfigyaml" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>为了方便随时更改切换 log 级别或者输出格式，我们可以单独抽离出来实现配置化：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -352,18 +352,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">debug           </span><span class="w"> </span><span class="c"># 日志级别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">report_caller</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 是否开启调试</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="配置configgo"><span>5.2 配置config.go</span>
+</div><h3 class="heading-element" id="配置configgo"><span>配置config.go</span>
   <a href="#%e9%85%8d%e7%bd%aeconfiggo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>有了参数配置，还缺一步解析：</p>
 <p>具体的解析可以参考 <a href="https://vespeng.com/posts/go_practical_gin_directory_structure/#%e9%85%8d%e7%bd%aeconfig" target="_blank" rel="external nofollow noopener noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<h3 class="heading-element" id="新建loggergo"><span>5.3 新建logger.go</span>
+<h3 class="heading-element" id="新建loggergo"><span>新建logger.go</span>
   <a href="#%e6%96%b0%e5%bb%baloggergo" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>在这里我们统一配置 logrus 参数，包括日志级别，输出格式：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -450,13 +450,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="输出日志到文件"><span>5.4 输出日志到文件</span>
+</div><h3 class="heading-element" id="输出日志到文件"><span>输出日志到文件</span>
   <a href="#%e8%be%93%e5%87%ba%e6%97%a5%e5%bf%97%e5%88%b0%e6%96%87%e4%bb%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p>控制台打印日志，肯定是不满足一个项目的正常使用的，我们非常有必要将日志持久化到一个单独文件中。</p>
 <p>但是这样还不够，会存在另一个问题：日志文件会越来越大后期不利于日志排查。所以还需要对日志进行一个分割，最好的实践方式就是按天分割，所以我们接着在上述初始化文件中去做设置：</p>
-<div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -547,11 +547,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
 </div>
-</div><h3 class="heading-element" id="调用initializelogger"><span>5.5 调用InitializeLogger()</span>
+</div><h3 class="heading-element" id="调用initializelogger"><span>调用InitializeLogger()</span>
   <a href="#%e8%b0%83%e7%94%a8initializelogger" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><div class="code-block highlight" data-mode="mac" data-copyable="true" data-editable="true"><div class="chroma">
+</h3><div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -692,21 +692,21 @@
       <div class="toc">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-drawer"><nav >
-  <ol>
+  <ul>
     <li><a href="#日志级别的重要性">日志级别的重要性</a></li>
     <li><a href="#日志格式的选择">日志格式的选择</a></li>
     <li><a href="#日志输出的方式">日志输出的方式</a></li>
     <li><a href="#使用第三方日志库">使用第三方日志库</a></li>
     <li><a href="#实战">实战</a>
-      <ol>
+      <ul>
         <li><a href="#配置configyaml">配置config.yaml</a></li>
         <li><a href="#配置configgo">配置config.go</a></li>
         <li><a href="#新建loggergo">新建logger.go</a></li>
         <li><a href="#输出日志到文件">输出日志到文件</a></li>
         <li><a href="#调用initializelogger">调用InitializeLogger()</a></li>
-      </ol>
+      </ul>
     </li>
-  </ol>
+  </ul>
 </nav></div>
       </div>
     </dialog></main>
