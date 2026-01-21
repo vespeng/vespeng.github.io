@@ -9,8 +9,8 @@
   <meta itemprop="name" content="我用 Cloudflare 搭建了一个“数字分身”">
   <meta itemprop="description" content="最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。">
   <meta itemprop="datePublished" content="2026-01-13T00:25:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-20T22:08:01+08:00">
-  <meta itemprop="wordCount" content="144">
+  <meta itemprop="dateModified" content="2026-01-21T23:58:42+08:00">
+  <meta itemprop="wordCount" content="152">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Cloudflare,Ai"><meta property="og:url" content="https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2026-01-13T00:25:00+08:00">
-    <meta property="article:modified_time" content="2026-01-20T22:08:01+08:00">
+    <meta property="article:modified_time" content="2026-01-21T23:58:42+08:00">
     <meta property="article:tag" content="Cloudflare">
     <meta property="article:tag" content="Ai">
     <meta property="og:image" content="https://vespeng.com/og.png">
@@ -43,8 +43,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/posts\/build_a_digital_avatar_with_cloudflare\/"
-    },"genre": "posts","keywords": "cloudflare, ai","wordcount":  144 ,
-    "url": "https:\/\/vespeng.com\/posts\/build_a_digital_avatar_with_cloudflare\/","datePublished": "2026-01-13T00:25:00+08:00","dateModified": "2026-01-20T22:08:01+08:00","publisher": {
+    },"genre": "posts","keywords": "cloudflare, ai","wordcount":  152 ,
+    "url": "https:\/\/vespeng.com\/posts\/build_a_digital_avatar_with_cloudflare\/","datePublished": "2026-01-13T00:25:00+08:00","dateModified": "2026-01-21T23:58:42+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -149,7 +149,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>我用 Cloudflare 搭建了一个“数字分身”</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-13 00:25:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-13">2026-01-13</time></span>&nbsp;<span title="144 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="我用 Cloudflare 搭建了一个“数字分身”"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category" title="分类 - 其他"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 其他</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-13 00:25:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-13">2026-01-13</time></span>&nbsp;<span title="152 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="我用 Cloudflare 搭建了一个“数字分身”"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -160,7 +160,7 @@
   <ul>
     <li><a href="#从模板开始">从模板开始</a></li>
     <li><a href="#魔改前端">魔改前端</a></li>
-    <li><a href="#降低神经元消耗">降低神经元消耗</a></li>
+    <li><a href="#提升模型质量">提升模型质量</a></li>
     <li><a href="#自定义-prompt">自定义 Prompt</a></li>
     <li><a href="#引入-markedjs-库">引入 Marked.js 库</a></li>
     <li><a href="#整体体验">整体体验</a></li>
@@ -199,13 +199,19 @@
 </ul>
 <p>预览一下：</p>
 <p><img loading="lazy" src='/posts/build_a_digital_avatar_with_cloudflare/images/img.jpg' alt="img.jpg" height="732" width="1271"></p>
-<h2 class="heading-element" id="降低神经元消耗"><span>降低神经元消耗</span>
-  <a href="#%e9%99%8d%e4%bd%8e%e7%a5%9e%e7%bb%8f%e5%85%83%e6%b6%88%e8%80%97" class="heading-mark">
+<h2 class="heading-element" id="提升模型质量"><span>提升模型质量</span>
+  <a href="#%e6%8f%90%e5%8d%87%e6%a8%a1%e5%9e%8b%e8%b4%a8%e9%87%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>虽然 <code>llama-3.1-8b-instruct-fp8</code> 已经很小了，但在高频调用下，Workers AI 的神经元消耗还是肉眼可见地涨。于是我换成了更新的 <code>llama-4-scout-17b-16e-instruct</code> 模型，虽然总参数更大，但实际消耗的神经元更少，在推理质量和速度之间取得了极佳平衡。</p>
-<p>更重要的是，它支持 10M 上下文，足够容纳我的提示词（prompt）和对话历史。</p>
-<p>通过 Cloudflare AI Binding，一行代码就能切换模型：</p>
+</h2><p>虽然 <code>llama-3.1-8b-instruct-fp8</code> 模型神经元消耗很低，但长对话容易忘历史、回复变浅，需要频繁总结，间接增加麻烦。</p>
+<p>于是我切换到更新的 <code>@cf/meta/llama-4-scout-17b-16e-instruct</code> 模型后，输出质量大幅提升：</p>
+<ul>
+<li>回复更聪明、生动，emoji 自然，聊天像真人。</li>
+<li>长上下文（131K tokens）足够容纳我的提示词（prompt）和完整对话历史，不用截断或总结，逻辑连贯度飞升。</li>
+</ul>
+<p>神经元消耗：短对话差不多，但输出多/长轮次时会稍微拉高，不过这点额外开销完全值得 —— 分身变得非常生动，聊天乐趣和省心感完全盖过了多出的神经元消耗。</p>
+<p>如果更在意日常聊天的 “真实感” 和 “记忆力”，而不是极致省，强烈推荐 llama-4-scout 模型。</p>
+<p>通过修改 <code>MODEL_ID</code> 就能快速切换模型：</p>
 <div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
 <div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -272,8 +278,11 @@
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-01-20 22:08:01">更新于 2026-01-20&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/7185e9c1d50c4ec3666a47f086709e2eec6a10eb" rel="external nofollow noopener noreferrer" target="_blank" title="fix(blog): 修正数字头像文章中的文本错误&#10- 修复了代码哲学描述中的重复句号
-- 更新了沟通风格中关于Emoji使用的说明&#10Commit: 7185e9c1d50c4ec3666a47f086709e2eec6a10eb [7185e9c]&#10Author: vespeng&#10Date: 2026-01-20 22:08:01"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>7185e9c</a></span>
+      <div class="post-info-mod"><span title="更新于 2026-01-21 23:58:42">更新于 2026-01-21&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/d9f784e678a8a3e1a8ce6544965e7746f162446f" rel="external nofollow noopener noreferrer" target="_blank" title="feat(blog): 更新数字分身构建教程中的AI模型选择&#10- 将模型从 llama-3.1-8b-instruct-fp8 切换至 llama-4-scout-17b-16e-instruct
+- 显著提升回复质量和自然度，支持131K tokens长上下文
+- 优化神经元消耗策略，获得更好的推理质量与成本平衡
+- 移除多余的句号并调整技术人格描述
+- 添加表情符号增强交流体验&#10Commit: d9f784e678a8a3e1a8ce6544965e7746f162446f [d9f784e]&#10Author: vespeng&#10Date: 2026-01-21 23:58:42"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i>d9f784e</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
@@ -326,7 +335,7 @@
   <ul>
     <li><a href="#从模板开始">从模板开始</a></li>
     <li><a href="#魔改前端">魔改前端</a></li>
-    <li><a href="#降低神经元消耗">降低神经元消耗</a></li>
+    <li><a href="#提升模型质量">提升模型质量</a></li>
     <li><a href="#自定义-prompt">自定义 Prompt</a></li>
     <li><a href="#引入-markedjs-库">引入 Marked.js 库</a></li>
     <li><a href="#整体体验">整体体验</a></li>

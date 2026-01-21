@@ -10,7 +10,7 @@
   <meta itemprop="description" content="vespeng/llm twin chat: 由 Cloudflare Workers AI 的 llm-chat-app-template 模板深度定制的个人数字分身">
   <meta itemprop="datePublished" content="2026-01-11T08:14:31+00:00">
   <meta itemprop="dateModified" content="2026-01-20T13:50:00+00:00">
-  <meta itemprop="wordCount" content="202">
+  <meta itemprop="wordCount" content="212">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Ai,Chat"><meta property="og:url" content="https://vespeng.com/projects/vespeng/llm-twin-chat/">
   <meta property="og:site_name" content="Vespeng Space">
@@ -43,7 +43,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/projects\/vespeng\/llm-twin-chat\/"
-    },"genre": "posts","keywords": "ai, chat","wordcount":  202 ,
+    },"genre": "posts","keywords": "ai, chat","wordcount":  212 ,
     "url": "https:\/\/vespeng.com\/projects\/vespeng\/llm-twin-chat\/","datePublished": "2026-01-11T08:14:31+00:00","dateModified": "2026-01-20T13:50:00+00:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
@@ -149,7 +149,7 @@
   <article class="page single" data-adapters="projects">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>由 Cloudflare Workers AI 的 llm-chat-app-template 模板深度定制的个人数字分身</span>
       </h1><p class="single-subtitle animate__animated animate__fadeIn">来源：<a href="https://github.com/vespeng/llm-twin-chat" target="_blank" rel="external nofollow noopener noreferrer">vespeng/llm-twin-chat<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a><br>网站：<a href="https://chat.vespeng.com" target="_blank" rel="external nofollow noopener noreferrer">https://chat.vespeng.com<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/images/remote/70800087_16328852835818166780.png' alt="vespeng" height="16" width="16">&nbsp;vespeng</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-11 08:14:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-11">2026-01-11</time></span>&nbsp;<span title="202 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="由 Cloudflare Workers AI 的 llm-chat-app-template 模板深度定制的个人数字分身"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/images/remote/70800087_16328852835818166780.png' alt="vespeng" height="16" width="16">&nbsp;vespeng</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-11 08:14:31"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2026-01-11">2026-01-11</time></span>&nbsp;<span title="212 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="由 Cloudflare Workers AI 的 llm-chat-app-template 模板深度定制的个人数字分身"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
@@ -303,19 +303,23 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/
-</span></span><span class="line"><span class="cl">├── public/             # 静态资源
-</span></span><span class="line"><span class="cl">│   ├── index.html      # 聊天 UI HTML
-</span></span><span class="line"><span class="cl">│   └── chat.js         # 聊天 UI 前端脚本
-</span></span><span class="line"><span class="cl">├── src/
-</span></span><span class="line"><span class="cl">│   ├── index.ts        # 主 Worker 入口点
-</span></span><span class="line"><span class="cl">│   └── types.ts        # TypeScript 类型定义
-</span></span><span class="line"><span class="cl">├── test/               # 测试文件
-</span></span><span class="line"><span class="cl">├── wrangler.jsonc      # Cloudflare Worker 配置
-</span></span><span class="line"><span class="cl">├── tsconfig.json       # TypeScript 配置
-</span></span><span class="line"><span class="cl">└── README.md           # 此文档</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
+</span></span><span class="line"><span class="cl">├── public/                # 静态资源
+</span></span><span class="line"><span class="cl">│   ├── chat.js            # 聊天 UI 前端脚本
+</span></span><span class="line"><span class="cl">│   ├── index.html         # 聊天 UI HTML
+</span></span><span class="line"><span class="cl">│   └── styles.css         # 聊天 UI 样式
+</span></span><span class="line"><span class="cl">├── src/ 
+</span></span><span class="line"><span class="cl">│   ├── index.ts           # 主 Worker 入口点
+</span></span><span class="line"><span class="cl">│   ├── system-prompt.ts   # 系统提示词
+</span></span><span class="line"><span class="cl">│   └── types.ts           # TypeScript 类型定义
+</span></span><span class="line"><span class="cl">├── test/                  # 测试文件
+</span></span><span class="line"><span class="cl">├── wrangler.jsonc         # Cloudflare Worker 配置
+</span></span><span class="line"><span class="cl">├── tsconfig.json          # TypeScript 配置
+</span></span><span class="line"><span class="cl">└── README.md              # 此文档</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
 </div>
 </div><h2 class="heading-element" id="自定义"><span>自定义</span>
   <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89" class="heading-mark">
@@ -330,12 +334,12 @@
   <a href="#%e4%bf%ae%e6%94%b9%e7%b3%bb%e7%bb%9f%e6%8f%90%e7%a4%ba%e8%af%8d" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>可以通过更新 <code>src/index.ts</code> 中的 <code>SYSTEM_PROMPT</code> 常量来更改默认系统提示词，使其符合你的数字分身人格和行为模式。</p>
+</h3><p>可以通过更新 <code>src/system-prompt.ts</code> 来更改默认系统提示词，使其符合你的数字分身人格和行为模式。</p>
 <h3 class="heading-element" id="样式"><span>样式</span>
   <a href="#%e6%a0%b7%e5%bc%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><p>UI 样式包含在 <code>public/index.html</code> 的 <code>&lt;style&gt;</code> 部分。可以修改顶部的 CSS 变量以快速更改配色方案。</p>
+</h3><p>UI 样式包含在 <code>public/styles.css</code> 文件中。可以修改顶部的 CSS 变量以快速更改配色方案。</p>
 <h2 class="heading-element" id="资源"><span>资源</span>
   <a href="#%e8%b5%84%e6%ba%90" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>

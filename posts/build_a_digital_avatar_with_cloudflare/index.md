@@ -34,13 +34,20 @@ cd templates/llm-chat-app
 
 ![img.jpg](./images/img.jpg)
 
-## 降低神经元消耗
+## 提升模型质量
 
-虽然 `llama-3.1-8b-instruct-fp8` 已经很小了，但在高频调用下，Workers AI 的神经元消耗还是肉眼可见地涨。于是我换成了更新的 `llama-4-scout-17b-16e-instruct` 模型，虽然总参数更大，但实际消耗的神经元更少，在推理质量和速度之间取得了极佳平衡。
+虽然 `llama-3.1-8b-instruct-fp8` 模型神经元消耗很低，但长对话容易忘历史、回复变浅，需要频繁总结，间接增加麻烦。
 
-更重要的是，它支持 10M 上下文，足够容纳我的提示词（prompt）和对话历史。
+于是我切换到更新的 `@cf/meta/llama-4-scout-17b-16e-instruct` 模型后，输出质量大幅提升：
 
-通过 Cloudflare AI Binding，一行代码就能切换模型：
+- 回复更聪明、生动，emoji 自然，聊天像真人。
+- 长上下文（131K tokens）足够容纳我的提示词（prompt）和完整对话历史，不用截断或总结，逻辑连贯度飞升。
+
+神经元消耗：短对话差不多，但输出多/长轮次时会稍微拉高，不过这点额外开销完全值得 —— 分身变得非常生动，聊天乐趣和省心感完全盖过了多出的神经元消耗。
+
+如果更在意日常聊天的 “真实感” 和 “记忆力”，而不是极致省，强烈推荐 llama-4-scout 模型。
+
+通过修改 `MODEL_ID` 就能快速切换模型：
 
 ```ts
 const MODEL_ID = "@cf/meta/llama-4-scout-17b-16e-instruct";
