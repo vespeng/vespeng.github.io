@@ -175,14 +175,14 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>Cloudflare 的 <code>llm-chat-app-template</code> 是一个基于 Workers 和 Pages 的轻量级聊天应用脚手架。只需克隆官方仓库，就能部署一个支持流式响应、带 UI 的聊天页面：</p>
-<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
-<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-copyable="true"><div class="chroma">
+<div class="code-header language-bash"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/cloudflare/templates.git
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> templates/llm-chat-app</span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> templates/llm-chat-app</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>当然这里推荐从 Cloudflare 去创建，简单省心。</p>
 <p>默认情况下，它会调用 Hugging Face 上的开源模型（比如 <code>llama-3.1-8b-instruct-fp8</code>），通过 Cloudflare AI Gateway 转发请求。整个过程无需自建服务器，完全跑在边缘网络上，快且省心。</p>
@@ -212,12 +212,12 @@
 <p>神经元消耗：短对话差不多，但输出多/长轮次时会稍微拉高，不过这点额外开销完全值得 —— 分身变得非常生动，聊天乐趣和省心感完全盖过了多出的神经元消耗。</p>
 <p>如果更在意日常聊天的 “真实感” 和 “记忆力”，而不是极致省，强烈推荐 llama-4-scout 模型。</p>
 <p>通过修改 <code>MODEL_ID</code> 就能快速切换模型：</p>
-<div class="code-block highlight" data-mode="simple" data-copyable="true"><div class="chroma">
-<div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<div class="code-block highlight" data-mode="classic" data-copyable="true"><div class="chroma">
+<div class="code-header language-ts"><span class="code-title"><i class="arrow fa-solid fa-chevron-down fa-fw" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h fa-fw" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone fa-fw" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="1" style="--fi-max-shown-lines:25;--fi-line-digit:1;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MODEL_ID</span> <span class="o">=</span> <span class="s2">&#34;@cf/meta/llama-4-scout-17b-16e-instruct&#34;</span><span class="p">;</span></span></span></code></pre></td></tr></table></div><div class="code-copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></div>
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MODEL_ID</span> <span class="o">=</span> <span class="s2">&#34;@cf/meta/llama-4-scout-17b-16e-instruct&#34;</span><span class="p">;</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><h2 class="heading-element" id="自定义-prompt"><span>自定义 Prompt</span>
   <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89-prompt" class="heading-mark">
