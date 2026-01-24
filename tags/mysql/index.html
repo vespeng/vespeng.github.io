@@ -9,7 +9,7 @@
   <meta itemprop="name" content="Mysql">
   <meta itemprop="description" content="不止于代码，更有沿途的风景与思考">
   <meta itemprop="datePublished" content="2025-03-20T23:50:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-23T13:01:18+00:00">
+  <meta itemprop="dateModified" content="2026-01-24T07:22:25+00:00">
   <meta itemprop="image" content="https://vespeng.com/og.png"><meta property="og:url" content="https://vespeng.com/tags/mysql/">
   <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Mysql">
@@ -123,7 +123,7 @@
   </nav><main class="fi-container"><div class="page archive"><h1 class="single-title animate__animated animate__pulse animate__faster"><i class="fa-solid fa-tag fa-fw me-1" aria-hidden="true"></i>Mysql <sup>3</sup>
     </h1><h2 class="group-title"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i>最近更新</h2><article class="archive-item">
           <a href="/projects/vespeng/vespeng.github.io/" class="archive-item-link">vespeng/vespeng.github.io</a>
-          <span class="archive-item-date" title='2026-01-23 13:01:18'>更新于 01-23</span>
+          <span class="archive-item-date" title='2026-01-24 07:22:25'>更新于 01-24</span>
         </article><article class="archive-item">
           <a href="/projects/vespeng/hotel-mis/" class="archive-item-link">vespeng/hotel-mis</a>
           <span class="archive-item-date" title='2026-01-15 12:48:33'>更新于 01-15</span>
@@ -146,6 +146,8 @@
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
+    let filterStyle = '';
+
     if (
         (month === 9 && day === 18) ||  
         (month === 12 && day === 13)    
@@ -160,46 +162,48 @@
 
 
 
+
 <script >
-  (function () {
-    const header = document.getElementById('header-desktop');
-    if (!header) return;
+    (function () {
+        const header = document.getElementById('header-desktop');
+        if (!header) return;
 
-    let lastScrollY = window.scrollY;
-    let lastShowScrollY = lastScrollY; 
-    const HIDE_THRESHOLD = 720; 
-    let t = null;
+        let lastScrollY = window.scrollY;
+        let lastShowScrollY = lastScrollY; 
+        const HIDE_THRESHOLD = 720; 
+        let t = null;
 
-    const updateHeader = () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY;
+        const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            const isScrollingDown = currentScrollY > lastScrollY;
 
-      
-      if (isScrollingDown) {
+            
+            if (isScrollingDown) {
+                
+                if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
+                    header.classList.add('hidden-header');
+                }
+            } else {
+                
+                header.classList.remove('hidden-header');
+                lastShowScrollY = currentScrollY;
+            }
+
+            lastScrollY = currentScrollY;
+            t = null;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!t) {
+                t = setTimeout(updateHeader, 16);
+            }
+        }, { passive: true });
+
         
-        if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
-          header.classList.add('hidden-header');
-        }
-      } else {
-        
-        header.classList.remove('hidden-header');
-        lastShowScrollY = currentScrollY;
-      }
-
-      lastScrollY = currentScrollY;
-      t = null;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!t) {
-        t = setTimeout(updateHeader, 16);
-      }
-    }, { passive: true });
-
-    
-    updateHeader();
-  })();
-</script><footer class="footer">
+        updateHeader();
+    })();
+</script>
+<footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.5">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.2-20260109063229-50d27e0e">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">

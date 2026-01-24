@@ -10,7 +10,7 @@
   <meta itemprop="name" content="Vespeng Space">
   <meta itemprop="description" content="不止于代码，更有沿途的风景与思考">
   <meta itemprop="datePublished" content="2026-01-13T00:25:00+08:00">
-  <meta itemprop="dateModified" content="2026-01-23T13:01:18+00:00">
+  <meta itemprop="dateModified" content="2026-01-24T07:22:25+00:00">
   <meta itemprop="image" content="https://vespeng.com/og.png"><meta property="og:url" content="https://vespeng.com/archives/">
   <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Vespeng Space">
@@ -159,6 +159,8 @@
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
+    let filterStyle = '';
+
     if (
         (month === 9 && day === 18) ||  
         (month === 12 && day === 13)    
@@ -173,46 +175,48 @@
 
 
 
+
 <script >
-  (function () {
-    const header = document.getElementById('header-desktop');
-    if (!header) return;
+    (function () {
+        const header = document.getElementById('header-desktop');
+        if (!header) return;
 
-    let lastScrollY = window.scrollY;
-    let lastShowScrollY = lastScrollY; 
-    const HIDE_THRESHOLD = 720; 
-    let t = null;
+        let lastScrollY = window.scrollY;
+        let lastShowScrollY = lastScrollY; 
+        const HIDE_THRESHOLD = 720; 
+        let t = null;
 
-    const updateHeader = () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY;
+        const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            const isScrollingDown = currentScrollY > lastScrollY;
 
-      
-      if (isScrollingDown) {
+            
+            if (isScrollingDown) {
+                
+                if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
+                    header.classList.add('hidden-header');
+                }
+            } else {
+                
+                header.classList.remove('hidden-header');
+                lastShowScrollY = currentScrollY;
+            }
+
+            lastScrollY = currentScrollY;
+            t = null;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!t) {
+                t = setTimeout(updateHeader, 16);
+            }
+        }, { passive: true });
+
         
-        if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
-          header.classList.add('hidden-header');
-        }
-      } else {
-        
-        header.classList.remove('hidden-header');
-        lastShowScrollY = currentScrollY;
-      }
-
-      lastScrollY = currentScrollY;
-      t = null;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!t) {
-        t = setTimeout(updateHeader, 16);
-      }
-    }, { passive: true });
-
-    
-    updateHeader();
-  })();
-</script><footer class="footer">
+        updateHeader();
+    })();
+</script>
+<footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.5">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.2-20260109063229-50d27e0e">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">

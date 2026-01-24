@@ -205,6 +205,8 @@
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
+    let filterStyle = '';
+
     if (
         (month === 9 && day === 18) ||  
         (month === 12 && day === 13)    
@@ -219,46 +221,48 @@
 
 
 
+
 <script >
-  (function () {
-    const header = document.getElementById('header-desktop');
-    if (!header) return;
+    (function () {
+        const header = document.getElementById('header-desktop');
+        if (!header) return;
 
-    let lastScrollY = window.scrollY;
-    let lastShowScrollY = lastScrollY; 
-    const HIDE_THRESHOLD = 720; 
-    let t = null;
+        let lastScrollY = window.scrollY;
+        let lastShowScrollY = lastScrollY; 
+        const HIDE_THRESHOLD = 720; 
+        let t = null;
 
-    const updateHeader = () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY;
+        const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            const isScrollingDown = currentScrollY > lastScrollY;
 
-      
-      if (isScrollingDown) {
+            
+            if (isScrollingDown) {
+                
+                if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
+                    header.classList.add('hidden-header');
+                }
+            } else {
+                
+                header.classList.remove('hidden-header');
+                lastShowScrollY = currentScrollY;
+            }
+
+            lastScrollY = currentScrollY;
+            t = null;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!t) {
+                t = setTimeout(updateHeader, 16);
+            }
+        }, { passive: true });
+
         
-        if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
-          header.classList.add('hidden-header');
-        }
-      } else {
-        
-        header.classList.remove('hidden-header');
-        lastShowScrollY = currentScrollY;
-      }
-
-      lastScrollY = currentScrollY;
-      t = null;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!t) {
-        t = setTimeout(updateHeader, 16);
-      }
-    }, { passive: true });
-
-    
-    updateHeader();
-  })();
-</script><footer class="footer">
+        updateHeader();
+    })();
+</script>
+<footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.154.5">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.2-20260109063229-50d27e0e">FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
