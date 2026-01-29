@@ -4,20 +4,12 @@
     <title>其他 - 分类 - Vespeng Space</title>
     <link>https://vespeng.com/categories/%E5%85%B6%E4%BB%96/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.154.5 &amp; FixIt v0.4.2-20260109063229-50d27e0e</generator>
+    <generator>Hugo 0.155.0 &amp; FixIt v0.4.2-20260109063229-50d27e0e</generator>
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 21 Jan 2026 23:58:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Jan 2026 22:16:21 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>我用 Cloudflare 搭建了一个“数字分身”</title>
-      <link>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</link>
-      <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</guid>
-      <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
-      <description>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
-    </item>
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
       <link>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</link>
@@ -26,14 +18,6 @@
       <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
       <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
       <description>起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。</description>
-    </item>
-    <item>
-      <title>为什么大模型训练依赖 GPU 而不是 CPU</title>
-      <link>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</link>
-      <pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</guid>
-      <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
-      <description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
     </item>
   </channel>
 </rss>

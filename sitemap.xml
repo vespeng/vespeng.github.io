@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vespeng.com/tags/ai/</loc>
-    <lastmod>2026-01-26T15:55:12+00:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/categories/</loc>
-    <lastmod>2026-01-21T23:58:42+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/cloudflare/</loc>
-    <lastmod>2026-01-21T23:58:42+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/posts/</loc>
-    <lastmod>2026-01-21T23:58:42+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2026-01-21T23:58:42+08:00</lastmod>
+    <loc>https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</loc>
-    <lastmod>2026-01-21T23:58:42+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -103,6 +103,12 @@
   </url>
   <url>
     <loc>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</loc>
+    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.com/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2026-01-12T22:16:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -222,7 +228,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/mysql/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -305,7 +311,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/golang/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -328,7 +334,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -424,30 +430,30 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/html/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/hugo/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/markdown/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/projects/vespeng/vespeng.github.io/</loc>
-    <lastmod>2026-01-27T13:18:41+00:00</lastmod>
+    <lastmod>2026-01-27T13:26:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
     <loc>https://vespeng.com/projects/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-01-29T21:58:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
