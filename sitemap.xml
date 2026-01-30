@@ -26,13 +26,13 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -144,7 +144,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/gin/</loc>
-    <lastmod>2026-01-27T10:31:35+00:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -228,7 +228,7 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/mysql/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
+    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -311,24 +311,24 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/golang/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/logrus/</loc>
-    <lastmod>2026-01-27T10:31:35+00:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/projects/vespeng/gin-pathway/</loc>
-    <lastmod>2026-01-27T10:31:35+00:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/xorm/</loc>
-    <lastmod>2026-01-27T10:31:35+00:00</lastmod>
+    <lastmod>2026-01-30T02:46:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -427,29 +427,6 @@
     <lastmod>2025-11-08T19:56:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/html/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/hugo/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/markdown/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/projects/vespeng/vespeng.github.io/</loc>
-    <lastmod>2026-01-29T13:58:28+00:00</lastmod>
-    <priority>0</priority>
   </url>
   <url>
     <loc>https://vespeng.com/projects/</loc>
