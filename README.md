@@ -15,6 +15,7 @@
 
 ### 2026
 
+- 02-06 [Fiber 3.0 初探：更快、更轻、更现代](https://vespeng.com/posts/fiber_3_0_preview/)
 - 01-13 [我用 Cloudflare 搭建了一个“数字分身”](https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/)
 
 ### 2025

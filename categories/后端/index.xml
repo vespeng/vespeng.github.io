@@ -8,8 +8,16 @@
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Mon, 12 Jan 2026 22:16:21 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 00:15:23 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fiber 3.0 初探：更快、更轻、更现代</title>
+      <link>https://vespeng.com/posts/fiber_3_0_preview/</link>
+      <pubDate>Fri, 06 Feb 2026 00:15:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <guid>https://vespeng.com/posts/fiber_3_0_preview/</guid>
+      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <description>前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。</description>
+    </item>
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
       <link>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</link>
