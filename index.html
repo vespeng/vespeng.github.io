@@ -132,7 +132,84 @@
     </a><a href="https://www.zhihu.com/people/vespeng-liu" title="知乎" target="_blank" rel="external nofollow noopener noreferrer me"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24"><path fill="#000" d="M5.721.0C2.251.0.0 2.25.0 5.719V18.28C0 21.751 2.252 24 5.721 24h12.56C21.751 24 24 21.75 24 18.281V5.72C24 2.249 21.75.0 18.281.0zm1.964 4.078q-.408 1.096-.68 2.11h4.587c.545-.006.445 1.168.445 1.171H9.384a58 58 0 01-.112 3.797h2.712c.388.023.393 1.251.393 1.266H9.183a9.2 9.2.0 01-.408 2.102l.757-.604c.452.456 1.512 1.712 1.906 2.177.473.681.063 2.081.063 2.081l-2.794-3.382c-.653 2.518-1.845 3.607-1.845 3.607-.523.468-1.58.82-2.64.516 2.218-1.73 3.44-3.917 3.667-6.497H4.491c0-.015.197-1.243.806-1.266h2.71c.024-.32.086-3.254.086-3.797H6.598c-.136.406-.158.447-.268.753-.594 1.095-1.603 1.122-1.907 1.155.906-1.821 1.416-3.6 1.591-4.064.425-1.124 1.671-1.125 1.671-1.125M13.078 6h6.377v11.33h-2.573l-2.184 1.373-.401-1.373h-1.219zm1.313 1.219v8.86h.623l.263.937 1.455-.938h1.456v-8.86z"/></svg>
     </a><a href="https://juejin.cn/user/3903735809971451" title="稀土掘金" target="_blank" rel="external nofollow noopener noreferrer me"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24"><path fill="currentColor" d="m12 14.316 7.454-5.88-2.022-1.625L12 11.1l-.004.003-5.432-4.288-2.02 1.624 7.452 5.88zm0-7.247 2.89-2.298L12 2.453l-.004-.005-2.884 2.318 2.884 2.3zm0 11.266-.005.002-9.975-7.87L0 12.088l.194.156 11.803 9.308 7.463-5.885L24 12.085l-2.023-1.624z"/></svg>
     </a><a href="mailto:vespeng.liu@outlook.com" title="Email" target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-regular fa-envelope fa-fw" aria-hidden="true"></i>
-    </a></div></div>
+    </a></div>
+<style>
+    .scroll-down-wrapper {
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        z-index: 10;
+        opacity: 1;
+        transition: opacity 0.4s ease;
+    }
+
+    .scroll-down-wrapper.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .scroll-down {
+        display: inline-block;
+    }
+
+    .scroll-down i {
+        display: inline-block;
+        color: var(--text-color);
+        animation: bounce 2s infinite ease-in-out;
+    }
+</style>
+
+
+<div class="scroll-down-wrapper" id="scrollDownWrapper">
+    <a href="/" class="scroll-down" aria-label="向下滚动查看更多內容">
+        <i class="fas fa-chevron-down fa-lg"></i>
+    </a>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollButton = document.querySelector('.scroll-down');
+        const scrollWrapper = document.getElementById('scrollDownWrapper');
+
+        
+        const firstScreenThreshold = 50;
+
+        
+        function handleScroll() {
+            if (window.scrollY > firstScreenThreshold) {
+                scrollWrapper.classList.add('hidden'); 
+            } else {
+                scrollWrapper.classList.remove('hidden'); 
+            }
+        }
+
+        
+        handleScroll();
+
+        
+        window.addEventListener('scroll', handleScroll);
+
+        
+        if (scrollButton) {
+            scrollButton.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                
+                if (window.scrollY <= firstScreenThreshold) {
+                    const scrollAmount = window.innerHeight; 
+
+                    window.scrollBy({
+                        top: scrollAmount,
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    });
+</script>
+</div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/fiber_3_0_preview/">Fiber 3.0 初探：更快、更轻、更现代</a>
   </h2><div class="post-meta"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span>&nbsp;<span class="post-publish" title='2026-02-06 00:15:00'>发布于 <time datetime="2026-02-06">2026-02-06</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder" aria-hidden="true"></i> 后端</a></span></div><div class="content">前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。</div><div class="post-footer">
     <a href="/posts/fiber_3_0_preview/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags me-1" aria-hidden="true"></i><a href='/tags/go/' class="post-tag">Go</a><a href='/tags/fiber/' class="post-tag">Fiber</a></div></div>
@@ -197,14 +274,14 @@
     }
 </script>
 
-<script >
+<script>
     (function () {
         const header = document.getElementById('header-desktop');
         if (!header) return;
 
         let lastScrollY = window.scrollY;
         let lastShowScrollY = lastScrollY; 
-        const HIDE_THRESHOLD = 720; 
+        const HIDE_THRESHOLD = window.innerHeight + 5; 
         let t = null;
 
         const updateHeader = () => {
@@ -237,6 +314,243 @@
         updateHeader();
     })();
 </script>
+
+<style>
+    .lantern-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+     
+    .lantern {
+        position: absolute;
+        top: 100px;
+         
+        width: 140px;
+        height: 115px;
+        background: radial-gradient(circle at 50% 40%, #ff4d4d, #e60000 70%, #b30000);
+        border-radius: 50%;
+
+         
+        box-shadow:
+            0 0 60px 20px rgba(255, 0, 0, 0.4),
+             
+            0 0 100px 40px rgba(255, 50, 0, 0.2),
+             
+            inset 0 0 40px rgba(0, 0, 0, 0.25);
+
+        animation: swing 4s infinite ease-in-out;
+        transform-origin: 50% -100px;
+         
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+     
+    .lantern-lines {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .lantern-lines::before,
+    .lantern-lines::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        border-radius: 50%;
+        box-shadow: inset 0 0 2px rgba(255, 215, 0, 0.3);
+    }
+
+    .lantern-lines::before {
+        width: 35%;
+    }
+
+    .lantern-lines::after {
+        width: 75%;
+    }
+
+     
+    .lantern-cap {
+        position: absolute;
+        width: 60px;
+        height: 14px;
+        background: linear-gradient(to right, #b8860b, #ffd700, #ffec8b, #ffd700, #b8860b);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        border-radius: 4px;
+    }
+
+    .cap-top {
+        top: -8px;
+    }
+
+    .cap-bottom {
+        bottom: -8px;
+    }
+
+     
+    .rope {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        width: 2px;
+        height: 100px;
+        background: #444;
+        transform: translateX(-50%);
+    }
+
+     
+    .tassel-wrapper {
+        position: absolute;
+        bottom: -95px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        animation: tassel-swing 4s infinite ease-in-out;
+        transform-origin: 50% -10px;
+    }
+
+    .tassel-knot {
+        width: 10px;
+         
+        height: 10px;
+        background: #b8860b;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    .tassel-hairs {
+        width: 30px;
+        height: 90px;
+        margin-top: -1px;
+        background:
+             
+            linear-gradient(to right,
+                rgba(165, 42, 42, 0.3) 0%,
+                rgba(255, 236, 139, 0.4) 40%,
+                rgba(255, 236, 139, 0.4) 60%,
+                rgba(165, 42, 42, 0.3) 100%),
+             
+            repeating-linear-gradient(90deg,
+                #e6c300 0px, #e6c300 1px,
+                 
+                #c20000 2px, #c20000 3px
+                 
+            );
+        -webkit-mask-image: linear-gradient(to bottom,
+                black 0%,
+                black 75%,
+                transparent 100%);
+        mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+         
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.25);
+    }
+
+    .lantern-text {
+        font-size: 58px;
+        font-weight: bold;
+        color: #ffd700;
+        font-family: "STKaiti", "KaiTi", serif;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        z-index: 4;
+        user-select: none;
+        padding-bottom: 5px;
+    }
+
+    .lantern.left {
+        left: 8%;
+    }
+
+    .lantern.right {
+        right: 8%;
+    }
+
+    @keyframes swing {
+
+        0%,
+        100% {
+            transform: rotate(-3deg);
+        }
+
+        50% {
+            transform: rotate(3deg);
+        }
+    }
+
+    @keyframes tassel-swing {
+
+        0%,
+        100% {
+            transform: translateX(-50%) rotate(-6deg);
+        }
+
+        50% {
+            transform: translateX(-50%) rotate(6deg);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .lantern {
+            width: 110px;
+            height: 90px;
+            top: 80px;
+        }
+
+        .rope {
+            height: 80px;
+            top: -80px;
+        }
+
+        .lantern-text {
+            font-size: 42px;
+        }
+
+        .tassel-hairs {
+            height: 70px;
+            width: 25px;
+        }
+    }
+</style>
+
+<div class="lantern-wrapper">
+    <div class="lantern left">
+        <div class="rope"></div>
+        <div class="lantern-cap cap-top"></div>
+        <div class="lantern-lines"></div>
+        <div class="lantern-text">福</div>
+        <div class="lantern-cap cap-bottom"></div>
+        <div class="tassel-wrapper">
+            <div class="tassel-knot"></div>
+            <div class="tassel-hairs"></div>
+        </div>
+    </div>
+
+    <div class="lantern right">
+        <div class="rope"></div>
+        <div class="lantern-cap cap-top"></div>
+        <div class="lantern-lines"></div>
+        <div class="lantern-text">福</div>
+        <div class="lantern-cap cap-bottom"></div>
+        <div class="tassel-wrapper">
+            <div class="tassel-knot"></div>
+            <div class="tassel-hairs"></div>
+        </div>
+    </div>
+</div>
 <div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.155.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.3-20260130042349-e23a50d7"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
