@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Fiber 3.0 初探：更快、更轻、更现代 - Vespeng Notes</title><meta name="author" content="Vespeng">
+    <title>Fiber 3.0 初探：更快、更轻、更现代 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
 <meta name="description" content="前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。"><meta name="keywords" content='go, fiber'>
   <meta itemprop="name" content="Fiber 3.0 初探：更快、更轻、更现代">
   <meta itemprop="description" content="前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。">
@@ -13,7 +13,7 @@
   <meta itemprop="wordCount" content="431">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Fiber"><meta property="og:url" content="https://vespeng.com/posts/fiber_3_0_preview/">
-  <meta property="og:site_name" content="Vespeng Notes">
+  <meta property="og:site_name" content="Vespeng&#39;s Blog">
   <meta property="og:title" content="Fiber 3.0 初探：更快、更轻、更现代">
   <meta property="og:description" content="前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。">
   <meta property="og:locale" content="zh_cn">
@@ -29,10 +29,10 @@
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Fiber 3.0 初探：更快、更轻、更现代">
   <meta name="twitter:description" content="前两天在逛 GitHub 的时候，突然刷到之前一直关注的 Fiber 框架正式发布了 3.0 版本。但是因为网上风评忽冷忽热，尤其是基于 fasthttp 被诟病，之前项目里没有去深度使用。这次 v3.0 发布，正好上手体验一下，看看它在保持极致性能的同时，到底把体验做到了什么程度。">
-<meta name="application-name" content="Vespeng Notes">
-<meta name="apple-mobile-web-app-title" content="Vespeng Notes"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Vespeng&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/fiber_3_0_preview/" title="Fiber 3.0 初探：更快、更轻、更现代 - Vespeng Notes" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/" title="我用 Cloudflare 搭建了一个“数字分身”" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/fiber_3_0_preview/index.md" title="Fiber 3.0 初探：更快、更轻、更现代 - Vespeng Notes"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/fiber_3_0_preview/" title="Fiber 3.0 初探：更快、更轻、更现代 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/" title="我用 Cloudflare 搭建了一个“数字分身”" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/fiber_3_0_preview/index.md" title="Fiber 3.0 初探：更快、更轻、更现代 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -55,7 +55,7 @@
   <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng Notes"><span class="header-title-text">Vespeng Notes</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -92,7 +92,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng Notes"><span class="header-title-text">Vespeng Notes</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
       <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
@@ -143,7 +143,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Notes">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Fiber 3.0 初探：更快、更轻、更现代</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Fiber 3.0 初探：更快、更轻、更现代</li>
     </ol>
   </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
