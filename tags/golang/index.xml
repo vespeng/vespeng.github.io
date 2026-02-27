@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang - 标签 - Vespeng Space</title>
+    <title>Golang - 标签 - Vespeng Notes</title>
     <link>https://vespeng.com/tags/golang/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.156.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
+    <generator>Hugo 0.157.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
