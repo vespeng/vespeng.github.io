@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go-SJSON 组件，JSON 动态修改新方案 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+    <title>Go-SJSON 组件，JSON 动态修改新方案 - Vespeng Space</title><meta name="author" content="Vespeng">
 <meta name="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。"><meta name="keywords" content='go, json'>
   <meta itemprop="name" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta itemprop="description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
@@ -13,7 +13,7 @@
   <meta itemprop="wordCount" content="345">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Json"><meta property="og:url" content="https://vespeng.com/posts/go_sjson_component/">
-  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta property="og:description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
   <meta property="og:locale" content="zh_cn">
@@ -29,10 +29,10 @@
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Go-SJSON 组件，JSON 动态修改新方案">
   <meta name="twitter:description" content="在Go语言 json 处理领域，在 json 数据处理中，读取与修改是两个核心需求。前文介绍的 GJSON 解决了灵活读取问题，而 SJSON 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。">
-<meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Vespeng Space">
+<meta name="apple-mobile-web-app-title" content="Vespeng Space"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势" /><link rel="next" type="text/html" href="https://vespeng.com/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/go_sjson_component/index.md" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/go_sjson_component/" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng Space" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/go_gjson_component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势" /><link rel="next" type="text/html" href="https://vespeng.com/posts/mysql_config_and_command/" title="MySQL 8.0 解压安装版配置文件及参数命令" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/go_sjson_component/index.md" title="Go-SJSON 组件，JSON 动态修改新方案 - Vespeng Space"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -55,7 +55,7 @@
   <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -92,7 +92,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
       <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
       <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
@@ -143,7 +143,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go-SJSON 组件，JSON 动态修改新方案</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go-SJSON 组件，JSON 动态修改新方案</li>
     </ol>
   </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 

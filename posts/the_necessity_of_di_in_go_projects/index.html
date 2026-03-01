@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+    <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng Space</title><meta name="author" content="Vespeng">
 <meta name="description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。"><meta name="keywords" content='go, gin, di, wire, dig'>
   <meta itemprop="name" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
   <meta itemprop="description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
@@ -13,7 +13,7 @@
   <meta itemprop="wordCount" content="1118">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Di,Wire,Dig"><meta property="og:url" content="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/">
-  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
   <meta property="og:description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
   <meta property="og:locale" content="zh_cn">
@@ -32,10 +32,10 @@
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析">
   <meta name="twitter:description" content="在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。">
-<meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Vespeng Space">
+<meta name="apple-mobile-web-app-title" content="Vespeng Space"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/the_best_practice_of_go_embed/" title="Go Embed 实战：简化部署与静态资源管理" /><link rel="next" type="text/html" href="https://vespeng.com/projects/vespeng/multi-device-preview/" title="Go 语言开发的多设备预览图生成命令行工具" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/index.md" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng Space" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/the_best_practice_of_go_embed/" title="Go Embed 实战：简化部署与静态资源管理" /><link rel="next" type="text/html" href="https://vespeng.com/projects/vespeng/multi-device-preview/" title="Go 语言开发的多设备预览图生成命令行工具" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/the_necessity_of_di_in_go_projects/index.md" title="Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析 - Vespeng Space"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -58,7 +58,7 @@
   <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
       <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
       <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
@@ -146,7 +146,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</li>
     </ol>
   </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 

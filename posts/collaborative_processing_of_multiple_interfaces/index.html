@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Go 并发实战：利用协程处理多个接口数据 - Vespeng&#39;s Blog</title><meta name="author" content="Vespeng">
+    <title>Go 并发实战：利用协程处理多个接口数据 - Vespeng Space</title><meta name="author" content="Vespeng">
 <meta name="description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。"><meta name="keywords" content='go, 并发, 协程'>
   <meta itemprop="name" content="Go 并发实战：利用协程处理多个接口数据">
   <meta itemprop="description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。">
@@ -13,7 +13,7 @@
   <meta itemprop="wordCount" content="226">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,并发,协程"><meta property="og:url" content="https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/">
-  <meta property="og:site_name" content="Vespeng&#39;s Blog">
+  <meta property="og:site_name" content="Vespeng Space">
   <meta property="og:title" content="Go 并发实战：利用协程处理多个接口数据">
   <meta property="og:description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。">
   <meta property="og:locale" content="zh_cn">
@@ -30,10 +30,10 @@
   <meta name="twitter:image" content="https://vespeng.com/og.png">
   <meta name="twitter:title" content="Go 并发实战：利用协程处理多个接口数据">
   <meta name="twitter:description" content="高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。Go 语言，以其强大的并发特性，为我们提供了优雅而高效的解决方案。那么我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。">
-<meta name="application-name" content="Vespeng&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Vespeng&#39;s Blog"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="application-name" content="Vespeng Space">
+<meta name="apple-mobile-web-app-title" content="Vespeng Space"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/" title="Go 并发实战：利用协程处理多个接口数据 - Vespeng&#39;s Blog" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/" title="Go 并发的核心机制解读" /><link rel="next" type="text/html" href="https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数值类型（踩坑）" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/index.md" title="Go 并发实战：利用协程处理多个接口数据 - Vespeng's Blog"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/" title="Go 并发实战：利用协程处理多个接口数据 - Vespeng Space" /><link rel="prev" type="text/html" href="https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/" title="Go 并发的核心机制解读" /><link rel="next" type="text/html" href="https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/" title="Json.Unmarshal 解析数值类型（踩坑）" /><link rel="alternate" type="text/markdown" href="https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/index.md" title="Go 并发实战：利用协程处理多个接口数据 - Vespeng Space"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -56,7 +56,7 @@
   <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -93,7 +93,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Vespeng&#39;s Blog"><span class="header-title-text">Vespeng&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="Vespeng Space"><span class="header-title-text">Vespeng Space</span></a><span class="header-subtitle"></span></div>
       <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
       <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
@@ -144,7 +144,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng&#39;s Blog">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 并发实战：利用协程处理多个接口数据</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 并发实战：利用协程处理多个接口数据</li>
     </ol>
   </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
