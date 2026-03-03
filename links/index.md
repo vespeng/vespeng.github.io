@@ -21,5 +21,5 @@ description: 不止于代码，更有沿途的风景与思考
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/friends/  
+> URL: https://vespeng.com/links/  
 
