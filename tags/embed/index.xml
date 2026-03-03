@@ -8,22 +8,21 @@
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Mon, 12 Jan 2026 22:16:21 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 22:33:58 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/embed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
-      <link>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</link>
+      <link>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</link>
       <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</guid>
-      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      <category domain="https://vespeng.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      <guid>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</guid>
+      <category domain="https://vespeng.com/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</category>
       <description>起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。</description>
     </item>
     <item>
       <title>Go Embed 实战：简化部署与静态资源管理</title>
-      <link>https://vespeng.com/posts/the_best_practice_of_go_embed/</link>
+      <link>https://vespeng.com/archives/the-best-practice-of-go-embed/</link>
       <pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/posts/the_best_practice_of_go_embed/</guid>
+      <guid>https://vespeng.com/archives/the-best-practice-of-go-embed/</guid>
       <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
       <description>在 Go 语言生态中，资源文件管理一直是个痛点。Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件，极大地简化了部署流程。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
     </item>

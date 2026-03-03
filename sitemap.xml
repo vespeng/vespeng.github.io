@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vespeng.com/archives/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://vespeng.com/categories/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/fiber/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/fiber_3_0_preview/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
+    <loc>https://vespeng.com/archives/fiber-3-0-preview/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/go/</loc>
-    <lastmod>2026-02-17T06:20:07+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/posts/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/</loc>
-    <lastmod>2026-02-26T14:32:48+00:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/</loc>
-    <lastmod>2026-02-26T14:32:48+00:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/ai/</loc>
-    <lastmod>2026-02-26T14:32:48+00:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/cloudflare/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/build_a_digital_avatar_with_cloudflare/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <loc>https://vespeng.com/archives/build-a-digital-avatar-with-cloudflare/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -84,44 +84,44 @@
     <priority>0</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/2025_review/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <loc>https://vespeng.com/archives/2025-review/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <loc>https://vespeng.com/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/chromedp/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/embed/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/image/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/multi_device_preview_drawing_gen_tool_with_go/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -144,133 +144,133 @@
   </url>
   <url>
     <loc>https://vespeng.com/tags/di/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/dig/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/gin/</loc>
-    <lastmod>2026-02-01T04:55:51+00:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/the_necessity_of_di_in_go_projects/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/the-necessity-of-di-in-go-projects/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/wire/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/the_best_practice_of_go_embed/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/the-best-practice-of-go-embed/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_algorithm_implementation_example/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-algorithm-implementation-example/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/collections/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_practice_implementing_jwt_auth_middleware/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-practice-implementing-jwt-auth-middleware/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/jwt/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/redis/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_development_job_interview/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-development-job-interview/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/collections/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/mysql/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/mysql_config_and_command/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <loc>https://vespeng.com/archives/mysql-config-and-command/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_sjson_component/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-sjson-component/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/json/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_gjson_component/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-gjson-component/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -345,86 +345,86 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/why_ai_needs_gpu_not_cpu/</loc>
-    <lastmod>2026-01-29T21:58:57+08:00</lastmod>
+    <loc>https://vespeng.com/archives/why-ai-needs-gpu-not-cpu/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_practical_global_exception_handling/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-practical-global-exception-handling/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/panic/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_practical_multi_environment_development/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-practical-multi-environment-development/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_practical_processing_log/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-practical-processing-log/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/log/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_practical_gin_directory_structure/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-practical-gin-directory-structure/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/json_unmarshall_parsing_numeric_types/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/json-unmarshall-parsing-numeric-types/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/collaborative_processing_of_multiple_interfaces/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/collaborative-processing-of-multiple-interfaces/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://vespeng.com/tags/%E5%8D%8F%E7%A8%8B/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/the_core_mechanism_of_go_concurrency/</loc>
-    <lastmod>2026-01-12T22:16:21+08:00</lastmod>
+    <loc>https://vespeng.com/archives/the-core-mechanism-of-go-concurrency/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/posts/go_development_environment/</loc>
-    <lastmod>2026-01-02T17:48:10+08:00</lastmod>
+    <loc>https://vespeng.com/archives/go-development-environment/</loc>
+    <lastmod>2026-03-03T22:33:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
