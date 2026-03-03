@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 03 Mar 2026 23:02:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 23:04:00 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/log/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目实战：如何优雅的处理日志</title>

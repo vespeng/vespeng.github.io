@@ -9,7 +9,7 @@
   <meta itemprop="name" content="利用周末写一个小工具：多设备预览图生成">
   <meta itemprop="description" content="起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。">
   <meta itemprop="datePublished" content="2025-12-14T20:00:00+08:00">
-  <meta itemprop="dateModified" content="2026-03-03T23:02:24+08:00">
+  <meta itemprop="dateModified" content="2026-03-03T23:04:00+08:00">
   <meta itemprop="wordCount" content="275">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Chromedp,Image,Embed"><meta property="og:url" content="https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-12-14T20:00:00+08:00">
-    <meta property="article:modified_time" content="2026-03-03T23:02:24+08:00">
+    <meta property="article:modified_time" content="2026-03-03T23:04:00+08:00">
     <meta property="article:tag" content="Go">
     <meta property="article:tag" content="Chromedp">
     <meta property="article:tag" content="Image">
@@ -46,7 +46,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/archives\/multi-device-preview-drawing-gen-tool-with-go\/"
     },"genre": "posts","keywords": "go, chromedp, image, embed","wordcount":  275 ,
-    "url": "https:\/\/vespeng.com\/archives\/multi-device-preview-drawing-gen-tool-with-go\/","datePublished": "2025-12-14T20:00:00+08:00","dateModified": "2026-03-03T23:02:24+08:00","publisher": {
+    "url": "https:\/\/vespeng.com\/archives\/multi-device-preview-drawing-gen-tool-with-go\/","datePublished": "2025-12-14T20:00:00+08:00","dateModified": "2026-03-03T23:04:00+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -402,17 +402,32 @@
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-03-03 23:02:24">更新于 2026-03-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/f8c565ed00695a0caa27b266d71c0be296beda41" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(config): 调整菜单标识符和链接路径&#10将标签(tags)和合集(collections)的菜单项标识符进行互换，
-使标签对应 /tags/ 路径，合集对应 /collections/ 路径
+      <div class="post-info-mod"><span title="更新于 2026-03-03 23:04:00">更新于 2026-03-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/72d4c6b17d7dfb337438555431fe7481996c5b75" rel="external nofollow noopener noreferrer" target="_blank" title="feat(config): 调整菜单标识符和链接路径&#10- 将标签菜单的标识符从 &#34;tags&#34; 改为 &#34;collections&#34;
+- 将合集菜单的标识符从 &#34;collections&#34; 改为 &#34;tags&#34;
+- 更新相应的显示名称和URL路径
 
-feat(content): 迁移文章内容到 archives 目录
+feat(permalinks): 修改文章永久链接结构
 
-将所有文章从 content/posts 目录迁移到 content/archives 目录，
-更新文章路径结构和相关引用链接
+- 将文章页面的永久链接从 &#34;/p/:slugorcontentbasename&#34;
+- 改为 &#34;/archives/:slugorcontentbasename&#34;
 
-docs(static): 更新 README 中的文章链接地址
+refactor(posts): 重命名所有文章目录和文件名
 
-更新静态文件中所有文章的链接地址，指向新的 archives 路径结构&#10Commit: f8c565ed00695a0caa27b266d71c0be296beda41 [f8c565e]&#10Author: vespeng&#10Date: 2026-03-03 23:02:24"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>f8c565e</a></span>
+- 将下划线分隔的文章目录名改为短横线分隔
+- 包括 2025_review、build_a_digital_avatar_with_cloudflare 等多个文章
+- 保持文章内容的连续性和引用链接的一致性
+
+fix(posts): 更新文章内部链接以匹配新的URL结构
+
+- 更新多篇文章中的内部链接地址
+- 将旧的 /posts/ 路径替换为新的 /archives/ 路径
+- 确保所有交叉引用链接指向正确的地址
+
+docs(README): 更新首页文章列表链接
+
+- 将所有文章链接更新为新的 /archives/ 路径格式
+- 保持文章标题和发布日期信息不变
+- 确保首页导航的准确性&#10Commit: 72d4c6b17d7dfb337438555431fe7481996c5b75 [72d4c6b]&#10Author: vespeng&#10Date: 2026-03-03 23:04:00"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>72d4c6b</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

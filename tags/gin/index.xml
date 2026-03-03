@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 03 Mar 2026 23:02:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 23:04:00 +0800</lastBuildDate>
     <atom:link href="https://vespeng.com/tags/gin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</title>
