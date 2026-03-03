@@ -20,8 +20,8 @@
 
 ### 2025
 
-- 12-30 [2025 年度总结](https://vespeng.com/archives/2025-review/)
-- 12-14 [利用周末写一个小工具：多设备预览图生成](https://vespeng.com/archives/multi-device-preview-drawing-gen-toolwith-go/)
+- 12-30 [2025 年终总结](https://vespeng.com/archives/2025-review/)
+- 12-14 [利用周末写一个小工具：多设备预览图生成](https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/)
 - 11-19 [Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析](https://vespeng.com/archives/the-necessity-of-di-in-go-projects/)
 - 11-03 [Go Embed 实战：简化部署与静态资源管理](https://vespeng.com/archives/the-best-practice-of-go-embed/)
 - 08-16 [Go 基础算法实现示例集](https://vespeng.com/archives/go-algorithm-implementation-example/)

@@ -119,7 +119,7 @@ log:
 
 有了参数配置，还缺一步解析：
 
-具体的解析可以参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/posts/go_practical_gin_directory_structure/#配置config)
+具体的解析可以参考 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.com/archives/go-practical-gin-directory-structure/#配置config)
 
 ### 新建logger.go
 

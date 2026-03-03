@@ -9,7 +9,7 @@
   <meta itemprop="name" content="Go 项目实战：全局异常处理">
   <meta itemprop="description" content="在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。">
   <meta itemprop="datePublished" content="2025-02-09T17:10:00+08:00">
-  <meta itemprop="dateModified" content="2026-03-03T22:33:58+08:00">
+  <meta itemprop="dateModified" content="2026-03-03T23:02:24+08:00">
   <meta itemprop="wordCount" content="264">
   <meta itemprop="image" content="https://vespeng.com/og.png">
   <meta itemprop="keywords" content="Go,Gin,Panic"><meta property="og:url" content="https://vespeng.com/archives/go-practical-global-exception-handling/">
@@ -18,9 +18,9 @@
   <meta property="og:description" content="在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="archives">
+    <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-09T17:10:00+08:00">
-    <meta property="article:modified_time" content="2026-03-03T22:33:58+08:00">
+    <meta property="article:modified_time" content="2026-03-03T23:02:24+08:00">
     <meta property="article:tag" content="Go">
     <meta property="article:tag" content="Gin">
     <meta property="article:tag" content="Panic">
@@ -44,8 +44,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.com\/archives\/go-practical-global-exception-handling\/"
-    },"genre": "archives","keywords": "go, gin, panic","wordcount":  264 ,
-    "url": "https:\/\/vespeng.com\/archives\/go-practical-global-exception-handling\/","datePublished": "2025-02-09T17:10:00+08:00","dateModified": "2026-03-03T22:33:58+08:00","publisher": {
+    },"genre": "posts","keywords": "go, gin, panic","wordcount":  264 ,
+    "url": "https:\/\/vespeng.com\/archives\/go-practical-global-exception-handling\/","datePublished": "2025-02-09T17:10:00+08:00","dateModified": "2026-03-03T23:02:24+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -144,10 +144,29 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/archives/" title="Archives">归档</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目实战：全局异常处理</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Space">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Go 项目实战：全局异常处理</li>
     </ol>
-  </nav><main class="fi-container"><article class="page single special">
-    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Go 项目实战：全局异常处理</h1></div><div class="content" id="content"><p>在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。</p>
+  </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Go 项目实战：全局异常处理</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category" title="分类 - 后端"><i class="fa-regular fa-folder" aria-hidden="true"></i> 后端</a> 和 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-collection" title="合集 - Go 项目实战"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Go 项目实战</a></span></div><div class="post-meta-line"><span title="发布于 2025-02-09 17:10:00"><i class="fa-solid fa-calendar-days me-1" aria-hidden="true"></i><time datetime="2025-02-09">2025-02-09</time></span>&nbsp;<span title="264 字"><i class="fa-solid fa-pencil-alt me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go 项目实战：全局异常处理"><i class="fa-regular fa-eye me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#go-中的错误处理机制">Go 中的错误处理机制</a></li>
+    <li><a href="#go-中的-panic">Go 中的 panic</a></li>
+    <li><a href="#实现全局异常处理">实现全局异常处理</a></li>
+    <li><a href="#在项目中的应用">在项目中的应用</a></li>
+  </ul>
+</nav></div>
+      </div><div class="ai-summary"></div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p>在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。</p>
 <h2 class="heading-element" id="go-中的错误处理机制"><span>Go 中的错误处理机制</span>
   <a href="#go-%e4%b8%ad%e7%9a%84%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -341,7 +360,46 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>这样下来，在程序的后续处理中，一旦遇到 panic 就会被捕获，从而不影响程序的继续运行。</p>
-</div><div id="comments"><div id="giscus" class="comment">
+</div><div class="collection-card">
+      <div class="collection-title text-secondary">收录于 <a href="/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <span>合集・Go 项目实战</span></span></a> 5</div>
+      <div class="collection-nav">
+        <a href="/archives/go-practical-multi-environment-development/" class="collection-nav-item" rel="prev" title="Go 项目实战：如何部署多环境开发"><i class="fa-solid fa-angle-left" aria-hidden="true"></i><span>Go 项目实战：如何部署多环境开发</span>
+          </a><a href="/archives/go-practice-implementing-jwt-auth-middleware/" class="collection-nav-item" rel="next" title="Go 项目实战：实现 JWT 认证中间件">
+            <span>Go 项目实战：实现 JWT 认证中间件</span><i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
+    </div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod"><span title="更新于 2026-03-03 23:02:24">更新于 2026-03-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/f8c565ed00695a0caa27b266d71c0be296beda41" rel="external nofollow noopener noreferrer" target="_blank" title="refactor(config): 调整菜单标识符和链接路径&#10将标签(tags)和合集(collections)的菜单项标识符进行互换，
+使标签对应 /tags/ 路径，合集对应 /collections/ 路径
+
+feat(content): 迁移文章内容到 archives 目录
+
+将所有文章从 content/posts 目录迁移到 content/archives 目录，
+更新文章路径结构和相关引用链接
+
+docs(static): 更新 README 中的文章链接地址
+
+更新静态文件中所有文章的链接地址，指向新的 archives 路径结构&#10Commit: f8c565ed00695a0caa27b266d71c0be296beda41 [f8c565e]&#10Author: vespeng&#10Date: 2026-03-03 23:02:24"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>f8c565e</a></span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/archives/go-practical-global-exception-handling/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-vespeng-src/edit/main/content/posts/go-practical-global-exception-handling/index.md" title="编辑此页" target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.com/archives/go-practical-global-exception-handling/" data-title="Go 项目实战：全局异常处理" data-hashtags="go,gin,panic"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.com/archives/go-practical-global-exception-handling/" data-hashtag="go"><i class="fa-brands fa-facebook-square" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.com/archives/go-practical-global-exception-handling/"><i class="fa-brands fa-reddit" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.com/archives/go-practical-global-exception-handling/" data-title="Go 项目实战：全局异常处理"><i class="fa-brands fa-weibo" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags me-1" aria-hidden="true"></i><a href="/tags/go/" class="post-tag" title="标签 - Go">Go</a><a href="/tags/gin/" class="post-tag" title="标签 - Gin">Gin</a><a href="/tags/panic/" class="post-tag" title="标签 - Panic">Panic</a></section>
+    <section><span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/archives/why-ai-needs-gpu-not-cpu/" class="post-nav-item" rel="prev" title="为什么大模型训练依赖 GPU 而不是 CPU"><i class="fa-solid fa-angle-left" aria-hidden="true"></i>为什么大模型训练依赖 GPU 而不是 CPU</a><a href="/archives/go-practical-multi-environment-development/" class="post-nav-item" rel="next" title="Go 项目实战：如何部署多环境开发">Go 项目实战：如何部署多环境开发<i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="giscus" class="comment">
           <script
             src="https://giscus.app/client.js"
             data-repo="vespeng/vespeng.github.io"
@@ -364,7 +422,22 @@
         </div>
         <noscript>
           Please enable JavaScript to view the comments powered by <a href="https://giscus.app/" rel="external nofollow noopener noreferrer">giscus</a>.
-        </noscript></div></article></main><footer class="footer">
+        </noscript></div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside><dialog id="toc-dialog" aria-labelledby="toc-dialog-title" role="dialog">
+      <div class="toc">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-drawer"><nav >
+  <ul>
+    <li><a href="#go-中的错误处理机制">Go 中的错误处理机制</a></li>
+    <li><a href="#go-中的-panic">Go 中的 panic</a></li>
+    <li><a href="#实现全局异常处理">实现全局异常处理</a></li>
+    <li><a href="#在项目中的应用">在项目中的应用</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </dialog></main><footer class="footer">
     <div class="footer-container">
 <script>
     const today = new Date();
@@ -431,8 +504,8 @@
               <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div><div class="footer-line visitor d-none">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i></span></span>
         </div></div>
-  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/59ffe40b5abf73699490788cc20e9c96.js" defer></script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><link rel="stylesheet" href="https://ai.zhheo.com/static/public/postChatUser_summary.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/post-chat/39a9a665577e580a9ffc18279d966933.js" defer></script><script src="https://ai.zhheo.com/static/public/tianli_gpt.min.js" defer></script><script src="/js/config/39a9a665577e580a9ffc18279d966933.js" defer></script><script src="/js/theme.min.js" defer></script></body>
 </html>
