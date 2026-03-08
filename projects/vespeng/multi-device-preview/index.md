@@ -86,5 +86,5 @@ go build -o multi-device-preview .
 ---
 
 > 作者: [vespeng](https://github.com/vespeng)  
-> URL: https://vespeng.com/projects/vespeng/multi-device-preview/  
+> URL: https://vespeng.github.io/projects/vespeng/multi-device-preview/  
 

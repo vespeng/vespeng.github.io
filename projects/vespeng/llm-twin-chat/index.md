@@ -113,5 +113,5 @@ UI 样式包含在 `public/styles.css` 文件中。可以修改顶部的 CSS 变
 ---
 
 > 作者: [vespeng](https://github.com/vespeng)  
-> URL: https://vespeng.com/projects/vespeng/llm-twin-chat/  
+> URL: https://vespeng.github.io/projects/vespeng/llm-twin-chat/  
 

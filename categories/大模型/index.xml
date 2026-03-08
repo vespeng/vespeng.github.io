@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>大模型 - 分类 - Vespeng Space</title>
-    <link>https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+    <title>大模型 - 分类 - Vespeng Archive</title>
+    <link>https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
     <generator>Hugo 0.157.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 03 Mar 2026 23:04:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Mar 2026 20:13:33 +0800</lastBuildDate>
+    <atom:link href="https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我用 Cloudflare 搭建了一个“数字分身”</title>
-      <link>https://vespeng.com/archives/build-a-digital-avatar-with-cloudflare/</link>
+      <link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
       <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/archives/build-a-digital-avatar-with-cloudflare/</guid>
-      <category domain="https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</category>
+      <guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
+      <category domain="https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</category>
       <description>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
     </item>
     <item>
       <title>为什么大模型训练依赖 GPU 而不是 CPU</title>
-      <link>https://vespeng.com/archives/why-ai-needs-gpu-not-cpu/</link>
+      <link>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</link>
       <pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/archives/why-ai-needs-gpu-not-cpu/</guid>
-      <category domain="https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</category>
+      <guid>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</guid>
+      <category domain="https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</category>
       <description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
     </item>
   </channel>

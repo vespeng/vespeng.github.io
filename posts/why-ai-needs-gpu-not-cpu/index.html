@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>为什么大模型训练依赖 GPU 而不是 CPU - Vespeng Archive</title><meta name="author" content="Vespeng">
+<meta name="description" content="GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。"><meta name="keywords" content='ai'>
+  <meta itemprop="name" content="为什么大模型训练依赖 GPU 而不是 CPU">
+  <meta itemprop="description" content="GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。">
+  <meta itemprop="datePublished" content="2025-02-15T22:00:00+08:00">
+  <meta itemprop="dateModified" content="2026-03-03T23:04:00+08:00">
+  <meta itemprop="wordCount" content="79">
+  <meta itemprop="image" content="https://vespeng.github.io/og.png">
+  <meta itemprop="keywords" content="Ai"><meta property="og:url" content="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/">
+  <meta property="og:site_name" content="Vespeng Archive">
+  <meta property="og:title" content="为什么大模型训练依赖 GPU 而不是 CPU">
+  <meta property="og:description" content="GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-15T22:00:00+08:00">
+    <meta property="article:modified_time" content="2026-03-03T23:04:00+08:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="og:image" content="https://vespeng.github.io/og.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vespeng.github.io/og.png">
+  <meta name="twitter:title" content="为什么大模型训练依赖 GPU 而不是 CPU">
+  <meta name="twitter:description" content="GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。">
+<meta name="application-name" content="Vespeng Archive">
+<meta name="apple-mobile-web-app-title" content="Vespeng Archive"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/" title="为什么大模型训练依赖 GPU 而不是 CPU - Vespeng Archive" /><link rel="prev" type="text/html" href="https://vespeng.github.io/posts/go-practical-global-exception-handling/" title="Go 项目实战：全局异常处理" /><link rel="next" type="text/html" href="https://vespeng.github.io/projects/vespeng/gin-pathway/" title="Gin 框架的目录结构示例项目，旨在为开发者提供一个行业最佳实践的目录结构模板" /><link rel="alternate" type="text/markdown" href="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/index.md" title="为什么大模型训练依赖 GPU 而不是 CPU - Vespeng Archive"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "为什么大模型训练依赖 GPU 而不是 CPU",
+    "inLanguage": "zh-cn",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/vespeng.github.io\/posts\/why-ai-needs-gpu-not-cpu\/"
+    },"genre": "posts","keywords": "ai","wordcount":  79 ,
+    "url": "https:\/\/vespeng.github.io\/posts\/why-ai-needs-gpu-not-cpu\/","datePublished": "2025-02-15T22:00:00+08:00","dateModified": "2026-03-03T23:04:00+08:00","publisher": {
+      "@type": "Organization",
+      "name": "Vespeng"},"author": {
+        "@type": "Person",
+        "name": "Vespeng"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Vespeng Archive"><span class="header-title-text">Vespeng Archive</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/">首页</a></li><li class="menu-item has-children">
+              <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/collections/">合集</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/categories/">分类</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/tags/">标签</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/projects/">项目</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" role="button" aria-label="切换主题" title="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Vespeng Archive"><span class="header-title-text">Vespeng Archive</span></a><span class="header-subtitle"></span></div>
+      <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
+      <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/">首页</a></li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="/archives/">文章</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/collections/">合集</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/categories/">分类</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/tags/">标签</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/projects/">项目</a></li><li class="menu-item menu-system"></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="Vespeng Archive">主页</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">文章</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">为什么大模型训练依赖 GPU 而不是 CPU</li>
+    </ol>
+  </nav><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>为什么大模型训练依赖 GPU 而不是 CPU</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category" title="分类 - 大模型"><i class="fa-regular fa-folder" aria-hidden="true"></i> 大模型</a></span></div><div class="post-meta-line"><span title="发布于 2025-02-15 22:00:00"><i class="fa-solid fa-calendar-days me-1" aria-hidden="true"></i><time datetime="2025-02-15">2025-02-15</time></span>&nbsp;<span title="79 字"><i class="fa-solid fa-pencil-alt me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="content" id="content" data-end-flag="「本文完，GitHub 持续更新中，欢迎关注！」"><p><img loading="lazy" src='/posts/why-ai-needs-gpu-not-cpu/images/img.png' alt="img.png" height="722" width="1720"></p>
+<p>最近 AI 大模型的热度可谓是如火如荼，尤其是国内的 DeepSeek 名闻遐迩，因其与 OpenAI 的模型相比，DeepSeek 推理大模型 R1 的训练成本仅为其 3%-5%，直接导致英伟达公司股票短时间内大跌。</p>
+<p>此时我就比较好奇，为什么大模型训练中更多的是依赖 GPU，而不是 CPU 呢？</p>
+<p>随后这两天网上翻阅了些资料，也询问 AI 帮忙解答，大体总结出如下几点：
+<br></br></p>
+<p><strong>一、并行计算能力</strong></p>
+<p>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。比如在进行矩阵运算时，它可以同时对多个元素进行操作，瞬间完成复杂的计算。</p>
+<p>相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。
+<br></br></p>
+<p><strong>二、内存带宽</strong></p>
+<p>大模型训练需要处理的数据量巨大，比如 <code>DeepSeek R1</code> 满血版参数就高达 <strong>671B</strong> （6710亿）这对内存带宽要求极高。</p>
+<p>GPU 配备了超高的内存带宽，就类似拥有一条宽阔的高速公路，数据可以快速地传输到计算核心进行处理。</p>
+<p>而 CPU 的内存带宽则相对有限，面对海量数据时，就像走在狭窄的小道上，容易形成数据传输的瓶颈，拖慢训练速度。
+<br></br></p>
+<p><strong>三、浮点运算性能</strong></p>
+<p>在大模型训练中，离不开浮点运算。</p>
+<p>GPU 在浮点运算性能方面优势明显，它拥有大量的浮点运算单元，能够在单位时间内执行海量的浮点运算操作。</p>
+<p>CPU 的浮点运算能力相对较弱，在处理大规模的浮点运算时，效率远远比不上 GPU 。
+<br></br></p>
+<p><strong>四、深度学习框架支持</strong></p>
+<p>现在主流的深度学习框架，像是 TensorFlow 和 PyTorch 等，都对 GPU 进行了深度优化和兼容，能够充分发挥其强大的性能，自动将计算任务合理分配到 GPU 上并行执行。</p>
+<p>然而，对于 CPU 的优化就没那么给力，导致在实际训练中，使用 CPU 的效果不尽如人意。
+<br></br></p>
+<p><strong>五、能耗效率</strong></p>
+<p>常理来看 GPU 功耗好像挺高，但从单位时间完成的计算量来看，它的能耗效率还是可以的。</p>
+<p>虽然 CPU 功耗低，但完成相同的训练任务需要更长时间，综合能耗并不占优势。
+<br></br></p>
+<p><strong>六、成本效益</strong></p>
+<p>GPU 单价相比 CPU 确实较高，但是它能大幅缩短训练时间。有句话说的好，时间就是金钱！这样算下来，总体的成本反而更低。</p>
+<p>而 CPU 训练时间长，资源占用和维护成本累加起来也不少。</p>
+<p>所以，综合以上这些方面看，GPU 在大模型训练中脱颖而出，而 CPU 则在这个领域就有点力不从心了。</p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod"><span title="更新于 2026-03-03 23:04:00">更新于 2026-03-03&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/72d4c6b17d7dfb337438555431fe7481996c5b75" rel="external nofollow noopener noreferrer" target="_blank" title="feat(config): 调整菜单标识符和链接路径&#10- 将标签菜单的标识符从 &#34;tags&#34; 改为 &#34;collections&#34;
+- 将合集菜单的标识符从 &#34;collections&#34; 改为 &#34;tags&#34;
+- 更新相应的显示名称和URL路径
+
+feat(permalinks): 修改文章永久链接结构
+
+- 将文章页面的永久链接从 &#34;/p/:slugorcontentbasename&#34;
+- 改为 &#34;/archives/:slugorcontentbasename&#34;
+
+refactor(posts): 重命名所有文章目录和文件名
+
+- 将下划线分隔的文章目录名改为短横线分隔
+- 包括 2025_review、build_a_digital_avatar_with_cloudflare 等多个文章
+- 保持文章内容的连续性和引用链接的一致性
+
+fix(posts): 更新文章内部链接以匹配新的URL结构
+
+- 更新多篇文章中的内部链接地址
+- 将旧的 /posts/ 路径替换为新的 /archives/ 路径
+- 确保所有交叉引用链接指向正确的地址
+
+docs(README): 更新首页文章列表链接
+
+- 将所有文章链接更新为新的 /archives/ 路径格式
+- 保持文章标题和发布日期信息不变
+- 确保首页导航的准确性&#10Commit: 72d4c6b17d7dfb337438555431fe7481996c5b75 [72d4c6b]&#10Author: vespeng&#10Date: 2026-03-03 23:04:00"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>72d4c6b</a></span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/why-ai-needs-gpu-not-cpu/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span><span><a href="https://github.com/vespeng/hugo-vespeng-src/edit/main/content/posts/why-ai-needs-gpu-not-cpu/index.md" title="编辑此页" target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/" data-title="为什么大模型训练依赖 GPU 而不是 CPU" data-hashtags="ai"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/" data-hashtag="ai"><i class="fa-brands fa-facebook-square" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/"><i class="fa-brands fa-reddit" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/" data-title="为什么大模型训练依赖 GPU 而不是 CPU"><i class="fa-brands fa-weibo" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags me-1" aria-hidden="true"></i><a href="/tags/ai/" class="post-tag" title="标签 - Ai">Ai</a></section>
+    <section><span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/projects/vespeng/gin-pathway/" class="post-nav-item" rel="prev" title="vespeng/gin-pathway"><i class="fa-solid fa-angle-left" aria-hidden="true"></i>vespeng/gin-pathway</a><a href="/posts/go-practical-global-exception-handling/" class="post-nav-item" rel="next" title="Go 项目实战：全局异常处理">Go 项目实战：全局异常处理<i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"></div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+    <div class="footer-container">
+<script>
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+
+    let filterStyle = '';
+
+    if (
+        (month === 9 && day === 18) ||  
+        (month === 12 && day === 13)    
+    ) {
+        filterStyle = 'grayscale(100%)';
+    }
+
+    if (filterStyle) {
+        document.documentElement.style.filter = filterStyle;
+    }
+</script>
+
+<script>
+    (function () {
+        const header = document.getElementById('header-desktop');
+        if (!header) return;
+
+        let lastScrollY = window.scrollY;
+        let lastShowScrollY = lastScrollY; 
+        const HIDE_THRESHOLD = window.innerHeight + 5; 
+        let t = null;
+
+        const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            const isScrollingDown = currentScrollY > lastScrollY;
+
+            
+            if (isScrollingDown) {
+                
+                if (currentScrollY - lastShowScrollY > HIDE_THRESHOLD) {
+                    header.classList.add('hidden-header');
+                }
+            } else {
+                
+                header.classList.remove('hidden-header');
+                lastShowScrollY = currentScrollY;
+            }
+
+            lastScrollY = currentScrollY;
+            t = null;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!t) {
+                t = setTimeout(updateHeader, 16);
+            }
+        }, { passive: true });
+
+        
+        updateHeader();
+    })();
+</script>
+<div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.157.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.3-20260130042349-e23a50d7"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright order-1" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025 - 2026</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/vespeng/" target="_blank" rel="external nofollow noopener noreferrer">Vespeng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> | <a rel="" href="/index.xml" target="_blank">RSS</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></div><div class="fixed-button view-comments d-none" role="button" aria-label="查看评论"><i class="fa-solid fa-comment" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script src="/js/config/428c13646fb2d281053673bb6ab2b927.js" defer></script><script src="/js/theme.min.js" defer></script></body>
+</html>

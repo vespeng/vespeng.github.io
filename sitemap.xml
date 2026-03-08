@@ -1,447 +1,447 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vespeng.com/categories/</loc>
+    <loc>https://vespeng.github.io/categories/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/fiber/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/fiber/</loc>
+    <loc>https://vespeng.github.io/posts/fiber-3-0-preview/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/fiber-3-0-preview/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/tags/go/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/go/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/posts/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/tags/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/</loc>
-    <lastmod>2026-03-03T23:11:10+08:00</lastmod>
+    <loc>https://vespeng.github.io/categories/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/tags/ai/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/ai/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/tags/cloudflare/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/cloudflare/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/build-a-digital-avatar-with-cloudflare/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
+    <loc>https://vespeng.github.io/tags/chat/</loc>
+    <lastmod>2026-03-06T05:58:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/chat/</loc>
-    <lastmod>2026-02-26T14:32:48+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/projects/vespeng/llm-twin-chat/</loc>
-    <lastmod>2026-02-26T14:32:48+00:00</lastmod>
+    <loc>https://vespeng.github.io/projects/vespeng/llm-twin-chat/</loc>
+    <lastmod>2026-03-06T05:58:26+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/2025-review/</loc>
+    <loc>https://vespeng.github.io/posts/2025-review/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://vespeng.github.io/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/chromedp/</loc>
+    <loc>https://vespeng.github.io/tags/chromedp/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/embed/</loc>
+    <loc>https://vespeng.github.io/tags/embed/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/image/</loc>
+    <loc>https://vespeng.github.io/tags/image/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</loc>
+    <loc>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://vespeng.github.io/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/devices/</loc>
+    <loc>https://vespeng.github.io/tags/devices/</loc>
     <lastmod>2026-02-17T06:20:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/preview/</loc>
+    <loc>https://vespeng.github.io/tags/preview/</loc>
     <lastmod>2026-02-17T06:20:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/projects/vespeng/multi-device-preview/</loc>
+    <loc>https://vespeng.github.io/projects/vespeng/multi-device-preview/</loc>
     <lastmod>2026-02-17T06:20:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/di/</loc>
+    <loc>https://vespeng.github.io/tags/di/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/dig/</loc>
+    <loc>https://vespeng.github.io/tags/dig/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/gin/</loc>
+    <loc>https://vespeng.github.io/tags/gin/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/the-necessity-of-di-in-go-projects/</loc>
+    <loc>https://vespeng.github.io/tags/wire/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/wire/</loc>
+    <loc>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/the-best-practice-of-go-embed/</loc>
+    <loc>https://vespeng.github.io/posts/go-algorithm-implementation-example/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-algorithm-implementation-example/</loc>
+    <loc>https://vespeng.github.io/tags/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://vespeng.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://vespeng.github.io/collections/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/jwt/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/redis/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/go-development-job-interview/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/collections/</loc>
+    <loc>https://vespeng.github.io/collections/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/collections/go-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</loc>
+    <loc>https://vespeng.github.io/tags/mysql/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-practice-implementing-jwt-auth-middleware/</loc>
+    <loc>https://vespeng.github.io/posts/mysql-config-and-command/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/jwt/</loc>
+    <loc>https://vespeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/redis/</loc>
+    <loc>https://vespeng.github.io/posts/go-sjson-component/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/json/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/go-gjson-component/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-development-job-interview/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/collections/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/mysql/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/archives/mysql-config-and-command/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/archives/go-sjson-component/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/json/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/archives/go-gjson-component/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/tags/java-8/</loc>
+    <loc>https://vespeng.github.io/tags/java-8/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/jsp/</loc>
+    <loc>https://vespeng.github.io/tags/jsp/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/layui-admin/</loc>
+    <loc>https://vespeng.github.io/tags/layui-admin/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/mybatis/</loc>
+    <loc>https://vespeng.github.io/tags/mybatis/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/spring/</loc>
+    <loc>https://vespeng.github.io/tags/spring/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/spring-mvc/</loc>
+    <loc>https://vespeng.github.io/tags/spring-mvc/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/tomcat/</loc>
+    <loc>https://vespeng.github.io/tags/tomcat/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/projects/vespeng/hotel-mis/</loc>
+    <loc>https://vespeng.github.io/projects/vespeng/hotel-mis/</loc>
     <lastmod>2026-01-15T12:48:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/golang/</loc>
+    <loc>https://vespeng.github.io/tags/golang/</loc>
     <lastmod>2026-02-01T04:55:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/logrus/</loc>
+    <loc>https://vespeng.github.io/tags/logrus/</loc>
     <lastmod>2026-02-01T04:55:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/projects/vespeng/gin-pathway/</loc>
+    <loc>https://vespeng.github.io/projects/vespeng/gin-pathway/</loc>
     <lastmod>2026-02-01T04:55:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/xorm/</loc>
+    <loc>https://vespeng.github.io/tags/xorm/</loc>
     <lastmod>2026-02-01T04:55:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/why-ai-needs-gpu-not-cpu/</loc>
+    <loc>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-practical-global-exception-handling/</loc>
+    <loc>https://vespeng.github.io/posts/go-practical-global-exception-handling/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/panic/</loc>
+    <loc>https://vespeng.github.io/tags/panic/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-practical-multi-environment-development/</loc>
+    <loc>https://vespeng.github.io/posts/go-practical-multi-environment-development/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-practical-processing-log/</loc>
+    <loc>https://vespeng.github.io/posts/go-practical-processing-log/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/tags/log/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/log/</loc>
+    <loc>https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/go-practical-gin-directory-structure/</loc>
+    <loc>https://vespeng.github.io/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/json-unmarshall-parsing-numeric-types/</loc>
+    <loc>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/collections/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/</loc>
+    <loc>https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/collaborative-processing-of-multiple-interfaces/</loc>
+    <loc>https://vespeng.github.io/tags/%E5%8D%8F%E7%A8%8B/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/%E5%B9%B6%E5%8F%91/</loc>
+    <loc>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/tags/%E5%8D%8F%E7%A8%8B/</loc>
+    <loc>https://vespeng.github.io/posts/go-development-environment/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/archives/the-core-mechanism-of-go-concurrency/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/archives/go-development-environment/</loc>
-    <lastmod>2026-03-03T23:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.com/about/</loc>
+    <loc>https://vespeng.github.io/about/</loc>
     <lastmod>2026-02-25T21:10:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/links/</loc>
-    <lastmod>2026-03-03T23:11:10+08:00</lastmod>
+    <loc>https://vespeng.github.io/links/</loc>
+    <lastmod>2026-03-08T20:13:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.com/projects/</loc>
+    <loc>https://vespeng.github.io/projects/</loc>
     <lastmod>2026-02-06T21:19:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

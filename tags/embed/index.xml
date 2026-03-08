@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Embed - 标签 - Vespeng Space</title>
-    <link>https://vespeng.com/tags/embed/</link>
+    <title>Embed - 标签 - Vespeng Archive</title>
+    <link>https://vespeng.github.io/tags/embed/</link>
     <description>不止于代码，更有沿途的风景与思考</description>
     <generator>Hugo 0.157.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
     <language>zh-cn</language>
     <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
     <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
     <lastBuildDate>Tue, 03 Mar 2026 23:04:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.com/tags/embed/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.github.io/tags/embed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
-      <link>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</link>
+      <link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
       <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/archives/multi-device-preview-drawing-gen-tool-with-go/</guid>
-      <category domain="https://vespeng.com/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</category>
+      <guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
+      <category domain="https://vespeng.github.io/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</category>
       <description>起因是这样的，每次在调整完自己网站的时候，对于一些 UI 样式的调整，都需要提交代码并构建好后，通过第三方的预览图生成网站或者手动修图来制作一个网站预览图并重新上传提交代码。这样似乎有些繁琐了，所以就利用这个周末去写一个简单的工具来实现这个需求。</description>
     </item>
     <item>
       <title>Go Embed 实战：简化部署与静态资源管理</title>
-      <link>https://vespeng.com/archives/the-best-practice-of-go-embed/</link>
+      <link>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</link>
       <pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
-      <guid>https://vespeng.com/archives/the-best-practice-of-go-embed/</guid>
-      <category domain="https://vespeng.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      <guid>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</guid>
+      <category domain="https://vespeng.github.io/categories/%E5%90%8E%E7%AB%AF/">后端</category>
       <description>在 Go 语言生态中，资源文件管理一直是个痛点。Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件，极大地简化了部署流程。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
     </item>
   </channel>

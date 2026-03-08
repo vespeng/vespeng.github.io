@@ -10,8 +10,8 @@
 ```yaml
 # 该示例为本站信息
 nickname:    Vespeng
-avatar:      https://vespeng.com/avatar.jpg
-url:         https://vespeng.com
+avatar:      https://vespeng.github.io/avatar.jpg
+url:         https://vespeng.github.io
 description: 不止于代码，更有沿途的风景与思考
 ```
 
@@ -21,5 +21,5 @@ description: 不止于代码，更有沿途的风景与思考
 ---
 
 > 作者: [Vespeng](https://github.com/vespeng/)  
-> URL: https://vespeng.com/links/  
+> URL: https://vespeng.github.io/links/  
 

@@ -68,5 +68,5 @@ gin-pathway/
 ---
 
 > 作者: [vespeng](https://github.com/vespeng)  
-> URL: https://vespeng.com/projects/vespeng/gin-pathway/  
+> URL: https://vespeng.github.io/projects/vespeng/gin-pathway/  
 
