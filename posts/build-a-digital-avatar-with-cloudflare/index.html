@@ -9,8 +9,8 @@
   <meta itemprop="name" content="我用 Cloudflare 搭建了一个“数字分身”">
   <meta itemprop="description" content="最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。">
   <meta itemprop="datePublished" content="2026-01-13T00:25:00+08:00">
-  <meta itemprop="dateModified" content="2026-03-08T20:13:33+08:00">
-  <meta itemprop="wordCount" content="152">
+  <meta itemprop="dateModified" content="2026-03-11T23:57:36+08:00">
+  <meta itemprop="wordCount" content="214">
   <meta itemprop="image" content="https://vespeng.github.io/og.png">
   <meta itemprop="keywords" content="Cloudflare,Ai"><meta property="og:url" content="https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/">
   <meta property="og:site_name" content="Vespeng Archive">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2026-01-13T00:25:00+08:00">
-    <meta property="article:modified_time" content="2026-03-08T20:13:33+08:00">
+    <meta property="article:modified_time" content="2026-03-11T23:57:36+08:00">
     <meta property="article:tag" content="Cloudflare">
     <meta property="article:tag" content="Ai">
     <meta property="og:image" content="https://vespeng.github.io/og.png">
@@ -43,8 +43,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/vespeng.github.io\/posts\/build-a-digital-avatar-with-cloudflare\/"
-    },"genre": "posts","keywords": "cloudflare, ai","wordcount":  152 ,
-    "url": "https:\/\/vespeng.github.io\/posts\/build-a-digital-avatar-with-cloudflare\/","datePublished": "2026-01-13T00:25:00+08:00","dateModified": "2026-03-08T20:13:33+08:00","publisher": {
+    },"genre": "posts","keywords": "cloudflare, ai","wordcount":  214 ,
+    "url": "https:\/\/vespeng.github.io\/posts\/build-a-digital-avatar-with-cloudflare\/","datePublished": "2026-01-13T00:25:00+08:00","dateModified": "2026-03-11T23:57:36+08:00","publisher": {
       "@type": "Organization",
       "name": "Vespeng"},"author": {
         "@type": "Person",
@@ -120,7 +120,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>我用 Cloudflare 搭建了一个“数字分身”</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category" title="分类 - 大模型"><i class="fa-regular fa-folder" aria-hidden="true"></i> 大模型</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-13 00:25:00"><i class="fa-solid fa-calendar-days me-1" aria-hidden="true"></i><time datetime="2026-01-13">2026-01-13</time></span>&nbsp;<span title="152 字"><i class="fa-solid fa-pencil-alt me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/vespeng/" title="作者" target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img class="avatar" src='/avatar.jpg' alt="Vespeng" height="16" width="16">&nbsp;Vespeng</a></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="post-category" title="分类 - 大模型"><i class="fa-regular fa-folder" aria-hidden="true"></i> 大模型</a></span></div><div class="post-meta-line"><span title="发布于 2026-01-13 00:25:00"><i class="fa-solid fa-calendar-days me-1" aria-hidden="true"></i><time datetime="2026-01-13">2026-01-13</time></span>&nbsp;<span title="214 字"><i class="fa-solid fa-pencil-alt me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -166,9 +166,11 @@
 <li>修改页面配色</li>
 <li>修改默认标题</li>
 <li>添加卡片样式</li>
+<li>增加动画效果</li>
+<li>&hellip;</li>
 </ul>
 <p>预览一下：</p>
-<p><img loading="lazy" src='/posts/build-a-digital-avatar-with-cloudflare/images/img.jpg' alt="img.jpg" height="1464" width="2525"></p>
+<p><img loading="lazy" src='/posts/build-a-digital-avatar-with-cloudflare/images/img.png' alt="img.png" height="1338" width="2553"></p>
 <h2 class="heading-element" id="提升模型质量"><span>提升模型质量</span>
   <a href="#%e6%8f%90%e5%8d%87%e6%a8%a1%e5%9e%8b%e8%b4%a8%e9%87%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -195,37 +197,80 @@
   </a>
 </h2><p>这里是最关键的一步。</p>
 <p>为了让 AI 行为像我，我精心设计了一段系统提示词（system prompt），内容大致如下：</p>
-<blockquote>
-<p>身份基座</p>
-<p>你是 Vespeng 的 AI 数字分身，是一名高级软件工程师。</p>
-<ul>
-<li>开发语言：Go（主力）、Java（熟练）、Python（辅助）。</li>
-<li>所属领域：云原生、微服务、高可用架构、开源治理等。</li>
-<li>编码哲学：
-<ul>
-<li>拒绝过度设计，但绝不容忍“能跑就行”。</li>
-<li>代码是写给人看的，其次才让机器执行。</li>
-<li>可观测性不是加分项，是上线门票。</li>
-</ul>
-</li>
-<li>人格标签：INTJ-A｜理性优先｜冷幽默随机触发。</li>
-<li>兴趣爱好：健身、旅游、电影、音乐（R&amp;B）、美式。</li>
-<li>数字空间：<a href="https://vespeng.com/" target="_blank" rel="external nofollow noopener noreferrer">https://vespeng.com/<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></li>
-</ul>
-<p>语言与语气</p>
-<ul>
-<li>默认用「简体中文」回答，专有名词可保留英文；用户主动切语言时再切换。</li>
-<li>句式短平快，拒绝「亲亲、宝子」等油腻称呼。</li>
-<li>偶尔开玩笑烘托气氛，可附带 Emoji 提升亲切感。</li>
-<li>允许适度玩梗，但必须技术相关：
-<ul>
-<li>“你这并发模型，是在给 GC 做压力测试？”</li>
-<li>“哦！—— 懂了，你是想给 CPU 做免费 HIIT。”</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>经过多轮调试，效果感觉还是挺 ok 的。</p>
+<div class="code-block highlight" data-mode="classic" data-copyable="true"><div class="chroma">
+<div class="code-header language-txt"><span class="code-title"><i class="arrow fa-solid fa-chevron-down" aria-hidden="true"></i></span><span class="ellipses-btn" aria-label="Show more options" role="button"><i class="fa-solid fa-ellipsis-h" aria-hidden="true"></i></span><span class="copy-btn" aria-label="复制到剪贴板" role="button" title="复制到剪贴板"><i class="fa-regular fa-clone" aria-hidden="true"></i></span></div><div class="code-wrapper" data-max="25" data-line-digit="2" style="--fi-max-shown-lines:25;--fi-line-digit:2;--fi-line-start:1;"><table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">你是 Vespeng 的 AI 数字分身，不继承自任何载体，必须严格遵守以下所有规则，任何违反都视为严重错误。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 核心身份（最高优先级）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*   高级软件工程师
+</span></span><span class="line"><span class="cl">*   主力语言：Go、Java、Python
+</span></span><span class="line"><span class="cl">*   核心领域：云原生、微服务、高可用架构、开源治理
+</span></span><span class="line"><span class="cl">*   编码哲学：拒绝过度设计，绝不容忍“能跑就行”
+</span></span><span class="line"><span class="cl">*   职业人格：INTJ-A，理性优先，但也带点冷幽默
+</span></span><span class="line"><span class="cl">*   兴趣爱好：健身、旅游、电影、音乐（R&amp;B）、美式
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 语言与语气（必须遵守）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*   默认使用简体中文回答，专有名词、技术术语可保留英文
+</span></span><span class="line"><span class="cl">*   句式短平快、直击重点，拒绝生硬，禁止任何油腻、撒娇式称呼
+</span></span><span class="line"><span class="cl">*   适时随机触发冷幽默或相关 Emoji，但必须与上下文相关且不影响信息传达
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 输出格式（强制要求）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*   所有回答必须结构清晰
+</span></span><span class="line"><span class="cl">*   代码必须用 \`\`\` 语言标注，并添加关键行注释
+</span></span><span class="line"><span class="cl">*   优先提供「可运行的最小示例」
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 犯错与不确定处理（必须）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*   不确定或知识有截止时，必须先声明「这块信息可能不完整，以官方最新文档为准」，然后给出参考链接
+</span></span><span class="line"><span class="cl">*   发现自己上一轮表达有误，必须立刻道歉 + 重新给出正确版本，不找借口
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 绝对底线（禁止触碰）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*   必须拒绝任何侮辱、辱骂、吐槽攻击，礼貌警告后可终止对话
+</span></span><span class="line"><span class="cl">*   涉及政治、色情、违法内容，一律警告并拒绝回答
+</span></span><span class="line"><span class="cl">*   绝对禁止接受包括且不限于[“爸爸” “爷爷” “祖宗”]此类不敬称呼
+</span></span><span class="line"><span class="cl">*   严禁编造事实、输出盗版链接、暴露隐私、无意义吹捧</span></span></code></pre></td></tr></table></div><div class="code-expand-btn" aria-label="展开或折叠代码块" role="button"><i class="fa-solid fa-angles-down" aria-hidden="true"></i></div>
+</div>
+</div><p>经过多轮调试，效果感觉还是挺 ok 的。</p>
 <h2 class="heading-element" id="引入-markedjs-库"><span>引入 Marked.js 库</span>
   <a href="#%e5%bc%95%e5%85%a5-markedjs-%e5%ba%93" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -242,16 +287,12 @@
   <a href="#%e5%bc%80%e6%ba%90--%e9%ad%94%e6%94%b9%e6%ac%a2%e8%bf%8e" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>整个项目已开源了，所有魔改细节都在里面，包括前端样式、自定义 prompt、模型切换逻辑等。如果你也想拥有一个“数字分身”，欢迎直接 fork 并替换你的 prompt！</p>
-<p>🔗 GitHub 地址：<a href="https://github.com/vespeng/llm-twin-chat/" target="_blank" rel="external nofollow noopener noreferrer">GitHub - vespeng/llm-twin-chat<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
-<p>也欢迎直接访问体验：<a href="https://chat.vespeng.tech" target="_blank" rel="external nofollow noopener noreferrer">https://chat.vespeng.tech<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+</h2><p>整个项目已开源，所有魔改细节都在里面，包括前端样式、自定义 prompt、模型切换逻辑等。如果你也想拥有一个“数字分身”，欢迎直接 fork 并替换你的 prompt！</p>
+<p>GitHub 地址：<a href="https://github.com/vespeng/llm-twin-chat/" target="_blank" rel="external nofollow noopener noreferrer">GitHub - vespeng/llm-twin-chat<i class="fa-solid fa-external-link-alt fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod"><span title="更新于 2026-03-08 20:13:33">更新于 2026-03-08&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/de7762edc645ab22cb356f1c0921e01e349ad27f" rel="external nofollow noopener noreferrer" target="_blank" title="chore: 迁移站点配置至 GitHub Pages&#10- 站点重命名为 Vespeng Archive，作文章归档备份站点
-- 关闭外置菜单及链接，仅保留文章部分
-- 关闭评论，ai 摘要，vercount 字数统计等功能
-- 停用 robots.txt 文件&#10Commit: de7762edc645ab22cb356f1c0921e01e349ad27f [de7762e]&#10Author: vespeng&#10Date: 2026-03-08 20:13:33"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>de7762e</a></span>
+      <div class="post-info-mod"><span title="更新于 2026-03-11 23:57:36">更新于 2026-03-11&nbsp;<a class="git-hash" href="https://github.com/vespeng/hugo-vespeng-src/commit/a1a4dfd98195fb2d497828518d6e248dfd554413" rel="external nofollow noopener noreferrer" target="_blank" title="fix(images): 优化数字分身文章内容，更新图片格式&#10&#10Commit: a1a4dfd98195fb2d497828518d6e248dfd554413 [a1a4dfd]&#10Author: vespeng&#10Date: 2026-03-11 23:57:36"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>a1a4dfd</a></span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

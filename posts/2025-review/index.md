@@ -32,7 +32,7 @@
 
 晒一下公司的新年礼品：
 
-<img src="./images/gift.jpg" style="width: 540px; height: auto;" alt="gift"/>
+<img src="./images/gift.png" style="width: 540px; height: auto;" alt="gift"/>
 
 ## 旅游
 
