@@ -32,7 +32,7 @@
 <meta name="application-name" content="Vespeng Archive">
 <meta name="apple-mobile-web-app-title" content="Vespeng Archive"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.github.io/posts/go-gjson-component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng Archive" /><link rel="prev" type="text/html" href="https://vespeng.github.io/projects/vespeng/hotel-mis/" title="基于 SSM 框架开发的酒店管理信息系统，适用练习 demo 或课程设计" /><link rel="next" type="text/html" href="https://vespeng.github.io/posts/go-sjson-component/" title="Go-SJSON 组件，JSON 动态修改新方案" /><link rel="alternate" type="text/markdown" href="https://vespeng.github.io/posts/go-gjson-component/index.md" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng Archive"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="https://vespeng.github.io/posts/go-gjson-component/" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng Archive" /><link rel="prev" type="text/html" href="https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/" title="为什么大模型训练依赖 GPU 而不是 CPU" /><link rel="next" type="text/html" href="https://vespeng.github.io/posts/go-sjson-component/" title="Go-SJSON 组件，JSON 动态修改新方案" /><link rel="alternate" type="text/markdown" href="https://vespeng.github.io/posts/go-gjson-component/index.md" title="Go-GJSON 组件，解锁 JSON 读取新姿势 - Vespeng Archive"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -58,16 +58,11 @@
       <a href="/" title="Vespeng Archive"><span class="header-title-text">Vespeng Archive</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item">
-              <a class="menu-link" href="/">首页</a></li><li class="menu-item has-children">
-              <a class="menu-link" href="/archives/">文章</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
-                <ul class="sub-menu"><li class="menu-item">
-                        <a class="menu-link" href="/collections/">合集</a>
-                      </li><li class="menu-item">
-                        <a class="menu-link" href="/categories/">分类</a>
-                      </li><li class="menu-item">
-                        <a class="menu-link" href="/tags/">标签</a>
-                      </li></ul></li><li class="menu-item">
-              <a class="menu-link" href="/projects/">项目</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+              <a class="menu-link" href="/">首页</a></li><li class="menu-item">
+              <a class="menu-link" href="/archives/">文章</a></li><li class="menu-item">
+              <a class="menu-link" href="/collections/">合集</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/">分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/">标签</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fa-solid fa-search" aria-hidden="true"></i>
@@ -108,17 +103,7 @@
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
               取消
             </a>
-          </li><li class="menu-item"><a class="menu-link" href="/">首页</a></li><li class="menu-item"><span class="nested-item">
-                  <a class="menu-link" href="/archives/">文章</a>
-                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
-                </span>
-                <ul class="sub-menu"><li class="menu-item">
-                        <a class="menu-link" href="/collections/">合集</a>
-                      </li><li class="menu-item">
-                        <a class="menu-link" href="/categories/">分类</a>
-                      </li><li class="menu-item">
-                        <a class="menu-link" href="/tags/">标签</a>
-                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/projects/">项目</a></li><li class="menu-item menu-system"></li>
+          </li><li class="menu-item"><a class="menu-link" href="/">首页</a></li><li class="menu-item"><a class="menu-link" href="/archives/">文章</a></li><li class="menu-item"><a class="menu-link" href="/collections/">合集</a></li><li class="menu-item"><a class="menu-link" href="/categories/">分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/">标签</a></li><li class="menu-item menu-system"></li>
       </ul>
     </nav>
   </div>
@@ -492,7 +477,7 @@ docs(README): 更新首页文章列表链接
     <section class="post-tags"><i class="fa-solid fa-tags me-1" aria-hidden="true"></i><a href="/tags/go/" class="post-tag" title="标签 - Go">Go</a><a href="/tags/json/" class="post-tag" title="标签 - Json">Json</a></section>
     <section><span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/go-sjson-component/" class="post-nav-item" rel="prev" title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-solid fa-angle-left" aria-hidden="true"></i>Go-SJSON 组件，JSON 动态修改新方案</a><a href="/projects/vespeng/hotel-mis/" class="post-nav-item" rel="next" title="vespeng/hotel-mis">vespeng/hotel-mis<i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/go-sjson-component/" class="post-nav-item" rel="prev" title="Go-SJSON 组件，JSON 动态修改新方案"><i class="fa-solid fa-angle-left" aria-hidden="true"></i>Go-SJSON 组件，JSON 动态修改新方案</a><a href="/posts/why-ai-needs-gpu-not-cpu/" class="post-nav-item" rel="next" title="为什么大模型训练依赖 GPU 而不是 CPU">为什么大模型训练依赖 GPU 而不是 CPU<i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"></div></article>
 

@@ -73,17 +73,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/tags/chat/</loc>
-    <lastmod>2026-03-06T05:58:26+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/projects/vespeng/llm-twin-chat/</loc>
-    <lastmod>2026-03-06T05:58:26+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  <url>
     <loc>https://vespeng.github.io/posts/2025-review/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -124,23 +113,6 @@
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/devices/</loc>
-    <lastmod>2026-02-17T06:20:07+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/preview/</loc>
-    <lastmod>2026-02-17T06:20:07+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/projects/vespeng/multi-device-preview/</loc>
-    <lastmod>2026-02-17T06:20:07+00:00</lastmod>
-    <priority>0</priority>
   </url>
   <url>
     <loc>https://vespeng.github.io/tags/di/</loc>
@@ -275,76 +247,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vespeng.github.io/tags/java-8/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/jsp/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/layui-admin/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/mybatis/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/spring/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/spring-mvc/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/tomcat/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/projects/vespeng/hotel-mis/</loc>
-    <lastmod>2026-01-15T12:48:33+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/golang/</loc>
-    <lastmod>2026-02-01T04:55:51+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/logrus/</loc>
-    <lastmod>2026-02-01T04:55:51+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/projects/vespeng/gin-pathway/</loc>
-    <lastmod>2026-02-01T04:55:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/tags/xorm/</loc>
-    <lastmod>2026-02-01T04:55:51+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</loc>
     <lastmod>2026-03-03T23:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -437,12 +339,6 @@
   <url>
     <loc>https://vespeng.github.io/links/</loc>
     <lastmod>2026-03-08T20:13:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://vespeng.github.io/projects/</loc>
-    <lastmod>2026-02-06T21:19:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
