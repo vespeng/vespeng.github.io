@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloudflare - 标签 - Vespeng Archive</title>
+    <title>Cloudflare on Vespeng.Record</title>
     <link>https://vespeng.github.io/tags/cloudflare/</link>
-    <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.157.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
-    <language>zh-cn</language>
-    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
-    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Wed, 11 Mar 2026 23:57:36 +0800</lastBuildDate>
+    <description>Recent content in Cloudflare on Vespeng.Record</description>
+    <generator>Hugo</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 13 Jan 2026 00:25:00 +0800</lastBuildDate>
     <atom:link href="https://vespeng.github.io/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我用 Cloudflare 搭建了一个“数字分身”</title>
       <link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
-      <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate>
       <guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
-      <category domain="https://vespeng.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</category>
-      <description>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
+      <description>用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
     </item>
   </channel>
 </rss>

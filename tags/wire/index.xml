@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wire - 标签 - Vespeng Archive</title>
+    <title>Wire on Vespeng.Record</title>
     <link>https://vespeng.github.io/tags/wire/</link>
-    <description>不止于代码，更有沿途的风景与思考</description>
-    <generator>Hugo 0.157.0 &amp; FixIt v0.4.3-20260130042349-e23a50d7</generator>
-    <language>zh-cn</language>
-    <managingEditor>vespeng.liu@outlook.com (Vespeng)</managingEditor>
-    <webMaster>vespeng.liu@outlook.com (Vespeng)</webMaster>
-    <lastBuildDate>Tue, 03 Mar 2026 23:04:00 +0800</lastBuildDate>
+    <description>Recent content in Wire on Vespeng.Record</description>
+    <generator>Hugo</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 19 Nov 2025 23:10:00 +0800</lastBuildDate>
     <atom:link href="https://vespeng.github.io/tags/wire/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</title>
       <link>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</link>
-      <pubDate>Wed, 19 Nov 2025 23:10:00 +0800</pubDate><author>vespeng.liu@outlook.com (Vespeng)</author>
+      <pubDate>Wed, 19 Nov 2025 23:10:00 +0800</pubDate>
       <guid>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</guid>
-      <category domain="https://vespeng.github.io/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      <description>在日常开发中，无论是个人项目还是公司业务系统，随着功能不断迭代，代码中的依赖关系逐渐失控——main.go 越来越臃肿，Controller 里硬编码着对数据库、缓存、第三方客户端的直接调用；Service 层和 Repository 混杂在一起，测试时 mock 无从下手。</description>
+      <description>本文通过用户模块实例，详细对比了 Go 项目中手动组装、Wire 和 Dig 三种依赖管理方式的实现代码、优缺点及适用场景。</description>
     </item>
   </channel>
 </rss>

@@ -1,4 +1,4 @@
-# Vespeng Archive
+# Vespeng.Record
 
 个人静态站点，在这里分享我的想法、经验和见解。
 
@@ -7,7 +7,7 @@
 ## 🛠 技术栈
 
 - 静态网站生成器: [Hugo](https://gohugo.io/)
-- 主题框架: [FixIt](https://fixit.lruihao.cn/)
+- 主题框架: [Congo](https://jpanther.github.io/congo/)
 - 前端技术栈: HTML5 / CSS3 / JavaScript ES6
 - 内容格式: Markdown
 
@@ -16,7 +16,10 @@
 ### 2026
 
 - 02-06 [Fiber 3.0 初探：更快、更轻、更现代](https://vespeng.github.io/posts/fiber-3-0-preview/)
-- 01-13 [我用 Cloudflare 搭建了一个“数字分身”](https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/)
+- 01-13 [我用 Cloudflare 搭建了一个"数字分身"](https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/)
+
+<details>
+<summary>📖 查看历史文章</summary>
 
 ### 2025
 
@@ -35,8 +38,12 @@
 - 01-25 [Go 项目实战：如何部署多环境开发](https://vespeng.github.io/posts/go-practical-multi-environment-development/)
 - 01-22 [Go 项目实战：如何优雅的处理日志](https://vespeng.github.io/posts/go-practical-processing-log/)
 - 01-19 [Go 项目实战：搭建高效的 Gin Web 目录结构](https://vespeng.github.io/posts/go-practical-gin-directory-structure/)
-- 01-12 [Json.Unmarshal 解析数值类型（踩坑）](https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/)
-- 01-12 [Go 并发实战：利用协程处理多个接口数据](https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/)
-- 01-12 [Go 并发的核心机制解读](https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/)
-- 01-12 [Go 开发环境搭建：基于 Windows 操作系统](https://vespeng.github.io/posts/go-development-environment/)
-- 01-10 [博客建立](https://vespeng.github.io/)
+- 01-08 [Json.Unmarshal 解析数值类型（踩坑）](https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/)
+
+### 2024
+
+- 12-22 [Go 并发实战：利用协程处理多个接口数据](https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/)
+- 12-22 [Go 并发的核心机制解读](https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/)
+- 03-15 [Go 开发环境搭建：基于 Windows 操作系统](https://vespeng.github.io/posts/go-development-environment/)
+
+</details>
