@@ -19,7 +19,7 @@
 - 01-13 [我用 Cloudflare 搭建了一个"数字分身"](https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/)
 
 <details>
-<summary>📖 查看历史文章</summary>
+<summary>历史文章</summary>
 
 ### 2025
 
