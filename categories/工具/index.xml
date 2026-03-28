@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>效率工具 on Vespeng.Record</title>
-    <link>https://vespeng.github.io/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</link>
-    <description>Recent content in 效率工具 on Vespeng.Record</description>
+    <title>工具 on Vespeng.Record</title>
+    <link>https://vespeng.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Vespeng.Record</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 14 Dec 2025 20:00:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vespeng.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用周末写一个小工具：多设备预览图生成</title>
       <link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
