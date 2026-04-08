@@ -701,7 +701,7 @@
 <p>对比 Beego 框架，Gin 框架采用了极简主义的方法，为追求简单和高性能，没有多余文件或目录，他甚至什么也没有，没有集成任何中间件，一个 main 文件即可启动一个web服务。</p>
 <p>正因为如上所述，过分精简对于开发一个项目来说，前期的项目搭建工作就显得尤为重要。</p>
 <h2 id="项目结构设计" class="relative group">项目结构设计 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%e8%ae%be%e8%ae%a1" aria-label="锚点">#</a></span></h2><p>有过 Java 开发经验的伙伴应该了解，SpringBoot 遵循着 MVC 的设计理念，这一套设计理念一直沿用至今，他的优秀难以言喻，Gin 框架完全可以参照这个模式来做，如下是我个人设计的一套架构：</p>
-<div class="highlight" data-open="true"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">├── /cmd  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">├── /cmd  
 </span></span><span class="line"><span class="cl">│   └── main.go  
 </span></span><span class="line"><span class="cl">├── /configs
 </span></span><span class="line"><span class="cl">│   └── config.yaml
