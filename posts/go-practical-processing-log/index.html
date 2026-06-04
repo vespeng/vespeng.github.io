@@ -41,8 +41,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="https://vespeng.github.io/css/main.bundle.min.bb7bc7e642cfc1d6dd01362ecd0a0a0057e2ab029d0863be0e30756e8c4b4c0f.css"
-    integrity="sha256-u3vH5kLPwdbdATYuzQoKAFfiqwKdCGO&#43;DjB1boxLTA8="
+    href="https://vespeng.github.io/css/main.bundle.min.33f16d941a28ade5d51fbc8883a9a4e77d2ae2f34901c8ae2e89c568f99146d7.css"
+    integrity="sha256-M/FtlBooreXVH7yIg6mk530q4vNJAciuLonFaPmRRtc="
   />
   
     
@@ -145,7 +145,7 @@
     "keywords": ["go","gin","log"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2101"
+    "wordCount": "2110"
   }
   </script>
     
@@ -588,7 +588,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-01-22 21:40:00 &#43;0800 &#43;0800">2025-01-22</time><span class="px-2 text-primary-500">&middot;</span><span>2101 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-01-22 21:40:00 &#43;0800 &#43;0800">2025-01-22</time><span class="px-2 text-primary-500">&middot;</span><span>2110 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -769,7 +769,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">debug           </span><span class="w"> </span><span class="c"># 日志级别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">report_caller</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 是否开启调试</span><span class="w">
 </span></span></span></code></pre></div><h3 id="配置configgo" class="relative group">配置config.go <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e9%85%8d%e7%bd%aeconfiggo" aria-label="锚点">#</a></span></h3><p>有了参数配置，还缺一步解析：</p>
-<p>具体的解析可以参考 <a href="https://vespeng.github.io/posts/go-practical-gin-directory-structure/#%e9%85%8d%e7%bd%aeconfig" target="_blank" rel="noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构</a></p>
+<p>具体的解析可以参考 <a href="https://vespeng.github.io/posts/go-practical-gin-directory-structure/#%e9%85%8d%e7%bd%aeconfig" target="_blank" rel="noreferrer">Go 项目实战：搭建高效的 Gin Web 目录结构 - 配置config</a></p>
 <h3 id="新建loggergo" class="relative group">新建logger.go <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%96%b0%e5%bb%baloggergo" aria-label="锚点">#</a></span></h3><p>在这里我们统一配置 logrus 参数，包括日志级别，输出格式：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">app</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
