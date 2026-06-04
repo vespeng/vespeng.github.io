@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Fiber on Vespeng.Record</title>
-    <link>https://vespeng.github.io/tags/fiber/</link>
-    <description>Recent content in Fiber on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Fri, 06 Feb 2026 00:15:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/tags/fiber/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Fiber 3.0 初探：更快、更轻、更现代</title>
-      <link>https://vespeng.github.io/posts/fiber-3-0-preview/</link>
-      <pubDate>Fri, 06 Feb 2026 00:15:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/fiber-3-0-preview/</guid>
-      <description>Fiber 框架正式发布了 3.0 版本。探索它在保持极致性能的同时，到底把体验做到了什么程度。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Fiber on Vespeng</title>
+		<link>https://vespeng.github.io/tags/fiber/</link>
+		<description>Recent content in Fiber on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 06 Feb 2026 00:15:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/tags/fiber/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Fiber 3.0 初探：更快、更轻、更现代</title>
+				<link>https://vespeng.github.io/posts/fiber-3-0-preview/</link>
+				<pubDate>Fri, 06 Feb 2026 00:15:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/fiber-3-0-preview/</guid>
+				<description>Fiber 框架正式发布了 3.0 版本。探索它在保持极致性能的同时，到底把体验做到了什么程度。</description>
+			</item>
+	</channel>
 </rss>

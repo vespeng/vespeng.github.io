@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>随笔 on Vespeng.Record</title>
-    <link>https://vespeng.github.io/categories/%E9%9A%8F%E7%AC%94/</link>
-    <description>Recent content in 随笔 on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Tue, 30 Dec 2025 23:10:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>2025 年终总结</title>
-      <link>https://vespeng.github.io/posts/2025-review/</link>
-      <pubDate>Tue, 30 Dec 2025 23:10:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/2025-review/</guid>
-      <description>马上 25 年就结束了，留个总结吧，算是第一次正式的年度回顾。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>随笔 on Vespeng</title>
+		<link>https://vespeng.github.io/categories/%E9%9A%8F%E7%AC%94/</link>
+		<description>Recent content in 随笔 on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 30 Dec 2025 23:10:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>2025 年终总结</title>
+				<link>https://vespeng.github.io/posts/2025-review/</link>
+				<pubDate>Tue, 30 Dec 2025 23:10:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/2025-review/</guid>
+				<description>马上 25 年就结束了，留个总结吧，算是第一次正式的年度回顾。</description>
+			</item>
+	</channel>
 </rss>

@@ -1,166 +1,171 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vespeng.Record</title>
-    <link>https://vespeng.github.io/</link>
-    <description>Recent content on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Fri, 06 Feb 2026 00:15:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Fiber 3.0 初探：更快、更轻、更现代</title>
-      <link>https://vespeng.github.io/posts/fiber-3-0-preview/</link>
-      <pubDate>Fri, 06 Feb 2026 00:15:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/fiber-3-0-preview/</guid>
-      <description>Fiber 框架正式发布了 3.0 版本。探索它在保持极致性能的同时，到底把体验做到了什么程度。</description>
-    </item>
-    <item>
-      <title>我用 Cloudflare 搭建了一个“数字分身”</title>
-      <link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
-      <pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
-      <description>用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
-    </item>
-    <item>
-      <title>2025 年终总结</title>
-      <link>https://vespeng.github.io/posts/2025-review/</link>
-      <pubDate>Tue, 30 Dec 2025 23:10:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/2025-review/</guid>
-      <description>马上 25 年就结束了，留个总结吧，算是第一次正式的年度回顾。</description>
-    </item>
-    <item>
-      <title>利用周末写一个小工具：多设备预览图生成</title>
-      <link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
-      <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
-      <description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
-    </item>
-    <item>
-      <title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</title>
-      <link>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</link>
-      <pubDate>Wed, 19 Nov 2025 23:10:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</guid>
-      <description>本文通过用户模块实例，详细对比了 Go 项目中手动组装、Wire 和 Dig 三种依赖管理方式的实现代码、优缺点及适用场景。</description>
-    </item>
-    <item>
-      <title>Go Embed 实战：简化部署与静态资源管理</title>
-      <link>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</link>
-      <pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</guid>
-      <description>Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
-    </item>
-    <item>
-      <title>Go 基础算法实现示例集</title>
-      <link>https://vespeng.github.io/posts/go-algorithm-implementation-example/</link>
-      <pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-algorithm-implementation-example/</guid>
-      <description>不追求冗长的理论推导，聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题。</description>
-    </item>
-    <item>
-      <title>Go 项目实战：实现 JWT 认证中间件</title>
-      <link>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</link>
-      <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</guid>
-      <description>在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。</description>
-    </item>
-    <item>
-      <title>记一次 Go 开发岗面试</title>
-      <link>https://vespeng.github.io/posts/go-development-job-interview/</link>
-      <pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-development-job-interview/</guid>
-      <description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
-    </item>
-    <item>
-      <title>MySQL 8.0 解压安装版配置文件及参数命令</title>
-      <link>https://vespeng.github.io/posts/mysql-config-and-command/</link>
-      <pubDate>Thu, 20 Mar 2025 23:50:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/mysql-config-and-command/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Go-SJSON 组件，JSON 动态修改新方案</title>
-      <link>https://vespeng.github.io/posts/go-sjson-component/</link>
-      <pubDate>Sun, 09 Mar 2025 14:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-sjson-component/</guid>
-      <description>前文介绍的 &lt;code&gt;GJSON&lt;/code&gt; 解决了灵活读取问题，而 &lt;code&gt;SJSON&lt;/code&gt; 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</description>
-    </item>
-    <item>
-      <title>Go-GJSON 组件，解锁 JSON 读取新姿势</title>
-      <link>https://vespeng.github.io/posts/go-gjson-component/</link>
-      <pubDate>Sun, 02 Mar 2025 17:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-gjson-component/</guid>
-      <description>Go 标准库提供了 &lt;code&gt;encoding/json&lt;/code&gt; 包用于处理 json 数据，同时第三方库 &lt;code&gt;GJSON&lt;/code&gt; &amp;amp; &lt;code&gt;SJSON&lt;/code&gt; 也在 json 处理方面表现出色。</description>
-    </item>
-    <item>
-      <title>为什么大模型训练依赖 GPU 而不是 CPU</title>
-      <link>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</link>
-      <pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</guid>
-      <description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
-    </item>
-    <item>
-      <title>Go 项目实战：全局异常处理</title>
-      <link>https://vespeng.github.io/posts/go-practical-global-exception-handling/</link>
-      <pubDate>Sun, 09 Feb 2025 17:10:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practical-global-exception-handling/</guid>
-      <description>在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。</description>
-    </item>
-    <item>
-      <title>Go 项目实战：如何部署多环境开发</title>
-      <link>https://vespeng.github.io/posts/go-practical-multi-environment-development/</link>
-      <pubDate>Sat, 25 Jan 2025 17:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practical-multi-environment-development/</guid>
-      <description>在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。</description>
-    </item>
-    <item>
-      <title>Go 项目实战：如何优雅的处理日志</title>
-      <link>https://vespeng.github.io/posts/go-practical-processing-log/</link>
-      <pubDate>Wed, 22 Jan 2025 21:40:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practical-processing-log/</guid>
-      <description>在 Go 项目开发中，日志处理是一项至关重要的任务。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</description>
-    </item>
-    <item>
-      <title>Go 项目实战：搭建高效的 Gin Web 目录结构</title>
-      <link>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</link>
-      <pubDate>Sun, 19 Jan 2025 21:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</guid>
-      <description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构。</description>
-    </item>
-    <item>
-      <title>关于</title>
-      <link>https://vespeng.github.io/about/</link>
-      <pubDate>Sun, 12 Jan 2025 14:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/about/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Json.Unmarshal 解析数值类型（踩坑）</title>
-      <link>https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/</link>
-      <pubDate>Wed, 08 Jan 2025 19:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Go 并发实战：利用协程处理多个接口数据</title>
-      <link>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</link>
-      <pubDate>Sun, 22 Dec 2024 18:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</guid>
-      <description>高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。这里我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。</description>
-    </item>
-    <item>
-      <title>Go 并发的核心机制解读</title>
-      <link>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</link>
-      <pubDate>Sun, 22 Dec 2024 15:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</guid>
-      <description>在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。</description>
-    </item>
-    <item>
-      <title>Go 开发环境搭建：基于 Windows 操作系统</title>
-      <link>https://vespeng.github.io/posts/go-development-environment/</link>
-      <pubDate>Fri, 15 Mar 2024 14:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-development-environment/</guid>
-      <description></description>
-    </item>
-  </channel>
+	<channel>
+		<title>Vespeng</title>
+		<link>https://vespeng.github.io/</link>
+		<description>Recent content on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 06 Feb 2026 00:15:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Fiber 3.0 初探：更快、更轻、更现代</title>
+				<link>https://vespeng.github.io/posts/fiber-3-0-preview/</link>
+				<pubDate>Fri, 06 Feb 2026 00:15:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/fiber-3-0-preview/</guid>
+				<description>Fiber 框架正式发布了 3.0 版本。探索它在保持极致性能的同时，到底把体验做到了什么程度。</description>
+			</item>
+			<item>
+				<title>我用 Cloudflare 搭建了一个“数字分身”</title>
+				<link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
+				<pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
+				<description>用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
+			</item>
+			<item>
+				<title>2025 年终总结</title>
+				<link>https://vespeng.github.io/posts/2025-review/</link>
+				<pubDate>Tue, 30 Dec 2025 23:10:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/2025-review/</guid>
+				<description>马上 25 年就结束了，留个总结吧，算是第一次正式的年度回顾。</description>
+			</item>
+			<item>
+				<title>利用周末写一个小工具：多设备预览图生成</title>
+				<link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
+				<pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
+				<description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
+			</item>
+			<item>
+				<title>Go 项目中是否有必要引入 DI 组件？Wire、Dig 与手动管理对比分析</title>
+				<link>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</link>
+				<pubDate>Wed, 19 Nov 2025 23:10:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/the-necessity-of-di-in-go-projects/</guid>
+				<description>本文通过用户模块实例，详细对比了 Go 项目中手动组装、Wire 和 Dig 三种依赖管理方式的实现代码、优缺点及适用场景。</description>
+			</item>
+			<item>
+				<title>Go Embed 实战：简化部署与静态资源管理</title>
+				<link>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</link>
+				<pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</guid>
+				<description>Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
+			</item>
+			<item>
+				<title>Go 基础算法实现示例集</title>
+				<link>https://vespeng.github.io/posts/go-algorithm-implementation-example/</link>
+				<pubDate>Sat, 16 Aug 2025 22:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-algorithm-implementation-example/</guid>
+				<description>不追求冗长的理论推导，聚焦于提供清晰、可运行的核心代码实现。内容涵盖了链表、字符串处理与排序算法等关键主题。</description>
+			</item>
+			<item>
+				<title>Go 项目实战：实现 JWT 认证中间件</title>
+				<link>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</link>
+				<pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</guid>
+				<description>在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。</description>
+			</item>
+			<item>
+				<title>记一次 Go 开发岗面试</title>
+				<link>https://vespeng.github.io/posts/go-development-job-interview/</link>
+				<pubDate>Sat, 07 Jun 2025 14:20:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-development-job-interview/</guid>
+				<description>如下题目于面试结束两周后，整理了当初未能回答上来的问题，在此分享总结，以供参考。</description>
+			</item>
+			<item>
+				<title>MySQL 8.0 解压安装版配置文件及参数命令</title>
+				<link>https://vespeng.github.io/posts/mysql-config-and-command/</link>
+				<pubDate>Thu, 20 Mar 2025 23:50:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/mysql-config-and-command/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Go-SJSON 组件，JSON 动态修改新方案</title>
+				<link>https://vespeng.github.io/posts/go-sjson-component/</link>
+				<pubDate>Sun, 09 Mar 2025 14:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-sjson-component/</guid>
+				<description>前文介绍的 &lt;code&gt;GJSON&lt;/code&gt; 解决了灵活读取问题，而 &lt;code&gt;SJSON&lt;/code&gt; 作为其姊妹库，则专注于实现无需结构体定义的 json 动态修改。</description>
+			</item>
+			<item>
+				<title>Go-GJSON 组件，解锁 JSON 读取新姿势</title>
+				<link>https://vespeng.github.io/posts/go-gjson-component/</link>
+				<pubDate>Sun, 02 Mar 2025 17:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-gjson-component/</guid>
+				<description>Go 标准库提供了 &lt;code&gt;encoding/json&lt;/code&gt; 包用于处理 json 数据，同时第三方库 &lt;code&gt;GJSON&lt;/code&gt; &amp;amp; &lt;code&gt;SJSON&lt;/code&gt; 也在 json 处理方面表现出色。</description>
+			</item>
+			<item>
+				<title>为什么大模型训练依赖 GPU 而不是 CPU</title>
+				<link>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</link>
+				<pubDate>Sat, 15 Feb 2025 22:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/why-ai-needs-gpu-not-cpu/</guid>
+				<description>GPU 具有高度并行的架构，能够同时处理大量的数据和计算任务。相比之下，CPU 虽然在串行计算方面表现不错，但并行处理能力相对较弱，无法像 GPU 那样同时处理众多任务。</description>
+			</item>
+			<item>
+				<title>Go 项目实战：全局异常处理</title>
+				<link>https://vespeng.github.io/posts/go-practical-global-exception-handling/</link>
+				<pubDate>Sun, 09 Feb 2025 17:10:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practical-global-exception-handling/</guid>
+				<description>在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。</description>
+			</item>
+			<item>
+				<title>Go 项目实战：如何部署多环境开发</title>
+				<link>https://vespeng.github.io/posts/go-practical-multi-environment-development/</link>
+				<pubDate>Sat, 25 Jan 2025 17:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practical-multi-environment-development/</guid>
+				<description>在 Web 项目的开发过程中，能够在不同的环境（如开发、测试、生产）中进行灵活部署是至关重要的。不同环境通常需要不同的配置，如服务器端口、数据库连接信息、缓存设置等。</description>
+			</item>
+			<item>
+				<title>Go 项目实战：如何优雅的处理日志</title>
+				<link>https://vespeng.github.io/posts/go-practical-processing-log/</link>
+				<pubDate>Wed, 22 Jan 2025 21:40:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practical-processing-log/</guid>
+				<description>在 Go 项目开发中，日志处理是一项至关重要的任务。本文将详细介绍如何在 Go 项目中优雅地处理日志，包括日志的级别、格式、输出以及如何使用第三方日志库等方面。</description>
+			</item>
+			<item>
+				<title>Go 项目实战：搭建高效的 Gin Web 目录结构</title>
+				<link>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</link>
+				<pubDate>Sun, 19 Jan 2025 21:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</guid>
+				<description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构。</description>
+			</item>
+			<item>
+				<title>关于</title>
+				<link>https://vespeng.github.io/about/</link>
+				<pubDate>Sun, 12 Jan 2025 14:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/about/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Json.Unmarshal 解析数值类型（踩坑）</title>
+				<link>https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/</link>
+				<pubDate>Wed, 08 Jan 2025 19:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/json-unmarshall-parsing-numeric-types/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Go 并发实战：利用协程处理多个接口数据</title>
+				<link>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</link>
+				<pubDate>Sun, 22 Dec 2024 18:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</guid>
+				<description>高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。这里我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。</description>
+			</item>
+			<item>
+				<title>Go 并发的核心机制解读</title>
+				<link>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</link>
+				<pubDate>Sun, 22 Dec 2024 15:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</guid>
+				<description>在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。</description>
+			</item>
+			<item>
+				<title>Go 开发环境搭建：基于 Windows 操作系统</title>
+				<link>https://vespeng.github.io/posts/go-development-environment/</link>
+				<pubDate>Fri, 15 Mar 2024 14:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-development-environment/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

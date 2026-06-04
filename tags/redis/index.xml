@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Redis on Vespeng.Record</title>
-    <link>https://vespeng.github.io/tags/redis/</link>
-    <description>Recent content in Redis on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Fri, 25 Jul 2025 21:15:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Go 项目实战：实现 JWT 认证中间件</title>
-      <link>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</link>
-      <pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</guid>
-      <description>在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Redis on Vespeng</title>
+		<link>https://vespeng.github.io/tags/redis/</link>
+		<description>Recent content in Redis on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 25 Jul 2025 21:15:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Go 项目实战：实现 JWT 认证中间件</title>
+				<link>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</link>
+				<pubDate>Fri, 25 Jul 2025 21:15:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/go-practice-implementing-jwt-auth-middleware/</guid>
+				<description>在构建安全可靠的 Go Web 服务时，JWT(JSON Web Token)认证是常用的解决方案。本文将介绍如何在 Gin 框架中实现完整的 JWT 认证方案，同时包含灵活的 Redis 集成选项。</description>
+			</item>
+	</channel>
 </rss>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Chromedp on Vespeng.Record</title>
-    <link>https://vespeng.github.io/tags/chromedp/</link>
-    <description>Recent content in Chromedp on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Sun, 14 Dec 2025 20:00:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/tags/chromedp/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>利用周末写一个小工具：多设备预览图生成</title>
-      <link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
-      <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
-      <description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Chromedp on Vespeng</title>
+		<link>https://vespeng.github.io/tags/chromedp/</link>
+		<description>Recent content in Chromedp on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 14 Dec 2025 20:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/tags/chromedp/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>利用周末写一个小工具：多设备预览图生成</title>
+				<link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
+				<pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
+				<description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
+			</item>
+	</channel>
 </rss>

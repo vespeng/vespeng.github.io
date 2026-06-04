@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>并发 on Vespeng.Record</title>
-    <link>https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/</link>
-    <description>Recent content in 并发 on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Sun, 22 Dec 2024 18:30:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Go 并发实战：利用协程处理多个接口数据</title>
-      <link>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</link>
-      <pubDate>Sun, 22 Dec 2024 18:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</guid>
-      <description>高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。这里我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。</description>
-    </item>
-    <item>
-      <title>Go 并发的核心机制解读</title>
-      <link>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</link>
-      <pubDate>Sun, 22 Dec 2024 15:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</guid>
-      <description>在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>并发 on Vespeng</title>
+		<link>https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/</link>
+		<description>Recent content in 并发 on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 22 Dec 2024 18:30:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Go 并发实战：利用协程处理多个接口数据</title>
+				<link>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</link>
+				<pubDate>Sun, 22 Dec 2024 18:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/collaborative-processing-of-multiple-interfaces/</guid>
+				<description>高效地处理多个数据源并将其整合为有意义的结果是开发中一项重要的任务。这里我们探讨一下如何利用 Go 语言的协程，同时调用多个接口获取数据，并将这些数据无缝地合并为一个完整的数据集。</description>
+			</item>
+			<item>
+				<title>Go 并发的核心机制解读</title>
+				<link>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</link>
+				<pubDate>Sun, 22 Dec 2024 15:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/the-core-mechanism-of-go-concurrency/</guid>
+				<description>在如今的编程领域，一个程序能够同时处理多个任务的能力非常重要，而 Golang 在并发编程方面表现十分出色，具有很多独特的优势。</description>
+			</item>
+	</channel>
 </rss>

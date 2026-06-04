@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Embed on Vespeng.Record</title>
-    <link>https://vespeng.github.io/tags/embed/</link>
-    <description>Recent content in Embed on Vespeng.Record</description>
-    <generator>Hugo</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Sun, 14 Dec 2025 20:00:00 +0800</lastBuildDate>
-    <atom:link href="https://vespeng.github.io/tags/embed/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>利用周末写一个小工具：多设备预览图生成</title>
-      <link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
-      <pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
-      <description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
-    </item>
-    <item>
-      <title>Go Embed 实战：简化部署与静态资源管理</title>
-      <link>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</link>
-      <pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate>
-      <guid>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</guid>
-      <description>Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Embed on Vespeng</title>
+		<link>https://vespeng.github.io/tags/embed/</link>
+		<description>Recent content in Embed on Vespeng</description>
+		<generator>Hugo</generator>
+		<language>zh-Hans</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 14 Dec 2025 20:00:00 +0800</lastBuildDate>
+		
+			<atom:link href="https://vespeng.github.io/tags/embed/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>利用周末写一个小工具：多设备预览图生成</title>
+				<link>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</link>
+				<pubDate>Sun, 14 Dec 2025 20:00:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/multi-device-preview-drawing-gen-tool-with-go/</guid>
+				<description>用 Go 开发多设备预览图生成工具，通过 &lt;code&gt;chromedp&lt;/code&gt; 截取网页并合成设备外壳，实现预览图自动化生成。</description>
+			</item>
+			<item>
+				<title>Go Embed 实战：简化部署与静态资源管理</title>
+				<link>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</link>
+				<pubDate>Mon, 03 Nov 2025 23:30:00 +0800</pubDate>
+				<guid>https://vespeng.github.io/posts/the-best-practice-of-go-embed/</guid>
+				<description>Go 1.16 引入的 embed，它允许开发者将静态资源直接编译进二进制文件。本文将深入探讨如何利用 embed 提升开发部署效率，并实现类似 Java 的灵活配置加载策略。</description>
+			</item>
+	</channel>
 </rss>
