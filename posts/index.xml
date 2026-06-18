@@ -21,11 +21,11 @@
 				<description>Fiber 框架正式发布了 3.0 版本。探索它在保持极致性能的同时，到底把体验做到了什么程度。</description>
 			</item>
 			<item>
-				<title>我用 Cloudflare 搭建了一个“数字分身”</title>
-				<link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
+				<title>我用 Cloudflare 搭建了一个 Persona AI 聊天应用</title>
+				<link>https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/</link>
 				<pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate>
-				<guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
-				<description>用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
+				<guid>https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/</guid>
+				<description>用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。</description>
 			</item>
 			<item>
 				<title>2025 年终总结</title>
@@ -127,9 +127,9 @@
 			</item>
 			<item>
 				<title>Go 项目实战：搭建高效的 Gin Web 目录结构</title>
-				<link>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</link>
+				<link>https://vespeng.github.io/posts/go-efficient-gin-directory-structure/</link>
 				<pubDate>Sun, 19 Jan 2025 21:30:00 +0800</pubDate>
-				<guid>https://vespeng.github.io/posts/go-practical-gin-directory-structure/</guid>
+				<guid>https://vespeng.github.io/posts/go-efficient-gin-directory-structure/</guid>
 				<description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构。</description>
 			</item>
 			<item>

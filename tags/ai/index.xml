@@ -14,11 +14,11 @@
 		
 			<atom:link href="https://vespeng.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>我用 Cloudflare 搭建了一个“数字分身”</title>
-				<link>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</link>
+				<title>我用 Cloudflare 搭建了一个 Persona AI 聊天应用</title>
+				<link>https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/</link>
 				<pubDate>Tue, 13 Jan 2026 00:25:00 +0800</pubDate>
-				<guid>https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/</guid>
-				<description>用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。</description>
+				<guid>https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/</guid>
+				<description>用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。</description>
 			</item>
 			<item>
 				<title>为什么大模型训练依赖 GPU 而不是 CPU</title>

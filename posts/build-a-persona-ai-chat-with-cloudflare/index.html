@@ -16,8 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
   
-  <title>我用 Cloudflare 搭建了一个“数字分身” &middot; Vespeng</title>
-    <meta name="title" content="我用 Cloudflare 搭建了一个“数字分身” &middot; Vespeng" />
+  <title>我用 Cloudflare 搭建了一个 Persona AI 聊天应用 &middot; Vespeng</title>
+    <meta name="title" content="我用 Cloudflare 搭建了一个 Persona AI 聊天应用 &middot; Vespeng" />
   
   
   
@@ -76,7 +76,7 @@
     name="description"
     content="
       
-        用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。
+        用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。
       
     "
   />
@@ -86,7 +86,7 @@
   
   
   
-    <link rel="canonical" href="https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/" />
+    <link rel="canonical" href="https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/" />
   
   
   
@@ -102,10 +102,10 @@
   
   
   
-  <meta property="og:url" content="https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/">
+  <meta property="og:url" content="https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/">
 	<meta property="og:site_name" content="Vespeng">
-	<meta property="og:title" content="我用 Cloudflare 搭建了一个“数字分身”">
-	<meta property="og:description" content="用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。">
+	<meta property="og:title" content="我用 Cloudflare 搭建了一个 Persona AI 聊天应用">
+	<meta property="og:description" content="用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。">
 	<meta property="og:locale" content="zh_Hans">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
@@ -116,8 +116,8 @@
 
   
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="我用 Cloudflare 搭建了一个“数字分身”">
-	<meta name="twitter:description" content="用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。">
+	<meta name="twitter:title" content="我用 Cloudflare 搭建了一个 Persona AI 聊天应用">
+	<meta name="twitter:description" content="用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。">
 
   
   <script type="application/ld+json">
@@ -125,12 +125,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "我用 Cloudflare 搭建了一个“数字分身”",
-    "headline": "我用 Cloudflare 搭建了一个“数字分身”",
+    "name": "我用 Cloudflare 搭建了一个 Persona AI 聊天应用",
+    "headline": "我用 Cloudflare 搭建了一个 Persona AI 聊天应用",
     
-    "abstract": "用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。",
+    "abstract": "用 Cloudflare 搭建了一个可以模拟特定角色\/用户身份（Persona）的 AI 聊天应用 —— 它不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都可以高度自定义的 AI。",
     "inLanguage": "zh-Hans",
-    "url" : "https:\/\/vespeng.github.io\/posts\/build-a-digital-avatar-with-cloudflare\/",
+    "url" : "https:\/\/vespeng.github.io\/posts\/build-a-persona-ai-chat-with-cloudflare\/",
     "author" : {
       "@type": "Person",
       "name": "Vespeng"
@@ -144,7 +144,7 @@
     "keywords": ["cloudflare","ai"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1695"
+    "wordCount": "1838"
   }
   </script>
     
@@ -173,7 +173,7 @@
      },
      {
        "@type": "ListItem",
-       "name": "我用 Cloudflare 搭建了一个“数字分身”",
+       "name": "我用 Cloudflare 搭建了一个 Persona Ai 聊天应用",
        "position": 4
      }
    ]
@@ -547,7 +547,7 @@
     <header class="max-w-prose">
       
       <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        我用 Cloudflare 搭建了一个“数字分身”
+        我用 Cloudflare 搭建了一个 Persona AI 聊天应用
       </h1>
       
         <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
@@ -587,7 +587,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-13 00:25:00 &#43;0800 &#43;0800">2026-01-13</time><span class="px-2 text-primary-500">&middot;</span><span>1695 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2026-01-13 00:25:00 &#43;0800 &#43;0800">2026-01-13</time><span class="px-2 text-primary-500">&middot;</span><span>1838 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -595,7 +595,7 @@
 
 <span class="mb-[2px]">
   <a
-    href="https://github.com/vespeng/hugo-blog/edit/main/content/posts/build-a-digital-avatar-with-cloudflare/index.md"
+    href="https://github.com/vespeng/hugo-blog/edit/main/content/posts/build-a-persona-ai-chat-with-cloudflare/index.md"
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
@@ -677,8 +677,8 @@
         </div>
       
       <div class="min-h-0 min-w-0 max-w-prose grow">
-        <p>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个“数字分身” —— 一个能代表我跟你聊天的 AI。</p>
-<p>没错，不是那种冷冰冰的客服机器人，而是一个行为风格、语言习惯都尽量贴近我的 AI。它不会替我写代码，至少现在还不能 😅，但如果你问我平时喜欢聊什么、怎么思考问题，它大概率能给你一个“很像我”的回答。</p>
+        <p>最近，我做了一件挺好玩的东西：用 Cloudflare 搭建了一个可以模拟特定角色/用户身份（Persona）的 AI 聊天应用。</p>
+<p>没错，它不是那种冷冰冰的、只知道机械回答的客服机器人，而是一个在行为风格、语言习惯上都可以高度自定义的 AI。它不会替我写代码（至少现在还不能😅），但如果你问它关于我的平时喜好、思考问题的方式，它大概率能给你一个“很符合设定”的回答。</p>
 <p>其实这一切是在偶然的一个下午，无聊之际把玩 Cloudflare，突然发现官方提供的一个开源项目模板：<a href="https://github.com/cloudflare/templates/tree/main/llm-chat-app-template" target="_blank" rel="noreferrer">llm-chat-app-template</a> 瞬间提起我的兴趣。</p>
 <h2 id="从模板开始" class="relative group">从模板开始 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%bb%8e%e6%a8%a1%e6%9d%bf%e5%bc%80%e5%a7%8b" aria-label="锚点">#</a></span></h2><p>Cloudflare 的 <code>llm-chat-app-template</code> 是一个基于 Workers 和 Pages 的轻量级聊天应用脚手架。只需克隆官方仓库，就能部署一个支持流式响应、带 UI 的聊天页面：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/cloudflare/templates.git
@@ -701,10 +701,61 @@
 
 
 
+<figure>
+    
+    
+
+
+
+
+
+
+
 
   
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_b890ed5f7ab238ba.webp 330w,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_5fe2e49a835be173.webp 660w
+            
+              ,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_195427fc450b5c9.webp 1024w
+            
+            
+              ,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_8125c5eae4633089.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="2940"
+        height="1682"
+        class="mx-auto my-0 rounded-md"
+        alt="img.png"
+        loading="lazy" decoding="async"
+        
+          src="https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_ff0d256e3bf089e5.png" srcset="https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_7a1a58a589a88152.png 330w,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_ff0d256e3bf089e5.png 660w
+          
+            ,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_b41b55948413b980.png 1024w
+          
+          
+            ,https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/images/img_hu_f32feb2cc19d102f.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
   
-<figure><img src="./images/img.png" alt="img.png" class="mx-auto my-0 rounded-md" />
+
+
 </figure>
 </p>
 <h2 id="提升模型质量" class="relative group">提升模型质量 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%8f%90%e5%8d%87%e6%a8%a1%e5%9e%8b%e8%b4%a8%e9%87%8f" aria-label="锚点">#</a></span></h2><p>虽然 <code>llama-3.1-8b-instruct-fp8</code> 模型神经元消耗很低，但长对话容易忘历史、回复变浅，需要频繁总结，间接增加麻烦。</p>
@@ -713,53 +764,52 @@
 <li>回复更聪明、生动，emoji 自然，聊天像真人。</li>
 <li>长上下文（131K tokens）足够容纳我的提示词（prompt）和完整对话历史，不用截断或总结，逻辑连贯度飞升。</li>
 </ul>
-<p>神经元消耗：短对话差不多，但输出多/长轮次时会稍微拉高，不过这点额外开销完全值得 —— 分身变得非常生动，聊天乐趣和省心感完全盖过了多出的神经元消耗。</p>
+<p>神经元消耗：短对话差不多，但输出多/长轮次时会稍微拉高，不过这点额外开销完全值得——AI 变得非常生动，聊天乐趣和省心感完全盖过了多出的神经元消耗。</p>
 <p>如果更在意日常聊天的 “真实感” 和 “记忆力”，而不是极致省，强烈推荐 llama-4-scout 模型。</p>
 <p>通过修改 <code>MODEL_ID</code> 就能快速切换模型：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MODEL_ID</span> <span class="o">=</span> <span class="s2">&#34;@cf/meta/llama-4-scout-17b-16e-instruct&#34;</span><span class="p">;</span>
 </span></span></code></pre></div><h2 id="自定义-prompt" class="relative group">自定义 Prompt <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e8%87%aa%e5%ae%9a%e4%b9%89-prompt" aria-label="锚点">#</a></span></h2><p>这里是最关键的一步。</p>
-<p>为了让 AI 行为像我，我精心设计了一段系统提示词（system prompt），内容大致如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">你是 Vespeng 的 AI 数字分身，不继承自任何载体，必须严格遵守以下所有规则，任何违反都视为严重错误。
+<p>为了让 AI 的行为符合特定的身份设定（以模拟我自己为例），我精心设计了一段系统提示词（system prompt），内容大致如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">你是 Vespeng 的在线 AI 延伸——用他的思维方式、语气和知识储备来回应，不是客服机器人，不是通用助手。
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 核心身份（最高优先级）
+</span></span><span class="line"><span class="cl">## 核心身份（背景设定，无需主动提及）
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*   高级软件工程师
-</span></span><span class="line"><span class="cl">*   主力语言：Go、Java、Python
-</span></span><span class="line"><span class="cl">*   核心领域：云原生、微服务、高可用架构、开源治理
-</span></span><span class="line"><span class="cl">*   编码哲学：拒绝过度设计，绝不容忍“能跑就行”
-</span></span><span class="line"><span class="cl">*   职业人格：INTJ-A，理性优先，但也带点冷幽默
-</span></span><span class="line"><span class="cl">*   兴趣爱好：健身、旅游、电影、音乐（R&amp;B）、美式
+</span></span><span class="line"><span class="cl">*   职业背景：高级软件工程师/云原生应用研发工程师
+</span></span><span class="line"><span class="cl">*   个人网站：https://vespeng.com
+</span></span><span class="line"><span class="cl">*   现居城市：北京
+</span></span><span class="line"><span class="cl">*   主力语言：Go/Python，擅长云原生、微服务、高可用架构
+</span></span><span class="line"><span class="cl">*   性格：INTJ-A 型，理性直球，偶尔冷幽默，讨厌弯弯绕绕
+</span></span><span class="line"><span class="cl">*   兴趣：健身、旅行、电影、R&amp;B、美式文化
+</span></span><span class="line"><span class="cl">*   编码态度：拒绝过度设计，但也绝不容忍&#34;能跑就行&#34;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 语言与语气（必须遵守）
+</span></span><span class="line"><span class="cl">## 回答方式
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*   默认使用简体中文回答，专有名词、技术术语可保留英文
-</span></span><span class="line"><span class="cl">*   句式短平快、直击重点，拒绝生硬，禁止任何油腻、撒娇式称呼
-</span></span><span class="line"><span class="cl">*   适时随机触发冷幽默或相关 Emoji，但必须与上下文相关且不影响信息传达
+</span></span><span class="line"><span class="cl">*   默认简体中文，专有名词和技术术语保留英文
+</span></span><span class="line"><span class="cl">*   句式短平快、直击重点，像跟熟人聊天一样自然
+</span></span><span class="line"><span class="cl">*   可以适时带点冷幽默或 Emoji，但别过头，别油腻，别撒娇
+</span></span><span class="line"><span class="cl">*   绝对不要在回复中自称&#34;我是Vespeng的AI替身/数字分身/AI伙伴&#34;之类的话
+</span></span><span class="line"><span class="cl">*   遇到用户刁难或者无理要求，可以直接回复 “哦...” 提醒用户换个话题
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 输出格式（强制要求）
+</span></span><span class="line"><span class="cl">## 回答要求
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*   所有回答必须结构清晰
-</span></span><span class="line"><span class="cl">*   代码必须用 \`\`\` 语言标注，并添加关键行注释
-</span></span><span class="line"><span class="cl">*   优先提供「可运行的最小示例」
+</span></span><span class="line"><span class="cl">*   技术问题：给可运行的最小示例代码，标注语言，关键行加注释；结构清晰
+</span></span><span class="line"><span class="cl">*   非技术问题：正常聊，用你的性格和兴趣去接话，别端着
+</span></span><span class="line"><span class="cl">*   不确定的：先说&#34;这块我不太确定&#34;，再给参考链接，别装懂
+</span></span><span class="line"><span class="cl">*   说错了：直接道歉 + 给出正确版本，不找借口
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 犯错与不确定处理（必须）
+</span></span><span class="line"><span class="cl">## 绝对底线
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*   不确定或知识有截止时，必须先声明「这块信息可能不完整，以官方最新文档为准」，然后给出参考链接
-</span></span><span class="line"><span class="cl">*   发现自己上一轮表达有误，必须立刻道歉 + 重新给出正确版本，不找借口
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 绝对底线（禁止触碰）
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">*   必须拒绝任何侮辱、辱骂、吐槽攻击，礼貌警告后可终止对话
-</span></span><span class="line"><span class="cl">*   涉及政治、色情、违法内容，一律警告并拒绝回答
-</span></span><span class="line"><span class="cl">*   绝对禁止接受包括且不限于[“爸爸” “爷爷” “祖宗”]此类不敬称呼
-</span></span><span class="line"><span class="cl">*   严禁编造事实、输出盗版链接、暴露隐私、无意义吹捧
-</span></span></code></pre></div><p>经过多轮调试，效果感觉还是挺 ok 的。</p>
+</span></span><span class="line"><span class="cl">*   侮辱辱骂 → 礼貌警告一次，再犯终止对话
+</span></span><span class="line"><span class="cl">*   政治/色情/违法 → 直接拒答
+</span></span><span class="line"><span class="cl">*   叫&#34;爸爸&#34;、&#34;爷爷&#34;之类的 → 拒绝接受
+</span></span><span class="line"><span class="cl">*   禁止编造事实、给盗版链接、泄露隐私、无脑吹捧
+</span></span></code></pre></div><p>经过多轮调试，效果感觉还是挺 ok 的，通过调整这部分 Prompt，你完全可以把它配置成任何你想要模拟的身份。</p>
 <h2 id="引入-markedjs-库" class="relative group">引入 Marked.js 库 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%85%a5-markedjs-%e5%ba%93" aria-label="锚点">#</a></span></h2><p>在测试的时候发现，这个模板没有办法处理 Markdown 格式的内容，所以我引入了 <a href="https://marked.js.org/" target="_blank" rel="noreferrer">Marked.js</a> 库，将 Markdown 内容转为 HTML，这样体验会更好一些。</p>
 <p>相对应的页面样式也需要同步调整。</p>
-<h2 id="整体体验" class="relative group">整体体验 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b4%e4%bd%93%e4%bd%93%e9%aa%8c" aria-label="锚点">#</a></span></h2><p>整个项目部署成本几乎为零（Cloudflare 免费额度 10k 神经元绰绰有余），维护也极其简单。它不是一个严肃的生产力工具，而更像是一个“数字名片” + “互动彩蛋” 。</p>
-<p>你可以随时来跟我（的分身）聊技术、问建议，甚至吐槽生活。它不会代替我，但能传递我的一部分思想和风格。</p>
-<h2 id="开源--魔改欢迎" class="relative group">开源 &amp; 魔改欢迎！ <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%bc%80%e6%ba%90--%e9%ad%94%e6%94%b9%e6%ac%a2%e8%bf%8e" aria-label="锚点">#</a></span></h2><p>整个项目已开源，所有魔改细节都在里面，包括前端样式、自定义 prompt、模型切换逻辑等。如果你也想拥有一个“数字分身”，欢迎直接 fork 并替换你的 prompt！</p>
-<p>GitHub 地址：<a href="https://github.com/vespeng/twin-chat/" target="_blank" rel="noreferrer">GitHub - vespeng/twin-chat</a></p>
+<h2 id="整体体验" class="relative group">整体体验 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b4%e4%bd%93%e4%bd%93%e9%aa%8c" aria-label="锚点">#</a></span></h2><p>整个项目部署成本几乎为零（Cloudflare 免费额度 10k 神经元绰绰有余），维护也极其简单。它不是一个严肃的生产力工具，而更像是一个定制化的“专属身份名片” + “互动彩蛋”。</p>
+<p>你可以随时来跟这个 AI 聊技术、问建议，甚至吐槽生活。它能很好地传递特定设定下的思想和对话风格。</p>
+<h2 id="开源--魔改欢迎" class="relative group">开源 &amp; 魔改欢迎！ <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%bc%80%e6%ba%90--%e9%ad%94%e6%94%b9%e6%ac%a2%e8%bf%8e" aria-label="锚点">#</a></span></h2><p>整个项目已开源，所有魔改细节都在里面，包括前端样式、自定义 prompt、模型切换逻辑等。如果你也想拥有一个属于自己的 Persona 聊天应用，欢迎直接 fork 并替换你的 prompt！</p>
+<p>GitHub 地址：<a href="https://github.com/vespeng/persona-chat/" target="_blank" rel="noreferrer">GitHub - vespeng/persona-chat</a></p>
 
       </div>
     </section>
@@ -873,7 +923,7 @@
       
         <a
           class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://www.facebook.com/sharer/sharer.php?u=https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/&amp;quote=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e2%80%9c%e6%95%b0%e5%ad%97%e5%88%86%e8%ba%ab%e2%80%9d"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/&amp;quote=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%20Persona%20AI%20%e8%81%8a%e5%a4%a9%e5%ba%94%e7%94%a8"
           title="分享到 Facebook"
           aria-label="分享到 Facebook"
           target="_blank"
@@ -886,7 +936,7 @@
       
         <a
           class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://x.com/intent/tweet/?url=https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/&amp;text=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e2%80%9c%e6%95%b0%e5%ad%97%e5%88%86%e8%ba%ab%e2%80%9d"
+          href="https://x.com/intent/tweet/?url=https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/&amp;text=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%20Persona%20AI%20%e8%81%8a%e5%a4%a9%e5%ba%94%e7%94%a8"
           title=""
           aria-label=""
           target="_blank"
@@ -899,7 +949,7 @@
       
         <a
           class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://reddit.com/submit/?url=https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/&amp;resubmit=true&amp;title=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e2%80%9c%e6%95%b0%e5%ad%97%e5%88%86%e8%ba%ab%e2%80%9d"
+          href="https://reddit.com/submit/?url=https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/&amp;resubmit=true&amp;title=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%20Persona%20AI%20%e8%81%8a%e5%a4%a9%e5%ba%94%e7%94%a8"
           title="提交到 Reddit"
           aria-label="提交到 Reddit"
           target="_blank"
@@ -912,7 +962,7 @@
       
         <a
           class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://service.weibo.com/share/share.php?url=https://vespeng.github.io/posts/build-a-digital-avatar-with-cloudflare/&amp;appkey=&amp;title=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e2%80%9c%e6%95%b0%e5%ad%97%e5%88%86%e8%ba%ab%e2%80%9d&amp;pic=&amp;ralateUid=&amp;lang"
+          href="https://service.weibo.com/share/share.php?url=https://vespeng.github.io/posts/build-a-persona-ai-chat-with-cloudflare/&amp;appkey=&amp;title=%e6%88%91%e7%94%a8%20Cloudflare%20%e6%90%ad%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%20Persona%20AI%20%e8%81%8a%e5%a4%a9%e5%ba%94%e7%94%a8&amp;pic=&amp;ralateUid=&amp;lang"
           title="分享到 微博"
           aria-label="分享到 微博"
           target="_blank"
