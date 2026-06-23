@@ -133,7 +133,7 @@
 				<description>Gin框架，作为Go语言生态中备受青睐的Web开发框架，凭借其卓越的性能、简洁的设计以及丰富的功能特性，在众多选项中脱颖而出。本文旨在深入剖析如何在使用Gin框架的过程中，构建一个既高效又便于管理的项目架构。</description>
 			</item>
 			<item>
-				<title>关于</title>
+				<title>About</title>
 				<link>https://vespeng.github.io/about/</link>
 				<pubDate>Sun, 12 Jan 2025 14:00:00 +0800</pubDate>
 				<guid>https://vespeng.github.io/about/</guid>
