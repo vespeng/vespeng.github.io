@@ -684,87 +684,87 @@
         <p>在 Go 项目开发中，有效的异常处理是确保程序健壮性和稳定性的关键因素之一。全局异常处理机制能够统一处理项目中可能出现的各种异常情况，提高代码的可读性、可维护性以及错误处理的一致性。</p>
 <h2 id="go-中的错误处理机制" class="relative group">Go 中的错误处理机制 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#go-%e4%b8%ad%e7%9a%84%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" aria-label="锚点">#</a></span></h2><p>在 Go 语言中，并没有像其他语言那样的传统异常机制。而是期望开发者主动去识别处理这种“异常”，通过返回值来表示可能出现的错误。</p>
 <p>通常情况下，函数会返回一个结果集和一个错误值，我们需要判断错误值是否为 <code>nil</code>，如果不为 <code>nil</code> 则表示出现了“异常”。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;fmt&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 模拟一个会返回错误的函数</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;除数不能为 0&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;出错啦:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;结果是:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h2 id="go-中的-panic" class="relative group">Go 中的 panic <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#go-%e4%b8%ad%e7%9a%84-panic" aria-label="锚点">#</a></span></h2><p>当程序遇到无法处理的错误时，就会被提示<code>panic</code>，程序会直接崩溃。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 模拟一个会返回错误的函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;除数不能为 0&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">b</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">divide</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;出错啦:&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;结果是:&#34;</span>, <span style="color:#a6e22e">result</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="go-中的-panic" class="relative group">Go 中的 panic <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#go-%e4%b8%ad%e7%9a%84-panic" aria-label="锚点">#</a></span></h2><p>当程序遇到无法处理的错误时，就会被提示<code>panic</code>，程序会直接崩溃。</p>
 <p><code>recover</code> 函数用于捕获 <code>panic</code> 抛出的信息，让程序从 panic 状态恢复继续正常执行，前提 recover 只能在 <code>defer</code> 函数中使用。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;fmt&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;已捕获到恐慌:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 手动触发一个 panic</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&#34;这是一个恐慌！&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 输出：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 已捕获到恐慌:这是一个恐慌！</span><span class="w">
-</span></span></span></code></pre></div><h2 id="实现全局异常处理" class="relative group">实现全局异常处理 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%ae%9e%e7%8e%b0%e5%85%a8%e5%b1%80%e5%bc%82%e5%b8%b8%e5%a4%84%e7%90%86" aria-label="锚点">#</a></span></h2><p>根据上述其实不难发现，错误处理是显式的，我们可以做前置判断，根据具体情况进行处理，但是<code>panic</code> 处理通常是隐式的，一旦被调用 panic 函数，程序的执行流程会被打乱，需捕获 panic 才能恢复程序的正常执行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> recover(); <span style="color:#a6e22e">r</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;已捕获到恐慌:&#34;</span>, <span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 手动触发一个 panic</span>
+</span></span><span style="display:flex;"><span>    panic(<span style="color:#e6db74">&#34;这是一个恐慌！&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输出：</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 已捕获到恐慌:这是一个恐慌！</span>
+</span></span></code></pre></div><h2 id="实现全局异常处理" class="relative group">实现全局异常处理 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%ae%9e%e7%8e%b0%e5%85%a8%e5%b1%80%e5%bc%82%e5%b8%b8%e5%a4%84%e7%90%86" aria-label="锚点">#</a></span></h2><p>根据上述其实不难发现，错误处理是显式的，我们可以做前置判断，根据具体情况进行处理，但是<code>panic</code> 处理通常是隐式的，一旦被调用 panic 函数，程序的执行流程会被打乱，需捕获 panic 才能恢复程序的正常执行。</p>
 <p>所以针对这种隐式的、在编程过程中无法提前预知的错误，就很有必要做一层异常的处理，最好可以是全局处理。</p>
 <p>为了实现全局异常处理，我们可以创建一个中间件或者全局的异常处理函数。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">GlobalErrorHandler</span><span class="p">()</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">HandlerFunc</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">recover</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Recovered from panic: %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="s">&#34;message&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;Internal Server Error&#34;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nx">c</span><span class="p">.</span><span class="nf">Abort</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h2 id="在项目中的应用" class="relative group">在项目中的应用 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%9c%a8%e9%a1%b9%e7%9b%ae%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="锚点">#</a></span></h2><p>在实际的项目中，我们可以将这个全局异常处理中间件应用到 HTTP 服务器的路由处理中。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;log&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 应用全局异常处理中间件</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nf">GlobalErrorHandler</span><span class="p">())</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/ping&#34;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 模拟异常</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Something went wrong!&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>这样下来，在程序的后续处理中，一旦遇到 panic 就会被捕获，从而不影响程序的继续运行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">GlobalErrorHandler</span>() <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">HandlerFunc</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> recover(); <span style="color:#a6e22e">err</span><span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Recovered from panic: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#ae81ff">500</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Internal Server Error&#34;</span>,
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Abort</span>()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }()
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Next</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="在项目中的应用" class="relative group">在项目中的应用 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%9c%a8%e9%a1%b9%e7%9b%ae%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="锚点">#</a></span></h2><p>在实际的项目中，我们可以将这个全局异常处理中间件应用到 HTTP 服务器的路由处理中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 应用全局异常处理中间件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Use</span>(<span style="color:#a6e22e">GlobalErrorHandler</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/ping&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 模拟异常</span>
+</span></span><span style="display:flex;"><span>        panic(<span style="color:#e6db74">&#34;Something went wrong!&#34;</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这样下来，在程序的后续处理中，一旦遇到 panic 就会被捕获，从而不影响程序的继续运行。</p>
 
       </div>
     </section>

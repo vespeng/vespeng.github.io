@@ -717,16 +717,16 @@
 <p>这让我开始反思：问题真的出在 Go 没有强大的 DI 框架吗？还是说，我们把“依赖注入”当成了银弹，却忽视了更根本的架构设计？</p>
 <h2 id="什么是依赖注入为什么我们需要它" class="relative group">什么是依赖注入？为什么我们需要它？ <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%bb%80%e4%b9%88%e6%98%af%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e4%b8%ba%e4%bb%80%e4%b9%88%e6%88%91%e4%bb%ac%e9%9c%80%e8%a6%81%e5%ae%83" aria-label="锚点">#</a></span></h2><p>依赖注入（Dependency Injection, DI）是一种实现<strong>控制反转</strong>（Inversion of Control, IoC）的设计模式。其核心思想是：<strong>将对象的创建与使用解耦</strong>，由外部容器负责管理依赖关系，并在运行时或编译时“注入”所需组件。</p>
 <p>在传统写法中，我们常常直接在代码里 <code>new</code> 出依赖：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserController</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">service</span><span class="w"> </span><span class="nx">UserService</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">NewUserController</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">UserController</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">repo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">NewUserRepository</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">service</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">repo</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">UserController</span><span class="p">{</span><span class="nx">service</span><span class="p">:</span><span class="w"> </span><span class="nx">service</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>这种硬编码方式的问题在于：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserController</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">UserService</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewUserController</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">UserController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">repo</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewUserRepository</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">service</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewUserService</span>(<span style="color:#a6e22e">repo</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">UserController</span>{<span style="color:#a6e22e">service</span>: <span style="color:#a6e22e">service</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这种硬编码方式的问题在于：</p>
 <ul>
 <li><strong>高耦合</strong>：修改构造逻辑需改动多处</li>
 <li><strong>难测试</strong>：无法轻松替换为 mock 实现</li>
@@ -742,26 +742,26 @@
 </ol>
 <p>并通过 Gin 框架完整串联路由 → Controller → Service → Repository（基于 GORM）</p>
 <h2 id="示例场景用户模块的完整分层实现" class="relative group">示例场景：用户模块的完整分层实现 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e7%a4%ba%e4%be%8b%e5%9c%ba%e6%99%af%e7%94%a8%e6%88%b7%e6%a8%a1%e5%9d%97%e7%9a%84%e5%ae%8c%e6%95%b4%e5%88%86%e5%b1%82%e5%ae%9e%e7%8e%b0" aria-label="锚点">#</a></span></h2><p>这里以一个标准的 CRUD 用户模块为例，贯穿整个调用链。先定义清晰的模块化目录结构：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cmd/
-</span></span><span class="line"><span class="cl">└── main.go
-</span></span><span class="line"><span class="cl">internal/
-</span></span><span class="line"><span class="cl">├── module/
-</span></span><span class="line"><span class="cl">│   └── user/
-</span></span><span class="line"><span class="cl">│       ├── controller/
-</span></span><span class="line"><span class="cl">│       │   └── user_controller.go
-</span></span><span class="line"><span class="cl">│       ├── service/
-</span></span><span class="line"><span class="cl">│       │   ├── user_service.go
-</span></span><span class="line"><span class="cl">│       │   └── user_service_impl.go
-</span></span><span class="line"><span class="cl">│       ├── repository/
-</span></span><span class="line"><span class="cl">│       │   ├── user_repo.go
-</span></span><span class="line"><span class="cl">│       │   └── user_repo_impl.go
-</span></span><span class="line"><span class="cl">│       ├── model/
-</span></span><span class="line"><span class="cl">│       │   └── user.go
-</span></span><span class="line"><span class="cl">│       └── route/
-</span></span><span class="line"><span class="cl">│           └── user_routes.go
-</span></span><span class="line"><span class="cl">└── pkg/
-</span></span><span class="line"><span class="cl">    └── db/
-</span></span><span class="line"><span class="cl">        └── gorm.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cmd/
+</span></span><span style="display:flex;"><span>└── main.go
+</span></span><span style="display:flex;"><span>internal/
+</span></span><span style="display:flex;"><span>├── module/
+</span></span><span style="display:flex;"><span>│   └── user/
+</span></span><span style="display:flex;"><span>│       ├── controller/
+</span></span><span style="display:flex;"><span>│       │   └── user_controller.go
+</span></span><span style="display:flex;"><span>│       ├── service/
+</span></span><span style="display:flex;"><span>│       │   ├── user_service.go
+</span></span><span style="display:flex;"><span>│       │   └── user_service_impl.go
+</span></span><span style="display:flex;"><span>│       ├── repository/
+</span></span><span style="display:flex;"><span>│       │   ├── user_repo.go
+</span></span><span style="display:flex;"><span>│       │   └── user_repo_impl.go
+</span></span><span style="display:flex;"><span>│       ├── model/
+</span></span><span style="display:flex;"><span>│       │   └── user.go
+</span></span><span style="display:flex;"><span>│       └── route/
+</span></span><span style="display:flex;"><span>│           └── user_routes.go
+</span></span><span style="display:flex;"><span>└── pkg/
+</span></span><span style="display:flex;"><span>    └── db/
+</span></span><span style="display:flex;"><span>        └── gorm.go
 </span></span></code></pre></div><blockquote>
 <p><strong>说明</strong>：</p>
 <ul>
@@ -771,182 +771,182 @@
 <li><code>main.go</code> 不膨胀，依赖组装集中在模块初始化函数中</li>
 </ul>
 </blockquote>
-<h3 id="数据库初始化gorm" class="relative group">数据库初始化（GORM） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%88%9d%e5%a7%8b%e5%8c%96gorm" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// pkg/db/gorm.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">db</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;gorm.io/driver/sqlite&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;gorm.io/gorm&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">NewDB</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gorm</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">sqlite</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;test.db&#34;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">Config</span><span class="p">{})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">panic</span><span class="p">(</span><span class="s">&#34;failed to connect database&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="用户实体" class="relative group">用户实体 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e7%94%a8%e6%88%b7%e5%ae%9e%e4%bd%93" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/model/user.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">model</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ID</span><span class="w">   </span><span class="kt">uint</span><span class="w">   </span><span class="s">`json:&#34;id&#34; gorm:&#34;primaryKey&#34;`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;name&#34; gorm:&#34;not null&#34;`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="repository-接口与实现" class="relative group">Repository 接口与实现 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#repository-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/repository/user_repo.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">repository</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="s">&#34;internal/module/user/model&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserRepository</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">FindAll</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/repository/user_repo_impl.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">repository</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;gorm.io/gorm&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/model&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserRepositoryImpl</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">NewUserRepository</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">UserRepositoryImpl</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">UserRepositoryImpl</span><span class="p">{</span><span class="nx">db</span><span class="p">:</span><span class="w"> </span><span class="nx">db</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">UserRepositoryImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">FindAll</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">users</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">users</span><span class="p">).</span><span class="nx">Error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">users</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">UserRepositoryImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">Error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="service-接口与实现" class="relative group">Service 接口与实现 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#service-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/service/user_service.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="s">&#34;internal/module/user/model&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserService</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">GetUsers</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/service/user_service_impl.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/model&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/repository&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserServiceImpl</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">repo</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nx">UserRepository</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">repo</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nx">UserRepository</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">UserServiceImpl</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">UserServiceImpl</span><span class="p">{</span><span class="nx">repo</span><span class="p">:</span><span class="w"> </span><span class="nx">repo</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">UserServiceImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">GetUsers</span><span class="p">()</span><span class="w"> </span><span class="p">([]</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nf">FindAll</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">UserServiceImpl</span><span class="p">)</span><span class="w"> </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">user</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">model</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="nx">name</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="controller-层handler" class="relative group">Controller 层（Handler） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#controller-%e5%b1%82handler" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/controller/user_controller.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">controller</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;net/http&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/model&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/service&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">UserController</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">service</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">UserService</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">NewUserController</span><span class="p">(</span><span class="nx">service</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">UserService</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">UserController</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">UserController</span><span class="p">{</span><span class="nx">service</span><span class="p">:</span><span class="w"> </span><span class="nx">service</span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserController</span><span class="p">)</span><span class="w"> </span><span class="nf">GetUsers</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">users</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nf">GetUsers</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;error&#34;</span><span class="p">:</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="nx">users</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserController</span><span class="p">)</span><span class="w"> </span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;name&#34; binding:&#34;required&#34;`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">ShouldBindJSON</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;error&#34;</span><span class="p">:</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nf">CreateUser</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;error&#34;</span><span class="p">:</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctx</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;message&#34;</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;user created&#34;</span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="路由注册模块内部自治" class="relative group">路由注册（模块内部自治） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e8%b7%af%e7%94%b1%e6%b3%a8%e5%86%8c%e6%a8%a1%e5%9d%97%e5%86%85%e9%83%a8%e8%87%aa%e6%b2%bb" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/route/user_routes.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">route</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/controller&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">RouterGroup</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="w"> </span><span class="o">*</span><span class="nx">controller</span><span class="p">.</span><span class="nx">UserController</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">userGroup</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/users&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">userGroup</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">GetUsers</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">userGroup</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">CreateUser</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h2 id="三种依赖管理方式对比" class="relative group">三种依赖管理方式对比 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%b8%89%e7%a7%8d%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" aria-label="锚点">#</a></span></h2><h3 id="不使用依赖注入手动组装" class="relative group">不使用依赖注入（手动组装） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e6%89%8b%e5%8a%a8%e7%bb%84%e8%a3%85" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// cmd/main.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/app/http&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/controller&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/repository&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/service&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/pkg/db&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 初始化数据库</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">dbConn</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nf">NewDB</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 手动组装依赖链</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">userRepo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nf">NewUserRepository</span><span class="p">(</span><span class="nx">dbConn</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">userService</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">userRepo</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">userCtrl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nf">NewUserController</span><span class="p">(</span><span class="nx">userService</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 注册路由</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">api</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/api&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">userCtrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 启动服务</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nf">StartServer</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
+<h3 id="数据库初始化gorm" class="relative group">数据库初始化（GORM） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%88%9d%e5%a7%8b%e5%8c%96gorm" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// pkg/db/gorm.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gorm.io/driver/sqlite&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewDB</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">sqlite</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;test.db&#34;</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Config</span>{})
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        panic(<span style="color:#e6db74">&#34;failed to connect database&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">db</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="用户实体" class="relative group">用户实体 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e7%94%a8%e6%88%b7%e5%ae%9e%e4%bd%93" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/model/user.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">model</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ID</span>   <span style="color:#66d9ef">uint</span>   <span style="color:#e6db74">`json:&#34;id&#34; gorm:&#34;primaryKey&#34;`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; gorm:&#34;not null&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="repository-接口与实现" class="relative group">Repository 接口与实现 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#repository-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/repository/user_repo.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">repository</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;internal/module/user/model&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">FindAll</span>() ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Save</span>(<span style="color:#a6e22e">user</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/repository/user_repo_impl.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">repository</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/model&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserRepositoryImpl</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewUserRepository</span>(<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">UserRepositoryImpl</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">UserRepositoryImpl</span>{<span style="color:#a6e22e">db</span>: <span style="color:#a6e22e">db</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserRepositoryImpl</span>) <span style="color:#a6e22e">FindAll</span>() ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">users</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">users</span>).<span style="color:#a6e22e">Error</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">users</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserRepositoryImpl</span>) <span style="color:#a6e22e">Save</span>(<span style="color:#a6e22e">user</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">user</span>).<span style="color:#a6e22e">Error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="service-接口与实现" class="relative group">Service 接口与实现 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#service-%e6%8e%a5%e5%8f%a3%e4%b8%8e%e5%ae%9e%e7%8e%b0" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/service/user_service.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;internal/module/user/model&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserService</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GetUsers</span>() ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">CreateUser</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/service/user_service_impl.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/model&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/repository&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserServiceImpl</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">repo</span> <span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">UserRepository</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewUserService</span>(<span style="color:#a6e22e">repo</span> <span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">UserRepository</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">UserServiceImpl</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">UserServiceImpl</span>{<span style="color:#a6e22e">repo</span>: <span style="color:#a6e22e">repo</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserServiceImpl</span>) <span style="color:#a6e22e">GetUsers</span>() ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">repo</span>.<span style="color:#a6e22e">FindAll</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserServiceImpl</span>) <span style="color:#a6e22e">CreateUser</span>(<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>{<span style="color:#a6e22e">Name</span>: <span style="color:#a6e22e">name</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">repo</span>.<span style="color:#a6e22e">Save</span>(<span style="color:#a6e22e">user</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="controller-层handler" class="relative group">Controller 层（Handler） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#controller-%e5%b1%82handler" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/controller/user_controller.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">controller</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/model&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/service&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserController</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">UserService</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewUserController</span>(<span style="color:#a6e22e">service</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">UserService</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">UserController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">UserController</span>{<span style="color:#a6e22e">service</span>: <span style="color:#a6e22e">service</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserController</span>) <span style="color:#a6e22e">GetUsers</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">users</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">GetUsers</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>()})
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">users</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserController</span>) <span style="color:#a6e22e">CreateUser</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">req</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34; binding:&#34;required&#34;`</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">ShouldBindJSON</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">req</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusBadRequest</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>()})
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">CreateUser</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Name</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>()})
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{<span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;user created&#34;</span>})
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="路由注册模块内部自治" class="relative group">路由注册（模块内部自治） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e8%b7%af%e7%94%b1%e6%b3%a8%e5%86%8c%e6%a8%a1%e5%9d%97%e5%86%85%e9%83%a8%e8%87%aa%e6%b2%bb" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/route/user_routes.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">route</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/controller&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SetupUserRoutes</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">RouterGroup</span>, <span style="color:#a6e22e">ctrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">UserController</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userGroup</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Group</span>(<span style="color:#e6db74">&#34;/users&#34;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">userGroup</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">ctrl</span>.<span style="color:#a6e22e">GetUsers</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">userGroup</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">ctrl</span>.<span style="color:#a6e22e">CreateUser</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="三种依赖管理方式对比" class="relative group">三种依赖管理方式对比 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%b8%89%e7%a7%8d%e4%be%9d%e8%b5%96%e7%ae%a1%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" aria-label="锚点">#</a></span></h2><h3 id="不使用依赖注入手动组装" class="relative group">不使用依赖注入（手动组装） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96%e6%b3%a8%e5%85%a5%e6%89%8b%e5%8a%a8%e7%bb%84%e8%a3%85" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// cmd/main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/app/http&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/controller&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/repository&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/service&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/pkg/db&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始化数据库</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dbConn</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">NewDB</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 手动组装依赖链</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userRepo</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">NewUserRepository</span>(<span style="color:#a6e22e">dbConn</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userService</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">NewUserService</span>(<span style="color:#a6e22e">userRepo</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">userCtrl</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">NewUserController</span>(<span style="color:#a6e22e">userService</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 注册路由</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">api</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Group</span>(<span style="color:#e6db74">&#34;/api&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">SetupUserRoutes</span>(<span style="color:#a6e22e">api</span>, <span style="color:#a6e22e">userCtrl</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 启动服务</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StartServer</span>(<span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
 <ul>
 <li>零依赖，逻辑直观</li>
@@ -962,59 +962,59 @@
 <h3 id="使用-wire编译时注入" class="relative group">使用 Wire（编译时注入） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%bd%bf%e7%94%a8-wire%e7%bc%96%e8%af%91%e6%97%b6%e6%b3%a8%e5%85%a5" aria-label="锚点">#</a></span></h3><ol>
 <li>
 <p>安装 Wire：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go install github.com/google/wire/cmd/wire@latest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go install github.com/google/wire/cmd/wire@latest
 </span></span></code></pre></div></li>
 <li>
 <p>创建注入配置集：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// internal/wire_gen.go (由 wire 生成)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="c1">// internal/wire.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">di</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/google/wire&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/controller&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/repository&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/service&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/pkg/db&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="nx">UserSet</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">wire</span><span class="p">.</span><span class="nf">NewSet</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">repository</span><span class="p">.</span><span class="nx">NewUserRepository</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">service</span><span class="p">.</span><span class="nx">NewUserService</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">controller</span><span class="p">.</span><span class="nx">NewUserController</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">wire</span><span class="p">.</span><span class="nf">NewSet</span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="p">.</span><span class="nx">NewDB</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">UserSet</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">wire</span><span class="p">.</span><span class="nf">Value</span><span class="p">(</span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// internal/wire_gen.go (由 wire 生成)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// internal/wire.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">di</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/google/wire&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/controller&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/repository&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/service&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/pkg/db&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">UserSet</span> = <span style="color:#a6e22e">wire</span>.<span style="color:#a6e22e">NewSet</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">NewUserRepository</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">NewUserService</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">NewUserController</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">AppModule</span> = <span style="color:#a6e22e">wire</span>.<span style="color:#a6e22e">NewSet</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">NewDB</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">UserSet</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wire</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()),
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div></li>
 <li>
 <p>生成代码并启动：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wire
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wire
 </span></span></code></pre></div></li>
 </ol>
 <p>生成 <code>wire_gen.go</code> 后，<code>main.go</code> 极简：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// cmd/main.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/di&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/route&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">di</span><span class="p">.</span><span class="nf">InitializeApp</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">api</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/api&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// cmd/main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/di&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/route&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">ctrl</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">di</span>.<span style="color:#a6e22e">InitializeApp</span>()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">api</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Group</span>(<span style="color:#e6db74">&#34;/api&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">SetupUserRoutes</span>(<span style="color:#a6e22e">api</span>, <span style="color:#a6e22e">ctrl</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
 <ul>
 <li>编译时检查，类型安全</li>
@@ -1027,42 +1027,42 @@
 <li>错误信息有时不够友好</li>
 </ul>
 </blockquote>
-<h3 id="使用-dig运行时注入" class="relative group">使用 Dig（运行时注入） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%bd%bf%e7%94%a8-dig%e8%bf%90%e8%a1%8c%e6%97%b6%e6%b3%a8%e5%85%a5" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// cmd/main.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;context&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/uber-go/dig&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/controller&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/repository&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/service&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/route&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/pkg/db&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">dig</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 提供基础依赖</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Provide</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">NewDB</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Provide</span><span class="p">(</span><span class="nx">repository</span><span class="p">.</span><span class="nx">NewUserRepository</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Provide</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">NewUserService</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Provide</span><span class="p">(</span><span class="nx">controller</span><span class="p">.</span><span class="nx">NewUserController</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Provide</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span><span class="w"> </span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 注册路由（依赖注入）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Invoke</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="w"> </span><span class="o">*</span><span class="nx">controller</span><span class="p">.</span><span class="nx">UserController</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">api</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/api&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 启动</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">container</span><span class="p">.</span><span class="nf">Invoke</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">})</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">engine</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
+<h3 id="使用-dig运行时注入" class="relative group">使用 Dig（运行时注入） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e4%bd%bf%e7%94%a8-dig%e8%bf%90%e8%a1%8c%e6%97%b6%e6%b3%a8%e5%85%a5" aria-label="锚点">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// cmd/main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/uber-go/dig&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/controller&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/repository&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/service&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/route&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/pkg/db&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dig</span>.<span style="color:#a6e22e">New</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 提供基础依赖</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Provide</span>(<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">NewDB</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Provide</span>(<span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">NewUserRepository</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Provide</span>(<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">NewUserService</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Provide</span>(<span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">NewUserController</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Provide</span>(<span style="color:#66d9ef">func</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>() })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 注册路由（依赖注入）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Invoke</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">ctrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">UserController</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">api</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Group</span>(<span style="color:#e6db74">&#34;/api&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">SetupUserRoutes</span>(<span style="color:#a6e22e">api</span>, <span style="color:#a6e22e">ctrl</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 启动</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">engine</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">Invoke</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) { <span style="color:#a6e22e">engine</span> = <span style="color:#a6e22e">e</span> })
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">engine</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>✅ <strong>优点</strong>：</p>
 <ul>
 <li>灵活，支持动态绑定</li>
@@ -1084,35 +1084,35 @@
 <li>共享资源（如 DB、Logger）作为参数传入模块初始化函数</li>
 </ul>
 <p>例如，我们可以为每个模块提供一个初始化函数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// module/user/user_module.go</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">user</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/gin-gonic/gin&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;gorm.io/gorm&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/controller&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/repository&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/service&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;internal/module/user/route&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">SetupModule</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">RouterGroup</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">repo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nf">NewUserRepository</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">svc</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nf">NewUserService</span><span class="p">(</span><span class="nx">repo</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ctrl</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nf">NewUserController</span><span class="p">(</span><span class="nx">svc</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">route</span><span class="p">.</span><span class="nf">SetupUserRoutes</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p><code>main.go</code> 变得极其干净：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">db</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nf">NewDB</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">user</span><span class="p">.</span><span class="nf">SetupModule</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">Group</span><span class="p">(</span><span class="s">&#34;/api&#34;</span><span class="p">),</span><span class="w"> </span><span class="nx">db</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// order.SetupModule(r.Group(&#34;/api&#34;), db) // 后续扩展</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nf">StartServer</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><p>这种方式既保持了简洁，又具备良好扩展性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// module/user/user_module.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">user</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/controller&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/repository&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/service&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;internal/module/user/route&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SetupModule</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">RouterGroup</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">repo</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">NewUserRepository</span>(<span style="color:#a6e22e">db</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">svc</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">NewUserService</span>(<span style="color:#a6e22e">repo</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ctrl</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">controller</span>.<span style="color:#a6e22e">NewUserController</span>(<span style="color:#a6e22e">svc</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">SetupUserRoutes</span>(<span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">ctrl</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>main.go</code> 变得极其干净：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">NewDB</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">SetupModule</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Group</span>(<span style="color:#e6db74">&#34;/api&#34;</span>), <span style="color:#a6e22e">db</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// order.SetupModule(r.Group(&#34;/api&#34;), db) // 后续扩展</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StartServer</span>(<span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这种方式既保持了简洁，又具备良好扩展性：</p>
 <ul>
 <li><strong>无需任何 DI 框架</strong></li>
 <li><strong>依赖关系清晰可见</strong></li>
