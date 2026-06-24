@@ -688,112 +688,112 @@
         <p>在 Go 语言开发领域，json 数据处理是极为常见的任务。Go 标准库提供了 <code>encoding/json</code> 包用于处理 json 数据，同时第三方库 <code>GJSON</code> &amp; <code>SJSON</code> 也在 json 处理方面表现出色。</p>
 <p>本文将深入探讨下 GJSON 组件，通过与原生处理方式对比，它存在什么特别之处，它的优势体现在哪。</p>
 <h2 id="go-原生-json-读取方式" class="relative group">Go 原生 json 读取方式 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#go-%e5%8e%9f%e7%94%9f-json-%e8%af%bb%e5%8f%96%e6%96%b9%e5%bc%8f" aria-label="锚点">#</a></span></h2><p>Go 原生读取 json 数据，通常需先定义结构体，然后再将 json 数据解析到结构体实例，如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    &#34;name&#34;: &#34;张三&#34;,
-</span></span><span style="display:flex;"><span>    &#34;age&#34;: 25
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;name&#34;: &#34;张三&#34;,
+</span></span><span class="line"><span class="cl">    &#34;age&#34;: 25
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></div><p>具体处理逻辑：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;encoding/json&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;name&#34;`</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span>  <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;age&#34;`</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jsonStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">person</span> <span style="color:#a6e22e">Person</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>([]byte(<span style="color:#a6e22e">jsonStr</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">person</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span><span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;解析错误:&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Name:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">Name</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Age:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">Age</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>这种方式虽能准确解析 json 数据，但如果 json 存在多层嵌套，层级过度包装，那么结构体定义以及解析过程就会变得相当繁琐。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;encoding/json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Name</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&#34;name&#34;`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Age</span><span class="w">  </span><span class="kt">int</span><span class="w">    </span><span class="s">`json:&#34;age&#34;`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="nx">Person</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">person</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;解析错误:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">person</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Age:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">person</span><span class="p">.</span><span class="nx">Age</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>这种方式虽能准确解析 json 数据，但如果 json 存在多层嵌套，层级过度包装，那么结构体定义以及解析过程就会变得相当繁琐。</p>
 <h2 id="gjson-组件" class="relative group">GJSON 组件 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#gjson-%e7%bb%84%e4%bb%b6" aria-label="锚点">#</a></span></h2><h3 id="概述" class="relative group">概述 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e6%a6%82%e8%bf%b0" aria-label="锚点">#</a></span></h3><p>GJSON 是一个轻量级且高性能的 JSON 解析库，它允许开发者通过简洁的语法，无需定义结构体，就能快速提取 JSON 数据中的特定值。</p>
 <p>官网地址：<a href="https://github.com/tidwall/gjson" target="_blank" rel="noreferrer">GitHub - tidwall/gjson</a></p>
 <h3 id="安装" class="relative group">安装 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%ae%89%e8%a3%85" aria-label="锚点">#</a></span></h3><p>使用 Go 的包管理工具 <code>go get</code> 安装 GJSON：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>go get -u github.com/tidwall/gjson
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get -u github.com/tidwall/gjson
 </span></span></code></pre></div><h2 id="gjson-基本用法" class="relative group">GJSON 基本用法 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#gjson-%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" aria-label="锚点">#</a></span></h2><h3 id="简单-json-数据获取" class="relative group">简单 json 数据获取 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e7%ae%80%e5%8d%95-json-%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96" aria-label="锚点">#</a></span></h3><p>对于简单的 json，像前面那个例子，直接用 <code>gjson.Get</code> 方法，传入 json 字符串和要获取的字段名，就能拿到对应的值。比如获取 <code>name</code> 字段，<code>gjson.Get(jsonStr, &quot;name&quot;)</code> 就可以搞定，例如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/tidwall/gjson&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jsonStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gjson</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">jsonStr</span>, <span style="color:#e6db74">&#34;name&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gjson</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">jsonStr</span>, <span style="color:#e6db74">&#34;age&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Name:&#34;</span>, <span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">String</span>())
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Age:&#34;</span>, <span style="color:#a6e22e">age</span>.<span style="color:#a6e22e">Int</span>())
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="嵌套-json-数据获取" class="relative group">嵌套 json 数据获取 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%b5%8c%e5%a5%97-json-%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96" aria-label="锚点">#</a></span></h3><p>上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    &#34;name&#34;: &#34;张三&#34;,
-</span></span><span style="display:flex;"><span>    &#34;age&#34;: 25,
-</span></span><span style="display:flex;"><span>    &#34;hobby&#34;: {
-</span></span><span style="display:flex;"><span>        &#34;h1&#34;: &#34;sing&#34;,
-</span></span><span style="display:flex;"><span>        &#34;h2&#34;: &#34;dance&#34;,
-</span></span><span style="display:flex;"><span>        &#34;h3&#34;: &#34;rap&#34;,
-</span></span><span style="display:flex;"><span>        &#34;h4&#34;: &#34;basketball&#34;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;github.com/tidwall/gjson&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{&#34;name&#34;:&#34;张三&#34;,&#34;age&#34;:25}`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">age</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;age&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Age:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="p">.</span><span class="nf">Int</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="嵌套-json-数据获取" class="relative group">嵌套 json 数据获取 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%b5%8c%e5%a5%97-json-%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96" aria-label="锚点">#</a></span></h3><p>上述提到，原生的处理方式对于多层级的 json 很不友好，然而 gjon 可以直接通过点号分隔路径定位数据，这时候它的优势就逐渐明显，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;name&#34;: &#34;张三&#34;,
+</span></span><span class="line"><span class="cl">    &#34;age&#34;: 25,
+</span></span><span class="line"><span class="cl">    &#34;hobby&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;h1&#34;: &#34;sing&#34;,
+</span></span><span class="line"><span class="cl">        &#34;h2&#34;: &#34;dance&#34;,
+</span></span><span class="line"><span class="cl">        &#34;h3&#34;: &#34;rap&#34;,
+</span></span><span class="line"><span class="cl">        &#34;h4&#34;: &#34;basketball&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></div><p>具体处理逻辑：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/tidwall/gjson&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">jsonStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;name&#34;: &#34;张三&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;age&#34;: 25,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;hobby&#34;: {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">			&#34;h1&#34;: &#34;sing&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;h2&#34;: &#34;dance&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;h3&#34;: &#34;rap&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;h4&#34;: &#34;basketball&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		}`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gjson</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">jsonStr</span>, <span style="color:#e6db74">&#34;name&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ball</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gjson</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">jsonStr</span>, <span style="color:#e6db74">&#34;hobby.h1&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;name:&#34;</span>, <span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">String</span>())
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;ball:&#34;</span>, <span style="color:#a6e22e">ball</span>.<span style="color:#a6e22e">String</span>())
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>相比原生方式，无需复杂结构体定义，操作更简便。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;github.com/tidwall/gjson&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{
+</span></span></span><span class="line"><span class="cl"><span class="s">		&#34;name&#34;: &#34;张三&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">		&#34;age&#34;: 25,
+</span></span></span><span class="line"><span class="cl"><span class="s">		&#34;hobby&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">			&#34;h1&#34;: &#34;sing&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h2&#34;: &#34;dance&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h3&#34;: &#34;rap&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">            &#34;h4&#34;: &#34;basketball&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">		}`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">ball</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.h1&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;name:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ball:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>相比原生方式，无需复杂结构体定义，操作更简便。</p>
 <h3 id="json-数组获取" class="relative group">json 数组获取 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#json-%e6%95%b0%e7%bb%84%e8%8e%b7%e5%8f%96" aria-label="锚点">#</a></span></h3><p>如果在 json 中嵌套了数组，对于这种的处理也比较简单，直接通过数组下标来定位数据即可，如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/tidwall/gjson&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">jsonStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;basketball&#34;]}`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">hobby</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gjson</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">jsonStr</span>, <span style="color:#e6db74">&#34;hobby.3&#34;</span>)
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 输出第4个爱好</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;hobby:&#34;</span>, <span style="color:#a6e22e">hobby</span>.<span style="color:#a6e22e">String</span>())
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>相比于原生方式处理数组，得先解析成切片，操作起来就没这么直接。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s">&#34;github.com/tidwall/gjson&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">jsonStr</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">`{&#34;hobby&#34;: [&#34;sing&#34;,&#34;dance&#34;,&#34;rap&#34;,&#34;basketball&#34;]}`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">hobby</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gjson</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;hobby.3&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 输出第4个爱好</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hobby:&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">hobby</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>相比于原生方式处理数组，得先解析成切片，操作起来就没这么直接。</p>
 <h2 id="gjson-与原生-json-处理方式对比" class="relative group">GJSON 与原生 JSON 处理方式对比 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#gjson-%e4%b8%8e%e5%8e%9f%e7%94%9f-json-%e5%a4%84%e7%90%86%e6%96%b9%e5%bc%8f%e5%af%b9%e6%af%94" aria-label="锚点">#</a></span></h2><ul>
 <li>
 <p>GJSON 语法简单直观，熟悉 json 结构即可快速上手，无需学习结构体定义及标签使用等知识。而原生方式在结构体定义上相对复杂，尤其是处理复杂 json 结构时。</p>
