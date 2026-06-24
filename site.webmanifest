@@ -1,6 +1,6 @@
 {
-  "name": "Congo",
-  "short_name": "Congo",
+  "name": "Vespeng",
+  "short_name": "Vespeng",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#7c3aed",
+  "theme_color": "#3B82F6",
+  "background_color": "#3B82F6",
   "display": "standalone"
 }
